@@ -4,7 +4,8 @@
  */
 
 import React, { Component, type ErrorInfo, type ReactNode } from "react";
-import { MessageCircle, RefreshCw, Home, AlertCircle } from "lucide-react";
+import { RefreshCw, Home, AlertCircle } from "lucide-react";
+import { WhatsAppIcon } from "@/components/icons/WhatsAppIcon";
 import { site } from "@/data/site";
 import { captureException } from "@/lib/sentry";
 import { reportLovableError } from "@/lib/lovable-error-reporting";
@@ -148,7 +149,7 @@ export function DefaultErrorFallback({
             rel="noopener noreferrer"
             className="mt-2 inline-flex items-center gap-2 text-sm font-semibold text-secondary hover:underline"
           >
-            <MessageCircle className="size-4" aria-hidden="true" />
+            <WhatsAppIcon className="size-4" aria-hidden="true" />
             Chat with us on WhatsApp ({site.phoneDisplay})
           </a>
         </div>

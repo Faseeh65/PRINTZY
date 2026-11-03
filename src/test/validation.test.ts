@@ -40,7 +40,7 @@ describe("Form Validation & Data Integrity", () => {
   it("accepts valid quote submissions with minimal required fields", () => {
     const valid = {
       name: "Ahmed Khan",
-      phone: "03399091707",
+      phone: "03219091707",
       product: "custom-corrugated-boxes",
       hp_website: "",
     };
@@ -72,7 +72,7 @@ describe("Form Validation & Data Integrity", () => {
   it("rejects empty name", () => {
     const invalid = {
       name: "   ",
-      phone: "03399091707",
+      phone: "03219091707",
       product: "mailer-boxes",
       hp_website: "",
     };
@@ -101,7 +101,7 @@ describe("Form Validation & Data Integrity", () => {
   it("rejects bot honeypot submissions (hp_website filled)", () => {
     const botSubmission = {
       name: "Spam Bot",
-      phone: "03399091707",
+      phone: "03219091707",
       product: "mailer-boxes",
       hp_website: "https://spam-link.ru",
     };
@@ -116,7 +116,7 @@ describe("Form Validation & Data Integrity", () => {
   it("rejects missing product selection", () => {
     const missingProduct = {
       name: "User Without Product",
-      phone: "03399091707",
+      phone: "03219091707",
       product: "",
       hp_website: "",
     };
@@ -131,7 +131,7 @@ describe("Form Validation & Data Integrity", () => {
   it("rejects excessively long details (>1000 characters)", () => {
     const tooLong = {
       name: "User Long Text",
-      phone: "03399091707",
+      phone: "03219091707",
       product: "mailer-boxes",
       details: "a".repeat(1001),
       hp_website: "",

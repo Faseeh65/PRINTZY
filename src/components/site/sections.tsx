@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Link } from "@tanstack/react-router";
 import {
   Check,
-  MessageCircle,
   Palette,
   Layers,
   Truck,
@@ -37,6 +36,8 @@ import { faqs } from "@/data/faqs";
 import { testimonials } from "@/data/testimonials";
 import { images, gallery, responsiveImageProps } from "@/data/images";
 
+import { WhatsAppIcon } from "@/components/icons/WhatsAppIcon";
+
 function WhatsAppButton({
   variant = "outline" as const,
   label = "Chat on WhatsApp",
@@ -47,7 +48,7 @@ function WhatsAppButton({
   return (
     <Button asChild size="lg" variant={variant}>
       <a href={site.whatsapp} target="_blank" rel="noopener noreferrer">
-        <MessageCircle />
+        <WhatsAppIcon />
         {label}
       </a>
     </Button>
