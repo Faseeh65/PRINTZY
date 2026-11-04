@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { Mail, Phone, Truck, Menu, MessageCircle, Instagram, Facebook } from "lucide-react";
+import { Mail, Phone, Truck, Menu } from "lucide-react";
+import { WhatsAppIcon } from "@/components/icons/WhatsAppIcon";
 import {
   Sheet,
   SheetContent,
@@ -55,7 +56,7 @@ export function Navbar() {
       <div className="container-site flex h-18 items-center justify-between gap-4 py-2">
         <Link to="/" aria-label="Printzy home" className="flex items-center group">
           <img
-            src="/images/logo.jpeg"
+            src="/images/logo-removebg-preview.png"
             alt="Printzy Custom Packaging"
             width={1600}
             height={628}
@@ -118,7 +119,7 @@ export function Navbar() {
                 </Button>
                 <Button asChild size="lg" variant="outline">
                   <a href={site.whatsapp} target="_blank" rel="noopener noreferrer">
-                    <MessageCircle aria-hidden="true" />
+                    <WhatsAppIcon aria-hidden="true" />
                     Chat on WhatsApp
                   </a>
                 </Button>
@@ -139,7 +140,7 @@ export function Footer() {
       <h2 className="sr-only">Footer navigation and company information</h2>
       <div className="container-site grid gap-10 py-16 md:grid-cols-4">
         <div>
-          <div className="inline-block rounded-xl bg-card p-3">
+          <div className="inline-block">
             <img
               src="/images/logo.jpeg"
               alt="Printzy Custom Packaging"
@@ -150,26 +151,7 @@ export function Footer() {
             />
           </div>
           <p className="mt-4 text-sm text-navy-foreground/85">{site.about}</p>
-          <div className="mt-4 flex gap-2">
-            <a
-              href={site.social.instagram}
-              aria-label="Follow Printzy on Instagram"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex size-11 items-center justify-center rounded-lg bg-navy-foreground/10 hover:bg-navy-foreground/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-            >
-              <Instagram className="size-5" aria-hidden="true" />
-            </a>
-            <a
-              href={site.social.facebook}
-              aria-label="Follow Printzy on Facebook"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex size-11 items-center justify-center rounded-lg bg-navy-foreground/10 hover:bg-navy-foreground/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-            >
-              <Facebook className="size-5" aria-hidden="true" />
-            </a>
-          </div>
+
         </div>
         <FooterCol title="Quick links">
           {navLinks.map((l) => (
@@ -238,7 +220,7 @@ export function Footer() {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm"
             >
-              <MessageCircle className="size-4" aria-hidden="true" />
+              <WhatsAppIcon className="size-4" aria-hidden="true" />
               WhatsApp us
             </a>
           </li>
@@ -270,9 +252,9 @@ export function FloatingActions() {
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Chat with Printzy on WhatsApp"
-        className="wa-pulse fixed bottom-24 right-4 z-40 inline-flex size-14 items-center justify-center rounded-full bg-secondary text-secondary-foreground shadow-soft transition-all duration-300 hover:scale-110 hover:-translate-y-1 hover:bg-secondary-hover hover:shadow-lift active:scale-95 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-teal md:bottom-6 md:right-6"
+        className="wa-pulse fixed bottom-24 right-4 z-40 inline-flex size-14 items-center justify-center rounded-full shadow-soft transition-all duration-300 hover:scale-110 hover:-translate-y-1 hover:shadow-lift active:scale-95 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#25D366] md:bottom-6 md:right-6"
       >
-        <MessageCircle className="size-7" aria-hidden="true" />
+        <WhatsAppIcon className="size-14" aria-hidden="true" />
       </a>
       <div className="fixed inset-x-0 bottom-0 z-40 grid grid-cols-2 gap-2 border-t bg-card p-2 md:hidden">
         <Button asChild variant="outline">

@@ -6,12 +6,12 @@ export const site = {
   tagline: "Custom Packaging",
   url: getEnvConfig().siteUrl,
   email: "sales.printzy@gmail.com",
-  phoneDisplay: "0339 9091707",
-  phoneIntl: "+92 339 9091707",
-  phoneHref: "tel:+923399091707",
+  phoneDisplay: "0321 9091707",
+  phoneIntl: "+92 321 9091707",
+  phoneHref: "tel:+923219091707",
   whatsapp:
-    "https://wa.me/923399091707?text=Hello%20Printzy%2C%20I%20would%20like%20a%20quote%20for%20custom%20packaging.",
-  whatsappNumber: "923399091707",
+    "https://wa.me/923219091707?text=Hello%20Printzy%2C%20I%20would%20like%20a%20quote%20for%20custom%20packaging.",
+  whatsappNumber: "923219091707",
   about:
     "Printzy designs and prints custom packaging for brands, food chains and retailers. Premium print, low minimums, delivered nationwide.",
   social: {

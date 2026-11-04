@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Mail, Phone, MessageCircle } from "lucide-react";
+import { Mail, Phone } from "lucide-react";
+import { WhatsAppIcon } from "@/components/icons/WhatsAppIcon";
 import { seo } from "@/lib/seo";
 import { site } from "@/data/site";
 import { Button } from "@/components/ui/button";
@@ -10,7 +11,7 @@ export const Route = createFileRoute("/contact")({
     seo({
       title: "Contact Printzy | WhatsApp, Phone & Email",
       description:
-        "Talk to Printzy about custom packaging. WhatsApp or call 0339 9091707, or email sales.printzy@gmail.com.",
+        "Talk to Printzy about custom packaging. WhatsApp or call 0321 9091707, or email sales.printzy@gmail.com.",
       path: "/contact",
     }),
   component: Contact,
@@ -19,7 +20,7 @@ export const Route = createFileRoute("/contact")({
 function Contact() {
   const items = [
     {
-      icon: MessageCircle,
+      icon: WhatsAppIcon,
       title: "WhatsApp",
       text: "Fastest reply",
       href: site.whatsapp,

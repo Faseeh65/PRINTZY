@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
-import { MessageCircle } from "lucide-react";
+import { WhatsAppIcon } from "@/components/icons/WhatsAppIcon";
 import { z } from "zod";
 import { seo } from "@/lib/seo";
 import { site } from "@/data/site";
@@ -135,7 +135,7 @@ function Quote() {
               </Button>
               <Button asChild>
                 <a href={site.whatsapp} target="_blank" rel="noopener noreferrer">
-                  <MessageCircle />
+                  <WhatsAppIcon />
                   Open WhatsApp
                 </a>
               </Button>
@@ -234,7 +234,7 @@ function Quote() {
             )}
             <TurnstileCaptcha />
             <Button type="submit" size="lg" className="w-full">
-              <MessageCircle />
+              <WhatsAppIcon />
               Send quote request via WhatsApp
             </Button>
             <p className="text-center text-sm">

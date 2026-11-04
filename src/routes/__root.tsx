@@ -14,6 +14,8 @@ import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { initSentry, captureException } from "../lib/sentry";
 import { trackPageView } from "../lib/analytics";
+import { trackGtmPageView } from "../lib/gtm";
+import { getEnvConfig } from "../lib/env";
 import { logger } from "../lib/logger";
 import { site } from "@/data/site";
 import { TopBar, Navbar, Footer, FloatingActions } from "@/components/site/Layout";
@@ -149,12 +151,36 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 });
 
 function RootShell({ children }: { children: ReactNode }) {
+  const env = getEnvConfig();
+  const gtmId = env.gtmId;
+
   return (
     <html lang="en">
       <head>
+        {gtmId && (
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','${gtmId}');`,
+            }}
+          />
+        )}
         <HeadContent />
       </head>
       <body>
+        {gtmId && (
+          <noscript>
+            <iframe
+              src={`https://www.googletagmanager.com/ns.html?id=${gtmId}`}
+              height="0"
+              width="0"
+              style={{ display: "none", visibility: "hidden" }}
+            />
+          </noscript>
+        )}
         {children}
         <Scripts />
       </body>
@@ -173,6 +199,7 @@ function RootComponent() {
   useEffect(() => {
     if (typeof window !== "undefined") {
       trackPageView(window.location.pathname);
+      trackGtmPageView(window.location.pathname);
     }
   }, [router.state.location.pathname]);
 

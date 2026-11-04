@@ -24,6 +24,8 @@ export interface EnvConfig {
   turnstileSiteKey: string;
   /** Whether analytics tracking is active */
   analyticsEnabled: boolean;
+  /** Google Tag Manager container ID (only set in production/staging) */
+  gtmId: string | undefined;
   /** Log level for console/monitoring output */
   logLevel: "debug" | "info" | "warn" | "error";
   /** Whether to show developer diagnostics in fallback error boundaries */
@@ -107,6 +109,20 @@ export function getEnvConfig(): EnvConfig {
       ? rawAnalyticsFlag === "true" || rawAnalyticsFlag === true
       : isProduction || isStaging;
 
+  const DEFAULT_GTM_ID = "GTM-W8JX29CJ";
+  const rawGtmId =
+    typeof import.meta !== "undefined" && import.meta.env?.["VITE_GTM_ID"]
+      ? String(import.meta.env["VITE_GTM_ID"]).trim()
+      : undefined;
+
+  // In development, do not load GTM unless explicitly configured with VITE_GTM_ID
+  // In production/staging, default to DEFAULT_GTM_ID if not overridden
+  const gtmId = isDevelopment
+    ? rawGtmId || undefined
+    : rawGtmId !== undefined && rawGtmId !== ""
+      ? rawGtmId
+      : DEFAULT_GTM_ID;
+
   const logLevel: EnvConfig["logLevel"] = isDevelopment ? "debug" : isStaging ? "info" : "warn";
 
   return {
@@ -119,6 +135,7 @@ export function getEnvConfig(): EnvConfig {
     sentryDsn: sentryDsn || undefined,
     turnstileSiteKey,
     analyticsEnabled,
+    gtmId,
     logLevel,
     enableDevErrorDetails: isDevelopment,
   };
