@@ -230,7 +230,7 @@ export function Footer() {
       </div>
       <div className="border-t border-navy-foreground/15">
         <p className="container-site py-6 text-sm text-navy-foreground/80">
-          © {CURRENT_YEAR} Printzy. All rights reserved.
+          {`© ${CURRENT_YEAR} Printzy. All rights reserved.`}
         </p>
       </div>
     </footer>
