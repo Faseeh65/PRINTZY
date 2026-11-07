@@ -15,7 +15,7 @@ import {
   type RateLimitBinding,
 } from "./lib/rate-limit";
 
-const SECURITY_HEADERS: Record<string, string> = {
+export const SECURITY_HEADERS: Record<string, string> = {
   "X-Frame-Options": "DENY",
   "X-Content-Type-Options": "nosniff",
   "Referrer-Policy": "strict-origin-when-cross-origin",
@@ -26,7 +26,7 @@ const SECURITY_HEADERS: Record<string, string> = {
   "Access-Control-Allow-Origin": site.url,
 };
 
-function addResponseHeaders(response: Response, request: Request): Response {
+export function addResponseHeaders(response: Response, request: Request): Response {
   const headers = new Headers(response.headers);
   for (const [key, value] of Object.entries(SECURITY_HEADERS)) {
     headers.set(key, value);
@@ -34,8 +34,10 @@ function addResponseHeaders(response: Response, request: Request): Response {
 
   const { pathname } = new URL(request.url);
   const contentType = headers.get("content-type") ?? "";
+  const isMutation = !["GET", "HEAD"].includes(request.method);
+  const hasSetCookie = headers.has("set-cookie");
 
-  if (response.status >= 400) {
+  if (response.status >= 400 || isMutation || hasSetCookie) {
     headers.set("Cache-Control", "no-store");
   } else if (contentType.includes("text/html")) {
     headers.set("Cache-Control", "public, max-age=0, s-maxage=60, stale-while-revalidate=300");
@@ -50,7 +52,7 @@ function addResponseHeaders(response: Response, request: Request): Response {
   });
 }
 
-function isHashedAsset(pathname: string): boolean {
+export function isHashedAsset(pathname: string): boolean {
   return /^\/assets\/.+-[A-Za-z0-9_-]{8,}\.(?:js|css|woff2|svg|png|jpe?g|webp)$/i.test(pathname);
 }
 
