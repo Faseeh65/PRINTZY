@@ -21,57 +21,88 @@ export function TurnstileCaptcha({ onVerify, siteKey }: TurnstileCaptchaProps) {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (!containerRef.current) return;
+    const container = containerRef.current;
+    if (!container) return;
 
-    try {
-      const config = getEnvConfig();
-      const activeSiteKey = siteKey || config.turnstileSiteKey;
+    let cancelled = false;
 
-      if (window.turnstile) {
-        window.turnstile.render(containerRef.current, {
-          sitekey: activeSiteKey,
-          callback: (token: string) => {
-            if (onVerify) {
-              try {
-                onVerify(token);
-              } catch (err) {
-                logger.error("[Turnstile] onVerify callback failed", err);
-              }
-            }
-          },
-        });
-        return;
-      }
+    const loadAndRender = () => {
+      if (cancelled || !container) return;
 
-      // Load Turnstile script dynamically if not yet present
-      const existingScript = document.getElementById("turnstile-script");
-      if (!existingScript) {
-        const script = document.createElement("script");
-        script.id = "turnstile-script";
-        script.src = "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit";
-        script.async = true;
-        script.defer = true;
-        document.head.appendChild(script);
+      try {
+        const config = getEnvConfig();
+        const activeSiteKey = siteKey || config.turnstileSiteKey;
 
-        script.onload = () => {
-          if (window.turnstile && containerRef.current) {
-            window.turnstile.render(containerRef.current, {
-              sitekey: activeSiteKey,
-              callback: (token: string) => {
-                if (onVerify) {
-                  try {
-                    onVerify(token);
-                  } catch (err) {
-                    logger.error("[Turnstile] onVerify callback failed", err);
-                  }
+        if (window.turnstile) {
+          window.turnstile.render(container, {
+            sitekey: activeSiteKey,
+            callback: (token: string) => {
+              if (onVerify) {
+                try {
+                  onVerify(token);
+                } catch (err) {
+                  logger.error("[Turnstile] onVerify callback failed", err);
                 }
-              },
-            });
-          }
-        };
+              }
+            },
+          });
+          return;
+        }
+
+        // Load Turnstile script dynamically if not yet present
+        const existingScript = document.getElementById("turnstile-script");
+        if (!existingScript) {
+          const script = document.createElement("script");
+          script.id = "turnstile-script";
+          script.src = "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit";
+          script.async = true;
+          script.defer = true;
+          document.head.appendChild(script);
+
+          script.onload = () => {
+            if (cancelled) return;
+            if (window.turnstile && container) {
+              window.turnstile.render(container, {
+                sitekey: activeSiteKey,
+                callback: (token: string) => {
+                  if (onVerify) {
+                    try {
+                      onVerify(token);
+                    } catch (err) {
+                      logger.error("[Turnstile] onVerify callback failed", err);
+                    }
+                  }
+                },
+              });
+            }
+          };
+        }
+      } catch (err) {
+        logger.warn("[Turnstile] Failed to initialize Turnstile widget", err);
       }
-    } catch (err) {
-      logger.warn("[Turnstile] Failed to initialize Turnstile widget", err);
+    };
+
+    // Defer loading Turnstile script until the captcha container is near viewport
+    if (typeof IntersectionObserver !== "undefined") {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          if (entries[0]?.isIntersecting) {
+            loadAndRender();
+            observer.disconnect();
+          }
+        },
+        { rootMargin: "200px" },
+      );
+      observer.observe(container);
+      return () => {
+        cancelled = true;
+        observer.disconnect();
+      };
+    } else {
+      loadAndRender();
+      return () => {
+        cancelled = true;
+      };
     }
   }, [onVerify, siteKey]);
 
