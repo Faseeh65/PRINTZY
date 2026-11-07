@@ -155,7 +155,7 @@ function RootShell({ children }: { children: ReactNode }) {
   const gtmId = env.gtmId;
 
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         {gtmId && (
           <script
@@ -170,7 +170,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         )}
         <HeadContent />
       </head>
-      <body>
+      <body suppressHydrationWarning>
         {gtmId && (
           <noscript
             dangerouslySetInnerHTML={{
