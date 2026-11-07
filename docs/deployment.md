@@ -47,25 +47,46 @@ for production builds. The Worker permanently redirects the legacy `printzy.pk` 
 [`public/robots.txt`](../public/robots.txt) whenever public routes change; keep
 administrative and private paths disallowed in robots.
 
-## Supabase connection pooling
+## Neon Postgres connection pooling and Cloudflare secrets
 
-The repository has a Supabase schema migration but currently does not connect to
-Postgres at runtime. Do not add a database driver or connection string to the
-browser. When server-side database access is introduced, set a secret such as
-`DATABASE_URL` in the deployment platform (not a `VITE_*` variable) to the
-project's Supavisor **transaction-mode** connection string. Supabase usually
-shows this in **Connect → Connection string → Transaction pooler**; it uses port
-`6543` and a project-qualified username. Keep `sslmode=require` and URL-encode
-special characters in the password.
+Printzy uses **Neon Lakebase Postgres** via `@neondatabase/serverless` for server-side persistence of quote requests.
 
-Transaction mode is suited to short-lived/serverless requests because the pooler
-multiplexes many client connections over fewer Postgres connections. Avoid
-session-scoped features and prepared statements unless the chosen driver and
-pooler settings explicitly support them. Use Supavisor session mode (typically
-port `5432`) only for workloads that need a persistent session; use the direct
-database connection for migrations/admin tooling where appropriate, not for
-every edge request. Copy the exact host, region, username, and database name from
-the Supabase dashboard rather than assuming a pooler hostname.
+### 1. Variables and Secrets Classification
+
+- **Public Build-Time Variables (`VITE_*`)**:
+  These are inlined into client JavaScript bundles at compile time. Never put database credentials or API secrets here!
+  - `VITE_SITE_URL`: `https://printzy.site`
+  - `VITE_APP_ENV`: `production` (or `staging`)
+  - `VITE_TURNSTILE_SITE_KEY`: Public Turnstile sitekey
+  - `VITE_ANALYTICS_ENABLED`: `true`
+  - `VITE_GTM_ID`: `GTM-W8JX29CJ`
+
+- **Runtime Worker Secrets (Server-Only)**:
+  These are read exclusively on the server at runtime and are never sent to the browser:
+  - `DATABASE_URL_POOLED`: Neon pooled connection string (prioritized by server)
+  - `DATABASE_URL`: Neon direct connection string (optional fallback)
+  - `TURNSTILE_SECRET_KEY`: Cloudflare Turnstile secret key for server-side verification
+
+### 2. How to Add Worker Secrets
+
+1. **Via Cloudflare Dashboard**:
+   Navigate to **Workers & Pages → printzy → Settings → Variables and Secrets → Add Secret**:
+   - Add `DATABASE_URL_POOLED` with your pooled connection string (`...-pooler...neondb?sslmode=require`).
+   - Add `TURNSTILE_SECRET_KEY` with your Turnstile secret key.
+
+2. **Via Wrangler CLI**:
+   ```sh
+   npx wrangler secret put DATABASE_URL_POOLED
+   npx wrangler secret put TURNSTILE_SECRET_KEY
+   ```
+
+### 3. Credential Rotation Procedure
+
+1. In the Neon Console, navigate to **Project Settings → Roles & Databases**, and create a new role or reset the password for an auxiliary role.
+2. Update the secret in Cloudflare via `npx wrangler secret put DATABASE_URL_POOLED` (or the Cloudflare Dashboard).
+3. Cloudflare Workers will automatically distribute the new secret to new worker instances with zero downtime.
+4. Verify by submitting a test quote request on `https://printzy.site/quote`.
+5. Once verified, revoke the old password or delete the deprecated role in the Neon Console.
 
 ## Optional VPS or Docker path
 

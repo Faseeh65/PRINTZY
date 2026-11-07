@@ -29,7 +29,7 @@ The application runs full SSR (Server-Side Rendering) powered by TanStack Start,
 ### A. Build-Time Variables (Set in Cloudflare Build / CI)
 These variables are prefixed with `VITE_` and are inlined into the client bundle at compile time:
 * `VITE_APP_ENV`: `production` (or `staging`)
-* `VITE_SITE_URL`: `https://printzy.pk`
+* `VITE_SITE_URL`: `https://printzy.site`
 * `VITE_TURNSTILE_SITE_KEY`: Cloudflare Turnstile Site Key (public)
 * `VITE_ANALYTICS_ENABLED`: `true`
 * `VITE_GTM_ID`: `GTM-W8JX29CJ`
