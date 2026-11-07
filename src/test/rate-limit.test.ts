@@ -3,14 +3,14 @@ import { checkRateLimit, getClientIp } from "@/lib/rate-limit";
 
 describe("Rate Limiting Module", () => {
   it("extracts client IP from Cloudflare header", () => {
-    const req = new Request("https://printzy.pk", {
+    const req = new Request("https://printzy.site", {
       headers: { "cf-connecting-ip": "203.0.113.195" },
     });
     expect(getClientIp(req)).toBe("203.0.113.195");
   });
 
   it("handles an empty forwarded-for header without throwing", () => {
-    const req = new Request("https://printzy.pk", {
+    const req = new Request("https://printzy.site", {
       headers: { "x-forwarded-for": "" },
     });
     expect(getClientIp(req)).toBe("127.0.0.1");

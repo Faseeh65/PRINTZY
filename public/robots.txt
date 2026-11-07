@@ -5,4 +5,4 @@ Disallow: /private
 Disallow: /api/private
 Disallow: /healthz
 
-Sitemap: https://printzy.pk/sitemap.xml
+Sitemap: https://printzy.site/sitemap.xml

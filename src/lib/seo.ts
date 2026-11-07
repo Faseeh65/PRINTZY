@@ -81,28 +81,39 @@ export function seo({
 }
 
 const canonicalDomainAliases = new Set([
-  "printzy.pk",
-  "www.printzy.pk",
   "printzy.site",
   "www.printzy.site",
+  "printzy.pk",
+  "www.printzy.pk",
 ]);
 
 export function getCanonicalRedirectUrl(request: Request): string | undefined {
   const requestUrl = new URL(request.url);
   const canonicalUrl = new URL(site.url);
-  const isKnownDomain =
-    requestUrl.hostname === canonicalUrl.hostname ||
-    canonicalDomainAliases.has(requestUrl.hostname);
 
+  const hostname = requestUrl.hostname.toLowerCase();
+
+  // Never redirect local development, test runners, or preview hosts (*.workers.dev, *.pages.dev, etc.)
   if (
-    !isKnownDomain ||
-    requestUrl.hostname === "localhost" ||
-    requestUrl.hostname === "127.0.0.1"
+    hostname === "localhost" ||
+    hostname === "127.0.0.1" ||
+    hostname.endsWith(".workers.dev") ||
+    hostname.endsWith(".pages.dev") ||
+    hostname.endsWith(".netlify.app") ||
+    hostname.includes("preview")
   ) {
     return undefined;
   }
 
-  if (requestUrl.hostname === canonicalUrl.hostname && requestUrl.protocol === "https:") {
+  const isKnownDomain =
+    hostname === canonicalUrl.hostname ||
+    canonicalDomainAliases.has(hostname);
+
+  if (!isKnownDomain) {
+    return undefined;
+  }
+
+  if (hostname === canonicalUrl.hostname && requestUrl.protocol === "https:") {
     return undefined;
   }
 

@@ -23,6 +23,7 @@ const SECURITY_HEADERS: Record<string, string> = {
   "Strict-Transport-Security": "max-age=31536000; includeSubDomains",
   "Content-Security-Policy":
     "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; script-src 'self' 'unsafe-inline' https://challenges.cloudflare.com https://www.googletagmanager.com; frame-src 'self' https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https: blob:; connect-src 'self' https://challenges.cloudflare.com https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://*.sentry.io https://*.ingest.sentry.io https://wa.me;",
+  "Access-Control-Allow-Origin": site.url,
 };
 
 function addResponseHeaders(response: Response, request: Request): Response {
@@ -131,7 +132,7 @@ export default {
       if (canonicalRedirectUrl) {
         return addResponseHeaders(
           new Response(null, {
-            status: 308,
+            status: 301,
             headers: {
               Location: canonicalRedirectUrl,
               "Cache-Control": "public, max-age=86400",
