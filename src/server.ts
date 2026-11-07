@@ -132,7 +132,7 @@ export default {
       if (canonicalRedirectUrl) {
         return addResponseHeaders(
           new Response(null, {
-            status: 308,
+            status: 301,
             headers: {
               Location: canonicalRedirectUrl,
               "Cache-Control": "public, max-age=86400",
