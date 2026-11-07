@@ -19,14 +19,13 @@ declare global {
 
 export function TurnstileCaptcha({ onVerify, siteKey }: TurnstileCaptchaProps) {
   const containerRef = useRef<HTMLDivElement>(null);
+  const config = getEnvConfig();
+  const activeSiteKey = (siteKey || config.turnstileSiteKey || "").trim();
 
   useEffect(() => {
-    if (!containerRef.current) return;
+    if (!activeSiteKey || !containerRef.current) return;
 
     try {
-      const config = getEnvConfig();
-      const activeSiteKey = siteKey || config.turnstileSiteKey;
-
       if (window.turnstile) {
         window.turnstile.render(containerRef.current, {
           sitekey: activeSiteKey,
@@ -73,7 +72,18 @@ export function TurnstileCaptcha({ onVerify, siteKey }: TurnstileCaptchaProps) {
     } catch (err) {
       logger.warn("[Turnstile] Failed to initialize Turnstile widget", err);
     }
-  }, [onVerify, siteKey]);
+  }, [onVerify, activeSiteKey]);
+
+  if (!activeSiteKey) {
+    return (
+      <div
+        role="alert"
+        className="my-3 rounded-md border border-destructive/20 bg-destructive/10 p-3 text-center text-sm font-medium text-destructive"
+      >
+        Security verification is currently unavailable. Submissions are temporarily disabled.
+      </div>
+    );
+  }
 
   return (
     <div className="my-3 flex justify-center">

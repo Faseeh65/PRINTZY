@@ -9,6 +9,9 @@ import { visualizer } from "rollup-plugin-visualizer";
 import type { PluginOption } from "vite";
 
 export default defineConfig({
+  nitro: {
+    preset: "cloudflare-module",
+  },
   plugins:
     process.env["npm_lifecycle_event"] === "analyze"
       ? [

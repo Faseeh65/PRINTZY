@@ -28,4 +28,3 @@ export function trackGtmPageView(url: string, title?: string): void {
     page_title: title || (typeof document !== "undefined" ? document.title : ""),
   });
 }
-

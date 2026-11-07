@@ -1,13 +1,8 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "printzy",
-  "main": ".output/server/index.mjs",
   "compatibility_date": "2026-10-10",
   "compatibility_flags": ["nodejs_compat"],
-  "assets": {
-    "directory": ".output/public",
-    "binding": "ASSETS",
-  },
   "placement": {
     "mode": "smart",
   },

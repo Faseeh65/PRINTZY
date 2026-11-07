@@ -99,7 +99,9 @@ export function getEnvConfig(): EnvConfig {
   const turnstileSiteKey =
     typeof import.meta !== "undefined" && import.meta.env?.["VITE_TURNSTILE_SITE_KEY"]
       ? String(import.meta.env["VITE_TURNSTILE_SITE_KEY"]).trim()
-      : TURNSTILE_DEMO_KEY;
+      : import.meta.env?.DEV
+        ? TURNSTILE_DEMO_KEY
+        : "";
 
   const rawAnalyticsFlag =
     typeof import.meta !== "undefined" ? import.meta.env?.["VITE_ANALYTICS_ENABLED"] : undefined;
