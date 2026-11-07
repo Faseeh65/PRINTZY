@@ -132,7 +132,9 @@ export function Navbar() {
   );
 }
 
-const CURRENT_YEAR = new Date().getFullYear();
+// Deterministic copyright year to prevent SSR/client hydration mismatch
+// (Cloudflare Worker SSR system clock can evaluate to 1970 at module load time)
+const CURRENT_YEAR = 2026;
 
 export function Footer() {
   return (
