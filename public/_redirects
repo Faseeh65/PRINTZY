@@ -1,2 +1,1 @@
-# Redirects file
-# Single-page fallback (/* /index.html 200) removed for SSR architecture
+/* /index.html 200
