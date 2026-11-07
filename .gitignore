@@ -39,3 +39,8 @@ dist-ssr
 /blob-report/
 .neon
 package-lock.json
+
+# Agent & project-local config (not for repo)
+.agents/
+common-rules.md
+skills-lock.json
