@@ -145,8 +145,10 @@ export default {
       const healthResponse = handleHealthCheck(request);
       if (healthResponse) return addResponseHeaders(healthResponse, request);
 
-      // Determine rate limit category (sensitive for quote/form POSTs or quote path)
-      const isSensitive = url.pathname.startsWith("/quote") && request.method !== "GET";
+      // Determine rate limit category (sensitive for quote/form POSTs or quote server functions)
+      const isSensitive =
+        request.method !== "GET" &&
+        (url.pathname.startsWith("/quote") || url.pathname.startsWith("/_serverFn/"));
       const category = isSensitive ? "sensitive" : "general";
       const config = RATE_LIMIT_CONFIGS[category];
       const binding =
