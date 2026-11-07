@@ -1,17 +1,12 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, lazy, Suspense } from "react";
 import { Link } from "@tanstack/react-router";
 import { Mail, Phone, Truck, Menu } from "lucide-react";
 import { WhatsAppIcon } from "@/components/icons/WhatsAppIcon";
-import {
-  Sheet,
-  SheetContent,
-  SheetTitle,
-  SheetDescription,
-  SheetTrigger,
-} from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import { site, navLinks } from "@/data/site";
 import { products } from "@/data/products";
+
+const MobileNav = lazy(() => import("./MobileNav"));
 
 export function TopBar() {
   return (
@@ -85,47 +80,20 @@ export function Navbar() {
               Get a Free Quote
             </Link>
           </Button>
-          <Sheet open={open} onOpenChange={setOpen}>
-            <SheetTrigger asChild>
-              <Button
-                variant="ghost"
-                size="icon"
-                className="lg:hidden"
-                aria-label="Open navigation menu"
-              >
-                <Menu aria-hidden="true" />
-              </Button>
-            </SheetTrigger>
-            <SheetContent side="right" className="flex w-80 flex-col bg-card">
-              <SheetTitle className="font-display text-foreground">Menu</SheetTitle>
-              <SheetDescription className="sr-only">Site navigation menu links</SheetDescription>
-              <nav aria-label="Mobile navigation" className="mt-4 flex flex-col">
-                {navLinks.map((l) => (
-                  <Link
-                    key={l.to}
-                    to={l.to}
-                    onClick={() => setOpen(false)}
-                    className="flex min-h-12 items-center border-b font-display font-medium text-foreground hover:text-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-                  >
-                    {l.label}
-                  </Link>
-                ))}
-              </nav>
-              <div className="mt-auto flex flex-col gap-3 pb-4">
-                <Button asChild size="lg">
-                  <Link to="/quote" search={{ product: undefined }} onClick={() => setOpen(false)}>
-                    Get a Free Quote
-                  </Link>
-                </Button>
-                <Button asChild size="lg" variant="outline">
-                  <a href={site.whatsapp} target="_blank" rel="noopener noreferrer">
-                    <WhatsAppIcon aria-hidden="true" />
-                    Chat on WhatsApp
-                  </a>
-                </Button>
-              </div>
-            </SheetContent>
-          </Sheet>
+          <Button
+            variant="ghost"
+            size="icon"
+            className="lg:hidden"
+            aria-label="Open navigation menu"
+            onClick={() => setOpen(true)}
+          >
+            <Menu aria-hidden="true" />
+          </Button>
+          {open && (
+            <Suspense fallback={null}>
+              <MobileNav open={open} onOpenChange={setOpen} navLinks={navLinks} />
+            </Suspense>
+          )}
         </div>
       </div>
     </header>
