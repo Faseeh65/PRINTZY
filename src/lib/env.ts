@@ -32,8 +32,8 @@ export interface EnvConfig {
   enableDevErrorDetails: boolean;
 }
 
-const DEFAULT_PRODUCTION_URL = "https://printzy.pk";
-const DEFAULT_STAGING_URL = "https://staging.printzy.pk";
+const DEFAULT_PRODUCTION_URL = "https://printzy.site";
+const DEFAULT_STAGING_URL = "https://staging.printzy.site";
 const DEFAULT_DEVELOPMENT_URL = "http://localhost:3000";
 
 // Cloudflare Turnstile demo sitekey (always passes) used for dev & test
