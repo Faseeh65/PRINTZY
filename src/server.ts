@@ -19,10 +19,10 @@ const SECURITY_HEADERS: Record<string, string> = {
   "X-Frame-Options": "DENY",
   "X-Content-Type-Options": "nosniff",
   "Referrer-Policy": "strict-origin-when-cross-origin",
-  "Permissions-Policy": "camera=(), microphone=(), geolocation=()",
+  "Permissions-Policy": "camera=(), microphone=(), geolocation=(), payment=()",
   "Strict-Transport-Security": "max-age=31536000; includeSubDomains",
   "Content-Security-Policy":
-    "default-src 'self'; script-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https:; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://wa.me https://www.googletagmanager.com https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com;",
+    "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; script-src 'self' 'unsafe-inline' https://challenges.cloudflare.com https://www.googletagmanager.com; frame-src 'self' https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https: blob:; connect-src 'self' https://challenges.cloudflare.com https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://*.sentry.io https://*.ingest.sentry.io https://wa.me;",
   "Access-Control-Allow-Origin": site.url,
 };
 
@@ -145,8 +145,10 @@ export default {
       const healthResponse = handleHealthCheck(request);
       if (healthResponse) return addResponseHeaders(healthResponse, request);
 
-      // Determine rate limit category (sensitive for quote/form POSTs or quote path)
-      const isSensitive = url.pathname.startsWith("/quote") && request.method !== "GET";
+      // Determine rate limit category (sensitive for quote/form POSTs or quote server functions)
+      const isSensitive =
+        request.method !== "GET" &&
+        (url.pathname.startsWith("/quote") || url.pathname.startsWith("/_serverFn/"));
       const category = isSensitive ? "sensitive" : "general";
       const config = RATE_LIMIT_CONFIGS[category];
       const binding =

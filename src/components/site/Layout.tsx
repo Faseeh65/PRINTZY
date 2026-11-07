@@ -151,7 +151,6 @@ export function Footer() {
             />
           </div>
           <p className="mt-4 text-sm text-navy-foreground/85">{site.about}</p>
-
         </div>
         <FooterCol title="Quick links">
           {navLinks.map((l) => (

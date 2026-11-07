@@ -11,8 +11,25 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { PageHero } from "@/components/site/sections";
 import { TurnstileCaptcha } from "@/components/site/TurnstileCaptcha";
-import { safeAsync } from "@/lib/api-client";
 import { trackQuoteSubmitted } from "@/lib/analytics";
+import { getEnvConfig } from "@/lib/env";
+import { createServerFn } from "@tanstack/react-start";
+import { createQuoteRequest, type CreateQuoteInput } from "@/lib/db";
+
+export const submitQuoteServerFn = createServerFn({ method: "POST" })
+  .validator((data: CreateQuoteInput) => data)
+  .handler(async ({ data }) => {
+    let clientIp: string | undefined;
+    try {
+      const { getRequestHeader } = await import("@tanstack/react-start/server");
+      clientIp =
+        getRequestHeader("cf-connecting-ip") ||
+        getRequestHeader("x-forwarded-for")?.split(",")[0]?.trim();
+    } catch {
+      // Outside active HTTP request context
+    }
+    return await createQuoteRequest(data, clientIp);
+  });
 
 export const Route = createFileRoute("/quote")({
   validateSearch: (s: Record<string, unknown>) => ({
@@ -45,13 +62,12 @@ const quoteSchema = z.object({
     .trim()
     .min(7, "Please enter a valid phone number.")
     .max(30, "Phone number must be under 30 characters.")
-    .regex(/^[\d\s()+-]{7,30}$/, "Please enter a valid phone format."),
+    .regex(/^[0-9 +()-]{7,30}$/, "Please enter a valid phone format."),
   quantity: z
     .string()
     .trim()
-    .max(20, "Quantity must be under 20 characters.")
-    .optional()
-    .default(""),
+    .min(1, "Please enter a quantity.")
+    .max(20, "Quantity must be under 20 characters."),
   product: z.string().trim().min(1, "Please select a product."),
   details: z
     .string()
@@ -67,9 +83,26 @@ function Quote() {
   const [error, setError] = useState("");
   const [submitted, setSubmitted] = useState(false);
 
+  const [turnstileToken, setTurnstileToken] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const isCaptchaConfigured = Boolean(getEnvConfig().turnstileSiteKey?.trim());
+
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const form = e.currentTarget;
+
+    if (!isCaptchaConfigured) {
+      setError(
+        "Security verification is currently unavailable. Submissions are temporarily disabled.",
+      );
+      return;
+    }
+
+    if (!turnstileToken) {
+      setError("Please complete the security verification (CAPTCHA).");
+      return;
+    }
 
     const f = new FormData(form);
     const parseResult = quoteSchema.safeParse({
@@ -90,7 +123,37 @@ function Quote() {
     }
 
     const data = parseResult.data;
+    const parsedQty = Number.parseInt(data.quantity, 10);
+    if (Number.isNaN(parsedQty) || parsedQty <= 0) {
+      setError("Please enter a valid numeric quantity.");
+      return;
+    }
+
+    setIsSubmitting(true);
     setError("");
+
+    try {
+      await submitQuoteServerFn({
+        data: {
+          customer_name: data.name,
+          business_name: data.business || null,
+          phone: data.phone,
+          email: null,
+          product_id: data.product,
+          quantity: parsedQty,
+          details: data.details || null,
+          turnstileToken,
+        },
+      });
+    } catch (err: unknown) {
+      setIsSubmitting(false);
+      const errMsg =
+        err instanceof Error ? err.message : "Failed to submit quote request. Please try again.";
+      setError(errMsg);
+      return;
+    }
+
+    setIsSubmitting(false);
     setSubmitted(true);
     trackQuoteSubmitted({ product: data.product, quantity: data.quantity });
 
@@ -192,12 +255,13 @@ function Quote() {
                 />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="quantity">Quantity</Label>
+                <Label htmlFor="quantity">Quantity *</Label>
                 <Input
                   id="quantity"
                   name="quantity"
                   inputMode="numeric"
                   placeholder="e.g. 1000"
+                  required
                   maxLength={20}
                   className={field}
                 />
@@ -232,10 +296,15 @@ function Quote() {
                 {error}
               </p>
             )}
-            <TurnstileCaptcha />
-            <Button type="submit" size="lg" className="w-full">
+            <TurnstileCaptcha onVerify={setTurnstileToken} />
+            <Button
+              type="submit"
+              size="lg"
+              className="w-full"
+              disabled={isSubmitting || !isCaptchaConfigured}
+            >
               <WhatsAppIcon />
-              Send quote request via WhatsApp
+              {isSubmitting ? "Submitting..." : "Send quote request via WhatsApp"}
             </Button>
             <p className="text-center text-sm">
               Prefer email? Write to{" "}
