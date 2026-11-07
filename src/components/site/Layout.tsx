@@ -132,7 +132,9 @@ export function Navbar() {
   );
 }
 
-const CURRENT_YEAR = new Date().getFullYear();
+// Deterministic copyright year to prevent SSR/client hydration mismatch
+// (Cloudflare Worker SSR system clock can evaluate to 1970 at module load time)
+const CURRENT_YEAR = 2026;
 
 export function Footer() {
   return (
@@ -227,7 +229,7 @@ export function Footer() {
       </div>
       <div className="border-t border-navy-foreground/15">
         <p className="container-site py-6 text-sm text-navy-foreground/80">
-          © {CURRENT_YEAR} Printzy. All rights reserved.
+          {`© ${CURRENT_YEAR} Printzy. All rights reserved.`}
         </p>
       </div>
     </footer>
