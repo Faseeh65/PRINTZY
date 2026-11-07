@@ -3,17 +3,23 @@
  * Configures environment tags, sensitive data scrubbing, and safe fallback if unconfigured.
  */
 
-import * as Sentry from "@sentry/react";
 import { getEnvConfig } from "./env";
 import { sanitize, redactSensitiveString } from "./logger";
 
+type SentryModule = typeof import("@sentry/react");
+let sentryInstance: SentryModule | null = null;
 let isSentryInitialized = false;
 
 /**
  * Initializes Sentry if a valid DSN is provided in the current environment.
  */
-export function initSentry(): void {
+export async function initSentry(): Promise<void> {
   if (isSentryInitialized) return;
+
+  // On the server/Worker, never load client React Sentry
+  if (import.meta.env.SSR || typeof window === "undefined") {
+    return;
+  }
 
   const config = getEnvConfig();
 
@@ -23,6 +29,9 @@ export function initSentry(): void {
   }
 
   try {
+    const Sentry = await import("@sentry/react");
+    sentryInstance = Sentry;
+
     Sentry.init({
       dsn: config.sentryDsn,
       environment: config.environment,
@@ -68,7 +77,7 @@ export function initSentry(): void {
           event.extra = sanitize(event.extra) as Record<string, unknown>;
         }
         if (event.contexts) {
-          event.contexts = sanitize(event.contexts) as Record<string, Sentry.Context>;
+          event.contexts = sanitize(event.contexts) as Record<string, any>;
         }
 
         return event;
@@ -85,16 +94,16 @@ export function initSentry(): void {
  * Safely captures an exception to Sentry (and logs it in dev).
  */
 export function captureException(error: unknown, context?: Record<string, unknown>): void {
-  if (!isSentryInitialized) return;
+  if (!isSentryInitialized || !sentryInstance) return;
 
   const sanitizedContext = context ? (sanitize(context) as Record<string, unknown>) : undefined;
 
   if (sanitizedContext) {
-    Sentry.captureException(error, {
+    sentryInstance.captureException(error, {
       extra: sanitizedContext,
     });
   } else {
-    Sentry.captureException(error);
+    sentryInstance.captureException(error);
   }
 }
 
@@ -106,18 +115,18 @@ export function captureMessage(
   level: "info" | "warning" | "error" = "info",
   context?: Record<string, unknown>,
 ): void {
-  if (!isSentryInitialized) return;
+  if (!isSentryInitialized || !sentryInstance) return;
 
   const cleanMessage = redactSensitiveString(message);
   const sanitizedContext = context ? (sanitize(context) as Record<string, unknown>) : undefined;
 
   if (sanitizedContext) {
-    Sentry.captureMessage(cleanMessage, {
+    sentryInstance.captureMessage(cleanMessage, {
       level,
       extra: sanitizedContext,
     });
   } else {
-    Sentry.captureMessage(cleanMessage, level);
+    sentryInstance.captureMessage(cleanMessage, level);
   }
 }
 
@@ -125,19 +134,19 @@ export function captureMessage(
  * Sets user context in Sentry without leaking raw passwords or sensitive credentials.
  */
 export function setSentryUser(user: { id?: string; email?: string } | null): void {
-  if (!isSentryInitialized) return;
+  if (!isSentryInitialized || !sentryInstance) return;
   if (!user) {
-    Sentry.setUser(null);
+    sentryInstance.setUser(null);
     return;
   }
 
-  const userPayload: Sentry.User = {};
-  if (user.id !== undefined) {
-    userPayload.id = user.id;
+  const userPayload: Record<string, unknown> = {};
+  if (user["id"] !== undefined) {
+    userPayload["id"] = user["id"];
   }
-  if (user.email !== undefined) {
-    userPayload.email = redactSensitiveString(user.email);
+  if (user["email"] !== undefined) {
+    userPayload["email"] = redactSensitiveString(user["email"]);
   }
 
-  Sentry.setUser(userPayload);
+  sentryInstance.setUser(userPayload);
 }
