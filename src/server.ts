@@ -22,7 +22,7 @@ const SECURITY_HEADERS: Record<string, string> = {
   "Permissions-Policy": "camera=(), microphone=(), geolocation=()",
   "Strict-Transport-Security": "max-age=31536000; includeSubDomains",
   "Content-Security-Policy":
-    "default-src 'self'; script-src 'self' 'unsafe-inline' https://fonts.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https:; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://wa.me;",
+    "default-src 'self'; script-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https:; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://wa.me https://www.googletagmanager.com https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com;",
   "Access-Control-Allow-Origin": site.url,
 };
 
