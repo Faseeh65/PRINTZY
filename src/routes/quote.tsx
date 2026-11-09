@@ -182,8 +182,8 @@ function Quote() {
       />
       <section className="section-pad">
         {submitted ? (
-          <div className="container-site max-w-2xl text-center space-y-4 rounded-2xl bg-card p-8 shadow-soft md:p-12">
-            <div className="inline-flex size-16 items-center justify-center rounded-full bg-peach text-navy font-bold text-2xl">
+          <div className="container-site max-w-2xl text-center space-y-4 rounded-2xl bg-card p-8 shadow-soft md:p-12 animate-fade-in">
+            <div className="inline-flex size-16 items-center justify-center rounded-full bg-peach text-navy font-bold text-2xl transition-transform hover:scale-105">
               ✓
             </div>
             <h2 className="text-2xl font-bold text-foreground">
@@ -275,7 +275,7 @@ function Quote() {
                 name="product"
                 defaultValue={product ?? ""}
                 required
-                className="flex min-h-11 w-full rounded-md border border-input bg-card px-3 text-base text-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+                className="flex min-h-11 w-full rounded-md border border-input bg-card px-3 text-base text-foreground transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary/40 focus-visible:border-secondary"
               >
                 <option value="" disabled>
                   Select a product
@@ -301,6 +301,7 @@ function Quote() {
               type="submit"
               size="lg"
               className="w-full"
+              shimmer={!isSubmitting && isCaptchaConfigured}
               disabled={isSubmitting || !isCaptchaConfigured}
             >
               <WhatsAppIcon />

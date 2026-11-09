@@ -55,17 +55,17 @@ function Contact() {
               key={i.title}
               href={i.href}
               {...(i.ext ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-              className="rounded-2xl bg-card p-8 card-lift"
+              className="group rounded-2xl bg-card p-8 border border-border/40 hover:border-secondary/30 card-lift"
             >
-              <i.icon aria-hidden className="mb-4 size-8 text-secondary" />
-              <h2 className="text-xl">{i.title}</h2>
-              <p className="text-sm">{i.text}</p>
+              <i.icon aria-hidden className="mb-4 size-8 text-secondary transition-transform duration-300 group-hover:scale-110" />
+              <h2 className="text-xl font-semibold text-foreground transition-colors duration-200 group-hover:text-secondary">{i.title}</h2>
+              <p className="text-sm text-muted-foreground">{i.text}</p>
               <p className="mt-3 break-all font-display font-semibold text-foreground">{i.label}</p>
             </a>
           ))}
         </div>
         <div className="mt-10 text-center">
-          <Button asChild size="lg">
+          <Button asChild size="lg" shimmer>
             <Link to="/quote" search={{ product: undefined }}>
               Get a Free Quote
             </Link>
