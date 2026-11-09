@@ -140,13 +140,58 @@
 @utility card-lift {
   box-shadow: var(--shadow-soft);
   transition:
-    transform 300ms cubic-bezier(0.16, 1, 0.3, 1),
-    box-shadow 300ms cubic-bezier(0.16, 1, 0.3, 1),
-    border-color 300ms ease;
+    transform 350ms cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 350ms cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 250ms ease;
+  will-change: transform, box-shadow;
   &:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-lift);
+    transform: translateY(-6px);
+    box-shadow: 0 20px 35px -12px color-mix(in oklab, var(--teal) 22%, transparent);
   }
+}
+
+/* UI/UX Pro Max: Premium CTA Shimmer & Micro-Interactions */
+.cta-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+.cta-shimmer::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.28) 50%,
+    transparent 100%
+  );
+  transform: skewX(-20deg);
+  animation: cta-gleam 4.5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes cta-gleam {
+  0%,
+  75% {
+    left: -100%;
+  }
+  85%,
+  100% {
+    left: 180%;
+  }
+}
+
+.hero-image-float {
+  transition:
+    transform 600ms cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 600ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+.hero-image-float:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: var(--shadow-lift);
 }
 
 .reveal {
@@ -294,7 +339,11 @@
   .animate-fade-in {
     animation: none !important;
   }
-  .card-lift:hover {
+  .cta-shimmer::after {
+    display: none !important;
+  }
+  .card-lift:hover,
+  .hero-image-float:hover {
     transform: none !important;
   }
 }

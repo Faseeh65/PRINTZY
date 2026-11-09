@@ -86,7 +86,7 @@ export function Hero() {
           </Reveal>
           <Reveal delay={250}>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <Button asChild size="lg">
+              <Button asChild size="lg" shimmer>
                 <Link to="/quote" search={{ product: undefined }}>
                   Get a Free Quote
                 </Link>
@@ -473,7 +473,7 @@ export function QuoteCTA() {
           Send us your requirement today. You will have a design and a price within 24 hours.
         </p>
         <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
-          <Button asChild size="lg">
+          <Button asChild size="lg" shimmer>
             <Link to="/quote" search={{ product: undefined }}>
               Get a Free Quote
             </Link>
