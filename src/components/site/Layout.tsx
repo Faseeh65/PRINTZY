@@ -80,7 +80,7 @@ export function Navbar() {
           </ul>
         </nav>
         <div className="flex items-center gap-2">
-          <Button asChild className="hidden sm:inline-flex">
+          <Button asChild className="hidden sm:inline-flex" shimmer>
             <Link to="/quote" search={{ product: undefined }}>
               Get a Free Quote
             </Link>
