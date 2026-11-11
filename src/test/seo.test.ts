@@ -38,6 +38,22 @@ describe("SEO Meta Generator", () => {
     expect(metaObj.scripts).toHaveLength(2);
     expect(metaObj.scripts[1]?.children).toContain('"@type":"Product"');
   });
+
+  it("generates 3-tier BreadcrumbList for /products/[slug] routes", () => {
+    const metaObj = seo({
+      title: "Custom Printed Paper Cups with Logo Pakistan | Printzy",
+      description: "Custom paper cups",
+      path: "/products/custom-paper-cups",
+    });
+
+    expect(metaObj.scripts).toHaveLength(1);
+    const breadcrumb = JSON.parse(metaObj.scripts[0]?.children ?? "{}");
+    expect(breadcrumb["@type"]).toBe("BreadcrumbList");
+    expect(breadcrumb.itemListElement).toHaveLength(3);
+    expect(breadcrumb.itemListElement[0].name).toBe("Home");
+    expect(breadcrumb.itemListElement[1].name).toBe("Products");
+    expect(breadcrumb.itemListElement[2].name).toBe("Custom Printed Paper Cups with Logo Pakistan");
+  });
 });
 
 describe("Canonical redirects", () => {

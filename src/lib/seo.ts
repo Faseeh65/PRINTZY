@@ -28,26 +28,53 @@ export function seo({
   const siteUrl = site.url.replace(/\/$/, "");
   const url = `${siteUrl}${path}`;
   const breadcrumbName = breadcrumbLabels[path];
-  const breadcrumb = breadcrumbName
-    ? {
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        itemListElement: [
-          {
-            "@type": "ListItem",
-            position: 1,
-            name: "Home",
-            item: `${siteUrl}/`,
-          },
-          {
-            "@type": "ListItem",
-            position: 2,
-            name: breadcrumbName,
-            item: url,
-          },
-        ],
-      }
-    : undefined;
+  let breadcrumb: Record<string, unknown> | undefined;
+
+  if (path.startsWith("/products/") && path !== "/products") {
+    breadcrumb = {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: `${siteUrl}/`,
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Products",
+          item: `${siteUrl}/products`,
+        },
+        {
+          "@type": "ListItem",
+          position: 3,
+          name: title.split("|")[0]?.trim() || "Product",
+          item: url,
+        },
+      ],
+    };
+  } else if (breadcrumbName) {
+    breadcrumb = {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: `${siteUrl}/`,
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: breadcrumbName,
+          item: url,
+        },
+      ],
+    };
+  }
 
   return {
     meta: [

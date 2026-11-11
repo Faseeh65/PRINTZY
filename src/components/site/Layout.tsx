@@ -186,8 +186,8 @@ export function Footer() {
           {products.map((p) => (
             <li key={p.slug}>
               <Link
-                to="/quote"
-                search={{ product: p.slug }}
+                to="/products/$slug"
+                params={{ slug: p.slug }}
                 className="hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm"
               >
                 {p.title}

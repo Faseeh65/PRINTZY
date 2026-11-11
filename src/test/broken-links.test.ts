@@ -13,6 +13,7 @@ const REGISTERED_ROUTES = new Set([
   "/industries",
   "/privacy",
   "/products",
+  ...products.map((p) => `/products/${p.slug}`),
   "/quote",
   "/terms",
 ]);

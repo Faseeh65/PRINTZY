@@ -4,7 +4,7 @@ import { WhatsAppIcon } from "@/components/icons/WhatsAppIcon";
 import { z } from "zod";
 import { seo } from "@/lib/seo";
 import { site } from "@/data/site";
-import { products } from "@/data/products";
+import { products, resolveProductSlug } from "@/data/products";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -33,7 +33,8 @@ export const submitQuoteServerFn = createServerFn({ method: "POST" })
 
 export const Route = createFileRoute("/quote")({
   validateSearch: (s: Record<string, unknown>) => ({
-    product: typeof s["product"] === "string" ? s["product"] : undefined,
+    product:
+      typeof s["product"] === "string" ? resolveProductSlug(s["product"]) : undefined,
   }),
   head: () =>
     seo({

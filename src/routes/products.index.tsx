@@ -4,7 +4,7 @@ import { site } from "@/data/site";
 import { products } from "@/data/products";
 import { ProductsSection, QuoteCTA } from "@/components/site/sections";
 
-export const Route = createFileRoute("/products")({
+export const Route = createFileRoute("/products/")({
   head: () =>
     seo({
       title: "Custom Packaging Products | Printzy",
@@ -24,7 +24,7 @@ export const Route = createFileRoute("/products")({
             description: product.benefit,
             image: new URL(product.image, site.url).href,
             brand: { "@type": "Brand", name: site.name },
-            url: `${site.url}/quote?product=${encodeURIComponent(product.slug)}`,
+            url: `${site.url}/products/${encodeURIComponent(product.slug)}`,
           },
         })),
       },
