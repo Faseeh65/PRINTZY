@@ -21,6 +21,8 @@ import { Route as QuoteRouteImport } from './routes/quote'
 import { Route as RequestSampleRouteImport } from './routes/request-sample'
 import { Route as ReturnAndReprintPolicyRouteImport } from './routes/return-and-reprint-policy'
 import { Route as TermsRouteImport } from './routes/terms'
+import { Route as BlogIndexRouteImport } from './routes/blog.index'
+import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 import { Route as CitiesSlugRouteImport } from './routes/cities.$slug'
 import { Route as IndustriesIndexRouteImport } from './routes/industries.index'
 import { Route as IndustriesSlugRouteImport } from './routes/industries.$slug'
@@ -87,6 +89,16 @@ const TermsRoute = TermsRouteImport.update({
   path: '/terms',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BlogIndexRoute = BlogIndexRouteImport.update({
+  id: '/blog/',
+  path: '/blog/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogSlugRoute = BlogSlugRouteImport.update({
+  id: '/blog/$slug',
+  path: '/blog/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CitiesSlugRoute = CitiesSlugRouteImport.update({
   id: '/cities/$slug',
   path: '/cities/$slug',
@@ -126,9 +138,11 @@ export interface FileRoutesByFullPath {
   '/request-sample': typeof RequestSampleRoute
   '/return-and-reprint-policy': typeof ReturnAndReprintPolicyRoute
   '/terms': typeof TermsRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/cities/$slug': typeof CitiesSlugRoute
   '/industries/$slug': typeof IndustriesSlugRoute
   '/products/$slug': typeof ProductsSlugRoute
+  '/blog/': typeof BlogIndexRoute
   '/industries/': typeof IndustriesIndexRoute
   '/products/': typeof ProductsIndexRoute
 }
@@ -145,9 +159,11 @@ export interface FileRoutesByTo {
   '/request-sample': typeof RequestSampleRoute
   '/return-and-reprint-policy': typeof ReturnAndReprintPolicyRoute
   '/terms': typeof TermsRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/cities/$slug': typeof CitiesSlugRoute
   '/industries/$slug': typeof IndustriesSlugRoute
   '/products/$slug': typeof ProductsSlugRoute
+  '/blog': typeof BlogIndexRoute
   '/industries': typeof IndustriesIndexRoute
   '/products': typeof ProductsIndexRoute
 }
@@ -165,9 +181,11 @@ export interface FileRoutesById {
   '/request-sample': typeof RequestSampleRoute
   '/return-and-reprint-policy': typeof ReturnAndReprintPolicyRoute
   '/terms': typeof TermsRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/cities/$slug': typeof CitiesSlugRoute
   '/industries/$slug': typeof IndustriesSlugRoute
   '/products/$slug': typeof ProductsSlugRoute
+  '/blog/': typeof BlogIndexRoute
   '/industries/': typeof IndustriesIndexRoute
   '/products/': typeof ProductsIndexRoute
 }
@@ -186,9 +204,11 @@ export interface FileRouteTypes {
     | '/request-sample'
     | '/return-and-reprint-policy'
     | '/terms'
+    | '/blog/$slug'
     | '/cities/$slug'
     | '/industries/$slug'
     | '/products/$slug'
+    | '/blog/'
     | '/industries/'
     | '/products/'
   fileRoutesByTo: FileRoutesByTo
@@ -205,9 +225,11 @@ export interface FileRouteTypes {
     | '/request-sample'
     | '/return-and-reprint-policy'
     | '/terms'
+    | '/blog/$slug'
     | '/cities/$slug'
     | '/industries/$slug'
     | '/products/$slug'
+    | '/blog'
     | '/industries'
     | '/products'
   id:
@@ -224,9 +246,11 @@ export interface FileRouteTypes {
     | '/request-sample'
     | '/return-and-reprint-policy'
     | '/terms'
+    | '/blog/$slug'
     | '/cities/$slug'
     | '/industries/$slug'
     | '/products/$slug'
+    | '/blog/'
     | '/industries/'
     | '/products/'
   fileRoutesById: FileRoutesById
@@ -244,9 +268,11 @@ export interface RootRouteChildren {
   RequestSampleRoute: typeof RequestSampleRoute
   ReturnAndReprintPolicyRoute: typeof ReturnAndReprintPolicyRoute
   TermsRoute: typeof TermsRoute
+  BlogSlugRoute: typeof BlogSlugRoute
   CitiesSlugRoute: typeof CitiesSlugRoute
   IndustriesSlugRoute: typeof IndustriesSlugRoute
   ProductsSlugRoute: typeof ProductsSlugRoute
+  BlogIndexRoute: typeof BlogIndexRoute
   IndustriesIndexRoute: typeof IndustriesIndexRoute
   ProductsIndexRoute: typeof ProductsIndexRoute
 }
@@ -337,6 +363,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TermsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/blog/': {
+      id: '/blog/'
+      path: '/blog'
+      fullPath: '/blog/'
+      preLoaderRoute: typeof BlogIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog/$slug': {
+      id: '/blog/$slug'
+      path: '/blog/$slug'
+      fullPath: '/blog/$slug'
+      preLoaderRoute: typeof BlogSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/cities/$slug': {
       id: '/cities/$slug'
       path: '/cities/$slug'
@@ -388,9 +428,11 @@ const rootRouteChildren: RootRouteChildren = {
   RequestSampleRoute: RequestSampleRoute,
   ReturnAndReprintPolicyRoute: ReturnAndReprintPolicyRoute,
   TermsRoute: TermsRoute,
+  BlogSlugRoute: BlogSlugRoute,
   CitiesSlugRoute: CitiesSlugRoute,
   IndustriesSlugRoute: IndustriesSlugRoute,
   ProductsSlugRoute: ProductsSlugRoute,
+  BlogIndexRoute: BlogIndexRoute,
   IndustriesIndexRoute: IndustriesIndexRoute,
   ProductsIndexRoute: ProductsIndexRoute,
 }

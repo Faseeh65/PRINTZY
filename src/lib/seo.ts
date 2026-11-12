@@ -3,6 +3,7 @@ import { site } from "@/data/site";
 const breadcrumbLabels: Record<string, string> = {
   "/about": "About",
   "/artwork-guide": "Artwork Guide",
+  "/blog": "Packaging Guides",
   "/contact": "Contact",
   "/faq": "FAQ",
   "/gallery": "Gallery",
@@ -105,6 +106,31 @@ export function seo({
           "@type": "ListItem",
           position: 3,
           name: title.split("|")[0]?.trim() || "City",
+          item: url,
+        },
+      ],
+    };
+  } else if (path.startsWith("/blog/") && path !== "/blog") {
+    breadcrumb = {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: `${siteUrl}/`,
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Packaging Guides",
+          item: `${siteUrl}/blog`,
+        },
+        {
+          "@type": "ListItem",
+          position: 3,
+          name: title.split("|")[0]?.trim() || "Guide",
           item: url,
         },
       ],
