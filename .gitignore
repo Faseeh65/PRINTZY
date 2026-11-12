@@ -44,3 +44,4 @@ package-lock.json
 .agents/
 common-rules.md
 skills-lock.json
+graphify-out/

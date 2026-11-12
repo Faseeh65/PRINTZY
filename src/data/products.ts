@@ -52,7 +52,7 @@ export const products: Product[] = [
     title: "Custom Paper Cups",
     metaTitle: "Custom Printed Paper Cups with Logo Pakistan | Printzy",
     metaDescription:
-      "Branded single and double wall paper cups for cafes, tea shops and restaurants. Sizes 4oz–16oz, [MOQ: confirm]. Free mockup, delivery across Pakistan.",
+      "Branded single and double wall paper cups for cafes, tea shops and restaurants. Sizes 4oz–16oz. Free mockup, delivery across Pakistan.",
     h1: "Custom Printed Paper Cups in Pakistan",
     benefit: "Single and double-wall cups that carry your logo to every customer table and office desk.",
     intro:
@@ -60,13 +60,13 @@ export const products: Product[] = [
     image: images.cups,
     imageAlt: "Custom printed single-wall and double-wall paper coffee cups with brand logo",
     specs: {
-      sizes: "4oz, 6oz, 8oz, 12oz, 16oz [confirm available sizes]",
+      sizes: "4oz, 6oz, 8oz, 12oz, 16oz (Standard 80mm & 90mm rim diameters)",
       material: "Food-grade virgin paperboard with PE moisture barrier lining",
       printMethod: "High-definition flexographic & food-safe offset printing",
       colours: "Single colour spot printing to full colour CMYK",
       finish: "Matte smooth or semi-gloss finish",
-      moq: "[MOQ: 500 pcs confirm]",
-      leadTime: "[7-10 working days after proof approval]",
+      moq: "Flexible run sizes available. Contact on WhatsApp for optimal tier volume.",
+      leadTime: "7–10 working days after artwork approval",
       packing: "500 or 1,000 cups per carton in poly-wrapped sleeves",
     },
     printOptions: [
@@ -130,7 +130,7 @@ export const products: Product[] = [
     faqs: [
       {
         q: "What is your minimum order for printed cups?",
-        a: "Our standard minimum order quantity is [MOQ: confirm, e.g. 500 or 1,000 pieces] per design. If you are launching a new cafe, contact us on WhatsApp and we will advise on the most economical trial run.",
+        a: "Minimum order quantities depend on your cup size and print colors. If you are launching a new cafe, contact us on WhatsApp with your planned volume and we will advise on the most economical trial run.",
       },
       {
         q: "Can I print my logo in full colour?",
@@ -160,7 +160,7 @@ export const products: Product[] = [
     title: "Custom Pizza Boxes",
     metaTitle: "Custom Pizza Boxes with Logo Pakistan | Printzy",
     metaDescription:
-      "Strong, printed corrugated pizza boxes in 7 to 16 inch sizes. Grease-resistant, rigid fluting, [MOQ: confirm]. Free mockup, delivery across Pakistan.",
+      "Strong, printed corrugated pizza boxes in 7 to 16 inch sizes. Grease-resistant, rigid fluting. Free mockup, delivery across Pakistan.",
     h1: "Custom Printed Pizza Boxes in Pakistan",
     benefit: "Sturdy, grease-resistant corrugated boxes that keep pizza hot, crust crisp, and branding intact.",
     intro:
@@ -168,13 +168,13 @@ export const products: Product[] = [
     image: images.food,
     imageAlt: "Custom printed corrugated kraft pizza boxes with restaurant branding",
     specs: {
-      sizes: '7", 9", 10", 11", 12", 14", 16" [confirm exact cutter sizes]',
+      sizes: '7", 9", 10", 11", 12", 14", 16" standard & custom cutter formats',
       material: "High-burst corrugated board (E-flute / B-flute micro-fluting)",
       printMethod: "Direct flexographic printing or high-resolution litho-laminated offset",
       colours: "1 to 4 spot colours or full-colour process",
       finish: "Natural matte kraft, bleached white, or water-based food-safe varnish",
-      moq: "[MOQ: 500 pcs confirm]",
-      leadTime: "[7-12 working days after proof approval]",
+      moq: "Flexible run sizes available. Contact on WhatsApp for optimal tier volume.",
+      leadTime: "7–10 working days after artwork approval",
       packing: "Flat-packed in 50 or 100 piece shrink-wrapped bundles for easy storage",
     },
     printOptions: [
@@ -264,7 +264,7 @@ export const products: Product[] = [
     title: "Custom Food Boxes",
     metaTitle: "Custom Food Boxes with Logo Pakistan | Printzy",
     metaDescription:
-      "Custom burger boxes, fries scoops, bakery and cake packaging. Grease-resistant food-grade board, [MOQ: confirm]. Free design proof, fast delivery.",
+      "Custom burger boxes, fries scoops, bakery and cake packaging. Grease-resistant food-grade board. Free design proof, fast delivery across Pakistan.",
     h1: "Custom Printed Food Boxes in Pakistan",
     benefit: "Greaseproof burger clamshells, fries scoops, and pastry boxes engineered for fresh food presentation.",
     intro:
@@ -272,13 +272,13 @@ export const products: Product[] = [
     image: images.food,
     imageAlt: "Custom printed burger clamshells, fries boxes, and pastry packaging",
     specs: {
-      sizes: "Burger clamshells, fries scoops, roll boxes, pastry & cake boxes [custom cutters]",
+      sizes: "Burger clamshells, fries scoops, roll boxes, pastry & cake boxes (standard & custom sizes)",
       material: "Food-grade SBS board, kraft virgin paperboard, or grease-resistant barrier board",
       printMethod: "Offset litho printing with food-safe inks",
       colours: "Single colour to 6-colour full process",
       finish: "Water-based matte coating, oil-resistant varnish, or clear window patching",
-      moq: "[MOQ: 500 pcs confirm]",
-      leadTime: "[7-10 working days after proof approval]",
+      moq: "Flexible run sizes available. Contact on WhatsApp for optimal tier volume.",
+      leadTime: "7–10 working days after artwork approval",
       packing: "Packed nested or flat in heavy protective shipping cartons",
     },
     printOptions: [
@@ -364,7 +364,7 @@ export const products: Product[] = [
     title: "Takeaway Packaging Sets",
     metaTitle: "Custom Takeaway Packaging Sets Pakistan | Printzy",
     metaDescription:
-      "Matching branded packaging sets: boxes, cups, bags, and napkins. Consistent brand colours from kitchen to doorstep. [MOQ: confirm]. Get a quote.",
+      "Matching branded packaging sets: boxes, cups, bags, and napkins. Consistent brand colours from kitchen to doorstep. Free mockup, fast quote.",
     h1: "Custom Takeaway Packaging Sets in Pakistan",
     benefit: "Coordinated packaging runs that guarantee matching colours and consistent quality across all customer touchpoints.",
     intro:
@@ -377,8 +377,8 @@ export const products: Product[] = [
       printMethod: "Matched flexo and offset color calibrations",
       colours: "Brand-standardized Pantone and CMYK palette matching",
       finish: "Unified matte or satin brand finish across all components",
-      moq: "[MOQ: 500 complete sets confirm]",
-      leadTime: "[10-14 working days for complete matched suites]",
+      moq: "Flexible run sizes available. Contact on WhatsApp for optimal tier volume.",
+      leadTime: "8–12 working days after artwork approval",
       packing: "Grouped by item in protective shipping cartons with moisture wrap",
     },
     printOptions: [
@@ -464,7 +464,7 @@ export const products: Product[] = [
     title: "Custom Paper Bags",
     metaTitle: "Custom Printed Paper Bags with Logo Pakistan | Printzy",
     metaDescription:
-      "Custom kraft and white paper bags with handles for retail, restaurants and cafes. High strength, [MOQ: confirm]. Free design proof, nationwide delivery.",
+      "Custom kraft and white paper bags with handles for retail, restaurants and cafes. High strength. Free design proof, nationwide delivery.",
     h1: "Custom Printed Paper Bags in Pakistan",
     benefit: "High-strength kraft and white paper carrier bags with sturdy handles that elevate your customer takeaway experience.",
     intro:
@@ -472,13 +472,13 @@ export const products: Product[] = [
     image: images.bags,
     imageAlt: "Custom printed kraft paper carrier bags with handles and company logo",
     specs: {
-      sizes: "Small (6x8x3\"), Medium (8x10x4\"), Large (10x14x5\"), Takeaway Flat-Bottom (12x12x7\") [custom sizes]",
+      sizes: "Small (6x8x3\"), Medium (8x10x4\"), Large (10x14x5\"), Takeaway Flat-Bottom (12x12x7\") standard & custom dimensions",
       material: "Heavy-duty virgin brown kraft (120–180 GSM) or premium bleached white kraft",
       printMethod: "High-precision flexographic or offset printing",
       colours: "1 to 4 spot colours or full-coverage CMYK print",
       finish: "Natural textured kraft, smooth matte, or reinforced turn-top rim",
-      moq: "[MOQ: 500 pcs confirm]",
-      leadTime: "[7-10 working days after proof approval]",
+      moq: "Flexible run sizes available. Contact on WhatsApp for optimal tier volume.",
+      leadTime: "7–10 working days after artwork approval",
       packing: "Packed flat in heavy protective cartons of 250 or 500 pieces",
     },
     printOptions: [
@@ -554,7 +554,7 @@ export const products: Product[] = [
       },
       {
         q: "What is your minimum order quantity for custom printed bags?",
-        a: "Our standard minimum order starts from [MOQ: 500 pcs confirm]. Contact us on WhatsApp for exact size-specific MOQ tiers.",
+        a: "Minimum order quantities vary by bag dimensions and handle type. Message us on WhatsApp with your target size for the most economical run size.",
       },
     ],
     relatedSlugs: ["custom-paper-cups", "custom-food-boxes", "custom-takeaway-packaging"],
@@ -564,7 +564,7 @@ export const products: Product[] = [
     title: "Custom Napkins & Tissues",
     metaTitle: "Custom Printed Napkins & Tissues Pakistan | Printzy",
     metaDescription:
-      "Custom printed restaurant napkins, cocktail napkins and dispenser tissues with your logo. Soft, absorbent, [MOQ: confirm]. Free mockup, fast quote.",
+      "Custom printed restaurant napkins, cocktail napkins and dispenser tissues with your logo. Soft, absorbent. Free mockup, fast quote.",
     h1: "Custom Printed Napkins and Tissues in Pakistan",
     benefit: "Soft, highly absorbent printed napkins that complete your customer's in-store and takeaway dining experience.",
     intro:
@@ -577,8 +577,8 @@ export const products: Product[] = [
       printMethod: "High-speed flexographic rotary printing with water-based non-toxic inks",
       colours: "1 to 2 crisp spot colours (Pantone matched)",
       finish: "Full edge embossing or coin edge embossing for maximum absorbency and softness",
-      moq: "[MOQ: 5,000 pcs confirm]",
-      leadTime: "[7-10 working days after proof approval]",
+      moq: "Rotary volume runs available. Contact on WhatsApp for tier options.",
+      leadTime: "7–10 working days after artwork approval",
       packing: "Packed in hygienic poly sleeves of 100 or 250 napkins inside protective shipping cartons",
     },
     printOptions: [
@@ -646,7 +646,7 @@ export const products: Product[] = [
       },
       {
         q: "What is your minimum order for printed napkins?",
-        a: "Because rotary tissue printing is a continuous high-speed process, our minimum order is [MOQ: 5,000 pcs confirm]. This provides the lowest cost per napkin.",
+        a: "Because rotary tissue printing is a continuous high-speed process, minimum orders are structured to provide the lowest cost per napkin. Contact on WhatsApp for current production minimums.",
       },
       {
         q: "Do you offer dispenser-compatible napkins for counter holders?",
@@ -664,7 +664,7 @@ export const products: Product[] = [
     title: "Cup Sleeves & Stickers",
     metaTitle: "Custom Cup Sleeves & Packaging Stickers Pakistan | Printzy",
     metaDescription:
-      "Branded corrugated cup sleeves and die-cut packaging stickers. Low-cost custom packaging for cafes and food delivery. [MOQ: confirm]. Free proof.",
+      "Branded corrugated cup sleeves and die-cut packaging stickers. Low-cost custom packaging for cafes and food delivery. Free proof, fast quote.",
     h1: "Custom Cup Sleeves and Packaging Stickers in Pakistan",
     benefit: "Cost-effective, versatile branding accessories that transform plain cups and food boxes into branded packaging.",
     intro:
@@ -677,8 +677,8 @@ export const products: Product[] = [
       printMethod: "High-resolution offset and digital UV label printing",
       colours: "1-colour spot print to full-colour photo CMYK with protective varnish",
       finish: "Matte laminate, gloss UV coat, or natural kraft texture",
-      moq: "[MOQ: 1,000 pcs confirm]",
-      leadTime: "[5-7 working days after proof approval]",
+      moq: "Flexible run sizes available. Contact on WhatsApp for optimal tier volume.",
+      leadTime: "5–7 working days after artwork approval",
       packing: "Sleeves flat-packed in cartons; stickers supplied on rolls or pre-cut sheets",
     },
     printOptions: [
@@ -764,7 +764,7 @@ export const products: Product[] = [
     title: "Custom Mailer & Gift Boxes",
     metaTitle: "Custom Mailer & Gift Boxes with Logo Pakistan | Printzy",
     metaDescription:
-      "Rigid corrugated mailer boxes and gift packaging for e-commerce, corporate gifting and events. [MOQ: confirm]. Free 3D proof, delivery across Pakistan.",
+      "Corrugated mailer boxes and gift packaging for e-commerce, corporate gifting and events. Free 3D proof, delivery across Pakistan.",
     h1: "Custom Printed Mailer and Gift Boxes in Pakistan",
     benefit: "Premium corrugated mailer boxes engineered for memorable e-commerce unboxing and corporate gifting.",
     intro:
@@ -777,8 +777,8 @@ export const products: Product[] = [
       printMethod: "High-resolution offset litho printing or direct digital UV printing",
       colours: "Single colour minimalist print to full-coverage exterior and interior CMYK",
       finish: "Soft-touch matte laminate, gloss varnish, spot UV, or metallic foil stamping",
-      moq: "[MOQ: 250 pcs confirm]",
-      leadTime: "[8-12 working days after proof approval]",
+      moq: "Flexible run sizes available. Contact on WhatsApp for optimal tier volume.",
+      leadTime: "8–12 working days after artwork approval",
       packing: "Flat-packed in protective master cartons with corner guards",
     },
     printOptions: [
@@ -850,7 +850,7 @@ export const products: Product[] = [
       },
       {
         q: "What is the minimum order quantity for custom mailer boxes?",
-        a: "Our minimum order quantity starts from [MOQ: 250 pcs confirm]. Larger runs of 500+ and 1,000+ pieces offer significantly lower unit pricing.",
+        a: "Minimum order quantities are structured to support both boutique launches and volume e-commerce runs. Contact on WhatsApp for exact tier volume options.",
       },
       {
         q: "Do you supply custom tissue paper and branded stickers to match?",

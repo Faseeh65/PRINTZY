@@ -16,6 +16,7 @@ import { responsiveImageProps } from "@/data/images";
 import { Button } from "@/components/ui/button";
 import { WhatsAppIcon } from "@/components/icons/WhatsAppIcon";
 import { QuoteCTA } from "@/components/site/sections";
+import { buildWhatsAppUrl } from "@/config/business-facts";
 
 export const Route = createFileRoute("/products/$slug")({
   loader: ({ params }) => {
@@ -143,7 +144,7 @@ function ProductDetailPage() {
               </Button>
               <Button asChild size="lg" variant="outline">
                 <a
-                  href={`${site.whatsapp}?text=${encodeURIComponent(`Hi Printzy, I am interested in custom printed ${product.title}. Please share pricing and mockup details.`)}`}
+                  href={buildWhatsAppUrl(`Hi Printzy, I am interested in custom printed ${product.title}. Please share pricing and mockup details.`)}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -264,7 +265,13 @@ function ProductDetailPage() {
               Printing & Materials Guide
             </span>
             <h2 className="text-2xl font-bold text-foreground sm:text-3xl">
-              Options Tailored to Your Menu & Budget
+              {product.slug === "custom-mailer-gift-boxes"
+                ? "Options Tailored to Your Products & Unboxing Experience"
+                : product.slug === "cup-sleeves-stickers"
+                  ? "Custom Branding & Size Formats"
+                  : product.slug === "custom-paper-bags"
+                    ? "Options Tailored to Your Retail Store & Budget"
+                    : "Options Tailored to Your Menu & Budget"}
             </h2>
           </div>
 
@@ -293,7 +300,11 @@ function ProductDetailPage() {
               Who We Print For
             </span>
             <h2 className="text-2xl font-bold text-foreground sm:text-3xl">
-              Trusted by Food Brands and Growing Businesses
+              {product.slug === "custom-mailer-gift-boxes"
+                ? "Trusted by E-Commerce, Retailers & Growing Brands"
+                : product.slug === "custom-paper-bags"
+                  ? "Trusted by Retail Stores, Boutiques & Restaurants"
+                  : "Trusted by Food Brands and Growing Businesses"}
             </h2>
           </div>
 
@@ -330,7 +341,7 @@ function ProductDetailPage() {
               </Button>
               <Button asChild size="lg" variant="outline">
                 <a
-                  href={`${site.whatsapp}?text=${encodeURIComponent(`Hi Printzy, please share a price estimate for ${product.title}.`)}`}
+                  href={buildWhatsAppUrl(`Hi Printzy, please share a price estimate for ${product.title}.`)}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -477,7 +488,7 @@ function ProductDetailPage() {
           </Button>
           <Button asChild size="sm" variant="outline">
             <a
-              href={`${site.whatsapp}?text=${encodeURIComponent(`Hi Printzy, I need a quote for ${product.title}.`)}`}
+              href={buildWhatsAppUrl(`Hi Printzy, I need a quote for ${product.title}.`)}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Chat on WhatsApp"

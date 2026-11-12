@@ -40,6 +40,7 @@ import { faqs } from "@/data/faqs";
 import { clientReviews, clientLogos, caseStudies, ClientReview } from "@/data/proof";
 import { images, gallery, responsiveImageProps } from "@/data/images";
 import { trackGtmWhatsAppClick } from "@/lib/gtm";
+import { buildWhatsAppUrl } from "@/config/business-facts";
 
 import { WhatsAppIcon } from "@/components/icons/WhatsAppIcon";
 
@@ -53,7 +54,7 @@ export function WhatsAppButton({
   return (
     <Button asChild size="lg" variant={variant}>
       <a
-        href={site.whatsapp}
+        href={buildWhatsAppUrl()}
         target="_blank"
         rel="noopener noreferrer"
         onClick={() => trackGtmWhatsAppClick("section_button")}
@@ -110,7 +111,7 @@ export function Hero() {
               {[
                 "Free mockup before you pay",
                 "Printed proof approval",
-                "[MOQ: confirm] minimum",
+                "Low minimum orders",
                 "Delivery across Pakistan",
               ].map((t) => (
                 <li
@@ -308,7 +309,7 @@ const steps = [
   },
   {
     title: "4. Print & Doorstep Delivery",
-    text: "We print, perform multi-point quality control, and deliver securely across Pakistan in [X-Y working days: confirm].",
+    text: "We print, perform quality inspection, and deliver securely across Pakistan, typically in 7–10 working days.",
   },
 ];
 

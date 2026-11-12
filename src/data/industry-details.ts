@@ -82,7 +82,7 @@ export const industryDetails: Record<string, IndustryDetail> = {
     faqs: [
       {
         q: "What cup sizes are most popular for Pakistani coffee bars?",
-        a: "8oz and 12oz cups account for roughly 80% of cafe orders, catering to flat whites, cappuccinos, and Americanos, while 16oz is preferred for iced lattes and shakes.",
+        a: "8oz and 12oz cups represent the core menu drivers for most cafes, serving flat whites, cappuccinos, karak chai, and Americanos, while 16oz is preferred for iced drinks and frappes.",
       },
       {
         q: "Can I order matching sleeves and napkins with the same logo colours?",
@@ -90,7 +90,7 @@ export const industryDetails: Record<string, IndustryDetail> = {
       },
       {
         q: "What is the minimum order for custom cafe cups?",
-        a: "Our typical cafe cup run starts from [MOQ: confirm, e.g. 500 – 1,000 pcs], allowing you to launch without tying up working capital.",
+        a: "Our cafe cup runs feature flexible minimums tailored for growing startups, allowing you to launch without tying up excessive working capital.",
       },
     ],
   },
@@ -306,7 +306,7 @@ export const industryDetails: Record<string, IndustryDetail> = {
       },
       {
         q: "What is the typical production timeline for cloud kitchen reorders?",
-        a: "Standard reorders ship within [X-Y working days: confirm] once your approved die-lines and plates are archived on file.",
+        a: "Standard reorders ship within 7–10 working days once your approved die-lines and plates are archived on file.",
       },
     ],
   },
@@ -446,7 +446,7 @@ export const industryDetails: Record<string, IndustryDetail> = {
       },
       {
         q: "What is the turnaround time for corporate event gift boxes?",
-        a: "Standard corporate production requires [X-Y working days: confirm] after artwork and sample sign-off. Rush event production is available.",
+        a: "Standard corporate production requires 7–10 working days after artwork and sample sign-off. Rush event production is available on request.",
       },
       {
         q: "Do you supply tax invoices for corporate procurement?",
@@ -518,7 +518,7 @@ export const industryDetails: Record<string, IndustryDetail> = {
       },
       {
         q: "What is the minimum order for wedding favor boxes?",
-        a: "We accommodate wedding orders starting from [MOQ: confirm, e.g. 150–250 pcs], perfectly suited to intimate and large events.",
+        a: "We accommodate event and wedding orders with low minimum batches, perfectly suited to both intimate family gatherings and large receptions.",
       },
       {
         q: "Are the sweet boxes safe for direct mithai and dry fruit contact?",
