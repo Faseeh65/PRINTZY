@@ -16,12 +16,14 @@ import { Route as ContactRouteImport } from './routes/contact'
 import { Route as FaqRouteImport } from './routes/faq'
 import { Route as GalleryRouteImport } from './routes/gallery'
 import { Route as HowItWorksRouteImport } from './routes/how-it-works'
-import { Route as IndustriesRouteImport } from './routes/industries'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as QuoteRouteImport } from './routes/quote'
 import { Route as RequestSampleRouteImport } from './routes/request-sample'
 import { Route as ReturnAndReprintPolicyRouteImport } from './routes/return-and-reprint-policy'
 import { Route as TermsRouteImport } from './routes/terms'
+import { Route as CitiesSlugRouteImport } from './routes/cities.$slug'
+import { Route as IndustriesIndexRouteImport } from './routes/industries.index'
+import { Route as IndustriesSlugRouteImport } from './routes/industries.$slug'
 import { Route as ProductsIndexRouteImport } from './routes/products.index'
 import { Route as ProductsSlugRouteImport } from './routes/products.$slug'
 
@@ -60,11 +62,6 @@ const HowItWorksRoute = HowItWorksRouteImport.update({
   path: '/how-it-works',
   getParentRoute: () => rootRouteImport,
 } as any)
-const IndustriesRoute = IndustriesRouteImport.update({
-  id: '/industries',
-  path: '/industries',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const PrivacyRoute = PrivacyRouteImport.update({
   id: '/privacy',
   path: '/privacy',
@@ -90,6 +87,21 @@ const TermsRoute = TermsRouteImport.update({
   path: '/terms',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CitiesSlugRoute = CitiesSlugRouteImport.update({
+  id: '/cities/$slug',
+  path: '/cities/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IndustriesIndexRoute = IndustriesIndexRouteImport.update({
+  id: '/industries/',
+  path: '/industries/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IndustriesSlugRoute = IndustriesSlugRouteImport.update({
+  id: '/industries/$slug',
+  path: '/industries/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ProductsIndexRoute = ProductsIndexRouteImport.update({
   id: '/products/',
   path: '/products/',
@@ -109,13 +121,15 @@ export interface FileRoutesByFullPath {
   '/faq': typeof FaqRoute
   '/gallery': typeof GalleryRoute
   '/how-it-works': typeof HowItWorksRoute
-  '/industries': typeof IndustriesRoute
   '/privacy': typeof PrivacyRoute
   '/quote': typeof QuoteRoute
   '/request-sample': typeof RequestSampleRoute
   '/return-and-reprint-policy': typeof ReturnAndReprintPolicyRoute
   '/terms': typeof TermsRoute
+  '/cities/$slug': typeof CitiesSlugRoute
+  '/industries/$slug': typeof IndustriesSlugRoute
   '/products/$slug': typeof ProductsSlugRoute
+  '/industries/': typeof IndustriesIndexRoute
   '/products/': typeof ProductsIndexRoute
 }
 export interface FileRoutesByTo {
@@ -126,13 +140,15 @@ export interface FileRoutesByTo {
   '/faq': typeof FaqRoute
   '/gallery': typeof GalleryRoute
   '/how-it-works': typeof HowItWorksRoute
-  '/industries': typeof IndustriesRoute
   '/privacy': typeof PrivacyRoute
   '/quote': typeof QuoteRoute
   '/request-sample': typeof RequestSampleRoute
   '/return-and-reprint-policy': typeof ReturnAndReprintPolicyRoute
   '/terms': typeof TermsRoute
+  '/cities/$slug': typeof CitiesSlugRoute
+  '/industries/$slug': typeof IndustriesSlugRoute
   '/products/$slug': typeof ProductsSlugRoute
+  '/industries': typeof IndustriesIndexRoute
   '/products': typeof ProductsIndexRoute
 }
 export interface FileRoutesById {
@@ -144,13 +160,15 @@ export interface FileRoutesById {
   '/faq': typeof FaqRoute
   '/gallery': typeof GalleryRoute
   '/how-it-works': typeof HowItWorksRoute
-  '/industries': typeof IndustriesRoute
   '/privacy': typeof PrivacyRoute
   '/quote': typeof QuoteRoute
   '/request-sample': typeof RequestSampleRoute
   '/return-and-reprint-policy': typeof ReturnAndReprintPolicyRoute
   '/terms': typeof TermsRoute
+  '/cities/$slug': typeof CitiesSlugRoute
+  '/industries/$slug': typeof IndustriesSlugRoute
   '/products/$slug': typeof ProductsSlugRoute
+  '/industries/': typeof IndustriesIndexRoute
   '/products/': typeof ProductsIndexRoute
 }
 export interface FileRouteTypes {
@@ -163,13 +181,15 @@ export interface FileRouteTypes {
     | '/faq'
     | '/gallery'
     | '/how-it-works'
-    | '/industries'
     | '/privacy'
     | '/quote'
     | '/request-sample'
     | '/return-and-reprint-policy'
     | '/terms'
+    | '/cities/$slug'
+    | '/industries/$slug'
     | '/products/$slug'
+    | '/industries/'
     | '/products/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -180,13 +200,15 @@ export interface FileRouteTypes {
     | '/faq'
     | '/gallery'
     | '/how-it-works'
-    | '/industries'
     | '/privacy'
     | '/quote'
     | '/request-sample'
     | '/return-and-reprint-policy'
     | '/terms'
+    | '/cities/$slug'
+    | '/industries/$slug'
     | '/products/$slug'
+    | '/industries'
     | '/products'
   id:
     | '__root__'
@@ -197,13 +219,15 @@ export interface FileRouteTypes {
     | '/faq'
     | '/gallery'
     | '/how-it-works'
-    | '/industries'
     | '/privacy'
     | '/quote'
     | '/request-sample'
     | '/return-and-reprint-policy'
     | '/terms'
+    | '/cities/$slug'
+    | '/industries/$slug'
     | '/products/$slug'
+    | '/industries/'
     | '/products/'
   fileRoutesById: FileRoutesById
 }
@@ -215,13 +239,15 @@ export interface RootRouteChildren {
   FaqRoute: typeof FaqRoute
   GalleryRoute: typeof GalleryRoute
   HowItWorksRoute: typeof HowItWorksRoute
-  IndustriesRoute: typeof IndustriesRoute
   PrivacyRoute: typeof PrivacyRoute
   QuoteRoute: typeof QuoteRoute
   RequestSampleRoute: typeof RequestSampleRoute
   ReturnAndReprintPolicyRoute: typeof ReturnAndReprintPolicyRoute
   TermsRoute: typeof TermsRoute
+  CitiesSlugRoute: typeof CitiesSlugRoute
+  IndustriesSlugRoute: typeof IndustriesSlugRoute
   ProductsSlugRoute: typeof ProductsSlugRoute
+  IndustriesIndexRoute: typeof IndustriesIndexRoute
   ProductsIndexRoute: typeof ProductsIndexRoute
 }
 
@@ -276,13 +302,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof HowItWorksRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/industries': {
-      id: '/industries'
-      path: '/industries'
-      fullPath: '/industries'
-      preLoaderRoute: typeof IndustriesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/privacy': {
       id: '/privacy'
       path: '/privacy'
@@ -318,6 +337,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TermsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/cities/$slug': {
+      id: '/cities/$slug'
+      path: '/cities/$slug'
+      fullPath: '/cities/$slug'
+      preLoaderRoute: typeof CitiesSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/industries/': {
+      id: '/industries/'
+      path: '/industries'
+      fullPath: '/industries/'
+      preLoaderRoute: typeof IndustriesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/industries/$slug': {
+      id: '/industries/$slug'
+      path: '/industries/$slug'
+      fullPath: '/industries/$slug'
+      preLoaderRoute: typeof IndustriesSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/products/': {
       id: '/products/'
       path: '/products'
@@ -343,13 +383,15 @@ const rootRouteChildren: RootRouteChildren = {
   FaqRoute: FaqRoute,
   GalleryRoute: GalleryRoute,
   HowItWorksRoute: HowItWorksRoute,
-  IndustriesRoute: IndustriesRoute,
   PrivacyRoute: PrivacyRoute,
   QuoteRoute: QuoteRoute,
   RequestSampleRoute: RequestSampleRoute,
   ReturnAndReprintPolicyRoute: ReturnAndReprintPolicyRoute,
   TermsRoute: TermsRoute,
+  CitiesSlugRoute: CitiesSlugRoute,
+  IndustriesSlugRoute: IndustriesSlugRoute,
   ProductsSlugRoute: ProductsSlugRoute,
+  IndustriesIndexRoute: IndustriesIndexRoute,
   ProductsIndexRoute: ProductsIndexRoute,
 }
 export const routeTree = rootRouteImport

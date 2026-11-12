@@ -146,18 +146,17 @@ export function IndustryCard({
   icon: Icon,
   title,
   text,
+  slug,
   delay,
 }: {
   icon?: LucideIcon;
   title: string;
   text: string;
+  slug?: string | undefined;
   delay?: RevealDelay | undefined;
 }) {
-  return (
-    <Reveal
-      delay={delay}
-      className="group rounded-2xl bg-card p-6 border border-border/40 hover:border-secondary/30 card-lift"
-    >
+  const CardContent = (
+    <>
       {Icon && (
         <span className="mb-4 inline-flex size-12 items-center justify-center rounded-xl bg-accent text-secondary transition-transform duration-300 group-hover:scale-110">
           <Icon aria-hidden="true" className="size-6" />
@@ -167,6 +166,27 @@ export function IndustryCard({
         {title}
       </h3>
       <p className="mt-1 text-base text-muted-foreground">{text}</p>
+      {slug && (
+        <span className="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-secondary group-hover:underline">
+          <span>Explore {title} Packaging</span>
+          <ArrowRight className="size-3 transition-transform duration-200 group-hover:translate-x-1" />
+        </span>
+      )}
+    </>
+  );
+
+  return (
+    <Reveal
+      delay={delay}
+      className="group rounded-2xl bg-card p-6 border border-border/40 hover:border-secondary/30 card-lift"
+    >
+      {slug ? (
+        <Link to="/industries/$slug" params={{ slug }} className="block focus-visible:outline-none">
+          {CardContent}
+        </Link>
+      ) : (
+        CardContent
+      )}
     </Reveal>
   );
 }
