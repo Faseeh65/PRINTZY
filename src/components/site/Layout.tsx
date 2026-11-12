@@ -143,17 +143,22 @@ export function Footer() {
       <h2 className="sr-only">Footer navigation and company information</h2>
       <div className="container-site grid gap-10 py-16 md:grid-cols-4">
         <div>
-          <div className="inline-block">
-            <img
-              src="/images/logo.jpeg"
-              alt="Printzy Custom Packaging"
-              width={1600}
-              height={628}
-              loading="lazy"
-              className="h-12 w-auto object-contain"
-            />
-          </div>
-          <p className="mt-4 text-sm text-navy-foreground/85">{site.about}</p>
+          <Link
+            to="/"
+            aria-label="Printzy home"
+            className="inline-block group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm"
+          >
+            <div className="flex items-center gap-1.5">
+              <span className="font-display text-2xl md:text-3xl font-black tracking-wider text-white uppercase transition-colors group-hover:text-peach">
+                PRINTZY
+              </span>
+              <span className="size-2 rounded-full bg-peach" />
+            </div>
+            <p className="mt-1 text-[10px] font-bold tracking-[0.25em] text-peach uppercase">
+              Custom Packaging
+            </p>
+          </Link>
+          <p className="mt-4 text-sm text-navy-foreground/85 leading-relaxed">{site.about}</p>
         </div>
         <FooterCol title="Quick links">
           {navLinks.map((l) => (
@@ -261,9 +266,30 @@ export function Footer() {
         </FooterCol>
       </div>
       <div className="border-t border-navy-foreground/15">
-        <p className="container-site py-6 text-sm text-navy-foreground/80">
-          {`© ${CURRENT_YEAR} Printzy. All rights reserved.`}
-        </p>
+        <div className="container-site flex flex-col items-center justify-between gap-4 py-6 text-sm text-navy-foreground/80 md:flex-row">
+          <p>{`© ${CURRENT_YEAR} Printzy. All rights reserved.`}</p>
+          <div className="flex items-center gap-6 text-xs text-navy-foreground/75">
+            <Link
+              to="/terms"
+              className="hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm"
+            >
+              Terms of Service
+            </Link>
+            <Link
+              to="/privacy"
+              className="hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm"
+            >
+              Privacy Policy
+            </Link>
+          </div>
+        </div>
+      </div>
+
+      {/* Large Architectural Wordmark (Image 2 style) */}
+      <div className="pointer-events-none select-none overflow-hidden px-4 pt-6 pb-2 text-center" aria-hidden="true">
+        <span className="block font-display text-[15vw] font-black leading-none tracking-widest text-white/[0.07] uppercase">
+          PRINTZY
+        </span>
       </div>
     </footer>
   );
