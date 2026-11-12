@@ -2,7 +2,7 @@ import { describe, it, expect, beforeEach, afterEach, vi } from "vitest";
 import React from "react";
 import { render } from "@testing-library/react";
 import { renderToString } from "react-dom/server";
-import { pushToDataLayer, trackGtmPageView } from "@/lib/gtm";
+import { pushToDataLayer, trackGtmPageView, trackGtmQuoteSubmit, trackGtmWhatsAppClick } from "@/lib/gtm";
 import * as fs from "fs";
 import * as path from "path";
 
@@ -108,6 +108,18 @@ describe("Hydration & SSR Consistency", () => {
       expect(window.dataLayer.length).toBe(2);
       expect(window.dataLayer[0]).toEqual({ event: "gtm.js" });
       expect(window.dataLayer[1]?.["event"]).toBe("page_view");
+    });
+
+    it("pushes quote_submit conversion event to dataLayer", () => {
+      trackGtmQuoteSubmit({ product: "custom-pizza-boxes", quantity: "1000" });
+
+      expect(window.dataLayer.some((e) => e["event"] === "quote_submit" && e["product"] === "custom-pizza-boxes")).toBe(true);
+    });
+
+    it("pushes whatsapp_click event to dataLayer", () => {
+      trackGtmWhatsAppClick("hero_button");
+
+      expect(window.dataLayer.some((e) => e["event"] === "whatsapp_click" && e["click_location"] === "hero_button")).toBe(true);
     });
   });
 });

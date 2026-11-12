@@ -28,3 +28,24 @@ export function trackGtmPageView(url: string, title?: string): void {
     page_title: title || (typeof document !== "undefined" ? document.title : ""),
   });
 }
+
+/**
+ * Pushes a quote submission conversion event to GTM and GA4 dataLayer.
+ */
+export function trackGtmQuoteSubmit(metadata: { product: string; quantity?: string }): void {
+  pushToDataLayer({
+    event: "quote_submit",
+    product: metadata.product,
+    quantity: metadata.quantity || "",
+  });
+}
+
+/**
+ * Pushes a WhatsApp conversation click conversion event to GTM and GA4 dataLayer.
+ */
+export function trackGtmWhatsAppClick(location?: string): void {
+  pushToDataLayer({
+    event: "whatsapp_click",
+    click_location: location || "direct_button",
+  });
+}

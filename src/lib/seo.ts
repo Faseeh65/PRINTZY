@@ -2,13 +2,18 @@ import { site } from "@/data/site";
 
 const breadcrumbLabels: Record<string, string> = {
   "/about": "About",
+  "/artwork-guide": "Artwork Guide",
+  "/blog": "Packaging Guides",
   "/contact": "Contact",
+  "/faq": "FAQ",
   "/gallery": "Gallery",
   "/how-it-works": "How It Works",
   "/industries": "Industries",
   "/privacy": "Privacy Policy",
   "/products": "Products",
   "/quote": "Get a Quote",
+  "/request-sample": "Request a Sample",
+  "/return-and-reprint-policy": "Return & Reprint Policy",
   "/terms": "Terms of Service",
 };
 
@@ -28,26 +33,128 @@ export function seo({
   const siteUrl = site.url.replace(/\/$/, "");
   const url = `${siteUrl}${path}`;
   const breadcrumbName = breadcrumbLabels[path];
-  const breadcrumb = breadcrumbName
-    ? {
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        itemListElement: [
-          {
-            "@type": "ListItem",
-            position: 1,
-            name: "Home",
-            item: `${siteUrl}/`,
-          },
-          {
-            "@type": "ListItem",
-            position: 2,
-            name: breadcrumbName,
-            item: url,
-          },
-        ],
-      }
-    : undefined;
+  let breadcrumb: Record<string, unknown> | undefined;
+
+  if (path.startsWith("/products/") && path !== "/products") {
+    breadcrumb = {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: `${siteUrl}/`,
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Products",
+          item: `${siteUrl}/products`,
+        },
+        {
+          "@type": "ListItem",
+          position: 3,
+          name: title.split("|")[0]?.trim() || "Product",
+          item: url,
+        },
+      ],
+    };
+  } else if (path.startsWith("/industries/") && path !== "/industries") {
+    breadcrumb = {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: `${siteUrl}/`,
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Industries",
+          item: `${siteUrl}/industries`,
+        },
+        {
+          "@type": "ListItem",
+          position: 3,
+          name: title.split("|")[0]?.trim() || "Industry",
+          item: url,
+        },
+      ],
+    };
+  } else if (path.startsWith("/cities/")) {
+    breadcrumb = {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: `${siteUrl}/`,
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Cities",
+          item: `${siteUrl}/`,
+        },
+        {
+          "@type": "ListItem",
+          position: 3,
+          name: title.split("|")[0]?.trim() || "City",
+          item: url,
+        },
+      ],
+    };
+  } else if (path.startsWith("/blog/") && path !== "/blog") {
+    breadcrumb = {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: `${siteUrl}/`,
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Packaging Guides",
+          item: `${siteUrl}/blog`,
+        },
+        {
+          "@type": "ListItem",
+          position: 3,
+          name: title.split("|")[0]?.trim() || "Guide",
+          item: url,
+        },
+      ],
+    };
+  } else if (breadcrumbName) {
+    breadcrumb = {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: `${siteUrl}/`,
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: breadcrumbName,
+          item: url,
+        },
+      ],
+    };
+  }
 
   return {
     meta: [

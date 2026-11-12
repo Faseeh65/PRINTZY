@@ -1,19 +1,31 @@
 import { describe, it, expect } from "vitest";
 import { navLinks, site } from "@/data/site";
 import { products } from "@/data/products";
+import { industryDetails } from "@/data/industry-details";
+import { cityDetails } from "@/data/city-details";
+import { blogPosts } from "@/data/blog";
 import fs from "node:fs";
 import path from "node:path";
 
 const REGISTERED_ROUTES = new Set([
   "/",
   "/about",
+  "/artwork-guide",
+  "/blog",
+  ...blogPosts.map((b) => `/blog/${b.slug}`),
   "/contact",
+  "/faq",
   "/gallery",
   "/how-it-works",
   "/industries",
+  ...Object.keys(industryDetails).map((s) => `/industries/${s}`),
+  ...Object.keys(cityDetails).map((c) => `/cities/${c}`),
   "/privacy",
   "/products",
+  ...products.map((p) => `/products/${p.slug}`),
   "/quote",
+  "/request-sample",
+  "/return-and-reprint-policy",
   "/terms",
 ]);
 

@@ -11,6 +11,11 @@ import {
   ChevronLeft,
   ChevronRight,
   ArrowRight,
+  PackageCheck,
+  Coffee,
+  Box,
+  ShoppingBag,
+  Sparkles,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -25,7 +30,6 @@ import {
   ProductCard,
   IndustryCard,
   StepCard,
-  TestimonialCard,
   StatCounter,
 } from "./primitives";
 import { site } from "@/data/site";
@@ -33,12 +37,13 @@ import { products } from "@/data/products";
 import { industries } from "@/data/industries";
 import { stats } from "@/data/stats";
 import { faqs } from "@/data/faqs";
-import { testimonials } from "@/data/testimonials";
+import { clientReviews, clientLogos, caseStudies, ClientReview } from "@/data/proof";
 import { images, gallery, responsiveImageProps } from "@/data/images";
+import { trackGtmWhatsAppClick } from "@/lib/gtm";
 
 import { WhatsAppIcon } from "@/components/icons/WhatsAppIcon";
 
-function WhatsAppButton({
+export function WhatsAppButton({
   variant = "outline" as const,
   label = "Chat on WhatsApp",
 }: {
@@ -47,7 +52,12 @@ function WhatsAppButton({
 }) {
   return (
     <Button asChild size="lg" variant={variant}>
-      <a href={site.whatsapp} target="_blank" rel="noopener noreferrer">
+      <a
+        href={site.whatsapp}
+        target="_blank"
+        rel="noopener noreferrer"
+        onClick={() => trackGtmWhatsAppClick("section_button")}
+      >
         <WhatsAppIcon />
         {label}
       </a>
@@ -76,12 +86,13 @@ export function Hero() {
             </span>
           </Reveal>
           <Reveal delay={150}>
-            <h1>Packaging That Makes Your Brand Unforgettable.</h1>
+            <h1>Custom Printed Packaging for Food Brands and Growing Businesses in Pakistan</h1>
           </Reveal>
           <Reveal delay={200}>
-            <p className="mt-5 max-w-xl text-lg">
-              Custom printed boxes, cups, tissues and takeaway packaging for brands and food chains.
-              Premium print quality, low minimum orders, fast delivery.
+            <p className="mt-5 max-w-xl text-lg text-muted-foreground leading-relaxed">
+              From your first cup to your hundredth branch, Printzy prints packaging that looks the
+              same everywhere your customer meets your brand. Share your logo, get a free mockup,
+              approve a proof, and we print and deliver.
             </p>
           </Reveal>
           <Reveal delay={250}>
@@ -96,7 +107,12 @@ export function Hero() {
           </Reveal>
           <Reveal delay={300}>
             <ul className="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-sm font-medium text-foreground">
-              {["Free design support", "Low MOQ", "Nationwide delivery"].map((t) => (
+              {[
+                "Free mockup before you pay",
+                "Printed proof approval",
+                "[MOQ: confirm] minimum",
+                "Delivery across Pakistan",
+              ].map((t) => (
                 <li
                   key={t}
                   className="inline-flex items-center gap-2 transition-transform duration-200 hover:translate-x-1"
@@ -112,7 +128,7 @@ export function Hero() {
           <img
             src={images.food}
             {...responsiveImageProps(images.food, "(min-width: 1024px) 50vw, 100vw")}
-            alt="Branded pizza box, takeaway box and cup"
+            alt="Branded pizza box, takeaway food packaging and paper cup with custom logo"
             width={1024}
             height={1024}
             fetchPriority="high"
@@ -121,7 +137,7 @@ export function Hero() {
           <img
             src={images.cups}
             {...responsiveImageProps(images.cups, "(min-width: 1024px) 25vw, 50vw")}
-            alt="Custom printed coffee cups"
+            alt="Custom printed coffee and tea cups for Pakistani cafes"
             width={1024}
             height={1024}
             loading="lazy"
@@ -130,7 +146,7 @@ export function Hero() {
           <img
             src={images.boxes}
             {...responsiveImageProps(images.boxes, "(min-width: 1024px) 25vw, 50vw")}
-            alt="Printed kraft shipping boxes"
+            alt="Printed kraft pizza and shipping boxes with brand artwork"
             width={1024}
             height={1024}
             loading="lazy"
@@ -138,11 +154,11 @@ export function Hero() {
           />
           <div className="animate-float-slow absolute -left-3 top-6 rounded-xl bg-card border border-border/40 px-4 py-3 shadow-soft transition-all duration-300 hover:shadow-lift md:-left-8">
             <div className="font-display text-sm font-semibold text-foreground">Quote in 24h</div>
-            <div className="text-xs text-muted-foreground">Free design help</div>
+            <div className="text-xs text-muted-foreground">Free 3D digital mockup</div>
           </div>
           <div className="animate-float-delayed absolute -right-3 bottom-8 rounded-xl bg-navy border border-white/10 px-4 py-3 text-navy-foreground shadow-soft transition-all duration-300 hover:shadow-lift md:-right-6">
-            <div className="font-display text-sm font-semibold">Low MOQ</div>
-            <div className="text-xs text-navy-foreground/85">Start small, scale up</div>
+            <div className="font-display text-sm font-semibold">Brand Consistency</div>
+            <div className="text-xs text-navy-foreground/85">Boxes, cups, bags & tissues</div>
           </div>
         </Reveal>
       </div>
@@ -162,6 +178,79 @@ export function TrustBar() {
   );
 }
 
+export function OneSupplierSection() {
+  const journeys = [
+    {
+      icon: Coffee,
+      title: "1. Handheld & Counter",
+      desc: "Single & double-wall paper cups and heat sleeves that leave a premium impression.",
+      link: "/products/custom-paper-cups",
+    },
+    {
+      icon: Box,
+      title: "2. Kitchen to Table",
+      desc: "Sturdy pizza boxes and grease-resistant food cartons that keep meals hot and intact.",
+      link: "/products/custom-pizza-boxes",
+    },
+    {
+      icon: ShoppingBag,
+      title: "3. Doorstep & Takeaway",
+      desc: "Reinforced kraft paper bags that carry your full menu safely into customer homes.",
+      link: "/products/custom-paper-bags",
+    },
+    {
+      icon: Sparkles,
+      title: "4. The Finishing Touch",
+      desc: "Custom printed napkins and packaging seal stickers that complete the dining experience.",
+      link: "/products/custom-napkins-tissues",
+    },
+  ];
+
+  return (
+    <section className="section-pad bg-accent">
+      <div className="container-site">
+        <div className="mx-auto max-w-3xl text-center">
+          <span className="rounded-full bg-peach px-3 py-1 text-xs font-semibold uppercase tracking-wider text-navy">
+            Unified Brand Identity
+          </span>
+          <h2 className="mt-3 text-3xl font-bold">One supplier for the whole customer journey</h2>
+          <p className="mt-4 text-base text-muted-foreground sm:text-lg">
+            Most food brands buy cups from one vendor, boxes from another and bags from a third, and
+            the colours never quite match. At Printzy you can order cups, pizza boxes, food boxes,
+            takeaway sets, paper bags, napkins and cup sleeves in one brand-consistent run. One artwork
+            approval, one delivery, one reorder.
+          </p>
+        </div>
+
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {journeys.map((j) => {
+            const Icon = j.icon;
+            return (
+              <div
+                key={j.title}
+                className="group rounded-2xl border border-border bg-card p-6 shadow-soft transition-all duration-300 hover:shadow-lift hover:-translate-y-1"
+              >
+                <div className="flex size-12 items-center justify-center rounded-xl bg-peach text-navy transition-transform duration-300 group-hover:scale-110">
+                  <Icon className="size-6" />
+                </div>
+                <h3 className="mt-4 text-lg font-bold text-foreground">{j.title}</h3>
+                <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{j.desc}</p>
+                <Link
+                  to={j.link as any}
+                  className="mt-4 inline-flex items-center gap-1 text-xs font-semibold text-secondary hover:underline"
+                >
+                  View specifications
+                  <ArrowRight className="size-3" />
+                </Link>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 const CARD_DELAYS = [100, 150, 200, 250] as const;
 
 export function ProductsSection({ heading = "h2" as "h1" | "h2" }) {
@@ -170,9 +259,9 @@ export function ProductsSection({ heading = "h2" as "h1" | "h2" }) {
       <div className="container-site">
         <SectionHeader
           as={heading}
-          eyebrow="Products"
-          title="Packaging for every part of your business"
-          text="Pick a category to get a quote. Every item is printed with your design."
+          eyebrow="Packaging We Print"
+          title="Engineered for Food Brands & Growing Retailers"
+          text="Select a category to view full material specifications, print options, and request a tailored quote."
         />
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {products.map((p, idx) => (
@@ -191,8 +280,8 @@ export function IndustriesSection({ heading = "h2" as "h1" | "h2" }) {
         <SectionHeader
           as={heading}
           eyebrow="Industries"
-          title="Industries We Serve"
-          text="We understand how packaging works in your trade, from busy counters to doorstep deliveries."
+          title="Who We Print For"
+          text="We understand the operational demands of each trade, from fast-paced cafe counters to grease-proof delivery fleets."
         />
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {industries.map((i, idx) => (
@@ -205,13 +294,22 @@ export function IndustriesSection({ heading = "h2" as "h1" | "h2" }) {
 }
 
 const steps = [
-  { title: "Share Your Requirement", text: "Tell us the product, size, quantity and your logo." },
   {
-    title: "Get Design and Quote",
-    text: "We send a mockup and a clear price, usually within 24 hours.",
+    title: "1. Send Your Requirement",
+    text: "Share your target product, sizes, estimated quantities, and logo file via WhatsApp or our instant quote form.",
   },
-  { title: "Approve Sample", text: "Check the proof. We adjust until it is right." },
-  { title: "We Print and Deliver", text: "Production starts and your order ships to your door." },
+  {
+    title: "2. Free Mockup & Quote in 24h",
+    text: "Receive a photorealistic 3D digital mockup and itemised price breakdown within 24 hours.",
+  },
+  {
+    title: "3. Approve Your Proof",
+    text: "Review your high-resolution digital proof or printed sample. We adjust until your team is 100% satisfied.",
+  },
+  {
+    title: "4. Print & Doorstep Delivery",
+    text: "We print, perform multi-point quality control, and deliver securely across Pakistan in [X-Y working days: confirm].",
+  },
 ];
 
 const STEP_DELAYS = [100, 200, 300, 400] as const;
@@ -223,8 +321,8 @@ export function HowItWorksSection({ heading = "h2" as "h1" | "h2" }) {
         <SectionHeader
           as={heading}
           eyebrow="Process"
-          title="How It Works"
-          text="Four simple steps from idea to delivered packaging."
+          title="How Ordering Works"
+          text="Four clear steps from initial artwork check to delivered packaging."
         />
         <ol className="relative grid gap-8 md:grid-cols-4">
           <span
@@ -243,33 +341,33 @@ export function HowItWorksSection({ heading = "h2" as "h1" | "h2" }) {
 const features = [
   {
     icon: BadgeCheck,
-    title: "Premium print quality",
-    text: "Sharp detail and accurate brand colours on every run.",
+    title: "Honest, upfront pricing",
+    text: "See minimums, volume breakups, and lead times clearly before committing. No hidden setup charges.",
   },
   {
-    icon: Layers,
-    title: "Low minimum orders",
-    text: "Start with smaller quantities and reorder as you grow.",
+    icon: PackageCheck,
+    title: "Approve before production",
+    text: "Free 3D digital mockup and proof verification before mass production begins.",
   },
   {
     icon: Palette,
-    title: "Free design support",
-    text: "We prepare your artwork for print at no extra cost.",
+    title: "Brand colour consistency",
+    text: "Precise ink matching ensures your cups, boxes, bags, and napkins match perfectly.",
   },
   {
     icon: Clock,
-    title: "Fast turnaround",
-    text: "Quotes within 24 hours and clear production timelines.",
+    title: "Frictionless reorders",
+    text: "We keep your approved production artwork on file. Reorders take just a quick WhatsApp confirmation.",
+  },
+  {
+    icon: Leaf,
+    title: "Food-safe & eco materials",
+    text: "Certified food-grade boards, greaseproof linings, and biodegradable kraft options with documents on request.",
   },
   {
     icon: Truck,
     title: "Nationwide delivery",
-    text: "We ship to your city, wherever your branches are.",
-  },
-  {
-    icon: Leaf,
-    title: "Eco-friendly options",
-    text: "Kraft and recyclable materials when you need them.",
+    text: "Reliable shipping to Lahore, Karachi, Islamabad, Faisalabad, and all commercial centers across Pakistan.",
   },
 ];
 
@@ -279,7 +377,7 @@ export function WhySection() {
   return (
     <section className="section-pad">
       <div className="container-site">
-        <SectionHeader eyebrow="Why Printzy" title="Why Choose Printzy" />
+        <SectionHeader eyebrow="Why Printzy" title="Why Brands Choose Printzy" />
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {features.map((f, idx) => (
             <IndustryCard
@@ -345,9 +443,19 @@ export function FeaturedWork() {
   );
 }
 
-export function Testimonials() {
+/**
+ * ProofSection - Authentic Social Proof
+ * Strictly respects Rule 1 of SEO guidelines: Never publish fabricated claims, ratings, or fake client reviews.
+ * If clientReviews and clientLogos are empty, renders NOTHING (returns null).
+ */
+export function ProofSection() {
   const [i, setI] = useState(0);
-  const n = testimonials.length;
+  const n = clientReviews.length;
+
+  // Strict authenticity guard: if no verified reviews exist, render nothing
+  if (n === 0 && clientLogos.length === 0 && caseStudies.length === 0) {
+    return null;
+  }
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === "ArrowLeft") {
@@ -360,61 +468,96 @@ export function Testimonials() {
   return (
     <section className="section-pad bg-accent">
       <div className="container-site">
-        <SectionHeader eyebrow="Reviews" title="What clients say" />
-        <div
-          tabIndex={0}
-          onKeyDown={handleKeyDown}
-          aria-label="Client testimonials carousel"
-          role="region"
-          className="mx-auto max-w-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-2xl p-2"
-        >
-          <div aria-live="polite" className="overflow-hidden min-h-[220px]">
-            {testimonials[i] && (
-              <div key={i} className="animate-fade-in">
-                <TestimonialCard {...testimonials[i]} />
+        <SectionHeader eyebrow="Verified Proof" title="Trusted by Food Brands in Pakistan" />
+
+        {clientLogos.length > 0 && (
+          <div className="mb-12 flex flex-wrap items-center justify-center gap-8 opacity-80">
+            {clientLogos.map((logo) => (
+              <img
+                key={logo.name}
+                src={logo.logoUrl}
+                alt={`${logo.name} custom packaging`}
+                className="h-10 max-w-[140px] object-contain grayscale transition hover:grayscale-0"
+              />
+            ))}
+          </div>
+        )}
+
+        {n > 0 && (
+          <div
+            tabIndex={0}
+            onKeyDown={handleKeyDown}
+            aria-label="Verified client testimonials"
+            role="region"
+            className="mx-auto max-w-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-2xl p-2"
+          >
+            <div aria-live="polite" className="overflow-hidden min-h-[220px]">
+              {clientReviews[i] && (
+                <div key={i} className="animate-fade-in rounded-2xl border border-border bg-card p-6 shadow-soft">
+                  <p className="text-base sm:text-lg italic text-foreground">
+                    &ldquo;{clientReviews[i].reviewText}&rdquo;
+                  </p>
+                  <div className="mt-4 flex items-center justify-between border-t border-border pt-4">
+                    <div>
+                      <div className="font-bold text-foreground">{clientReviews[i].clientName}</div>
+                      <div className="text-sm text-muted-foreground">
+                        {clientReviews[i].businessName} &bull; {clientReviews[i].city}
+                      </div>
+                    </div>
+                    {clientReviews[i].verifiedOrder && (
+                      <span className="rounded-full bg-peach px-3 py-1 text-xs font-semibold text-navy">
+                        {clientReviews[i].verifiedOrder}
+                      </span>
+                    )}
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {n > 1 && (
+              <div className="mt-6 flex items-center justify-center gap-3">
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  aria-label="Previous review"
+                  onClick={() => setI((i - 1 + n) % n)}
+                >
+                  <ChevronLeft />
+                </Button>
+                {clientReviews.map((_, k) => (
+                  <button
+                    key={k}
+                    aria-label={`Show review ${k + 1}`}
+                    aria-current={k === i ? "true" : "false"}
+                    onClick={() => setI(k)}
+                    className="flex size-11 items-center justify-center"
+                  >
+                    <span
+                      className={`block rounded-full transition-all ${
+                        k === i ? "h-2.5 w-6 bg-navy" : "size-2.5 bg-border"
+                      }`}
+                    />
+                  </button>
+                ))}
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  aria-label="Next review"
+                  onClick={() => setI((i + 1) % n)}
+                >
+                  <ChevronRight />
+                </Button>
               </div>
             )}
           </div>
-          <div className="mt-6 flex items-center justify-center gap-3">
-            <Button
-              variant="ghost"
-              size="icon"
-              aria-label="Previous review"
-              onClick={() => setI((i - 1 + n) % n)}
-              className="transition-transform duration-200 active:scale-95"
-            >
-              <ChevronLeft />
-            </Button>
-            {testimonials.map((_, k) => (
-              <button
-                key={k}
-                aria-label={`Show review ${k + 1}`}
-                aria-current={k === i ? "true" : "false"}
-                onClick={() => setI(k)}
-                className="flex size-11 items-center justify-center focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring rounded-full transition-transform hover:scale-125"
-              >
-                <span
-                  className={`block transition-all duration-300 rounded-full ${
-                    k === i ? "h-2.5 w-6 bg-navy" : "size-2.5 bg-border hover:bg-muted-foreground"
-                  }`}
-                />
-              </button>
-            ))}
-            <Button
-              variant="ghost"
-              size="icon"
-              aria-label="Next review"
-              onClick={() => setI((i + 1) % n)}
-              className="transition-transform duration-200 active:scale-95"
-            >
-              <ChevronRight />
-            </Button>
-          </div>
-        </div>
+        )}
       </div>
     </section>
   );
 }
+
+// Backward compatibility alias for any older component references
+export const Testimonials = ProofSection;
 
 export function FAQ() {
   const faqSchema = {
@@ -468,9 +611,10 @@ export function QuoteCTA() {
         className="pointer-events-none absolute -right-16 -bottom-16 size-72 rounded-full bg-primary/20 blur-3xl animate-blob-delayed"
       />
       <Reveal className="container-site relative z-10 text-center">
-        <h2 className="text-navy-foreground">Ready to upgrade your packaging?</h2>
+        <h2 className="text-navy-foreground">Ready to see your logo on your packaging?</h2>
         <p className="mx-auto mt-4 max-w-xl text-lg text-navy-foreground/85">
-          Send us your requirement today. You will have a design and a price within 24 hours.
+          Send your required product, size, and estimated quantity. Get a complimentary 3D mockup and
+          itemised quote within 24 hours.
         </p>
         <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
           <Button asChild size="lg" shimmer>
@@ -490,7 +634,7 @@ export function PageHero({ title, text }: { title: string; text: string }) {
     <section className="bg-hero py-14 md:py-20">
       <div className="container-site max-w-3xl text-center">
         <h1>{title}</h1>
-        <p className="mt-4 text-lg">{text}</p>
+        <p className="mt-4 text-lg text-muted-foreground">{text}</p>
       </div>
     </section>
   );

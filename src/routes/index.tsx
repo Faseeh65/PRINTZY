@@ -3,6 +3,7 @@ import { seo } from "@/lib/seo";
 import {
   Hero,
   TrustBar,
+  OneSupplierSection,
   ProductsSection,
   IndustriesSection,
   HowItWorksSection,
@@ -16,9 +17,9 @@ import {
 export const Route = createFileRoute("/")({
   head: () =>
     seo({
-      title: "Printzy | Custom Printed Packaging for Brands & Food Chains",
+      title: "Custom Printed Packaging Pakistan | Printzy",
       description:
-        "Custom printed boxes, cups, napkins, paper bags and takeaway packaging. Low MOQ, free design support and nationwide delivery. Get a quote in 24 hours.",
+        "Custom printed cups, pizza boxes, food boxes, paper bags and napkins with your logo. Free mockup, low minimums, delivery across Pakistan. Get a quote in 24h.",
       path: "/",
     }),
   component: Index,
@@ -29,6 +30,7 @@ function Index() {
     <>
       <Hero />
       <TrustBar />
+      <OneSupplierSection />
       <ProductsSection />
       <IndustriesSection />
       <HowItWorksSection />

@@ -11,14 +11,23 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
+import { Route as ArtworkGuideRouteImport } from './routes/artwork-guide'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as FaqRouteImport } from './routes/faq'
 import { Route as GalleryRouteImport } from './routes/gallery'
 import { Route as HowItWorksRouteImport } from './routes/how-it-works'
-import { Route as IndustriesRouteImport } from './routes/industries'
 import { Route as PrivacyRouteImport } from './routes/privacy'
-import { Route as ProductsRouteImport } from './routes/products'
 import { Route as QuoteRouteImport } from './routes/quote'
+import { Route as RequestSampleRouteImport } from './routes/request-sample'
+import { Route as ReturnAndReprintPolicyRouteImport } from './routes/return-and-reprint-policy'
 import { Route as TermsRouteImport } from './routes/terms'
+import { Route as BlogIndexRouteImport } from './routes/blog.index'
+import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
+import { Route as CitiesSlugRouteImport } from './routes/cities.$slug'
+import { Route as IndustriesIndexRouteImport } from './routes/industries.index'
+import { Route as IndustriesSlugRouteImport } from './routes/industries.$slug'
+import { Route as ProductsIndexRouteImport } from './routes/products.index'
+import { Route as ProductsSlugRouteImport } from './routes/products.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -30,9 +39,19 @@ const AboutRoute = AboutRouteImport.update({
   path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ArtworkGuideRoute = ArtworkGuideRouteImport.update({
+  id: '/artwork-guide',
+  path: '/artwork-guide',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FaqRoute = FaqRouteImport.update({
+  id: '/faq',
+  path: '/faq',
   getParentRoute: () => rootRouteImport,
 } as any)
 const GalleryRoute = GalleryRouteImport.update({
@@ -45,19 +64,9 @@ const HowItWorksRoute = HowItWorksRouteImport.update({
   path: '/how-it-works',
   getParentRoute: () => rootRouteImport,
 } as any)
-const IndustriesRoute = IndustriesRouteImport.update({
-  id: '/industries',
-  path: '/industries',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const PrivacyRoute = PrivacyRouteImport.update({
   id: '/privacy',
   path: '/privacy',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ProductsRoute = ProductsRouteImport.update({
-  id: '/products',
-  path: '/products',
   getParentRoute: () => rootRouteImport,
 } as any)
 const QuoteRoute = QuoteRouteImport.update({
@@ -65,99 +74,207 @@ const QuoteRoute = QuoteRouteImport.update({
   path: '/quote',
   getParentRoute: () => rootRouteImport,
 } as any)
+const RequestSampleRoute = RequestSampleRouteImport.update({
+  id: '/request-sample',
+  path: '/request-sample',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReturnAndReprintPolicyRoute = ReturnAndReprintPolicyRouteImport.update({
+  id: '/return-and-reprint-policy',
+  path: '/return-and-reprint-policy',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const TermsRoute = TermsRouteImport.update({
   id: '/terms',
   path: '/terms',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogIndexRoute = BlogIndexRouteImport.update({
+  id: '/blog/',
+  path: '/blog/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogSlugRoute = BlogSlugRouteImport.update({
+  id: '/blog/$slug',
+  path: '/blog/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CitiesSlugRoute = CitiesSlugRouteImport.update({
+  id: '/cities/$slug',
+  path: '/cities/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IndustriesIndexRoute = IndustriesIndexRouteImport.update({
+  id: '/industries/',
+  path: '/industries/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IndustriesSlugRoute = IndustriesSlugRouteImport.update({
+  id: '/industries/$slug',
+  path: '/industries/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProductsIndexRoute = ProductsIndexRouteImport.update({
+  id: '/products/',
+  path: '/products/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProductsSlugRoute = ProductsSlugRouteImport.update({
+  id: '/products/$slug',
+  path: '/products/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/artwork-guide': typeof ArtworkGuideRoute
   '/contact': typeof ContactRoute
+  '/faq': typeof FaqRoute
   '/gallery': typeof GalleryRoute
   '/how-it-works': typeof HowItWorksRoute
-  '/industries': typeof IndustriesRoute
   '/privacy': typeof PrivacyRoute
-  '/products': typeof ProductsRoute
   '/quote': typeof QuoteRoute
+  '/request-sample': typeof RequestSampleRoute
+  '/return-and-reprint-policy': typeof ReturnAndReprintPolicyRoute
   '/terms': typeof TermsRoute
+  '/blog/$slug': typeof BlogSlugRoute
+  '/cities/$slug': typeof CitiesSlugRoute
+  '/industries/$slug': typeof IndustriesSlugRoute
+  '/products/$slug': typeof ProductsSlugRoute
+  '/blog/': typeof BlogIndexRoute
+  '/industries/': typeof IndustriesIndexRoute
+  '/products/': typeof ProductsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/artwork-guide': typeof ArtworkGuideRoute
   '/contact': typeof ContactRoute
+  '/faq': typeof FaqRoute
   '/gallery': typeof GalleryRoute
   '/how-it-works': typeof HowItWorksRoute
-  '/industries': typeof IndustriesRoute
   '/privacy': typeof PrivacyRoute
-  '/products': typeof ProductsRoute
   '/quote': typeof QuoteRoute
+  '/request-sample': typeof RequestSampleRoute
+  '/return-and-reprint-policy': typeof ReturnAndReprintPolicyRoute
   '/terms': typeof TermsRoute
+  '/blog/$slug': typeof BlogSlugRoute
+  '/cities/$slug': typeof CitiesSlugRoute
+  '/industries/$slug': typeof IndustriesSlugRoute
+  '/products/$slug': typeof ProductsSlugRoute
+  '/blog': typeof BlogIndexRoute
+  '/industries': typeof IndustriesIndexRoute
+  '/products': typeof ProductsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/artwork-guide': typeof ArtworkGuideRoute
   '/contact': typeof ContactRoute
+  '/faq': typeof FaqRoute
   '/gallery': typeof GalleryRoute
   '/how-it-works': typeof HowItWorksRoute
-  '/industries': typeof IndustriesRoute
   '/privacy': typeof PrivacyRoute
-  '/products': typeof ProductsRoute
   '/quote': typeof QuoteRoute
+  '/request-sample': typeof RequestSampleRoute
+  '/return-and-reprint-policy': typeof ReturnAndReprintPolicyRoute
   '/terms': typeof TermsRoute
+  '/blog/$slug': typeof BlogSlugRoute
+  '/cities/$slug': typeof CitiesSlugRoute
+  '/industries/$slug': typeof IndustriesSlugRoute
+  '/products/$slug': typeof ProductsSlugRoute
+  '/blog/': typeof BlogIndexRoute
+  '/industries/': typeof IndustriesIndexRoute
+  '/products/': typeof ProductsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
     | '/about'
+    | '/artwork-guide'
     | '/contact'
+    | '/faq'
     | '/gallery'
     | '/how-it-works'
-    | '/industries'
     | '/privacy'
-    | '/products'
     | '/quote'
+    | '/request-sample'
+    | '/return-and-reprint-policy'
     | '/terms'
+    | '/blog/$slug'
+    | '/cities/$slug'
+    | '/industries/$slug'
+    | '/products/$slug'
+    | '/blog/'
+    | '/industries/'
+    | '/products/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/about'
+    | '/artwork-guide'
     | '/contact'
+    | '/faq'
     | '/gallery'
     | '/how-it-works'
-    | '/industries'
     | '/privacy'
-    | '/products'
     | '/quote'
+    | '/request-sample'
+    | '/return-and-reprint-policy'
     | '/terms'
+    | '/blog/$slug'
+    | '/cities/$slug'
+    | '/industries/$slug'
+    | '/products/$slug'
+    | '/blog'
+    | '/industries'
+    | '/products'
   id:
     | '__root__'
     | '/'
     | '/about'
+    | '/artwork-guide'
     | '/contact'
+    | '/faq'
     | '/gallery'
     | '/how-it-works'
-    | '/industries'
     | '/privacy'
-    | '/products'
     | '/quote'
+    | '/request-sample'
+    | '/return-and-reprint-policy'
     | '/terms'
+    | '/blog/$slug'
+    | '/cities/$slug'
+    | '/industries/$slug'
+    | '/products/$slug'
+    | '/blog/'
+    | '/industries/'
+    | '/products/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  ArtworkGuideRoute: typeof ArtworkGuideRoute
   ContactRoute: typeof ContactRoute
+  FaqRoute: typeof FaqRoute
   GalleryRoute: typeof GalleryRoute
   HowItWorksRoute: typeof HowItWorksRoute
-  IndustriesRoute: typeof IndustriesRoute
   PrivacyRoute: typeof PrivacyRoute
-  ProductsRoute: typeof ProductsRoute
   QuoteRoute: typeof QuoteRoute
+  RequestSampleRoute: typeof RequestSampleRoute
+  ReturnAndReprintPolicyRoute: typeof ReturnAndReprintPolicyRoute
   TermsRoute: typeof TermsRoute
+  BlogSlugRoute: typeof BlogSlugRoute
+  CitiesSlugRoute: typeof CitiesSlugRoute
+  IndustriesSlugRoute: typeof IndustriesSlugRoute
+  ProductsSlugRoute: typeof ProductsSlugRoute
+  BlogIndexRoute: typeof BlogIndexRoute
+  IndustriesIndexRoute: typeof IndustriesIndexRoute
+  ProductsIndexRoute: typeof ProductsIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -176,11 +293,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/artwork-guide': {
+      id: '/artwork-guide'
+      path: '/artwork-guide'
+      fullPath: '/artwork-guide'
+      preLoaderRoute: typeof ArtworkGuideRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/contact': {
       id: '/contact'
       path: '/contact'
       fullPath: '/contact'
       preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/faq': {
+      id: '/faq'
+      path: '/faq'
+      fullPath: '/faq'
+      preLoaderRoute: typeof FaqRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/gallery': {
@@ -197,25 +328,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof HowItWorksRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/industries': {
-      id: '/industries'
-      path: '/industries'
-      fullPath: '/industries'
-      preLoaderRoute: typeof IndustriesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/privacy': {
       id: '/privacy'
       path: '/privacy'
       fullPath: '/privacy'
       preLoaderRoute: typeof PrivacyRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/products': {
-      id: '/products'
-      path: '/products'
-      fullPath: '/products'
-      preLoaderRoute: typeof ProductsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/quote': {
@@ -225,11 +342,74 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof QuoteRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/request-sample': {
+      id: '/request-sample'
+      path: '/request-sample'
+      fullPath: '/request-sample'
+      preLoaderRoute: typeof RequestSampleRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/return-and-reprint-policy': {
+      id: '/return-and-reprint-policy'
+      path: '/return-and-reprint-policy'
+      fullPath: '/return-and-reprint-policy'
+      preLoaderRoute: typeof ReturnAndReprintPolicyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/terms': {
       id: '/terms'
       path: '/terms'
       fullPath: '/terms'
       preLoaderRoute: typeof TermsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog/': {
+      id: '/blog/'
+      path: '/blog'
+      fullPath: '/blog/'
+      preLoaderRoute: typeof BlogIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog/$slug': {
+      id: '/blog/$slug'
+      path: '/blog/$slug'
+      fullPath: '/blog/$slug'
+      preLoaderRoute: typeof BlogSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cities/$slug': {
+      id: '/cities/$slug'
+      path: '/cities/$slug'
+      fullPath: '/cities/$slug'
+      preLoaderRoute: typeof CitiesSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/industries/': {
+      id: '/industries/'
+      path: '/industries'
+      fullPath: '/industries/'
+      preLoaderRoute: typeof IndustriesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/industries/$slug': {
+      id: '/industries/$slug'
+      path: '/industries/$slug'
+      fullPath: '/industries/$slug'
+      preLoaderRoute: typeof IndustriesSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/products/': {
+      id: '/products/'
+      path: '/products'
+      fullPath: '/products/'
+      preLoaderRoute: typeof ProductsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/products/$slug': {
+      id: '/products/$slug'
+      path: '/products/$slug'
+      fullPath: '/products/$slug'
+      preLoaderRoute: typeof ProductsSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -238,14 +418,23 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  ArtworkGuideRoute: ArtworkGuideRoute,
   ContactRoute: ContactRoute,
+  FaqRoute: FaqRoute,
   GalleryRoute: GalleryRoute,
   HowItWorksRoute: HowItWorksRoute,
-  IndustriesRoute: IndustriesRoute,
   PrivacyRoute: PrivacyRoute,
-  ProductsRoute: ProductsRoute,
   QuoteRoute: QuoteRoute,
+  RequestSampleRoute: RequestSampleRoute,
+  ReturnAndReprintPolicyRoute: ReturnAndReprintPolicyRoute,
   TermsRoute: TermsRoute,
+  BlogSlugRoute: BlogSlugRoute,
+  CitiesSlugRoute: CitiesSlugRoute,
+  IndustriesSlugRoute: IndustriesSlugRoute,
+  ProductsSlugRoute: ProductsSlugRoute,
+  BlogIndexRoute: BlogIndexRoute,
+  IndustriesIndexRoute: IndustriesIndexRoute,
+  ProductsIndexRoute: ProductsIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

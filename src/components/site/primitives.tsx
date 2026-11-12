@@ -91,7 +91,12 @@ export function ProductCard({
       delay={delay}
       className="group flex flex-col overflow-hidden rounded-2xl bg-card border border-border/40 hover:border-secondary/40 card-lift"
     >
-      <div className="aspect-[4/3] overflow-hidden bg-muted/30">
+      <Link
+        to="/products/$slug"
+        params={{ slug }}
+        className="aspect-[4/3] overflow-hidden bg-muted/30 block"
+        aria-label={`View ${title} custom packaging`}
+      >
         <img
           src={image}
           {...responsiveImageProps(
@@ -104,23 +109,34 @@ export function ProductCard({
           loading="lazy"
           className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
         />
-      </div>
+      </Link>
       <div className="flex flex-1 flex-col p-5">
-        <h3 className="text-lg transition-colors duration-200 group-hover:text-secondary">
-          {title}
-        </h3>
-        <p className="mt-2 flex-1 text-base">{benefit}</p>
-        <Link
-          to="/quote"
-          search={{ product: slug }}
-          className="mt-4 inline-flex min-h-11 items-center gap-1 font-display font-semibold text-secondary hover:text-secondary-hover"
-        >
-          <span>Get Quote</span>
-          <ArrowRight
-            className="size-4 transition-transform duration-200 group-hover:translate-x-1.5"
-            aria-hidden
-          />
+        <Link to="/products/$slug" params={{ slug }} className="block">
+          <h3 className="text-lg transition-colors duration-200 group-hover:text-secondary">
+            {title}
+          </h3>
         </Link>
+        <p className="mt-2 flex-1 text-base text-muted-foreground">{benefit}</p>
+        <div className="mt-4 flex items-center justify-between gap-2 pt-2 border-t border-border/40">
+          <Link
+            to="/products/$slug"
+            params={{ slug }}
+            className="inline-flex min-h-11 items-center gap-1 font-display font-semibold text-sm text-foreground hover:text-secondary"
+          >
+            <span>Details</span>
+            <ArrowRight
+              className="size-4 transition-transform duration-200 group-hover:translate-x-1"
+              aria-hidden
+            />
+          </Link>
+          <Link
+            to="/quote"
+            search={{ product: slug }}
+            className="inline-flex min-h-10 items-center rounded-lg bg-secondary/10 px-3 py-1.5 font-display text-sm font-semibold text-secondary hover:bg-secondary hover:text-secondary-foreground transition-colors"
+          >
+            Get Quote
+          </Link>
+        </div>
       </div>
     </Reveal>
   );
@@ -130,18 +146,17 @@ export function IndustryCard({
   icon: Icon,
   title,
   text,
+  slug,
   delay,
 }: {
   icon?: LucideIcon;
   title: string;
   text: string;
+  slug?: string | undefined;
   delay?: RevealDelay | undefined;
 }) {
-  return (
-    <Reveal
-      delay={delay}
-      className="group rounded-2xl bg-card p-6 border border-border/40 hover:border-secondary/30 card-lift"
-    >
+  const CardContent = (
+    <>
       {Icon && (
         <span className="mb-4 inline-flex size-12 items-center justify-center rounded-xl bg-accent text-secondary transition-transform duration-300 group-hover:scale-110">
           <Icon aria-hidden="true" className="size-6" />
@@ -151,6 +166,27 @@ export function IndustryCard({
         {title}
       </h3>
       <p className="mt-1 text-base text-muted-foreground">{text}</p>
+      {slug && (
+        <span className="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-secondary group-hover:underline">
+          <span>Explore {title} Packaging</span>
+          <ArrowRight className="size-3 transition-transform duration-200 group-hover:translate-x-1" />
+        </span>
+      )}
+    </>
+  );
+
+  return (
+    <Reveal
+      delay={delay}
+      className="group rounded-2xl bg-card p-6 border border-border/40 hover:border-secondary/30 card-lift"
+    >
+      {slug ? (
+        <Link to="/industries/$slug" params={{ slug }} className="block focus-visible:outline-none">
+          {CardContent}
+        </Link>
+      ) : (
+        CardContent
+      )}
     </Reveal>
   );
 }
@@ -217,14 +253,18 @@ export function StatCounter({
   label: string;
 }) {
   const ref = useRef<HTMLDivElement>(null);
-  const [n, setN] = useState(0);
+  // SSR default: render genuine value immediately so crawlers and slow devices see real numbers
+  const [n, setN] = useState(value ?? 0);
   useEffect(() => {
     if (value == null || !ref.current) return;
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduce) return;
+
+    // Reset to 0 client-side before starting count-up animation
+    setN(0);
     const io = new IntersectionObserver((entries) => {
       if (!entries[0]?.isIntersecting) return;
       io.disconnect();
-      if (reduce) return setN(value);
       const start = performance.now();
       const tick = (t: number) => {
         const p = Math.min(1, (t - start) / 1200);

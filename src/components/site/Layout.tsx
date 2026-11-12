@@ -12,6 +12,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { site, navLinks } from "@/data/site";
 import { products } from "@/data/products";
+import { trackGtmWhatsAppClick } from "@/lib/gtm";
 
 export function TopBar() {
   return (
@@ -167,6 +168,38 @@ export function Footer() {
           ))}
           <li>
             <Link
+              to={"/faq" as any}
+              className="hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm"
+            >
+              FAQ
+            </Link>
+          </li>
+          <li>
+            <Link
+              to={"/request-sample" as any}
+              className="hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm"
+            >
+              Request a Sample
+            </Link>
+          </li>
+          <li>
+            <Link
+              to={"/artwork-guide" as any}
+              className="hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm"
+            >
+              Artwork Guide
+            </Link>
+          </li>
+          <li>
+            <Link
+              to={"/return-and-reprint-policy" as any}
+              className="hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm"
+            >
+              Return & Reprint Policy
+            </Link>
+          </li>
+          <li>
+            <Link
               to="/privacy"
               className="hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm"
             >
@@ -186,8 +219,8 @@ export function Footer() {
           {products.map((p) => (
             <li key={p.slug}>
               <Link
-                to="/quote"
-                search={{ product: p.slug }}
+                to="/products/$slug"
+                params={{ slug: p.slug }}
                 className="hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm"
               >
                 {p.title}
@@ -252,6 +285,7 @@ export function FloatingActions() {
         href={site.whatsapp}
         target="_blank"
         rel="noopener noreferrer"
+        onClick={() => trackGtmWhatsAppClick("floating_button")}
         aria-label="Chat with Printzy on WhatsApp"
         className="wa-pulse fixed bottom-24 right-4 z-40 inline-flex size-14 items-center justify-center rounded-full shadow-soft transition-all duration-300 hover:scale-110 hover:-translate-y-1 hover:shadow-lift active:scale-95 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#25D366] md:bottom-6 md:right-6"
       >
