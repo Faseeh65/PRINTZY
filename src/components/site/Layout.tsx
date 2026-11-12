@@ -167,6 +167,38 @@ export function Footer() {
           ))}
           <li>
             <Link
+              to={"/faq" as any}
+              className="hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm"
+            >
+              FAQ
+            </Link>
+          </li>
+          <li>
+            <Link
+              to={"/request-sample" as any}
+              className="hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm"
+            >
+              Request a Sample
+            </Link>
+          </li>
+          <li>
+            <Link
+              to={"/artwork-guide" as any}
+              className="hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm"
+            >
+              Artwork Guide
+            </Link>
+          </li>
+          <li>
+            <Link
+              to={"/return-and-reprint-policy" as any}
+              className="hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm"
+            >
+              Return & Reprint Policy
+            </Link>
+          </li>
+          <li>
+            <Link
               to="/privacy"
               className="hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm"
             >

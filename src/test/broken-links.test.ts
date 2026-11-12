@@ -7,7 +7,9 @@ import path from "node:path";
 const REGISTERED_ROUTES = new Set([
   "/",
   "/about",
+  "/artwork-guide",
   "/contact",
+  "/faq",
   "/gallery",
   "/how-it-works",
   "/industries",
@@ -15,6 +17,8 @@ const REGISTERED_ROUTES = new Set([
   "/products",
   ...products.map((p) => `/products/${p.slug}`),
   "/quote",
+  "/request-sample",
+  "/return-and-reprint-policy",
   "/terms",
 ]);
 

@@ -2,13 +2,17 @@ import { site } from "@/data/site";
 
 const breadcrumbLabels: Record<string, string> = {
   "/about": "About",
+  "/artwork-guide": "Artwork Guide",
   "/contact": "Contact",
+  "/faq": "FAQ",
   "/gallery": "Gallery",
   "/how-it-works": "How It Works",
   "/industries": "Industries",
   "/privacy": "Privacy Policy",
   "/products": "Products",
   "/quote": "Get a Quote",
+  "/request-sample": "Request a Sample",
+  "/return-and-reprint-policy": "Return & Reprint Policy",
   "/terms": "Terms of Service",
 };
 

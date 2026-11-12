@@ -11,12 +11,16 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
+import { Route as ArtworkGuideRouteImport } from './routes/artwork-guide'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as FaqRouteImport } from './routes/faq'
 import { Route as GalleryRouteImport } from './routes/gallery'
 import { Route as HowItWorksRouteImport } from './routes/how-it-works'
 import { Route as IndustriesRouteImport } from './routes/industries'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as QuoteRouteImport } from './routes/quote'
+import { Route as RequestSampleRouteImport } from './routes/request-sample'
+import { Route as ReturnAndReprintPolicyRouteImport } from './routes/return-and-reprint-policy'
 import { Route as TermsRouteImport } from './routes/terms'
 import { Route as ProductsIndexRouteImport } from './routes/products.index'
 import { Route as ProductsSlugRouteImport } from './routes/products.$slug'
@@ -31,9 +35,19 @@ const AboutRoute = AboutRouteImport.update({
   path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ArtworkGuideRoute = ArtworkGuideRouteImport.update({
+  id: '/artwork-guide',
+  path: '/artwork-guide',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FaqRoute = FaqRouteImport.update({
+  id: '/faq',
+  path: '/faq',
   getParentRoute: () => rootRouteImport,
 } as any)
 const GalleryRoute = GalleryRouteImport.update({
@@ -61,6 +75,16 @@ const QuoteRoute = QuoteRouteImport.update({
   path: '/quote',
   getParentRoute: () => rootRouteImport,
 } as any)
+const RequestSampleRoute = RequestSampleRouteImport.update({
+  id: '/request-sample',
+  path: '/request-sample',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReturnAndReprintPolicyRoute = ReturnAndReprintPolicyRouteImport.update({
+  id: '/return-and-reprint-policy',
+  path: '/return-and-reprint-policy',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const TermsRoute = TermsRouteImport.update({
   id: '/terms',
   path: '/terms',
@@ -80,12 +104,16 @@ const ProductsSlugRoute = ProductsSlugRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/artwork-guide': typeof ArtworkGuideRoute
   '/contact': typeof ContactRoute
+  '/faq': typeof FaqRoute
   '/gallery': typeof GalleryRoute
   '/how-it-works': typeof HowItWorksRoute
   '/industries': typeof IndustriesRoute
   '/privacy': typeof PrivacyRoute
   '/quote': typeof QuoteRoute
+  '/request-sample': typeof RequestSampleRoute
+  '/return-and-reprint-policy': typeof ReturnAndReprintPolicyRoute
   '/terms': typeof TermsRoute
   '/products/$slug': typeof ProductsSlugRoute
   '/products/': typeof ProductsIndexRoute
@@ -93,12 +121,16 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/artwork-guide': typeof ArtworkGuideRoute
   '/contact': typeof ContactRoute
+  '/faq': typeof FaqRoute
   '/gallery': typeof GalleryRoute
   '/how-it-works': typeof HowItWorksRoute
   '/industries': typeof IndustriesRoute
   '/privacy': typeof PrivacyRoute
   '/quote': typeof QuoteRoute
+  '/request-sample': typeof RequestSampleRoute
+  '/return-and-reprint-policy': typeof ReturnAndReprintPolicyRoute
   '/terms': typeof TermsRoute
   '/products/$slug': typeof ProductsSlugRoute
   '/products': typeof ProductsIndexRoute
@@ -107,12 +139,16 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/artwork-guide': typeof ArtworkGuideRoute
   '/contact': typeof ContactRoute
+  '/faq': typeof FaqRoute
   '/gallery': typeof GalleryRoute
   '/how-it-works': typeof HowItWorksRoute
   '/industries': typeof IndustriesRoute
   '/privacy': typeof PrivacyRoute
   '/quote': typeof QuoteRoute
+  '/request-sample': typeof RequestSampleRoute
+  '/return-and-reprint-policy': typeof ReturnAndReprintPolicyRoute
   '/terms': typeof TermsRoute
   '/products/$slug': typeof ProductsSlugRoute
   '/products/': typeof ProductsIndexRoute
@@ -122,12 +158,16 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/about'
+    | '/artwork-guide'
     | '/contact'
+    | '/faq'
     | '/gallery'
     | '/how-it-works'
     | '/industries'
     | '/privacy'
     | '/quote'
+    | '/request-sample'
+    | '/return-and-reprint-policy'
     | '/terms'
     | '/products/$slug'
     | '/products/'
@@ -135,12 +175,16 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/about'
+    | '/artwork-guide'
     | '/contact'
+    | '/faq'
     | '/gallery'
     | '/how-it-works'
     | '/industries'
     | '/privacy'
     | '/quote'
+    | '/request-sample'
+    | '/return-and-reprint-policy'
     | '/terms'
     | '/products/$slug'
     | '/products'
@@ -148,12 +192,16 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/about'
+    | '/artwork-guide'
     | '/contact'
+    | '/faq'
     | '/gallery'
     | '/how-it-works'
     | '/industries'
     | '/privacy'
     | '/quote'
+    | '/request-sample'
+    | '/return-and-reprint-policy'
     | '/terms'
     | '/products/$slug'
     | '/products/'
@@ -162,12 +210,16 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  ArtworkGuideRoute: typeof ArtworkGuideRoute
   ContactRoute: typeof ContactRoute
+  FaqRoute: typeof FaqRoute
   GalleryRoute: typeof GalleryRoute
   HowItWorksRoute: typeof HowItWorksRoute
   IndustriesRoute: typeof IndustriesRoute
   PrivacyRoute: typeof PrivacyRoute
   QuoteRoute: typeof QuoteRoute
+  RequestSampleRoute: typeof RequestSampleRoute
+  ReturnAndReprintPolicyRoute: typeof ReturnAndReprintPolicyRoute
   TermsRoute: typeof TermsRoute
   ProductsSlugRoute: typeof ProductsSlugRoute
   ProductsIndexRoute: typeof ProductsIndexRoute
@@ -189,11 +241,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/artwork-guide': {
+      id: '/artwork-guide'
+      path: '/artwork-guide'
+      fullPath: '/artwork-guide'
+      preLoaderRoute: typeof ArtworkGuideRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/contact': {
       id: '/contact'
       path: '/contact'
       fullPath: '/contact'
       preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/faq': {
+      id: '/faq'
+      path: '/faq'
+      fullPath: '/faq'
+      preLoaderRoute: typeof FaqRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/gallery': {
@@ -231,6 +297,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof QuoteRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/request-sample': {
+      id: '/request-sample'
+      path: '/request-sample'
+      fullPath: '/request-sample'
+      preLoaderRoute: typeof RequestSampleRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/return-and-reprint-policy': {
+      id: '/return-and-reprint-policy'
+      path: '/return-and-reprint-policy'
+      fullPath: '/return-and-reprint-policy'
+      preLoaderRoute: typeof ReturnAndReprintPolicyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/terms': {
       id: '/terms'
       path: '/terms'
@@ -258,12 +338,16 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  ArtworkGuideRoute: ArtworkGuideRoute,
   ContactRoute: ContactRoute,
+  FaqRoute: FaqRoute,
   GalleryRoute: GalleryRoute,
   HowItWorksRoute: HowItWorksRoute,
   IndustriesRoute: IndustriesRoute,
   PrivacyRoute: PrivacyRoute,
   QuoteRoute: QuoteRoute,
+  RequestSampleRoute: RequestSampleRoute,
+  ReturnAndReprintPolicyRoute: ReturnAndReprintPolicyRoute,
   TermsRoute: TermsRoute,
   ProductsSlugRoute: ProductsSlugRoute,
   ProductsIndexRoute: ProductsIndexRoute,
