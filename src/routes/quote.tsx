@@ -12,6 +12,7 @@ import { Label } from "@/components/ui/label";
 import { PageHero } from "@/components/site/sections";
 import { TurnstileCaptcha } from "@/components/site/TurnstileCaptcha";
 import { trackQuoteSubmitted } from "@/lib/analytics";
+import { trackGtmQuoteSubmit } from "@/lib/gtm";
 import { getEnvConfig } from "@/lib/env";
 import { createServerFn } from "@tanstack/react-start";
 import { createQuoteRequest, type CreateQuoteInput } from "@/lib/db";
@@ -157,6 +158,7 @@ function Quote() {
     setIsSubmitting(false);
     setSubmitted(true);
     trackQuoteSubmitted({ product: data.product, quantity: data.quantity });
+    trackGtmQuoteSubmit({ product: data.product, quantity: data.quantity });
 
     const title = products.find((p) => p.slug === data.product)?.title ?? data.product;
     const msg = `Hello Printzy, I would like a quote.\nName: ${data.name}\nBusiness: ${data.business}\nPhone: ${data.phone}\nProduct: ${title}\nQuantity: ${data.quantity}\nDetails: ${data.details}`;

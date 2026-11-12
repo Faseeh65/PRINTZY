@@ -18,6 +18,8 @@ import { trackGtmPageView } from "../lib/gtm";
 import { getEnvConfig } from "../lib/env";
 import { logger } from "../lib/logger";
 import { site } from "@/data/site";
+import { products } from "@/data/products";
+import { Button } from "@/components/ui/button";
 import { TopBar, Navbar, Footer, FloatingActions } from "@/components/site/Layout";
 import { ErrorBoundary, DefaultErrorFallback } from "@/components/site/ErrorBoundary";
 
@@ -25,20 +27,41 @@ const siteUrl = site.url.replace(/\/$/, "");
 
 function NotFoundComponent() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background px-4">
-      <div className="max-w-md text-center">
-        <h1 className="text-7xl font-bold text-foreground">404</h1>
-        <h2 className="mt-4 text-xl font-semibold text-foreground">Page not found</h2>
-        <p className="mt-2 text-sm text-muted-foreground">
-          The page you're looking for doesn't exist or has been moved.
+    <div className="flex min-h-screen items-center justify-center bg-background px-4 py-16">
+      <div className="max-w-lg text-center">
+        <span className="rounded-full bg-peach px-3 py-1 text-xs font-semibold uppercase tracking-wider text-navy">
+          Error 404
+        </span>
+        <h1 className="mt-4 text-6xl font-bold text-foreground">Page Not Found</h1>
+        <p className="mt-3 text-base text-muted-foreground">
+          The packaging page or resource you are looking for does not exist or may have been updated.
         </p>
-        <div className="mt-6">
-          <Link
-            to="/"
-            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
-          >
-            Go home
-          </Link>
+
+        <div className="mt-8 rounded-2xl border border-border bg-card p-6 text-left shadow-soft">
+          <h2 className="text-sm font-semibold uppercase tracking-wider text-foreground">
+            Explore Popular Packaging
+          </h2>
+          <div className="mt-3 grid grid-cols-2 gap-2 text-sm">
+            {products.slice(0, 6).map((p) => (
+              <Link
+                key={p.slug}
+                to="/products/$slug"
+                params={{ slug: p.slug }}
+                className="rounded-lg p-2 text-muted-foreground transition hover:bg-accent hover:text-foreground"
+              >
+                &bull; {p.title}
+              </Link>
+            ))}
+          </div>
+        </div>
+
+        <div className="mt-8 flex flex-wrap justify-center gap-4">
+          <Button asChild size="lg" shimmer>
+            <Link to="/products">Browse All Products</Link>
+          </Button>
+          <Button asChild size="lg" variant="outline">
+            <Link to="/">Return to Homepage</Link>
+          </Button>
         </div>
       </div>
     </div>
@@ -138,6 +161,36 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
               url: siteUrl,
               publisher: { "@id": `${siteUrl}/#organization` },
               inLanguage: "en-PK",
+            },
+            {
+              "@type": "LocalBusiness",
+              "@id": `${siteUrl}/#localbusiness`,
+              name: site.name,
+              description: site.about,
+              url: siteUrl,
+              telephone: site.phoneDisplay,
+              priceRange: "$$",
+              image: `${siteUrl}/images/logo.jpeg`,
+              address: {
+                "@type": "PostalAddress",
+                addressLocality: "Lahore",
+                addressCountry: "PK",
+              },
+              openingHoursSpecification: [
+                {
+                  "@type": "OpeningHoursSpecification",
+                  dayOfWeek: [
+                    "Monday",
+                    "Tuesday",
+                    "Wednesday",
+                    "Thursday",
+                    "Friday",
+                    "Saturday",
+                  ],
+                  opens: "09:00",
+                  closes: "18:00",
+                },
+              ],
             },
           ],
         }),

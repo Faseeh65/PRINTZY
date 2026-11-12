@@ -39,6 +39,7 @@ import { stats } from "@/data/stats";
 import { faqs } from "@/data/faqs";
 import { clientReviews, clientLogos, caseStudies, ClientReview } from "@/data/proof";
 import { images, gallery, responsiveImageProps } from "@/data/images";
+import { trackGtmWhatsAppClick } from "@/lib/gtm";
 
 import { WhatsAppIcon } from "@/components/icons/WhatsAppIcon";
 
@@ -51,7 +52,12 @@ export function WhatsAppButton({
 }) {
   return (
     <Button asChild size="lg" variant={variant}>
-      <a href={site.whatsapp} target="_blank" rel="noopener noreferrer">
+      <a
+        href={site.whatsapp}
+        target="_blank"
+        rel="noopener noreferrer"
+        onClick={() => trackGtmWhatsAppClick("section_button")}
+      >
         <WhatsAppIcon />
         {label}
       </a>
