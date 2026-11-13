@@ -154,7 +154,9 @@ export function Hero() {
             className="aspect-square w-full rounded-2xl object-cover shadow-soft transition-transform duration-500 hover:scale-[1.03]"
           />
           <div className="animate-float-slow absolute -left-3 top-6 rounded-xl bg-card border border-border/40 px-4 py-3 shadow-soft transition-all duration-300 hover:shadow-lift md:-left-8">
-            <div className="font-display text-sm font-semibold text-foreground">Quote tailored to you</div>
+            <div className="font-display text-sm font-semibold text-foreground">
+              Quote tailored to you
+            </div>
             <div className="text-xs text-muted-foreground">Free 3D digital mockup</div>
           </div>
           <div className="animate-float-delayed absolute -right-3 bottom-8 rounded-xl bg-navy border border-white/10 px-4 py-3 text-navy-foreground shadow-soft transition-all duration-300 hover:shadow-lift md:-right-6">
@@ -218,8 +220,8 @@ export function OneSupplierSection() {
           <p className="mt-4 text-base text-muted-foreground sm:text-lg">
             Most food brands buy cups from one vendor, boxes from another and bags from a third, and
             the colours never quite match. At Printzy you can order cups, pizza boxes, food boxes,
-            takeaway sets, paper bags, napkins and cup sleeves in one brand-consistent run. One artwork
-            approval, one delivery, one reorder.
+            takeaway sets, paper bags, napkins and cup sleeves in one brand-consistent run. One
+            artwork approval, one delivery, one reorder.
           </p>
         </div>
 
@@ -493,7 +495,10 @@ export function ProofSection() {
           >
             <div aria-live="polite" className="overflow-hidden min-h-[220px]">
               {clientReviews[i] && (
-                <div key={i} className="animate-fade-in rounded-2xl border border-border bg-card p-6 shadow-soft">
+                <div
+                  key={i}
+                  className="animate-fade-in rounded-2xl border border-border bg-card p-6 shadow-soft"
+                >
                   <p className="text-base sm:text-lg italic text-foreground">
                     &ldquo;{clientReviews[i].reviewText}&rdquo;
                   </p>
@@ -613,8 +618,8 @@ export function QuoteCTA() {
       <Reveal className="container-site relative z-10 text-center">
         <h2 className="text-navy-foreground">Ready to see your logo on your packaging?</h2>
         <p className="mx-auto mt-4 max-w-xl text-lg text-navy-foreground/85">
-          Send your required product, size, and estimated quantity. Get a complimentary 3D mockup and
-          itemised quote based on your requirements.
+          Send your required product, size, and estimated quantity. Get a complimentary 3D mockup
+          and itemised quote based on your requirements.
         </p>
         <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
           <Button asChild size="lg" shimmer>

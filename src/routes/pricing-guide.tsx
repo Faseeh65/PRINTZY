@@ -44,7 +44,10 @@ function PricingGuide() {
         <div className="container-site max-w-5xl">
           <div className="grid gap-6 md:grid-cols-3">
             {factors.map(({ icon: Icon, title, text }) => (
-              <article key={title} className="rounded-2xl border border-border bg-card p-6 shadow-soft">
+              <article
+                key={title}
+                className="rounded-2xl border border-border bg-card p-6 shadow-soft"
+              >
                 <Icon className="size-8 text-secondary" aria-hidden="true" />
                 <h2 className="mt-4 text-lg font-bold">{title}</h2>
                 <p className="mt-2 text-sm text-muted-foreground">{text}</p>

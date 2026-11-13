@@ -54,7 +54,8 @@ export const products: Product[] = [
     metaDescription:
       "Branded single and double wall paper cups for cafes, tea shops and restaurants. Sizes 4oz–16oz. Free mockup, delivery across Pakistan.",
     h1: "Custom Printed Paper Cups in Pakistan",
-    benefit: "Single and double-wall cups that carry your logo to every customer table and office desk.",
+    benefit:
+      "Single and double-wall cups that carry your logo to every customer table and office desk.",
     intro:
       "Your cup is the most-seen piece of your brand: it walks out of your door in a customer's hand, sits on office desks and appears in their social photos. Printzy prints single-wall and double-wall paper cups with your logo, engineered for coffee, tea, chai karak and cold drinks. Share your logo, get a free digital mockup, approve a proof, and we deliver nationwide across Pakistan.",
     image: images.cups,
@@ -109,7 +110,8 @@ export const products: Product[] = [
       {
         step: 1,
         title: "Send Logo & Size",
-        description: "Share your logo file and desired cup sizes (4oz to 16oz) via WhatsApp or our quote form.",
+        description:
+          "Share your logo file and desired cup sizes (4oz to 16oz) via WhatsApp or our quote form.",
       },
       {
         step: 2,
@@ -119,12 +121,14 @@ export const products: Product[] = [
       {
         step: 3,
         title: "Approve Proof",
-        description: "Review and approve your print proof. We refine the artwork until you are completely satisfied.",
+        description:
+          "Review and approve your print proof. We refine the artwork until you are completely satisfied.",
       },
       {
         step: 4,
         title: "Production & Delivery",
-        description: "We print, count-check, carton-pack, and deliver to your doorstep anywhere in Pakistan.",
+        description:
+          "We print, count-check, carton-pack, and deliver to your doorstep anywhere in Pakistan.",
       },
     ],
     faqs: [
@@ -162,7 +166,8 @@ export const products: Product[] = [
     metaDescription:
       "Strong, printed corrugated pizza boxes in 7 to 16 inch sizes. Grease-resistant, rigid fluting. Free mockup, delivery across Pakistan.",
     h1: "Custom Printed Pizza Boxes in Pakistan",
-    benefit: "Sturdy, grease-resistant corrugated boxes that keep pizza hot, crust crisp, and branding intact.",
+    benefit:
+      "Sturdy, grease-resistant corrugated boxes that keep pizza hot, crust crisp, and branding intact.",
     intro:
       "A pizza box is your brand's billboard on every delivery bike and every customer dining table. Printzy manufactures rigid, food-grade corrugated pizza boxes tailored to maintain structural strength under hot, steamy food. Available in kraft or white outer boards with crisp custom logo printing across sizes from 7-inch personal pans to 16-inch family pies.",
     image: images.food,
@@ -222,17 +227,20 @@ export const products: Product[] = [
       {
         step: 2,
         title: "Artwork & Mockup",
-        description: "Send your logo; our design team prepares a 3D digital box mockup free of charge.",
+        description:
+          "Send your logo; our design team prepares a 3D digital box mockup free of charge.",
       },
       {
         step: 3,
         title: "Proof Approval",
-        description: "Review and approve print alignment, die-cut scores, and venting tab placement.",
+        description:
+          "Review and approve print alignment, die-cut scores, and venting tab placement.",
       },
       {
         step: 4,
         title: "Production & Nationwide Delivery",
-        description: "Your boxes are die-cut, quality-checked, bundle-packed, and shipped directly to your branch.",
+        description:
+          "Your boxes are die-cut, quality-checked, bundle-packed, and shipped directly to your branch.",
       },
     ],
     faqs: [
@@ -266,13 +274,15 @@ export const products: Product[] = [
     metaDescription:
       "Custom burger boxes, fries scoops, bakery and cake packaging. Grease-resistant food-grade board. Free design proof, fast delivery across Pakistan.",
     h1: "Custom Printed Food Boxes in Pakistan",
-    benefit: "Greaseproof burger clamshells, fries scoops, and pastry boxes engineered for fresh food presentation.",
+    benefit:
+      "Greaseproof burger clamshells, fries scoops, and pastry boxes engineered for fresh food presentation.",
     intro:
       "From gourmet burgers and loaded fries to delicate pastries and cakes, your packaging preserves presentation, temperature, and taste. Printzy manufactures precision die-cut food boxes crafted from food-grade paperboard with greaseproof internal barriers. Designed for fast kitchen assembly and eye-catching unboxing on delivery.",
     image: images.food,
     imageAlt: "Custom printed burger clamshells, fries boxes, and pastry packaging",
     specs: {
-      sizes: "Burger clamshells, fries scoops, roll boxes, pastry & cake boxes (standard & custom sizes)",
+      sizes:
+        "Burger clamshells, fries scoops, roll boxes, pastry & cake boxes (standard & custom sizes)",
       material: "Food-grade SBS board, kraft virgin paperboard, or grease-resistant barrier board",
       printMethod: "Offset litho printing with food-safe inks",
       colours: "Single colour to 6-colour full process",
@@ -321,12 +331,14 @@ export const products: Product[] = [
       {
         step: 1,
         title: "Share Food Dimensions",
-        description: "Tell us the item you are packing (burger, fries, cake) or provide length, width, and height.",
+        description:
+          "Tell us the item you are packing (burger, fries, cake) or provide length, width, and height.",
       },
       {
         step: 2,
         title: "Digital Die-Line & Mockup",
-        description: "We provide die-line templates for your designer or place your logo onto a 3D preview free.",
+        description:
+          "We provide die-line templates for your designer or place your logo onto a 3D preview free.",
       },
       {
         step: 3,
@@ -336,7 +348,8 @@ export const products: Product[] = [
       {
         step: 4,
         title: "Manufacture & Ship",
-        description: "Boxes are printed, die-cut, and dispatched with nationwide delivery across Pakistan.",
+        description:
+          "Boxes are printed, die-cut, and dispatched with nationwide delivery across Pakistan.",
       },
     ],
     faqs: [
@@ -366,11 +379,13 @@ export const products: Product[] = [
     metaDescription:
       "Matching branded packaging sets: boxes, cups, bags, and napkins. Consistent brand colours from kitchen to doorstep. Free mockup, fast quote.",
     h1: "Custom Takeaway Packaging Sets in Pakistan",
-    benefit: "Coordinated packaging runs that guarantee matching colours and consistent quality across all customer touchpoints.",
+    benefit:
+      "Coordinated packaging runs that guarantee matching colours and consistent quality across all customer touchpoints.",
     intro:
       "Most food businesses buy cups from one vendor, boxes from another, and bags from a third — resulting in mismatched shades and inconsistent branding. Printzy provides complete branded takeaway packaging suites: cups, food boxes, paper bags, napkins, and sleeves produced in coordinated production runs. One order, one brand approval, one unified customer experience.",
     image: images.food,
-    imageAlt: "Complete branded food takeaway packaging set with matching box, cup, bag, and napkin",
+    imageAlt:
+      "Complete branded food takeaway packaging set with matching box, cup, bag, and napkin",
     specs: {
       sizes: "Custom curated suites tailored to your complete restaurant or cafe menu",
       material: "Coordinated virgin kraft, bleached paperboard, and greaseproof liners",
@@ -421,12 +436,14 @@ export const products: Product[] = [
       {
         step: 1,
         title: "Select Suite Items",
-        description: "Choose which items you need (cups, burger boxes, takeaway bags, napkins, sleeves).",
+        description:
+          "Choose which items you need (cups, burger boxes, takeaway bags, napkins, sleeves).",
       },
       {
         step: 2,
         title: "Unified Brand Proof",
-        description: "We generate a synchronized 3D mockup presenting all your packaging side by side.",
+        description:
+          "We generate a synchronized 3D mockup presenting all your packaging side by side.",
       },
       {
         step: 3,
@@ -436,7 +453,8 @@ export const products: Product[] = [
       {
         step: 4,
         title: "Coordinated Dispatch",
-        description: "All packaging components are produced, checked, and delivered together to your location.",
+        description:
+          "All packaging components are produced, checked, and delivered together to your location.",
       },
     ],
     faqs: [
@@ -466,13 +484,15 @@ export const products: Product[] = [
     metaDescription:
       "Custom kraft and white paper bags with handles for retail, restaurants and cafes. High strength. Free design proof, nationwide delivery.",
     h1: "Custom Printed Paper Bags in Pakistan",
-    benefit: "High-strength kraft and white paper carrier bags with sturdy handles that elevate your customer takeaway experience.",
+    benefit:
+      "High-strength kraft and white paper carrier bags with sturdy handles that elevate your customer takeaway experience.",
     intro:
       "When a customer leaves your store or receives a food delivery, your paper bag is their first physical interaction with your brand. Printzy prints eco-friendly brown kraft and bleached white paper carrier bags built with reinforced handles and durable gusseted bases. Perfect for boutique retail, coffee shops, bakeries, and takeaway food delivery.",
     image: images.bags,
     imageAlt: "Custom printed kraft paper carrier bags with handles and company logo",
     specs: {
-      sizes: "Small (6x8x3\"), Medium (8x10x4\"), Large (10x14x5\"), Takeaway Flat-Bottom (12x12x7\") standard & custom dimensions",
+      sizes:
+        'Small (6x8x3"), Medium (8x10x4"), Large (10x14x5"), Takeaway Flat-Bottom (12x12x7") standard & custom dimensions',
       material: "Heavy-duty virgin brown kraft (120–180 GSM) or premium bleached white kraft",
       printMethod: "High-precision flexographic or offset printing",
       colours: "1 to 4 spot colours or full-coverage CMYK print",
@@ -521,12 +541,14 @@ export const products: Product[] = [
       {
         step: 1,
         title: "Select Bag Size & Style",
-        description: "Choose small, medium, large, or provide your exact required width, height, and gusset.",
+        description:
+          "Choose small, medium, large, or provide your exact required width, height, and gusset.",
       },
       {
         step: 2,
         title: "Artwork Placement",
-        description: "Send your logo; we generate a 3D digital bag mockup showing both sides and gusset print.",
+        description:
+          "Send your logo; we generate a 3D digital bag mockup showing both sides and gusset print.",
       },
       {
         step: 3,
@@ -536,7 +558,8 @@ export const products: Product[] = [
       {
         step: 4,
         title: "Print & Deliver",
-        description: "Bags are printed, handle-assembled, carton-packed, and shipped to your address.",
+        description:
+          "Bags are printed, handle-assembled, carton-packed, and shipped to your address.",
       },
     ],
     faqs: [
@@ -566,7 +589,8 @@ export const products: Product[] = [
     metaDescription:
       "Custom printed restaurant napkins, cocktail napkins and dispenser tissues with your logo. Soft, absorbent. Free mockup, fast quote.",
     h1: "Custom Printed Napkins and Tissues in Pakistan",
-    benefit: "Soft, highly absorbent printed napkins that complete your customer's in-store and takeaway dining experience.",
+    benefit:
+      "Soft, highly absorbent printed napkins that complete your customer's in-store and takeaway dining experience.",
     intro:
       "Every meal ends with a napkin: placing your logo into your customer's hands at the exact moment of meal satisfaction. Printzy manufactures ultra-soft, absorbent 1-ply, 2-ply, and 3-ply printed napkins for restaurants, cafes, caterers, and corporate dining. Featuring crisp, food-safe spot logo printing that never smudges or bleeds upon contact with moisture.",
     image: images.napkins,
@@ -579,7 +603,8 @@ export const products: Product[] = [
       finish: "Full edge embossing or coin edge embossing for maximum absorbency and softness",
       moq: "Rotary volume runs available. Contact on WhatsApp for tier options.",
       leadTime: "7–10 working days after artwork approval",
-      packing: "Packed in hygienic poly sleeves of 100 or 250 napkins inside protective shipping cartons",
+      packing:
+        "Packed in hygienic poly sleeves of 100 or 250 napkins inside protective shipping cartons",
     },
     printOptions: [
       {
@@ -621,12 +646,14 @@ export const products: Product[] = [
       {
         step: 1,
         title: "Select Napkin Size",
-        description: "Choose cocktail (25cm), lunch (30cm), or dinner (33cm/40cm) and ply count (2-ply or 3-ply).",
+        description:
+          "Choose cocktail (25cm), lunch (30cm), or dinner (33cm/40cm) and ply count (2-ply or 3-ply).",
       },
       {
         step: 2,
         title: "Digital Proof",
-        description: "We can position your logo on the fold and provide a digital proof for review.",
+        description:
+          "We can position your logo on the fold and provide a digital proof for review.",
       },
       {
         step: 3,
@@ -636,7 +663,8 @@ export const products: Product[] = [
       {
         step: 4,
         title: "Hygienic Packing & Delivery",
-        description: "Napkins are printed, count-packed in poly wrappers, and delivered to your doorstep.",
+        description:
+          "Napkins are printed, count-packed in poly wrappers, and delivered to your doorstep.",
       },
     ],
     faqs: [
@@ -666,14 +694,17 @@ export const products: Product[] = [
     metaDescription:
       "Branded corrugated cup sleeves and die-cut packaging stickers. Low-cost custom packaging for cafes and food delivery. Free proof, fast quote.",
     h1: "Custom Cup Sleeves and Packaging Stickers in Pakistan",
-    benefit: "Cost-effective, versatile branding accessories that transform plain cups and food boxes into branded packaging.",
+    benefit:
+      "Cost-effective, versatile branding accessories that transform plain cups and food boxes into branded packaging.",
     intro:
       "Looking for a low-cost, flexible way to brand your cups, bakery boxes, and delivery bags? Printzy prints custom corrugated coffee cup sleeves and waterproof die-cut packaging stickers. Sleeves provide heat protection and brand visibility on standard cups, while adhesive stickers securely seal delivery containers and elevate plain kraft bags with professional polish.",
     image: images.napkins,
     imageAlt: "Custom printed coffee cup sleeves and die-cut packaging stickers with brand artwork",
     specs: {
-      sizes: "Universal sleeves (fits 8oz–16oz cups); Stickers in custom round, square, or die-cut shapes (3cm–10cm)",
-      material: "Sleeves: Embossed corrugated kraft paperboard. Stickers: Gloss paper, matte vinyl, or waterproof BOPP",
+      sizes:
+        "Universal sleeves (fits 8oz–16oz cups); Stickers in custom round, square, or die-cut shapes (3cm–10cm)",
+      material:
+        "Sleeves: Embossed corrugated kraft paperboard. Stickers: Gloss paper, matte vinyl, or waterproof BOPP",
       printMethod: "High-resolution offset and digital UV label printing",
       colours: "1-colour spot print to full-colour photo CMYK with protective varnish",
       finish: "Matte laminate, gloss UV coat, or natural kraft texture",
@@ -726,7 +757,8 @@ export const products: Product[] = [
       {
         step: 2,
         title: "Send Logo & Shape",
-        description: "Send your logo; our team formats the die-cut boundary and provides a digital mockup.",
+        description:
+          "Send your logo; our team formats the die-cut boundary and provides a digital mockup.",
       },
       {
         step: 3,
@@ -736,7 +768,8 @@ export const products: Product[] = [
       {
         step: 4,
         title: "Fast Production & Dispatch",
-        description: "Accessories are printed, precision cut, and dispatched directly to your business.",
+        description:
+          "Accessories are printed, precision cut, and dispatched directly to your business.",
       },
     ],
     faqs: [
@@ -766,13 +799,15 @@ export const products: Product[] = [
     metaDescription:
       "Corrugated mailer boxes and gift packaging for e-commerce, corporate gifting and events. Free 3D proof, delivery across Pakistan.",
     h1: "Custom Printed Mailer and Gift Boxes in Pakistan",
-    benefit: "Premium corrugated mailer boxes engineered for memorable e-commerce unboxing and corporate gifting.",
+    benefit:
+      "Premium corrugated mailer boxes engineered for memorable e-commerce unboxing and corporate gifting.",
     intro:
       "For e-commerce brands, subscription boxes, and corporate gifting, packaging contributes to the unboxing experience. Printzy makes corrugated mailer boxes with front tuck flaps and self-locking wings. Box construction and print options depend on the product specification.",
     image: images.boxes,
     imageAlt: "Custom printed kraft corrugated mailer boxes with locking tuck flap",
     specs: {
-      sizes: "Custom dimensions manufactured to your product specifications (e.g. 6x6x2\", 9x6x3\", 12x9x4\", 14x10x5\")",
+      sizes:
+        'Custom dimensions manufactured to your product specifications (e.g. 6x6x2", 9x6x3", 12x9x4", 14x10x5")',
       material: "Rigid corrugated E-flute / B-flute with kraft, bleached white, or art paper liner",
       printMethod: "High-resolution offset litho printing or direct digital UV printing",
       colours: "Single colour minimalist print to full-coverage exterior and interior CMYK",
@@ -821,12 +856,14 @@ export const products: Product[] = [
       {
         step: 1,
         title: "Provide Product Dimensions",
-        description: "Tell us what you are shipping and the internal box length, width, and depth you need.",
+        description:
+          "Tell us what you are shipping and the internal box length, width, and depth you need.",
       },
       {
         step: 2,
         title: "Die-Line & 3D Mockup",
-        description: "We provide an exact die-line template for your artwork and generate a 3D digital mockup.",
+        description:
+          "We provide an exact die-line template for your artwork and generate a 3D digital mockup.",
       },
       {
         step: 3,
@@ -836,7 +873,8 @@ export const products: Product[] = [
       {
         step: 4,
         title: "Precision Die-Cut & Delivery",
-        description: "Boxes are printed, die-cut, packed flat, and delivered directly to your fulfillment warehouse.",
+        description:
+          "Boxes are printed, die-cut, packed flat, and delivered directly to your fulfillment warehouse.",
       },
     ],
     faqs: [

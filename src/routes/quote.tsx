@@ -35,8 +35,7 @@ export const submitQuoteServerFn = createServerFn({ method: "POST" })
 
 export const Route = createFileRoute("/quote")({
   validateSearch: (s: Record<string, unknown>) => ({
-    product:
-      typeof s["product"] === "string" ? resolveProductSlug(s["product"]) : undefined,
+    product: typeof s["product"] === "string" ? resolveProductSlug(s["product"]) : undefined,
   }),
   head: () =>
     seo({
@@ -166,11 +165,7 @@ function Quote() {
 
     try {
       if (typeof window !== "undefined") {
-        window.open(
-          buildWhatsAppUrl(msg),
-          "_blank",
-          "noopener,noreferrer",
-        );
+        window.open(buildWhatsAppUrl(msg), "_blank", "noopener,noreferrer");
       }
     } catch {
       // Safe fallback if popups are restricted in environment

@@ -31,8 +31,8 @@ function QualityAndCompliance() {
               <PackageCheck className="size-8 text-secondary" aria-hidden="true" />
               <h2 className="mt-4 text-xl font-bold">Material specifications</h2>
               <p className="mt-2 text-sm text-muted-foreground">
-                Board, coating, barrier, and print options vary by product. Share the packaging format
-                and how it will be used so we can discuss the relevant specification.
+                Board, coating, barrier, and print options vary by product. Share the packaging
+                format and how it will be used so we can discuss the relevant specification.
               </p>
             </article>
             <article className="rounded-2xl border border-border bg-card p-6 shadow-soft">

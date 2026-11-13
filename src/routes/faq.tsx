@@ -137,10 +137,12 @@ function FAQPage() {
           {/* Quick Help Box */}
           <div className="mt-12 rounded-2xl border border-border bg-accent p-8 text-center sm:text-left sm:flex sm:items-center sm:justify-between sm:gap-6">
             <div>
-              <h2 className="text-xl font-bold text-foreground">Have a question not listed here?</h2>
+              <h2 className="text-xl font-bold text-foreground">
+                Have a question not listed here?
+              </h2>
               <p className="mt-1 text-sm text-muted-foreground">
-                Our packaging specialists are active on WhatsApp to answer your custom sizing, material,
-                or quote queries.
+                Our packaging specialists are active on WhatsApp to answer your custom sizing,
+                material, or quote queries.
               </p>
             </div>
             <div className="mt-4 sm:mt-0 shrink-0 flex flex-col sm:flex-row gap-3">

@@ -2,7 +2,12 @@ import { describe, it, expect, beforeEach, afterEach, vi } from "vitest";
 import React from "react";
 import { render } from "@testing-library/react";
 import { renderToString } from "react-dom/server";
-import { pushToDataLayer, trackGtmPageView, trackGtmQuoteSubmit, trackGtmWhatsAppClick } from "@/lib/gtm";
+import {
+  pushToDataLayer,
+  trackGtmPageView,
+  trackGtmQuoteSubmit,
+  trackGtmWhatsAppClick,
+} from "@/lib/gtm";
 import * as fs from "fs";
 import * as path from "path";
 
@@ -11,7 +16,12 @@ vi.mock("@tanstack/react-router", async () => {
   const actual = await vi.importActual<Record<string, unknown>>("@tanstack/react-router");
   return {
     ...actual,
-    Link: ({ children, to, href, ...props }: React.AnchorHTMLAttributes<HTMLAnchorElement> & { to?: string }) => (
+    Link: ({
+      children,
+      to,
+      href,
+      ...props
+    }: React.AnchorHTMLAttributes<HTMLAnchorElement> & { to?: string }) => (
       <a href={to || href} {...props}>
         {children}
       </a>
@@ -56,7 +66,7 @@ describe("Hydration & SSR Consistency", () => {
 
       // Verify <noscript> uses dangerouslySetInnerHTML
       expect(rootContent).toMatch(
-        /<noscript\s+dangerouslySetInnerHTML=\{\{\s*__html:\s*`<iframe[^>]+googletagmanager\.com\/ns\.html/
+        /<noscript\s+dangerouslySetInnerHTML=\{\{\s*__html:\s*`<iframe[^>]+googletagmanager\.com\/ns\.html/,
       );
     });
 
@@ -113,13 +123,21 @@ describe("Hydration & SSR Consistency", () => {
     it("pushes quote_submit conversion event to dataLayer", () => {
       trackGtmQuoteSubmit({ product: "custom-pizza-boxes", quantity: "1000" });
 
-      expect(window.dataLayer.some((e) => e["event"] === "quote_submit" && e["product"] === "custom-pizza-boxes")).toBe(true);
+      expect(
+        window.dataLayer.some(
+          (e) => e["event"] === "quote_submit" && e["product"] === "custom-pizza-boxes",
+        ),
+      ).toBe(true);
     });
 
     it("pushes whatsapp_click event to dataLayer", () => {
       trackGtmWhatsAppClick("hero_button");
 
-      expect(window.dataLayer.some((e) => e["event"] === "whatsapp_click" && e["click_location"] === "hero_button")).toBe(true);
+      expect(
+        window.dataLayer.some(
+          (e) => e["event"] === "whatsapp_click" && e["click_location"] === "hero_button",
+        ),
+      ).toBe(true);
     });
   });
 });

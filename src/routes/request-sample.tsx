@@ -117,10 +117,16 @@ function RequestSample() {
                     </div>
                     <h2 className="mt-4 text-xl font-bold text-foreground">{tier.title}</h2>
                     <div className="mt-2 flex items-baseline gap-2">
-                      <span className="font-display text-2xl font-bold text-secondary">{tier.cost}</span>
+                      <span className="font-display text-2xl font-bold text-secondary">
+                        {tier.cost}
+                      </span>
                     </div>
-                    <div className="text-xs text-muted-foreground">Turnaround: {tier.turnaround}</div>
-                    <p className="mt-4 text-sm text-muted-foreground leading-relaxed">{tier.desc}</p>
+                    <div className="text-xs text-muted-foreground">
+                      Turnaround: {tier.turnaround}
+                    </div>
+                    <p className="mt-4 text-sm text-muted-foreground leading-relaxed">
+                      {tier.desc}
+                    </p>
 
                     <ul className="mt-6 space-y-2 border-t border-border pt-4 text-xs sm:text-sm text-muted-foreground">
                       {tier.features.map((f) => (
@@ -162,8 +168,8 @@ function RequestSample() {
             </div>
             <p className="mt-3 text-sm sm:text-base text-muted-foreground leading-relaxed">
               When ordering thousands of custom boxes or cups, physical confidence is essential. We
-              provide samples so you can test paper strength in your kitchen, ensure paper cup lids fit
-              snugly, and confirm that your brand colours reflect your exact visual identity.
+              provide samples so you can test paper strength in your kitchen, ensure paper cup lids
+              fit snugly, and confirm that your brand colours reflect your exact visual identity.
             </p>
           </div>
         </div>

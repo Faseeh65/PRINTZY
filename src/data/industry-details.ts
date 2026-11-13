@@ -43,7 +43,8 @@ export const industryDetails: Record<string, IndustryDetail> = {
       {
         title: "Custom Paper Cups (8oz, 12oz, 16oz)",
         slug: "custom-paper-cups",
-        reason: "Double-wall insulated cups for specialty flat whites and single-wall cups for iced brews.",
+        reason:
+          "Double-wall insulated cups for specialty flat whites and single-wall cups for iced brews.",
       },
       {
         title: "Cup Sleeves & Stickers",
@@ -125,12 +126,14 @@ export const industryDetails: Record<string, IndustryDetail> = {
       {
         title: "Custom Takeaway Packaging",
         slug: "custom-takeaway-packaging",
-        reason: "Coordinated sets with liner paper, dipping tub sleeves, and branded cutlery packs.",
+        reason:
+          "Coordinated sets with liner paper, dipping tub sleeves, and branded cutlery packs.",
       },
       {
         title: "Reinforced Paper Bags",
         slug: "custom-paper-bags",
-        reason: "Heavy-duty kraft bags with twisted paper handles that carry multiple meal boxes safely.",
+        reason:
+          "Heavy-duty kraft bags with twisted paper handles that carry multiple meal boxes safely.",
       },
     ],
     packagingChecklist: [
@@ -187,7 +190,8 @@ export const industryDetails: Record<string, IndustryDetail> = {
       {
         title: "Custom Food & Cake Boxes",
         slug: "custom-food-boxes",
-        reason: "Heavy-weight rigid cake boxes (1lb to 5lb) with easy-open side panels for damage-free removal.",
+        reason:
+          "Heavy-weight rigid cake boxes (1lb to 5lb) with easy-open side panels for damage-free removal.",
       },
       {
         title: "Custom Paper Bags",
@@ -202,7 +206,8 @@ export const industryDetails: Record<string, IndustryDetail> = {
       {
         title: "Packaging Stickers & Seals",
         slug: "cup-sleeves-stickers",
-        reason: "Gold-foil and gloss stickers for sealing macaron sleeves, ribbon ties, and cookie jars.",
+        reason:
+          "Gold-foil and gloss stickers for sealing macaron sleeves, ribbon ties, and cookie jars.",
       },
     ],
     packagingChecklist: [
@@ -259,22 +264,26 @@ export const industryDetails: Record<string, IndustryDetail> = {
       {
         title: "Takeaway Packaging Sets",
         slug: "custom-takeaway-packaging",
-        reason: "All-in-one delivery bundles with matching clamshells, sauce cups, and branded wet wipes.",
+        reason:
+          "All-in-one delivery bundles with matching clamshells, sauce cups, and branded wet wipes.",
       },
       {
         title: "Custom Food Boxes",
         slug: "custom-food-boxes",
-        reason: "Fold-flat lock-corner burger and noodle boxes that assemble in seconds on the line.",
+        reason:
+          "Fold-flat lock-corner burger and noodle boxes that assemble in seconds on the line.",
       },
       {
         title: "Tamper-Evident Stickers",
         slug: "cup-sleeves-stickers",
-        reason: "Aggressive adhesive safety seals that tear upon opening to assure customers of tamper-free meals.",
+        reason:
+          "Aggressive adhesive safety seals that tear upon opening to assure customers of tamper-free meals.",
       },
       {
         title: "Heavy-Duty Paper Bags",
         slug: "custom-paper-bags",
-        reason: "Reinforced handle bags designed to withstand weight without tearing in courier transit.",
+        reason:
+          "Reinforced handle bags designed to withstand weight without tearing in courier transit.",
       },
     ],
     packagingChecklist: [
@@ -331,22 +340,26 @@ export const industryDetails: Record<string, IndustryDetail> = {
       {
         title: "Custom Mailer & Gift Boxes",
         slug: "custom-mailer-gift-boxes",
-        reason: "Ear-lock roll-end mailers built from durable corrugated board with optional interior printing.",
+        reason:
+          "Ear-lock roll-end mailers built from durable corrugated board with optional interior printing.",
       },
       {
         title: "Printed Paper Bags",
         slug: "custom-paper-bags",
-        reason: "White and kraft shopping bags with twisted paper or ribbon handles for retail pop-ups and retail stores.",
+        reason:
+          "White and kraft shopping bags with twisted paper or ribbon handles for retail pop-ups and retail stores.",
       },
       {
         title: "Branded Stickers & Labels",
         slug: "cup-sleeves-stickers",
-        reason: "Die-cut logo stickers for box closures, thank-you cards, and branded polybag sealing.",
+        reason:
+          "Die-cut logo stickers for box closures, thank-you cards, and branded polybag sealing.",
       },
       {
         title: "Branded Tissue Paper",
         slug: "custom-napkins-tissues",
-        reason: "Custom printed wrapping tissues that elevate apparel and cosmetic unboxing presentation.",
+        reason:
+          "Custom printed wrapping tissues that elevate apparel and cosmetic unboxing presentation.",
       },
     ],
     packagingChecklist: [
@@ -403,22 +416,26 @@ export const industryDetails: Record<string, IndustryDetail> = {
       {
         title: "Custom Mailer & Gift Boxes",
         slug: "custom-mailer-gift-boxes",
-        reason: "Rigid luxury gift boxes with magnetic closures or two-piece slip lids for VIP presentation.",
+        reason:
+          "Rigid luxury gift boxes with magnetic closures or two-piece slip lids for VIP presentation.",
       },
       {
         title: "Luxury Paper Bags",
         slug: "custom-paper-bags",
-        reason: "Heavy-weight art paper bags with grosgrain ribbon handles and metallic foil logos.",
+        reason:
+          "Heavy-weight art paper bags with grosgrain ribbon handles and metallic foil logos.",
       },
       {
         title: "Embossed Seal Stickers",
         slug: "cup-sleeves-stickers",
-        reason: "Metallic foil emblem stickers for sealing presentation envelopes, folders, and gift cartons.",
+        reason:
+          "Metallic foil emblem stickers for sealing presentation envelopes, folders, and gift cartons.",
       },
       {
         title: "Custom Food & Sweet Boxes",
         slug: "custom-food-boxes",
-        reason: "Gourmet confectionery boxes for corporate Ramadan dates, dry fruits, and festive sweets.",
+        reason:
+          "Gourmet confectionery boxes for corporate Ramadan dates, dry fruits, and festive sweets.",
       },
     ],
     packagingChecklist: [
@@ -475,12 +492,14 @@ export const industryDetails: Record<string, IndustryDetail> = {
       {
         title: "Custom Gift & Favor Boxes",
         slug: "custom-mailer-gift-boxes",
-        reason: "Elegant two-piece favor boxes and rigid sweets cartons with satin ribbon attachments.",
+        reason:
+          "Elegant two-piece favor boxes and rigid sweets cartons with satin ribbon attachments.",
       },
       {
         title: "Custom Printed Napkins",
         slug: "custom-napkins-tissues",
-        reason: "Soft embossed 2-ply cocktail napkins printed with the couple's monogram or event crest.",
+        reason:
+          "Soft embossed 2-ply cocktail napkins printed with the couple's monogram or event crest.",
       },
       {
         title: "Monogrammed Paper Cups",

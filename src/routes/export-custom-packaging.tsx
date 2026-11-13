@@ -42,7 +42,10 @@ function ExportCustomPackaging() {
                 text: "List any shipping terms or product documents you need us to review. Availability is confirmed for each inquiry.",
               },
             ].map(({ icon: Icon, title, text }) => (
-              <article key={title} className="rounded-2xl border border-border bg-card p-6 shadow-soft">
+              <article
+                key={title}
+                className="rounded-2xl border border-border bg-card p-6 shadow-soft"
+              >
                 <Icon className="size-8 text-secondary" aria-hidden="true" />
                 <h2 className="mt-4 text-lg font-bold">{title}</h2>
                 <p className="mt-2 text-sm text-muted-foreground">{text}</p>

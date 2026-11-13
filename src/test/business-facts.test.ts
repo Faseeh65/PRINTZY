@@ -20,13 +20,15 @@ describe("Business Facts & WhatsApp Deep Link Safety", () => {
     expect(textMatches).toBe(1);
 
     // Verify properly URL-encoded
-    expect(url).toContain(encodeURIComponent("Hi Printzy, I am interested in custom printed paper cups."));
+    expect(url).toContain(
+      encodeURIComponent("Hi Printzy, I am interested in custom printed paper cups."),
+    );
   });
 
   it("uses default message when no custom text is provided", () => {
     const url = buildWhatsAppUrl();
     expect(url).toBe(
-      "https://wa.me/923219091707?text=Hello%20Printzy%2C%20I%20would%20like%20a%20quote%20for%20custom%20packaging."
+      "https://wa.me/923219091707?text=Hello%20Printzy%2C%20I%20would%20like%20a%20quote%20for%20custom%20packaging.",
     );
   });
 
@@ -49,4 +51,3 @@ describe("Business Facts & WhatsApp Deep Link Safety", () => {
     expect(businessFacts.proofStats.brandsServed).toBeNull();
   });
 });
-

@@ -212,9 +212,7 @@ export function getCanonicalRedirectUrl(request: Request): string | undefined {
     return undefined;
   }
 
-  const isKnownDomain =
-    hostname === canonicalUrl.hostname ||
-    canonicalDomainAliases.has(hostname);
+  const isKnownDomain = hostname === canonicalUrl.hostname || canonicalDomainAliases.has(hostname);
 
   if (!isKnownDomain) {
     return undefined;

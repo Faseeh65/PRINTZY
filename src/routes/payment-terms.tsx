@@ -17,8 +17,7 @@ export const Route = createFileRoute("/payment-terms")({
 });
 
 function PaymentTerms() {
-  const { advancePercent, balanceMilestone } =
-    businessFacts.commercialPolicies.paymentTerms;
+  const { advancePercent, balanceMilestone } = businessFacts.commercialPolicies.paymentTerms;
   const paymentSummary =
     advancePercent == null
       ? "Payment methods and milestones are confirmed in writing with each quotation."
@@ -36,8 +35,8 @@ function PaymentTerms() {
             <CreditCard className="size-8 text-secondary" aria-hidden="true" />
             <h2 className="mt-4 text-xl font-bold">Before you approve an order</h2>
             <p className="mt-2 text-sm text-muted-foreground">
-              {paymentSummary} Check your quotation for the accepted payment method, production start
-              point, and any shipping charges. Contact us if a term is unclear or missing.
+              {paymentSummary} Check your quotation for the accepted payment method, production
+              start point, and any shipping charges. Contact us if a term is unclear or missing.
             </p>
           </article>
           <div className="rounded-2xl border border-border bg-muted/40 p-6">

@@ -48,17 +48,20 @@ export const cityDetails: Record<string, CityDetail> = {
       {
         title: "Custom Paper Cups",
         slug: "custom-paper-cups",
-        reason: "Double-wall coffee cups for Lahore's thriving winter coffee culture and specialty cafes.",
+        reason:
+          "Double-wall coffee cups for Lahore's thriving winter coffee culture and specialty cafes.",
       },
       {
         title: "Custom Pizza Boxes",
         slug: "custom-pizza-boxes",
-        reason: "Sturdy corrugated E-flute pizza boxes for artisanal sourdough and deep-pan pizzerias.",
+        reason:
+          "Sturdy corrugated E-flute pizza boxes for artisanal sourdough and deep-pan pizzerias.",
       },
       {
         title: "Custom Food Boxes",
         slug: "custom-food-boxes",
-        reason: "Greaseproof lock-corner burger cartons and loaded fries packaging built for speedy dining.",
+        reason:
+          "Greaseproof lock-corner burger cartons and loaded fries packaging built for speedy dining.",
       },
       {
         title: "Kraft Paper Bags",
@@ -114,22 +117,26 @@ export const cityDetails: Record<string, CityDetail> = {
       {
         title: "Custom Food Boxes",
         slug: "custom-food-boxes",
-        reason: "Greaseproof burger cartons and takeaway boxes with moisture-resistant barrier boards.",
+        reason:
+          "Greaseproof burger cartons and takeaway boxes with moisture-resistant barrier boards.",
       },
       {
         title: "Custom Paper Cups",
         slug: "custom-paper-cups",
-        reason: "Single and double-wall cups for chai spots, karak counters, and cold beverage bars.",
+        reason:
+          "Single and double-wall cups for chai spots, karak counters, and cold beverage bars.",
       },
       {
         title: "Custom Mailer Boxes",
         slug: "custom-mailer-gift-boxes",
-        reason: "E-commerce shipping boxes for Karachi's thriving direct-to-consumer online brands.",
+        reason:
+          "E-commerce shipping boxes for Karachi's thriving direct-to-consumer online brands.",
       },
       {
         title: "Custom Takeaway Packaging",
         slug: "custom-takeaway-packaging",
-        reason: "Complete delivery sets that survive Karachi's demanding delivery motorcycle journeys.",
+        reason:
+          "Complete delivery sets that survive Karachi's demanding delivery motorcycle journeys.",
       },
     ],
     orderingSteps: [
@@ -180,12 +187,14 @@ export const cityDetails: Record<string, CityDetail> = {
       {
         title: "Custom Paper Cups",
         slug: "custom-paper-cups",
-        reason: "Minimalist, aesthetic double-wall cups popular with Islamabad's specialty coffee crowd.",
+        reason:
+          "Minimalist, aesthetic double-wall cups popular with Islamabad's specialty coffee crowd.",
       },
       {
         title: "Custom Mailer & Gift Boxes",
         slug: "custom-mailer-gift-boxes",
-        reason: "Refined presentation boxes for Islamabad corporate gifts, NGO kits, and luxury retail.",
+        reason:
+          "Refined presentation boxes for Islamabad corporate gifts, NGO kits, and luxury retail.",
       },
       {
         title: "Custom Printed Napkins",
@@ -246,22 +255,26 @@ export const cityDetails: Record<string, CityDetail> = {
       {
         title: "Custom Food Boxes",
         slug: "custom-food-boxes",
-        reason: "Sturdy burger cartons and loaded fries boxes for Faisalabad's active evening dining scene.",
+        reason:
+          "Sturdy burger cartons and loaded fries boxes for Faisalabad's active evening dining scene.",
       },
       {
         title: "Custom Pizza Boxes",
         slug: "custom-pizza-boxes",
-        reason: "Rigid micro-flute pizza packaging for local pizzerias that keeps hot food crispy in transit.",
+        reason:
+          "Rigid micro-flute pizza packaging for local pizzerias that keeps hot food crispy in transit.",
       },
       {
         title: "Printed Paper Bags",
         slug: "custom-paper-bags",
-        reason: "Cost-effective kraft and white retail bags for textile shops, shoe boutiques, and bakeries.",
+        reason:
+          "Cost-effective kraft and white retail bags for textile shops, shoe boutiques, and bakeries.",
       },
       {
         title: "Custom Paper Cups",
         slug: "custom-paper-cups",
-        reason: "Branded single and double-wall cups for tea bars and quick-service beverage counters.",
+        reason:
+          "Branded single and double-wall cups for tea bars and quick-service beverage counters.",
       },
     ],
     orderingSteps: [

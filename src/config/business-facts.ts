@@ -210,7 +210,7 @@ export const businessFacts: BusinessFacts = {
       name: "Custom Corrugated Mailer & Gift Boxes",
       moq: null, // TODO: Owner to confirm MOQ
       leadTimeDays: "8–12 working days after artwork approval",
-      sizes: "Custom dimensions manufactured to exact product specs (e.g. 9x6x3\", 12x9x4\")",
+      sizes: 'Custom dimensions manufactured to exact product specs (e.g. 9x6x3", 12x9x4")',
       startingPrice: null,
       materials: "High-density E-flute corrugated board with locking front tuck tabs",
     },
@@ -263,4 +263,3 @@ export function getProductSizesDisplay(slug: string): string {
   }
   return "Custom sizes and standard industry dimensions available upon request";
 }
-

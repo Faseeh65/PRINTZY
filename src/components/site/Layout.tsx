@@ -326,7 +326,10 @@ export function Footer() {
       </div>
 
       {/* Large Architectural Wordmark (Image 2 style) */}
-      <div className="pointer-events-none select-none overflow-hidden px-4 pt-6 pb-2 text-center" aria-hidden="true">
+      <div
+        className="pointer-events-none select-none overflow-hidden px-4 pt-6 pb-2 text-center"
+        aria-hidden="true"
+      >
         <span className="block font-display text-[15vw] font-black leading-none tracking-widest text-white/[0.07] uppercase">
           PRINTZY
         </span>

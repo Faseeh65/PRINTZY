@@ -136,7 +136,9 @@ function ProductDetailPage() {
               </Button>
               <Button asChild size="lg" variant="outline">
                 <a
-                  href={buildWhatsAppUrl(`Hi Printzy, I am interested in custom printed ${product.title}. Please share pricing and mockup details.`)}
+                  href={buildWhatsAppUrl(
+                    `Hi Printzy, I am interested in custom printed ${product.title}. Please share pricing and mockup details.`,
+                  )}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -172,7 +174,8 @@ function ProductDetailPage() {
               Technical Specifications & Order Details
             </h2>
             <p className="mt-2 text-base text-muted-foreground">
-              Material and print options vary by product. Ask us to confirm details for your intended use.
+              Material and print options vary by product. Ask us to confirm details for your
+              intended use.
             </p>
           </div>
 
@@ -277,7 +280,9 @@ function ProductDetailPage() {
                   {i + 1}
                 </div>
                 <h3 className="text-lg font-semibold text-foreground">{opt.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{opt.description}</p>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                  {opt.description}
+                </p>
               </div>
             ))}
           </div>
@@ -296,7 +301,7 @@ function ProductDetailPage() {
                 ? "Trusted by E-Commerce, Retailers & Growing Brands"
                 : product.slug === "custom-paper-bags"
                   ? "Trusted by Retail Stores, Boutiques & Restaurants"
-                : "Packaging Options for Growing Businesses"}
+                  : "Packaging Options for Growing Businesses"}
             </h2>
           </div>
 
@@ -333,7 +338,9 @@ function ProductDetailPage() {
               </Button>
               <Button asChild size="lg" variant="outline">
                 <a
-                  href={buildWhatsAppUrl(`Hi Printzy, please share a price estimate for ${product.title}.`)}
+                  href={buildWhatsAppUrl(
+                    `Hi Printzy, please share a price estimate for ${product.title}.`,
+                  )}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -359,18 +366,22 @@ function ProductDetailPage() {
           </div>
 
           <ol className="grid gap-6 md:grid-cols-4 list-none p-0">
-            {product.orderingSteps.map((s: { step: number; title: string; description: string }) => (
-              <li
-                key={s.step}
-                className="group relative flex flex-col rounded-2xl bg-card p-6 border border-border/40 shadow-soft card-lift"
-              >
-                <span className="flex size-11 items-center justify-center rounded-full bg-navy font-display text-base font-bold text-navy-foreground mb-4 group-hover:bg-secondary transition-colors">
-                  {s.step}
-                </span>
-                <h3 className="text-lg font-semibold text-foreground">{s.title}</h3>
-                <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{s.description}</p>
-              </li>
-            ))}
+            {product.orderingSteps.map(
+              (s: { step: number; title: string; description: string }) => (
+                <li
+                  key={s.step}
+                  className="group relative flex flex-col rounded-2xl bg-card p-6 border border-border/40 shadow-soft card-lift"
+                >
+                  <span className="flex size-11 items-center justify-center rounded-full bg-navy font-display text-base font-bold text-navy-foreground mb-4 group-hover:bg-secondary transition-colors">
+                    {s.step}
+                  </span>
+                  <h3 className="text-lg font-semibold text-foreground">{s.title}</h3>
+                  <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
+                    {s.description}
+                  </p>
+                </li>
+              ),
+            )}
           </ol>
         </div>
       </section>
@@ -514,4 +525,3 @@ function ProductNotFound() {
     </div>
   );
 }
-

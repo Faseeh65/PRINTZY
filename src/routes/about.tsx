@@ -54,7 +54,9 @@ function About() {
             />
             <div className="absolute -bottom-4 -right-4 rounded-xl border border-border bg-card p-4 shadow-lift sm:p-5">
               <div className="font-display text-xl font-bold text-secondary">Artwork Proof</div>
-              <div className="text-xs text-muted-foreground">Pre-production approval on every order</div>
+              <div className="text-xs text-muted-foreground">
+                Pre-production approval on every order
+              </div>
             </div>
           </div>
 
@@ -66,8 +68,8 @@ function About() {
               Eliminating the barriers to professional custom packaging
             </h2>
             <p className="text-muted-foreground">
-              Printzy is based in Lahore, Pakistan, and works with cafes, restaurants, bakeries, cloud
-              kitchens, retailers, and other businesses that need custom packaging.
+              Printzy is based in Lahore, Pakistan, and works with cafes, restaurants, bakeries,
+              cloud kitchens, retailers, and other businesses that need custom packaging.
             </p>
             <p className="text-muted-foreground">
               Our process starts with your product, size, quantity, and artwork. We review the
@@ -95,8 +97,8 @@ function About() {
             <h2 className="mt-3 text-3xl font-bold">What We Do & How We Work</h2>
             <p className="mt-4 text-muted-foreground">
               We design, print, and deliver complete branded packaging suites across Pakistan:
-              single and double-wall paper cups, rigid pizza boxes, burger cartons, kraft paper bags,
-              custom printed napkins, and cup sleeves.
+              single and double-wall paper cups, rigid pizza boxes, burger cartons, kraft paper
+              bags, custom printed napkins, and cup sleeves.
             </p>
           </div>
 
@@ -108,7 +110,8 @@ function About() {
               <h3 className="mt-4 text-xl font-semibold">1. Requirement & Logo</h3>
               <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
                 Send your product selection, target size, estimated quantity, and brand logo via
-                WhatsApp or our quote form. We review resolution, aspect ratio, and print feasibility.
+                WhatsApp or our quote form. We review resolution, aspect ratio, and print
+                feasibility.
               </p>
             </div>
 
@@ -118,8 +121,8 @@ function About() {
               </div>
               <h3 className="mt-4 text-xl font-semibold">2. 3D Mockup & Quote</h3>
               <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
-                Receive an itemised price breakdown and a digital mockup for review. We confirm timing
-                and any revisions with your request.
+                Receive an itemised price breakdown and a digital mockup for review. We confirm
+                timing and any revisions with your request.
               </p>
             </div>
 
@@ -129,8 +132,8 @@ function About() {
               </div>
               <h3 className="mt-4 text-xl font-semibold">3. Proof Approval & Print</h3>
               <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
-                You approve a high-res digital proof or printed sample before mass printing begins. We
-                archive your approved production files so future reorders take just one click.
+                You approve a high-res digital proof or printed sample before mass printing begins.
+                We archive your approved production files so future reorders take just one click.
               </p>
             </div>
           </div>
@@ -156,8 +159,9 @@ function About() {
                 <div>
                   <strong className="text-foreground">Product Materials:</strong>
                   <span className="text-muted-foreground">
-                    {" "}Material options vary by product. Contact us to confirm the substrate and request
-                    any product documentation available for your intended use.
+                    {" "}
+                    Material options vary by product. Contact us to confirm the substrate and
+                    request any product documentation available for your intended use.
                   </span>
                 </div>
               </li>
@@ -166,7 +170,8 @@ function About() {
                 <div>
                   <strong className="text-foreground">Proof Review:</strong>
                   <span className="text-muted-foreground">
-                    {" "}Review the digital artwork proof and confirm specifications before production
+                    {" "}
+                    Review the digital artwork proof and confirm specifications before production
                     begins.
                   </span>
                 </div>
@@ -176,7 +181,8 @@ function About() {
                 <div>
                   <strong className="text-foreground">Responsive Direct Support:</strong>
                   <span className="text-muted-foreground">
-                    {" "}Contact the team by WhatsApp. The usual response target is{" "}
+                    {" "}
+                    Contact the team by WhatsApp. The usual response target is{" "}
                     {businessFacts.contact.responseTime}.
                   </span>
                 </div>
@@ -209,12 +215,16 @@ function About() {
               </div>
               <div>
                 <h3 className="text-xl font-bold">{businessFacts.company.founderName}</h3>
-                <p className="text-sm text-secondary font-medium">{businessFacts.company.founderRole}</p>
+                <p className="text-sm text-secondary font-medium">
+                  {businessFacts.company.founderRole}
+                </p>
                 <p className="text-xs text-muted-foreground">Printzy Custom Packaging</p>
               </div>
             </div>
             <div className="mt-6 border-t border-border pt-4 text-sm text-muted-foreground leading-relaxed">
-              <p>Contact our operations team to discuss your packaging requirements and next steps.</p>
+              <p>
+                Contact our operations team to discuss your packaging requirements and next steps.
+              </p>
             </div>
             <div className="mt-6 flex flex-wrap gap-3">
               <Button asChild size="sm" variant="outline">
@@ -237,13 +247,14 @@ function About() {
             </span>
             <h2 className="mt-3 text-3xl font-bold">Where to Find Us</h2>
             <p className="mt-3 text-muted-foreground">
-              We welcome prospective clients for physical sample reviews and paper stock inspections.
+              We welcome prospective clients for physical sample reviews and paper stock
+              inspections.
             </p>
           </div>
 
           <div className="mt-10 grid gap-8 lg:grid-cols-2">
             <div className="space-y-6 rounded-2xl border border-border bg-background p-8 shadow-soft">
-            <h3 className="text-xl font-bold">Operations Location</h3>
+              <h3 className="text-xl font-bold">Operations Location</h3>
 
               <div className="space-y-4 text-sm sm:text-base">
                 <div className="flex items-start gap-3">
@@ -251,7 +262,8 @@ function About() {
                   <div>
                     <div className="font-semibold text-foreground">Service Base</div>
                     <div className="text-muted-foreground">
-                      Operations based in Lahore, Pakistan. Contact us before planning an in-person visit.
+                      Operations based in Lahore, Pakistan. Contact us before planning an in-person
+                      visit.
                     </div>
                   </div>
                 </div>
@@ -263,7 +275,9 @@ function About() {
                     <div className="text-muted-foreground">
                       Monday to Saturday: 9:00 AM to 6:00 PM PKT
                     </div>
-                    <div className="text-xs text-muted-foreground">Sunday: Closed (WhatsApp inquiries queued)</div>
+                    <div className="text-xs text-muted-foreground">
+                      Sunday: Closed (WhatsApp inquiries queued)
+                    </div>
                   </div>
                 </div>
 

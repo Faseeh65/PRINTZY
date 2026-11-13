@@ -32,9 +32,15 @@ function BlogIndexPage() {
           </div>
           <div className="flex flex-wrap gap-2 text-xs font-medium">
             <span className="rounded-full bg-primary/10 px-3 py-1 text-primary">All Guides</span>
-            <span className="rounded-full bg-muted px-3 py-1 text-muted-foreground">Cups & Beverages</span>
-            <span className="rounded-full bg-muted px-3 py-1 text-muted-foreground">Food Packaging</span>
-            <span className="rounded-full bg-muted px-3 py-1 text-muted-foreground">Design & Print</span>
+            <span className="rounded-full bg-muted px-3 py-1 text-muted-foreground">
+              Cups & Beverages
+            </span>
+            <span className="rounded-full bg-muted px-3 py-1 text-muted-foreground">
+              Food Packaging
+            </span>
+            <span className="rounded-full bg-muted px-3 py-1 text-muted-foreground">
+              Design & Print
+            </span>
           </div>
         </div>
 
@@ -61,9 +67,7 @@ function BlogIndexPage() {
                   </Link>
                 </h2>
 
-                <p className="mt-3 text-sm text-muted-foreground line-clamp-3">
-                  {post.summary}
-                </p>
+                <p className="mt-3 text-sm text-muted-foreground line-clamp-3">{post.summary}</p>
               </div>
 
               <div className="mt-6 border-t border-border pt-4">
@@ -79,7 +83,12 @@ function BlogIndexPage() {
                 </div>
 
                 <div className="mt-4">
-                  <Button asChild variant="outline" size="sm" className="w-full justify-between group-hover:border-primary/50 group-hover:bg-primary/5">
+                  <Button
+                    asChild
+                    variant="outline"
+                    size="sm"
+                    className="w-full justify-between group-hover:border-primary/50 group-hover:bg-primary/5"
+                  >
                     <Link to="/blog/$slug" params={{ slug: post.slug }}>
                       <span>Read Guide</span>
                       <ArrowRight className="size-3.5 transition-transform group-hover:translate-x-1" />
@@ -100,13 +109,19 @@ function BlogIndexPage() {
               <Sparkles className="size-3.5" />
               Free Artwork Pre-Flight
             </span>
-            <h2 className="text-2xl font-bold text-foreground">Have Questions About Your Packaging Specs?</h2>
+            <h2 className="text-2xl font-bold text-foreground">
+              Have Questions About Your Packaging Specs?
+            </h2>
             <p className="text-sm text-muted-foreground">
-              Don't guess on cup sizes or board thickness. Send us your logo or beverage menu, and our packaging team will prepare a free 3D digital mockup and recommend the most economical production spec for your launch.
+              Don't guess on cup sizes or board thickness. Send us your logo or beverage menu, and
+              our packaging team will prepare a free 3D digital mockup and recommend the most
+              economical production spec for your launch.
             </p>
             <div className="pt-2 flex flex-wrap gap-3">
               <Button asChild size="default" shimmer>
-                <Link to="/quote" search={{ product: undefined }}>Get Free Mockup & Quote</Link>
+                <Link to="/quote" search={{ product: undefined }}>
+                  Get Free Mockup & Quote
+                </Link>
               </Button>
               <Button asChild variant="outline" size="default">
                 <Link to="/request-sample">Request Material Swatches</Link>
@@ -120,4 +135,3 @@ function BlogIndexPage() {
     </div>
   );
 }
-

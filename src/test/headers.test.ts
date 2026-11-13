@@ -41,9 +41,7 @@ describe("Worker Response Headers & Caching", () => {
 
     const response = addResponseHeaders(initialResponse, request);
 
-    expect(response.headers.get("Cache-Control")).toBe(
-      "public, max-age=31536000, immutable",
-    );
+    expect(response.headers.get("Cache-Control")).toBe("public, max-age=31536000, immutable");
   });
 
   it("identifies hashed asset paths correctly with isHashedAsset", () => {
@@ -117,7 +115,9 @@ describe("Static Assets _headers Configuration", () => {
 
     // Static asset rules
     expect(content).toContain("/images/*");
-    expect(content).toContain("Cache-Control: public, max-age=86400, stale-while-revalidate=604800");
+    expect(content).toContain(
+      "Cache-Control: public, max-age=86400, stale-while-revalidate=604800",
+    );
 
     expect(content).toContain("/favicon.ico");
     expect(content).toContain("/sitemap.xml");
@@ -128,4 +128,3 @@ describe("Static Assets _headers Configuration", () => {
     expect(content).not.toContain("/assets/*");
   });
 });
-
