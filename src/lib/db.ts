@@ -5,6 +5,31 @@
 import { neon } from "@neondatabase/serverless";
 import { z } from "zod";
 
+/** Keep useful server diagnostics while excluding connection strings and personal data. */
+function logServerError(context: string, error: unknown): void {
+  const errorRecord =
+    typeof error === "object" && error !== null ? (error as Record<string, unknown>) : undefined;
+  const rawMessage = error instanceof Error ? error.message : String(error);
+  const message = rawMessage
+    .replace(/postgres(?:ql)?:\/\/[^\s"'`]+/gi, "[database-url]")
+    .replace(/[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}/gi, "[email]")
+    .replace(/\b\+?\d[\d ()-]{6,}\d\b/g, "[phone]")
+    .replace(
+      /\b(?:[\w-]*(?:secret|token|password|api[_-]?key|authorization)[\w-]*)\s*[:=]\s*[^\s,;]+/gi,
+      "credential=[redacted]",
+    )
+    .replace(/\([^)]*\)\s*=\s*\([^)]*\)/g, "([column])=([value])")
+    .replace(/\b(?:DETAIL|CONTEXT|QUERY|PARAMS?)\s*[:=][\s\S]*$/i, "[details redacted]")
+    .slice(0, 300);
+  const code = errorRecord?.["code"];
+
+  console.error(context, {
+    errorName: error instanceof Error ? error.name : "UnknownError",
+    ...(typeof code === "string" && /^[0-9A-Z]{5}$/.test(code) ? { code } : {}),
+    message: message || "No error message provided.",
+  });
+}
+
 /**
  * Retrieves environment variables across Node, Vite, and Cloudflare Pages/Workers runtime contexts.
  */
@@ -181,7 +206,7 @@ export async function verifyTurnstileToken(token: string, remoteIp?: string): Pr
 
     return true;
   } catch (err) {
-    console.error("[verifyTurnstileToken] Unexpected verification network error:", err);
+    logServerError("[verifyTurnstileToken] Verification network error:", err);
     return false;
   }
 }
@@ -249,7 +274,7 @@ export async function createQuoteRequest(
       `) as DbProduct[];
     }
   } catch (dbErr) {
-    console.error("[createQuoteRequest] Database query failure:", dbErr);
+    logServerError("[createQuoteRequest] Product lookup failed:", dbErr);
     throw new Error("Failed to process product lookup. Please try again later.");
   }
 
@@ -308,7 +333,7 @@ export async function createQuoteRequest(
 
     return firstRow;
   } catch (insertErr) {
-    console.error("[createQuoteRequest] Failed to insert quote request:", insertErr);
+    logServerError("[createQuoteRequest] Quote insert failed:", insertErr);
     throw new Error("Unable to save quote request. Please try again later.");
   }
 }
