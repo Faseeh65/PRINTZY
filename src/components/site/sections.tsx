@@ -187,25 +187,25 @@ export function OneSupplierSection() {
       icon: Coffee,
       title: "1. Handheld & Counter",
       desc: "Single & double-wall paper cups and heat sleeves that leave a premium impression.",
-      link: "/products/custom-paper-cups",
+      slug: "custom-paper-cups",
     },
     {
       icon: Box,
       title: "2. Kitchen to Table",
       desc: "Sturdy pizza boxes and grease-resistant food cartons that keep meals hot and intact.",
-      link: "/products/custom-pizza-boxes",
+      slug: "custom-pizza-boxes",
     },
     {
       icon: ShoppingBag,
       title: "3. Doorstep & Takeaway",
       desc: "Reinforced kraft paper bags that carry your full menu safely into customer homes.",
-      link: "/products/custom-paper-bags",
+      slug: "custom-paper-bags",
     },
     {
       icon: Sparkles,
       title: "4. The Finishing Touch",
       desc: "Custom printed napkins and packaging seal stickers that complete the dining experience.",
-      link: "/products/custom-napkins-tissues",
+      slug: "custom-napkins-tissues",
     },
   ];
 
@@ -237,7 +237,8 @@ export function OneSupplierSection() {
                   <h3 className="mt-4 text-lg font-bold text-foreground">{j.title}</h3>
                   <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{j.desc}</p>
                   <Link
-                    to={j.link as any}
+                    to="/products/$slug"
+                    params={{ slug: j.slug }}
                     className="mt-4 inline-flex min-h-11 items-center gap-1 text-xs font-semibold text-secondary hover:underline"
                   >
                     View specifications

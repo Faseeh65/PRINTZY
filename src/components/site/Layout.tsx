@@ -173,7 +173,7 @@ export function Footer() {
           ))}
           <li>
             <Link
-              to={"/faq" as any}
+              to="/faq"
               className="hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm"
             >
               FAQ
@@ -181,7 +181,7 @@ export function Footer() {
           </li>
           <li>
             <Link
-              to={"/request-sample" as any}
+              to="/request-sample"
               className="hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm"
             >
               Request a Sample
@@ -189,7 +189,7 @@ export function Footer() {
           </li>
           <li>
             <Link
-              to={"/artwork-guide" as any}
+              to="/artwork-guide"
               className="hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm"
             >
               Artwork Guide
@@ -197,7 +197,7 @@ export function Footer() {
           </li>
           <li>
             <Link
-              to={"/quality-and-compliance" as any}
+              to="/quality-and-compliance"
               className="hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm"
             >
               Materials & Documentation
@@ -205,7 +205,7 @@ export function Footer() {
           </li>
           <li>
             <Link
-              to={"/export-custom-packaging" as any}
+              to="/export-custom-packaging"
               className="hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm"
             >
               Export Inquiries
@@ -213,7 +213,7 @@ export function Footer() {
           </li>
           <li>
             <Link
-              to={"/pricing-guide" as any}
+              to="/pricing-guide"
               className="hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm"
             >
               Pricing Guide
@@ -221,7 +221,7 @@ export function Footer() {
           </li>
           <li>
             <Link
-              to={"/shipping-and-delivery" as any}
+              to="/shipping-and-delivery"
               className="hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm"
             >
               Shipping & Delivery
@@ -229,7 +229,7 @@ export function Footer() {
           </li>
           <li>
             <Link
-              to={"/payment-terms" as any}
+              to="/payment-terms"
               className="hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm"
             >
               Payment Terms
@@ -237,7 +237,7 @@ export function Footer() {
           </li>
           <li>
             <Link
-              to={"/return-and-reprint-policy" as any}
+              to="/return-and-reprint-policy"
               className="hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm"
             >
               Return & Reprint Policy

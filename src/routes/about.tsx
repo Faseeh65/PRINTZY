@@ -191,14 +191,14 @@ function About() {
 
             <div className="flex flex-wrap gap-4 pt-2">
               <Link
-                to={"/artwork-guide" as any}
+                to="/artwork-guide"
                 className="inline-flex items-center gap-1 text-sm font-semibold text-secondary hover:underline"
               >
                 <FileText className="size-4" />
                 Read our Artwork Guide
               </Link>
               <Link
-                to={"/return-and-reprint-policy" as any}
+                to="/return-and-reprint-policy"
                 className="inline-flex items-center gap-1 text-sm font-semibold text-secondary hover:underline"
               >
                 <HelpCircle className="size-4" />
