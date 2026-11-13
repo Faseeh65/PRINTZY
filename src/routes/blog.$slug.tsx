@@ -77,7 +77,7 @@ function BlogPostPage() {
     <article className="space-y-12">
       {/* Article Header & Breadcrumbs */}
       <section className="border-b border-border bg-peach/10 py-10">
-        <div className="container max-w-5xl">
+        <div className="container-site max-w-5xl">
           <nav
             aria-label="Breadcrumb"
             className="mb-6 flex flex-wrap items-center gap-2 text-xs text-muted-foreground"
@@ -128,7 +128,7 @@ function BlogPostPage() {
       </section>
 
       {/* Main Content Area: 2 Columns */}
-      <section className="container max-w-5xl">
+      <section className="container-site max-w-5xl">
         <div className="grid gap-12 lg:grid-cols-12">
           {/* Main Content Body */}
           <div className="space-y-10 lg:col-span-8">
@@ -316,7 +316,7 @@ function BlogPostPage() {
       </section>
 
       {/* Related Packaging Products Hub */}
-      <section className="container max-w-5xl border-t border-border pt-12">
+      <section className="container-site max-w-5xl border-t border-border pt-12">
         <div className="flex items-center justify-between">
           <h2 className="text-2xl font-bold text-foreground">Explore Related Custom Packaging</h2>
           <Link to="/products" className="text-sm font-medium text-primary hover:underline">

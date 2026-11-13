@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, BookOpen, Clock, Calendar, User, Sparkles } from "lucide-react";
 import { seo } from "@/lib/seo";
@@ -17,51 +18,70 @@ export const Route = createFileRoute("/blog/")({
 });
 
 function BlogIndexPage() {
+  const [activeCategory, setActiveCategory] = useState("All Guides");
+  const categories = ["All Guides", ...new Set(blogPosts.map((post) => post.category))];
+  const visiblePosts =
+    activeCategory === "All Guides"
+      ? blogPosts
+      : blogPosts.filter((post) => post.category === activeCategory);
+
   return (
-    <div className="space-y-16">
+    <>
       <PageHero
         title="Packaging Guides & Practical Printing Advice"
         text="No industry jargon or generic filler. Practical guides written specifically for Pakistani cafe owners, restaurant managers, and retail startups navigating packaging decisions."
       />
 
-      <section className="container max-w-6xl">
-        <div className="flex flex-wrap items-center justify-between gap-4 border-b border-border pb-6">
+      <section className="container-site max-w-6xl pb-16 pt-8 sm:pt-10 md:pb-20 md:pt-12">
+        <div className="flex flex-col gap-5 border-b border-border pb-6 md:flex-row md:items-center md:justify-between">
           <div className="flex items-center gap-2 text-sm font-medium text-muted-foreground">
-            <BookOpen className="size-4 text-primary" />
-            <span>Showing all {blogPosts.length} comprehensive guides</span>
+            <BookOpen className="size-4 shrink-0 text-primary" aria-hidden="true" />
+            <span aria-live="polite">
+              {activeCategory === "All Guides"
+                ? `Showing all ${visiblePosts.length} guides`
+                : `Showing ${visiblePosts.length} ${activeCategory} guides`}
+            </span>
           </div>
-          <div className="flex flex-wrap gap-2 text-xs font-medium">
-            <span className="rounded-full bg-primary/10 px-3 py-1 text-primary">All Guides</span>
-            <span className="rounded-full bg-muted px-3 py-1 text-muted-foreground">
-              Cups & Beverages
-            </span>
-            <span className="rounded-full bg-muted px-3 py-1 text-muted-foreground">
-              Food Packaging
-            </span>
-            <span className="rounded-full bg-muted px-3 py-1 text-muted-foreground">
-              Design & Print
-            </span>
+          <div className="flex flex-wrap gap-2" role="group" aria-label="Filter guides by topic">
+            {categories.map((category) => {
+              const selected = category === activeCategory;
+              return (
+                <button
+                  key={category}
+                  type="button"
+                  aria-pressed={selected}
+                  onClick={() => setActiveCategory(category)}
+                  className={`inline-flex min-h-11 cursor-pointer items-center rounded-full border px-4 py-2 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${
+                    selected
+                      ? "border-secondary bg-secondary text-secondary-foreground"
+                      : "border-border bg-card text-muted-foreground hover:border-secondary/50 hover:text-foreground"
+                  }`}
+                >
+                  {category}
+                </button>
+              );
+            })}
           </div>
         </div>
 
-        <div className="mt-8 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {blogPosts.map((post: BlogPost) => (
+        <div className="mt-8 grid auto-rows-fr gap-5 sm:gap-6 md:grid-cols-2 xl:grid-cols-3">
+          {visiblePosts.map((post: BlogPost) => (
             <article
               key={post.slug}
-              className="group flex flex-col justify-between rounded-2xl border border-border bg-card p-6 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-lift"
+              className="group flex h-full min-w-0 flex-col rounded-2xl border border-border/80 bg-card p-5 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:border-secondary/40 hover:shadow-lift sm:p-6"
             >
-              <div>
+              <div className="flex-1">
                 <div className="flex items-center justify-between gap-2 text-xs">
-                  <span className="rounded-full bg-peach px-2.5 py-0.5 font-semibold text-navy">
+                  <span className="rounded-full bg-accent px-3 py-1 font-semibold text-navy">
                     {post.category}
                   </span>
-                  <span className="flex items-center gap-1 text-muted-foreground">
-                    <Clock className="size-3" />
+                  <span className="flex shrink-0 items-center gap-1.5 text-muted-foreground">
+                    <Clock className="size-3.5" aria-hidden="true" />
                     {post.readingTime}
                   </span>
                 </div>
 
-                <h2 className="mt-4 text-xl font-bold tracking-tight text-foreground transition-colors group-hover:text-primary">
+                <h2 className="mt-5 text-xl font-bold leading-snug tracking-tight text-foreground transition-colors group-hover:text-secondary">
                   <Link to="/blog/$slug" params={{ slug: post.slug }}>
                     {post.title}
                   </Link>
@@ -71,13 +91,13 @@ function BlogIndexPage() {
               </div>
 
               <div className="mt-6 border-t border-border pt-4">
-                <div className="flex items-center justify-between text-xs text-muted-foreground">
-                  <span className="flex items-center gap-1.5">
-                    <User className="size-3.5" />
+                <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-2 text-xs text-muted-foreground">
+                  <span className="flex min-w-0 items-center gap-1.5">
+                    <User className="size-3.5 shrink-0" aria-hidden="true" />
                     {post.author.name}
                   </span>
-                  <span className="flex items-center gap-1.5">
-                    <Calendar className="size-3.5" />
+                  <span className="flex shrink-0 items-center gap-1.5">
+                    <Calendar className="size-3.5" aria-hidden="true" />
                     {post.publishedDate}
                   </span>
                 </div>
@@ -102,8 +122,8 @@ function BlogIndexPage() {
       </section>
 
       {/* Trust & Assistance Banner */}
-      <section className="container max-w-6xl">
-        <div className="rounded-2xl border border-primary/20 bg-gradient-to-r from-peach/30 via-background to-peach/20 p-8 md:p-10">
+      <section className="container-site max-w-6xl pb-16 md:pb-20">
+        <div className="rounded-3xl border border-border/80 bg-gradient-to-br from-accent via-card to-background p-6 shadow-soft sm:p-8 md:p-10">
           <div className="max-w-2xl space-y-3">
             <span className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
               <Sparkles className="size-3.5" />
@@ -117,7 +137,7 @@ function BlogIndexPage() {
               our packaging team will prepare a free 3D digital mockup and recommend the most
               economical production spec for your launch.
             </p>
-            <div className="pt-2 flex flex-wrap gap-3">
+            <div className="flex flex-col gap-3 pt-2 sm:flex-row sm:flex-wrap">
               <Button asChild size="default" shimmer>
                 <Link to="/quote" search={{ product: undefined }}>
                   Get Free Mockup & Quote
@@ -132,6 +152,6 @@ function BlogIndexPage() {
       </section>
 
       <QuoteCTA />
-    </div>
+    </>
   );
 }

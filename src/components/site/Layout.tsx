@@ -54,14 +54,14 @@ export function Navbar() {
     <header
       className={`sticky top-0 z-40 bg-card/95 backdrop-blur transition-all duration-300 ${scrolled ? "shadow-soft py-0" : "py-1"}`}
     >
-      <div className="container-site flex h-18 items-center justify-between gap-4 py-2">
-        <Link to="/" aria-label="Printzy home" className="flex items-center group">
+      <div className="container-site flex h-16 items-center justify-between gap-3 py-2 sm:h-18 sm:gap-4">
+        <Link to="/" aria-label="Printzy home" className="flex min-w-0 shrink items-center group">
           <img
             src="/images/logo-removebg-preview.png"
             alt="Printzy Custom Packaging"
             width={1600}
             height={628}
-            className="h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+            className="h-10 w-auto max-w-[min(42vw,10rem)] object-contain transition-transform duration-300 group-hover:scale-105 sm:h-12 sm:max-w-none"
           />
         </Link>
         <nav aria-label="Main navigation" className="hidden lg:block">
@@ -97,7 +97,10 @@ export function Navbar() {
                 <Menu aria-hidden="true" />
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="flex w-80 flex-col bg-card">
+            <SheetContent
+              side="right"
+              className="flex w-[min(20rem,calc(100vw-1rem))] flex-col bg-card"
+            >
               <SheetTitle className="font-display text-foreground">Menu</SheetTitle>
               <SheetDescription className="sr-only">Site navigation menu links</SheetDescription>
               <nav aria-label="Mobile navigation" className="mt-4 flex flex-col">
@@ -139,10 +142,13 @@ const CURRENT_YEAR = 2026;
 
 export function Footer() {
   return (
-    <footer className="bg-navy pb-24 text-navy-foreground md:pb-0" aria-label="Site footer">
+    <footer
+      className="bg-navy pb-[calc(5rem+env(safe-area-inset-bottom))] text-navy-foreground md:pb-0"
+      aria-label="Site footer"
+    >
       <h2 className="sr-only">Footer navigation and company information</h2>
-      <div className="container-site grid gap-10 py-16 md:grid-cols-4">
-        <div>
+      <div className="container-site grid grid-cols-1 gap-x-8 gap-y-10 py-12 sm:grid-cols-2 sm:py-14 lg:grid-cols-4 lg:py-16">
+        <div className="sm:col-span-2 lg:col-span-1">
           <Link
             to="/"
             aria-label="Printzy home"
@@ -307,8 +313,13 @@ export function Footer() {
       </div>
       <div className="border-t border-navy-foreground/15">
         <div className="container-site flex flex-col items-center justify-between gap-4 py-6 text-sm text-navy-foreground/80 md:flex-row">
-          <p>{`© ${CURRENT_YEAR} Printzy. All rights reserved.`}</p>
-          <div className="flex items-center gap-6 text-xs text-navy-foreground/75">
+          <div className="space-y-1 text-center md:text-left">
+            <p>{`© ${CURRENT_YEAR} Printzy. All rights reserved.`}</p>
+            <p className="text-xs text-navy-foreground/65">
+              A project made with care by <span className="font-semibold">Devnex Innovation</span>.
+            </p>
+          </div>
+          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-center text-xs text-navy-foreground/75">
             <Link
               to="/terms"
               className="hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm"
@@ -356,18 +367,18 @@ export function FloatingActions() {
         rel="noopener noreferrer"
         onClick={() => trackGtmWhatsAppClick("floating_button")}
         aria-label="Chat with Printzy on WhatsApp"
-        className="wa-pulse fixed bottom-24 right-4 z-40 inline-flex size-14 items-center justify-center rounded-full shadow-soft transition-all duration-300 hover:scale-110 hover:-translate-y-1 hover:shadow-lift active:scale-95 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#25D366] md:bottom-6 md:right-6"
+        className="wa-pulse fixed bottom-[calc(5rem+env(safe-area-inset-bottom))] right-3 z-40 inline-flex size-12 items-center justify-center rounded-full shadow-soft transition-all duration-300 hover:scale-110 hover:-translate-y-1 hover:shadow-lift active:scale-95 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#25D366] sm:right-4 md:bottom-6 md:right-6 md:size-14"
       >
-        <WhatsAppIcon className="size-14" aria-hidden="true" />
+        <WhatsAppIcon className="size-12 md:size-14" aria-hidden="true" />
       </a>
       <div className="fixed inset-x-0 bottom-0 z-40 grid grid-cols-2 gap-2 border-t bg-card p-2 pb-[calc(0.5rem+env(safe-area-inset-bottom))] md:hidden">
-        <Button asChild variant="outline">
+        <Button asChild variant="outline" className="min-h-11">
           <a href={site.phoneHref} aria-label={`Call Printzy at ${site.phoneDisplay}`}>
             <Phone aria-hidden="true" />
             Call
           </a>
         </Button>
-        <Button asChild>
+        <Button asChild className="min-h-11">
           <Link
             to="/quote"
             search={{ product: undefined }}

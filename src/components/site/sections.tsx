@@ -172,7 +172,7 @@ export function Hero() {
 export function TrustBar() {
   return (
     <section aria-label="Printzy at a glance" className="bg-secondary py-10">
-      <div className="container-site grid grid-cols-2 gap-8 md:grid-cols-4">
+      <div className="container-site grid grid-cols-2 gap-4 sm:gap-8 md:grid-cols-4">
         {stats.map((s) => (
           <StatCounter key={s.label} {...s} />
         ))}
@@ -637,10 +637,10 @@ export function QuoteCTA() {
 
 export function PageHero({ title, text }: { title: string; text: string }) {
   return (
-    <section className="bg-hero py-14 md:py-20">
+    <section className="bg-hero py-12 sm:py-14 md:py-16">
       <div className="container-site max-w-3xl text-center">
-        <h1>{title}</h1>
-        <p className="mt-4 text-lg text-muted-foreground">{text}</p>
+        <h1 className="text-balance">{title}</h1>
+        <p className="mx-auto mt-4 max-w-2xl text-base text-muted-foreground sm:text-lg">{text}</p>
       </div>
     </section>
   );
