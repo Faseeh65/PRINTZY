@@ -16,7 +16,7 @@ describe("Business Facts & WhatsApp Deep Link Safety", () => {
     expect(questionMarks).toBe(1);
 
     // Verify there are no double text= parameters
-    const textMatches = (url.match(/\?text=|\&text=/g) || []).length;
+    const textMatches = (url.match(/\?text=|&text=/g) || []).length;
     expect(textMatches).toBe(1);
 
     // Verify properly URL-encoded
