@@ -4,29 +4,32 @@ import { products } from "@/data/products";
 import { industryDetails } from "@/data/industry-details";
 import { cityDetails } from "@/data/city-details";
 import { blogPosts } from "@/data/blog";
+import { routeTree } from "../routeTree.gen";
 import fs from "node:fs";
 import path from "node:path";
 
+const normalizePath = (routePath: string) =>
+  routePath === "/" ? routePath : routePath.replace(/\/+$/, "");
+
+const routeTemplates = new Set(
+  Object.values(routeTree.children ?? {})
+    .map((route) => route.options.path)
+    .filter((routePath): routePath is string => typeof routePath === "string")
+    .map(normalizePath),
+);
+
 const REGISTERED_ROUTES = new Set([
-  "/",
-  "/about",
-  "/artwork-guide",
-  "/blog",
-  ...blogPosts.map((b) => `/blog/${b.slug}`),
-  "/contact",
-  "/faq",
-  "/gallery",
-  "/how-it-works",
-  "/industries",
-  ...Object.keys(industryDetails).map((s) => `/industries/${s}`),
-  ...Object.keys(cityDetails).map((c) => `/cities/${c}`),
-  "/privacy",
-  "/products",
-  ...products.map((p) => `/products/${p.slug}`),
-  "/quote",
-  "/request-sample",
-  "/return-and-reprint-policy",
-  "/terms",
+  ...routeTemplates,
+  ...(routeTemplates.has("/blog/$slug") ? blogPosts.map((post) => `/blog/${post.slug}`) : []),
+  ...(routeTemplates.has("/cities/$slug")
+    ? Object.keys(cityDetails).map((slug) => `/cities/${slug}`)
+    : []),
+  ...(routeTemplates.has("/industries/$slug")
+    ? Object.keys(industryDetails).map((slug) => `/industries/${slug}`)
+    : []),
+  ...(routeTemplates.has("/products/$slug")
+    ? products.map((product) => `/products/${product.slug}`)
+    : []),
 ]);
 
 describe("Link Integrity & Broken Link Verification", () => {
