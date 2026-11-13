@@ -1,7 +1,6 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { WhatsAppIcon } from "@/components/icons/WhatsAppIcon";
-import { buildWhatsAppUrl } from "@/config/business-facts";
 import { z } from "zod";
 import { seo } from "@/lib/seo";
 import { site } from "@/data/site";
@@ -17,6 +16,9 @@ import { trackGtmQuoteSubmit } from "@/lib/gtm";
 import { getEnvConfig } from "@/lib/env";
 import { createServerFn } from "@tanstack/react-start";
 import { createQuoteRequest, type CreateQuoteInput } from "@/lib/db";
+
+const quoteWhatsAppUrl =
+  "https://wa.me/923219091707?text=Hello%20Printzy%2C%20I%20just%20submitted%20a%20quote%20request.";
 
 export const submitQuoteServerFn = createServerFn({ method: "POST" })
   .validator((data: CreateQuoteInput) => data)
@@ -107,11 +109,13 @@ function Quote() {
 
   const [turnstileToken, setTurnstileToken] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const submittingRef = useRef(false);
 
   const isCaptchaConfigured = Boolean(getEnvConfig().turnstileSiteKey?.trim());
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    if (submittingRef.current) return;
     const form = e.currentTarget;
 
     if (!isCaptchaConfigured) {
@@ -153,6 +157,7 @@ function Quote() {
     }
 
     setIsSubmitting(true);
+    submittingRef.current = true;
     setError("");
 
     try {
@@ -168,29 +173,20 @@ function Quote() {
           turnstileToken,
         },
       });
-    } catch (err: unknown) {
+    } catch {
       setIsSubmitting(false);
-      const errMsg =
-        err instanceof Error ? err.message : "Failed to submit quote request. Please try again.";
-      setError(errMsg);
+      submittingRef.current = false;
+      setError(
+        "We couldn't save your quote request just now. Please try again, or contact us on WhatsApp below.",
+      );
       return;
     }
 
     setIsSubmitting(false);
+    submittingRef.current = false;
     setSubmitted(true);
     trackQuoteSubmitted({ product: data.product, quantity: data.quantity });
     trackGtmQuoteSubmit({ product: data.product, quantity: data.quantity });
-
-    const title = products.find((p) => p.slug === data.product)?.title ?? data.product;
-    const msg = `Hello Printzy, I would like a quote.\nName: ${data.name}\nBusiness: ${data.business}\nPhone: ${data.phone}\nProduct: ${title}\nQuantity: ${data.quantity}\nDetails: ${data.details}`;
-
-    try {
-      if (typeof window !== "undefined") {
-        window.open(buildWhatsAppUrl(msg), "_blank", "noopener,noreferrer");
-      }
-    } catch {
-      // Safe fallback if popups are restricted in environment
-    }
   }
 
   const field = "min-h-11 bg-card";
@@ -206,20 +202,19 @@ function Quote() {
             <div className="inline-flex size-16 items-center justify-center rounded-full bg-peach text-navy font-bold text-2xl transition-transform hover:scale-105">
               ✓
             </div>
-            <h2 className="text-2xl font-bold text-foreground">
-              Quote Request Opening in WhatsApp
-            </h2>
+            <h2 className="text-2xl font-bold text-foreground">Request received</h2>
             <p className="text-muted-foreground">
-              Thank you! If WhatsApp did not open automatically, click below to send your request.
+              Thank you! Your quote request has been received. We have sent a confirmation to your
+              email and our team will contact you shortly.
             </p>
             <div className="pt-4 flex flex-col sm:flex-row justify-center gap-3">
               <Button onClick={() => setSubmitted(false)} variant="outline">
                 Request Another Quote
               </Button>
-              <Button asChild>
-                <a href={site.whatsapp} target="_blank" rel="noopener noreferrer">
+              <Button asChild variant="outline">
+                <a href={quoteWhatsAppUrl} target="_blank" rel="noopener noreferrer">
                   <WhatsAppIcon />
-                  Open WhatsApp
+                  Chat on WhatsApp
                 </a>
               </Button>
             </div>
@@ -336,12 +331,22 @@ function Quote() {
               shimmer={!isSubmitting && isCaptchaConfigured}
               disabled={isSubmitting || !isCaptchaConfigured}
             >
-              <WhatsAppIcon />
-              {isSubmitting ? "Submitting..." : "Send quote request via WhatsApp"}
+              {isSubmitting ? "Submitting..." : "Submit Quote Request"}
             </Button>
             <p className="text-center text-sm">
-              Prefer email? Write to{" "}
-              <a href={`mailto:${site.email}`} className="font-medium text-secondary underline">
+              Prefer WhatsApp?{" "}
+              <a
+                href={quoteWhatsAppUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-medium text-secondary underline"
+              >
+                Chat with us
+              </a>
+            </p>
+            <p className="text-center text-xs text-muted-foreground">
+              Prefer email?{" "}
+              <a href={`mailto:${site.email}`} className="underline hover:text-foreground">
                 {site.email}
               </a>
             </p>
