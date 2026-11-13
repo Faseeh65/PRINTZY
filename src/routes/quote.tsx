@@ -119,7 +119,7 @@ function Quote() {
 
     if (!parseResult.success) {
       const firstError =
-        parseResult.error.errors[0]?.message ?? "Please check the form for errors.";
+        parseResult.error.issues[0]?.message ?? "Please check the form for errors.";
       setError(firstError);
       return;
     }
