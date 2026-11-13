@@ -60,7 +60,9 @@ function PricingGuide() {
               <li>Review the written quote, schedule, and terms before approving production.</li>
             </ol>
             <Button asChild className="mt-5">
-              <Link to="/quote">Request a quote</Link>
+              <Link to="/quote" search={{ product: undefined }}>
+                Request a quote
+              </Link>
             </Button>
           </div>
         </div>

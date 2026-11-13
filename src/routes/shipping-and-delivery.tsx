@@ -51,7 +51,9 @@ function ShippingAndDelivery() {
             </article>
           </div>
           <Button asChild>
-            <Link to="/quote">Include delivery in my quote</Link>
+            <Link to="/quote" search={{ product: undefined }}>
+              Include delivery in my quote
+            </Link>
           </Button>
         </div>
       </section>

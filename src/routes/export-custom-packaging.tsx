@@ -61,7 +61,9 @@ function ExportCustomPackaging() {
                 <Link to="/contact">Contact Printzy</Link>
               </Button>
               <Button asChild variant="outline">
-                <Link to="/quote">Start a quote request</Link>
+                <Link to="/quote" search={{ product: undefined }}>
+                  Start a quote request
+                </Link>
               </Button>
             </div>
           </div>
