@@ -5,13 +5,14 @@ import { PageHero, QuoteCTA } from "@/components/site/sections";
 import { Button } from "@/components/ui/button";
 import { WhatsAppIcon } from "@/components/icons/WhatsAppIcon";
 import { site } from "@/data/site";
+import { businessFacts } from "@/config/business-facts";
 
 export const Route = createFileRoute("/faq")({
   head: () =>
     seo({
       title: "Frequently Asked Questions | Printzy Custom Packaging",
       description:
-        "Clear answers on custom packaging in Pakistan: minimum order quantities, pricing, production times, samples, and food-grade materials.",
+        "Answers about custom packaging in Pakistan, including order quantities, pricing, production timing, samples, and material options.",
       path: "/faq",
     }),
   component: FAQPage,
@@ -20,19 +21,19 @@ export const Route = createFileRoute("/faq")({
 const faqItems = [
   {
     q: "What is your minimum order quantity (MOQ)?",
-    a: "Minimum order quantities vary by product category to accommodate small businesses: custom paper cups [MOQ: confirm, e.g. 500 – 1,000 pcs], pizza boxes [MOQ: confirm], custom food boxes [MOQ: confirm], kraft paper bags [MOQ: confirm], and printed napkins [MOQ: confirm]. If you are launching a new brand or testing a menu, reach out on WhatsApp—we will guide you to the most economical run size for your budget.",
+    a: "Minimum order quantities depend on the product, dimensions, and print requirements. Share your product and planned quantity on WhatsApp and we will confirm the available run size.",
   },
   {
     q: "How much does custom printed packaging cost?",
-    a: "Packaging prices depend on four primary factors: product type and dimensions, order quantity (larger volumes benefit from significant economies of scale), number of print colours (1-colour vs 4-colour process), and finishing options (matte, gloss, UV, or greaseproof coating). Share your requirements with our team and we will provide an itemised quote with a free 3D digital mockup within 24 hours.",
+    a: "Packaging prices depend on product type and dimensions, order quantity, print requirements, and finishing options. Share your requirements with our team to request an itemised quote and digital mockup.",
   },
   {
     q: "How long does production and delivery take?",
-    a: "Standard manufacturing takes [X-Y working days: confirm] after you approve your final artwork proof. Nationwide courier delivery typically adds 1-2 working days within Lahore and 2-4 working days to Karachi, Islamabad, Rawalpindi, Faisalabad, and other cities across Pakistan.",
+    a: "Production timing depends on the product and order details. We will confirm the schedule with your quote after reviewing your requirements and approved artwork. Delivery time depends on the destination and courier service.",
   },
   {
     q: "Do you design the artwork for us?",
-    a: "We review your logo, check file resolution, and place your branding onto exact product die-lines with a free 3D digital mockup at zero cost. If you need complete packaging graphic design created from scratch, our design team can build it [free / nominal design fee: confirm].",
+    a: "We can review your logo and prepare a digital mockup for your packaging. If you need a new design created from scratch, contact us to discuss the scope and any applicable design fee.",
   },
   {
     q: "What file format should I send for printing?",
@@ -40,23 +41,26 @@ const faqItems = [
   },
   {
     q: "Can I see a sample before placing a bulk order?",
-    a: "Yes. Every client receives a photorealistic 3D digital mockup before making any payment. If your brand requires a physical inspection, we offer material swatch packs and custom pre-production printed samples [sample policy: confirm whether sample fee is credited toward bulk invoice]. Learn more on our Request a Sample page.",
+    a: "A digital mockup can help you review the proposed artwork. Physical sample availability, cost, and delivery can vary by product. Contact us to discuss options before placing an order. Learn more on our Request a Sample page.",
   },
   {
     q: "Are your materials safe for direct food and beverage contact?",
-    a: "Absolutely. We exclusively employ certified food-grade virgin paperboards, grease-resistant corrugated fluting, and food-safe inks that release no hazardous odours or compounds into food or hot drinks. Technical compliance and safety documentation are readily available upon request.",
+    a: "Material suitability depends on the product and its intended use. Ask us about the substrate and any supporting documentation available for the specific packaging you need.",
   },
   {
     q: "Which cities in Pakistan do you deliver to?",
-    a: "We ship nationwide across Pakistan, including Lahore, Karachi, Islamabad, Rawalpindi, Faisalabad, Multan, Gujranwala, Sialkot, Peshawar, Quetta, and all surrounding commercial zones using reliable courier and cargo logistics partners [couriers: confirm].",
+    a: "We arrange delivery across Pakistan. Share your destination with your quote request so we can confirm the available delivery option and timing.",
   },
   {
     q: "What is your policy if the print is wrong or damaged?",
-    a: "We back our craftsmanship with a strict quality guarantee. If your order arrives with manufacturing defects, significant colour mismatch against your approved proof, or transit damage, report it within 48 hours and we will arrange an immediate reprint or replacement. Read our Return & Reprint Policy for full details.",
+    a: "If an order arrives with a manufacturing defect or transit damage, contact us with photos and your order details. We will review the issue under our Return & Reprint Policy.",
   },
   {
     q: "How do I pay for my packaging order?",
-    a: "We accept payments via direct online bank transfer (IBFT) and mobile payment channels including Easypaisa and JazzCash. Standard terms require [50% advance payment to initiate production, with the remaining balance due upon completion/dispatch: confirm].",
+    a:
+      businessFacts.commercialPolicies.paymentTerms.advancePercent != null
+        ? `Our current payment split is ${businessFacts.commercialPolicies.paymentTerms.advancePercent}% advance and ${100 - businessFacts.commercialPolicies.paymentTerms.advancePercent}% balance. The balance is due ${businessFacts.commercialPolicies.paymentTerms.balanceMilestone?.toLowerCase() ?? "as stated in your written quotation"}. Review your quotation for the order details.`
+        : "Payment methods and milestones are confirmed in your written quotation. Please review the terms before approving production.",
   },
   {
     q: "Can I easily reorder the same design later?",
@@ -64,7 +68,7 @@ const faqItems = [
   },
   {
     q: "Do you print custom packaging for export orders?",
-    a: "Yes, we support export-grade packaging orders for regional and international clients [export terms & shipping arrangements: confirm]. Contact our team with your volume and destination port for tailored export logistics.",
+    a: "Contact us with your product, quantity, and destination country to discuss whether we can support your export requirements and confirm applicable shipping terms.",
   },
 ];
 

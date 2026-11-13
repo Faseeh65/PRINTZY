@@ -28,7 +28,7 @@ export const industryDetails: Record<string, IndustryDetail> = {
     name: "Cafes & Coffee Shops",
     metaTitle: "Custom Printed Packaging for Cafes in Pakistan | Printzy",
     metaDescription:
-      "Branded single and double-wall coffee cups, kraft sleeves, napkins and carryout bags for cafes in Pakistan. Low MOQ, free 3D mockup, fast delivery.",
+      "Branded cups, kraft sleeves, napkins, and carryout bags for cafes in Pakistan. Product availability and order quantities are confirmed with your quote.",
     h1: "Custom Printed Packaging for Cafes and Coffee Shops",
     heroText:
       "Your cup is the physical ambassador of your coffee shop—it walks out your door in every customer's hand, sits on office desks, and stars in social media stories. Printzy prints consistent cups, heat sleeves, napkins, and takeaway carry bags for Pakistani cafes.",
@@ -36,7 +36,7 @@ export const industryDetails: Record<string, IndustryDetail> = {
       "In a crowded specialty coffee and chai market, generic unbranded cups signal mass-commodity drinks, whereas bespoke printed cups instantly justify premium menu pricing. Printzy helps independent coffee carts, karak spots, and multi-branch espresso bars establish brand recall from day one without demanding overwhelming inventory orders.",
     keyChallengesSolved: [
       "No need to buy separate cups, sleeves, and napkins from mismatched vendors with conflicting ink tones.",
-      "Low minimums so seasonal bean blends, festival graphics, or new cafe openings can test designs affordably.",
+      "Discuss the product, quantity, and timing that fit a seasonal blend, festival design, or new cafe opening.",
       "Reliable snug-fit lid compatibility preventing counter spills and delivery bike leakage.",
     ],
     recommendedProducts: [
@@ -90,7 +90,7 @@ export const industryDetails: Record<string, IndustryDetail> = {
       },
       {
         q: "What is the minimum order for custom cafe cups?",
-        a: "Our cafe cup runs feature flexible minimums tailored for growing startups, allowing you to launch without tying up excessive working capital.",
+        a: "Order quantities depend on the cup size and print requirements. Contact us to confirm the available run size for your cafe.",
       },
     ],
   },
@@ -157,8 +157,8 @@ export const industryDetails: Record<string, IndustryDetail> = {
         a: "Yes. We coordinate central production runs with scheduled dispatches to branch kitchens in Lahore, Karachi, Islamabad, and other cities.",
       },
       {
-        q: "Are the inks and boards certified for hot oily foods?",
-        a: "Yes. We utilise virgin food-grade paperboards and odour-free, food-safe inks designed specifically for hot, direct food contact.",
+        q: "Which material options are available for hot or oily foods?",
+        a: "Material and barrier options depend on the packaging design and intended use. Contact us to confirm specifications and any supporting documents available for your order.",
       },
       {
         q: "Can we print nutritional info and allergy warnings on the box base?",
@@ -244,7 +244,7 @@ export const industryDetails: Record<string, IndustryDetail> = {
     name: "Cloud Kitchens & Delivery Brands",
     metaTitle: "Custom Delivery Packaging for Cloud Kitchens | Printzy",
     metaDescription:
-      "Tamper-proof, heat-retaining delivery packaging for cloud kitchens and virtual brands in Pakistan. Low MOQ, fast turnaround, nationwide delivery.",
+      "Custom delivery packaging options for cloud kitchens and virtual brands in Pakistan. Share your product and quantity for a tailored quote.",
     h1: "Custom Packaging for Cloud Kitchens and Virtual Brands",
     heroText:
       "When you have no storefront, your packaging is your only physical customer touchpoint. Printzy manufactures tamper-evident, heat-retaining food containers, burger boxes, and sealed bags that turn first-time delivery app orders into repeat regulars.",
@@ -316,7 +316,7 @@ export const industryDetails: Record<string, IndustryDetail> = {
     name: "E-Commerce & Retail",
     metaTitle: "Custom Printed Mailer Boxes & E-commerce Packaging | Printzy",
     metaDescription:
-      "Sturdy corrugated mailer boxes, retail shopping bags, and branded stickers for Pakistani online stores. Memorable unboxing, low minimums.",
+      "Corrugated mailer boxes, retail shopping bags, and branded stickers for Pakistani online stores. Contact us to discuss options for your brand.",
     h1: "Custom Printed Packaging for E-Commerce and Retail Brands",
     heroText:
       "In e-commerce, the unboxing moment is your brand's physical handshake. Printzy crafts rigid corrugated mailer boxes, branded tissue wrap, luxury kraft carry bags, and seal stickers that delight customers and spark unboxing videos.",
@@ -518,11 +518,11 @@ export const industryDetails: Record<string, IndustryDetail> = {
       },
       {
         q: "What is the minimum order for wedding favor boxes?",
-        a: "We accommodate event and wedding orders with low minimum batches, perfectly suited to both intimate family gatherings and large receptions.",
+        a: "Available order quantities depend on the product and event requirements. Contact us to discuss a suitable run size.",
       },
       {
         q: "Are the sweet boxes safe for direct mithai and dry fruit contact?",
-        a: "Yes. All our favor boxes feature certified food-grade interior boards or grease-resistant liners safe for direct food contact.",
+        a: "Material and liner options depend on the favor box design and intended use. Contact us to confirm the specifications for your order.",
       },
     ],
   },

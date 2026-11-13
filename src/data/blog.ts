@@ -117,7 +117,7 @@ export const blogPosts: BlogPost[] = [
             "Decide between a 2-tier (8oz + 12oz) or 3-tier (8oz + 12oz + 16oz) menu structure.",
             "Verify that your 12oz and 16oz cups share an identical 90mm top rim diameter.",
             "Choose between single-wall paperboard (with sleeves) or insulating double-wall cups for your hottest drinks.",
-            "Calculate expected monthly consumption: typical busy cafes average [confirm with sales team: estimated 1,500 to 4,000 cups per month].",
+            "Calculate expected monthly consumption: typical busy cafes average estimate your monthly requirement using your own recent sales and expected growth.",
             "Request a pre-production digital 3D mockup to inspect logo placement across both sides of the curved cup surface.",
           ],
         },
@@ -152,7 +152,7 @@ export const blogPosts: BlogPost[] = [
         id: "construction",
         title: "How Single-Wall and Double-Wall Cups are Built",
         paragraphs: [
-          "To choose the right vessel for your brand, you need to understand how both types are engineered. A single-wall cup consists of a single layer of certified food-grade virgin paperboard, coated on the interior with a thin polyethylene (PE) moisture barrier to prevent liquid from soaking through the fiber seams.",
+          "To choose the right vessel for your brand, you need to understand how both types are engineered. A single-wall cup consists of a single layer of virgin paperboard with an interior polyethylene (PE) moisture barrier designed to help prevent liquid from soaking through the fiber seams.",
           "A double-wall cup starts with that same inner paper cup, but then wraps an additional, secondary outer sleeve of corrugated or textured paperboard around it. The two layers are bonded together with an engineered insulating air gap in between. This air pocket acts as a thermal barrier—slowing down heat loss from the drink while preventing heat from conducting through to the exterior surface.",
         ],
       },
@@ -231,7 +231,7 @@ export const blogPosts: BlogPost[] = [
         id: "what-is-moq",
         title: "What is an MOQ and Why Does It Exist?",
         paragraphs: [
-          "For any entrepreneur launching a cloud kitchen, burger joint, or home bakery in Pakistan, one of the most frustrating first obstacles is the Minimum Order Quantity (MOQ). You might only need 200 burger boxes or 300 printed bags for your first month of testing, yet factory sales reps quote minimums of 1,000, 2,500, or even 10,000 units.",
+          "For entrepreneurs launching a cloud kitchen, burger joint, or home bakery in Pakistan, the minimum order quantity (MOQ) can be one of the first planning questions. Requirements vary by supplier, product, dimensions, print method, and order setup, so ask for the available run size for the specific packaging you need.",
           "It is easy to assume suppliers are being difficult, but the reality is rooted in the industrial mechanics of offset, flexographic, and rotogravure packaging printing. Understanding how these processes work empowers you to negotiate smarter, choose the right production tier, and protect your early working capital.",
         ],
       },
@@ -262,9 +262,9 @@ export const blogPosts: BlogPost[] = [
         title: "The 3-Phase Bootstrap Packaging Strategy",
         paragraphs: [
           "Here is the phased roadmap we recommend to food startups across Pakistan to balance professional branding with tight cash flow:",
-          "Phase 1 (Months 1–2): Use premium unbranded food-grade kraft boxes or plain white boxes. Order custom printed high-adhesion die-cut stickers and custom printed greaseproof butter paper wrapping. This delivers an immediate artisan unboxing experience at low minimum quantities without heavy tooling costs.",
+          "Phase 1: Consider plain stock packaging with separately branded labels or wraps while you confirm product fit and forecast demand. Check material suitability for your intended use before ordering.",
           "Phase 2 (Months 3–6): Once your daily order volume reaches 30 to 50 orders, graduate to custom printed cup sleeves, printed paper bags, and printed sealing tape. These items establish distinctive roadside brand recognition.",
-          "Phase 3 (Month 6+): Once monthly volume exceeds [confirm with sales team: estimated 1,000+ units per category], invest in fully custom printed pizza boxes, burger clamshells, and double-wall cups. Your unit economics drop dramatically, and you enjoy maximum shelf impact.",
+          "Phase 3 (Month 6+): Once monthly volume exceeds your monthly requirement supports a custom print run, invest in fully custom printed pizza boxes, burger clamshells, and double-wall cups. Your unit economics drop dramatically, and you enjoy maximum shelf impact.",
         ],
         checklist: {
           title: "Startup Packaging Milestone Checklist:",

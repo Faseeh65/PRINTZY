@@ -19,7 +19,7 @@ export const Route = createFileRoute("/")({
     seo({
       title: "Custom Printed Packaging Pakistan | Printzy",
       description:
-        "Custom printed cups, pizza boxes, food boxes, paper bags and napkins with your logo. Free mockup, low minimums, delivery across Pakistan. Get a quote in 24h.",
+        "Custom printed cups, pizza boxes, food boxes, paper bags and napkins for businesses in Pakistan. Share your requirements for a tailored quote.",
       path: "/",
     }),
   component: Index,

@@ -165,17 +165,17 @@ function CityDetailPage() {
                   Order Packaging in {city.cityName}
                 </h3>
                 <p className="mt-2 text-xs sm:text-sm text-muted-foreground">
-                  Free 3D digital mockup, pre-production proof sign-off, and low minimum orders.
+                  Digital mockup and proof review, with order quantities confirmed for your product.
                 </p>
 
                 <div className="mt-6 space-y-2 text-xs text-foreground">
                   <div className="flex items-center gap-2">
                     <CheckCircle2 className="size-4 text-secondary" />
-                    <span>Quote within 24 hours</span>
+                    <span>Quote tailored to your requirements</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <CheckCircle2 className="size-4 text-secondary" />
-                    <span>Food-grade certified paperboards</span>
+                    <span>Product-specific material options</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <CheckCircle2 className="size-4 text-secondary" />

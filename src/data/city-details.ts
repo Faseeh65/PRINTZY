@@ -28,13 +28,13 @@ export const cityDetails: Record<string, CityDetail> = {
     cityName: "Lahore",
     metaTitle: "Custom Packaging Printing Lahore | Printzy",
     metaDescription:
-      "Custom paper cups, pizza boxes, burger cartons and kraft bags in Lahore. Fast local delivery (1-2 days), low MOQ, free 3D mockup. Get a quote today.",
+      "Custom paper cups, pizza boxes, food cartons, and kraft bags for Lahore businesses. Ask us about product options and delivery timing.",
     h1: "Custom Printed Packaging for Lahore Cafes, Restaurants & Brands",
     intro:
-      "As Pakistan's culinary and printing capital, Lahore demands packaging that stands out in bustling food hubs like Gulberg, DHA, MM Alam Road, Johar Town, and the Walled City. Printzy provides Lahore food businesses, cafes, and online stores with fast local turnaround, low minimums, and pre-production proof approvals.",
+      "Lahore businesses across Gulberg, DHA, MM Alam Road, Johar Town, and the Walled City use packaging for dine-in, takeaway, and delivery. Share your product and order details so we can confirm available options and timing.",
     cityContext:
       "Lahore's vibrant food culture is among the most competitive in South Asia. With hundreds of artisanal cafes, burger joints, traditional barbecue masters, and bakeries competing for customer loyalty, unbranded packaging simply gets overlooked. Whether you operate a single specialty espresso bar in DHA Phase 5 or a multi-branch restaurant group spanning Mall Road to Bahria Town, Printzy ensures your branded packaging delivers crisp presentation and dependable food hygiene.",
-    deliveryTime: "1 to 2 working days after production completion",
+    deliveryTime: "Delivery timing confirmed with your quote",
     logisticsDetails:
       "Direct local dispatch from our Lahore production facility via dedicated logistics couriers and same-day city delivery services. Physical paper stock inspections and sample pickups can be coordinated directly.",
     localIndustries: [
@@ -68,14 +68,14 @@ export const cityDetails: Record<string, CityDetail> = {
     ],
     orderingSteps: [
       "Share your required product type, dimensions, and logo via WhatsApp (0321 9091707).",
-      "Receive an itemised quote and free photorealistic 3D digital mockup within 24 hours.",
+      "Receive an itemised quote and digital mockup for review.",
       "Review your digital proof or inspect physical material samples in Lahore.",
-      "Production commences and your order is delivered to your doorstep in 1–2 days after completion.",
+      "Production and delivery timing are confirmed with your order details.",
     ],
     faqs: [
       {
         q: "How fast is delivery for custom packaging orders in Lahore?",
-        a: "Once production and quality checks are complete, delivery within Lahore typically takes just 1 to 2 working days via local courier dispatch.",
+        a: "Delivery timing within Lahore depends on the destination and available courier service. Contact us to confirm timing for your order.",
       },
       {
         q: "Can I inspect physical paper stock samples in Lahore before ordering?",
@@ -83,7 +83,7 @@ export const cityDetails: Record<string, CityDetail> = {
       },
       {
         q: "What is the minimum order quantity for Lahore food brands?",
-        a: "Our standard minimums start from [MOQ: confirm, e.g. 500 – 1,000 pcs], designed to support emerging food entrepreneurs without locking up excess capital.",
+        a: "Minimum quantities depend on the product and specifications. Contact us to confirm the available run size.",
       },
     ],
     isPrimaryHub: true,
@@ -94,15 +94,15 @@ export const cityDetails: Record<string, CityDetail> = {
     cityName: "Karachi",
     metaTitle: "Custom Packaging Printing Karachi | Printzy Pakistan",
     metaDescription:
-      "Reliable custom packaging delivery to Karachi: branded cups, grease-resistant food boxes, pizza cartons, kraft bags. Low MOQ, free mockup in 24h.",
+      "Custom packaging options for Karachi businesses, including branded cups, food boxes, pizza cartons, and kraft bags. Contact us for a tailored quote.",
     h1: "Custom Printed Packaging for Karachi Food Chains & Retail Brands",
     intro:
       "Operating in Pakistan's biggest commercial engine and seaside metropolis requires packaging built to withstand coastal humidity, heavy motorcycle delivery transit, and massive customer volume. Printzy delivers high-grade custom packaging directly to Karachi businesses.",
     cityContext:
       "Karachi's dining ecosystem—from food streets at Burns Road and Sindhi Muslim Society (SMCHS) to seaside dining in Clifton and DHA, and bustling hubs in North Nazimabad and Gulshan-e-Iqbal—operates at unmatched scale. Packaging in Karachi faces unique challenges: high maritime humidity that can soften weak paperboards, and long bike delivery distances in intense heat. Printzy uses moisture-resistant food boards and grease-barrier linings specifically engineered to keep food intact from kitchen to doorstep across Karachi.",
-    deliveryTime: "2 to 4 working days via express logistics",
+    deliveryTime: "Delivery timing confirmed with your quote",
     logisticsDetails:
-      "Daily shipments to Karachi handled by reputable national cargo and express courier partners [couriers: confirm, e.g. TCS, Leopards, Trax] with real-time consignment tracking straight to your branch doors.",
+      "Daily shipments to Karachi handled by reputable national cargo and express courier partners courier or cargo service confirmed for your destination with real-time consignment tracking straight to your branch doors.",
     localIndustries: [
       "High-volume burger joints & takeaway counters in SMCHS & Gulshan",
       "Fine dining restaurants & beachside bistros in Clifton & DHA",
@@ -134,7 +134,7 @@ export const cityDetails: Record<string, CityDetail> = {
     ],
     orderingSteps: [
       "Send your packaging specifications and artwork via WhatsApp or our online quote form.",
-      "Get a 3D digital mockup and transparent pricing tailored to your Karachi delivery address within 24h.",
+      "Request a digital mockup and itemised pricing for delivery to your Karachi address.",
       "Approve high-resolution proofs online; we keep your approved files archived for effortless reorders.",
       "Your order is manufactured, packed in protective master cartons, and dispatched via express cargo to Karachi.",
     ],
@@ -145,7 +145,7 @@ export const cityDetails: Record<string, CityDetail> = {
       },
       {
         q: "How long does shipping to Karachi take?",
-        a: "Transit time from production completion to your doorstep in Karachi typically takes 2 to 4 working days with full tracking details provided.",
+        a: "Delivery timing to Karachi depends on the destination and available courier service. Contact us to confirm timing for your order.",
       },
       {
         q: "Do your food boxes handle Karachi's humid coastal climate?",
@@ -160,13 +160,13 @@ export const cityDetails: Record<string, CityDetail> = {
     cityName: "Islamabad & Rawalpindi",
     metaTitle: "Custom Packaging Printing Islamabad & Rawalpindi | Printzy",
     metaDescription:
-      "Premium custom packaging in Islamabad & Rawalpindi: branded coffee cups, boutique mailer boxes, food cartons. Free 3D mockup, delivery in 2-3 days.",
+      "Custom packaging options for Islamabad and Rawalpindi businesses, including branded cups, mailer boxes, and food cartons. Contact us for a quote.",
     h1: "Custom Printed Packaging for Islamabad & Rawalpindi Businesses",
     intro:
       "From diplomatic enclaves and trendy F-6, F-7, and F-10 cafe strips to commercial hubs in Bahria Town and Saddar Rawalpindi, Islamabad demands refined, eco-conscious, and polished brand presentation. Printzy supplies custom packaging that reflects your brand's prestige.",
     cityContext:
       "Consumers in Islamabad and Rawalpindi have high aesthetic expectations. Specialty coffee bars, health-food kitchens, artisanal dessert studios, and corporate institutions in the twin cities prioritize clean minimalist typography, eco-friendly kraft paper substrates, and flawless print registration. Printzy delivers sophisticated packaging solutions—including biodegradable food boards and crisp foil-accented finishes—that fit Islamabad's modern cafe culture and corporate community.",
-    deliveryTime: "2 to 3 working days via express logistics",
+    deliveryTime: "Delivery timing confirmed with your quote",
     logisticsDetails:
       "Direct transit from our central facility via motorway logistics, arriving at twin-city commercial hubs (Blue Area, I-8, F-sectors, Saddar, Bahria Town, DHA Islamabad) in 48 to 72 hours.",
     localIndustries: [
@@ -200,14 +200,14 @@ export const cityDetails: Record<string, CityDetail> = {
     ],
     orderingSteps: [
       "Message our team on WhatsApp with your product requirement and brand design vector.",
-      "Receive a tailored quote and complimentary 3D visual render within 24 hours.",
+      "Receive a tailored quote and digital mockup for review.",
       "Confirm proof details online; adjustments are made free of charge until you are satisfied.",
       "Orders are securely packed and dispatched via express motorway courier straight to your Islamabad/Rawalpindi address.",
     ],
     faqs: [
       {
         q: "What is the delivery time to Islamabad and Rawalpindi?",
-        a: "Transit via motorway express courier takes approximately 2 to 3 working days following production and quality verification.",
+        a: "Delivery timing to Islamabad and Rawalpindi depends on the destination and available courier service. Contact us to confirm timing for your order.",
       },
       {
         q: "Do you offer eco-friendly and recyclable packaging for Islamabad brands?",
@@ -226,13 +226,13 @@ export const cityDetails: Record<string, CityDetail> = {
     cityName: "Faisalabad",
     metaTitle: "Custom Packaging Printing Faisalabad | Printzy Pakistan",
     metaDescription:
-      "Custom printed boxes, paper cups, takeaway bags and napkins in Faisalabad. Industrial-grade packaging, low MOQ, fast dispatch across Faisalabad.",
+      "Custom printed boxes, paper cups, takeaway bags, and napkins for Faisalabad businesses. Ask us about product options and delivery timing.",
     h1: "Custom Printed Packaging for Faisalabad Food & Retail Businesses",
     intro:
       "As Pakistan's industrial powerhouse, Faisalabad is experiencing an explosion of modern cafes, food streets, and retail stores from D-Ground and Kohinoor City to Canal Road. Printzy provides Faisalabad brands with durable, cost-effective custom packaging.",
     cityContext:
       "Faisalabad's entrepreneurial market appreciates manufacturing value: robust paper stocks, clear cost structures, and dependable timelines. As modern dining hubs in Kohinoor City, D-Ground, and Peoples Colony continue to flourish, local eateries are moving rapidly away from generic packaging to branded, Instagrammable containers that retain brand loyalty. Printzy bridges industrial quality with approachable minimum order sizes so Faisalabad businesses can scale without waste.",
-    deliveryTime: "1 to 2 working days via regional logistics",
+    deliveryTime: "Delivery timing confirmed with your quote",
     logisticsDetails:
       "Close regional proximity ensures rapid 24-to-48-hour delivery from our production press to all commercial districts of Faisalabad via standard and express cargo networks.",
     localIndustries: [
@@ -266,14 +266,14 @@ export const cityDetails: Record<string, CityDetail> = {
     ],
     orderingSteps: [
       "Share your required product size and logo file with our packaging team on WhatsApp.",
-      "Get a clear volume quote and free 3D digital mockup within 24 hours.",
+      "Get a quote and digital mockup based on your product and quantity.",
       "Approve your digital proof before production starts.",
-      "Your order is printed, inspected, and shipped directly to your Faisalabad address within 1–2 days of completion.",
+      "Production and delivery timing are confirmed with your order details.",
     ],
     faqs: [
       {
         q: "How fast is shipping to Faisalabad?",
-        a: "Due to our close regional proximity, delivery to Faisalabad is very fast—typically arriving within 1 to 2 working days after production completion.",
+        a: "Delivery timing to Faisalabad depends on the destination and available courier service. Contact us to confirm timing for your order.",
       },
       {
         q: "Do you supply retail packaging for Faisalabad textile and apparel brands?",
@@ -281,7 +281,7 @@ export const cityDetails: Record<string, CityDetail> = {
       },
       {
         q: "What payment methods are supported for Faisalabad orders?",
-        a: "We accept direct online bank transfers (IBFT) as well as Easypaisa and JazzCash with a standard [50% advance: confirm] to initiate production.",
+        a: "We accept direct online bank transfers (IBFT) as well as Easypaisa and JazzCash with a standard Payment milestones are confirmed in your quotation. to initiate production.",
       },
     ],
     isPrimaryHub: false,

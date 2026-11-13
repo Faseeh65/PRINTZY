@@ -21,8 +21,8 @@ function RequestSample() {
   const sampleTiers = [
     {
       title: "1. Free 3D Digital Mockup",
-      cost: "100% Free",
-      turnaround: "Within 24 Hours",
+      cost: "No charge",
+      turnaround: "Timing confirmed with your request",
       icon: Sparkles,
       highlight: true,
       desc: "Perfect for visualizing your logo and colours in photorealistic 3D before committing.",
@@ -37,8 +37,8 @@ function RequestSample() {
     },
     {
       title: "2. Material Stock Swatch Pack",
-      cost: "[Nominal Courier Fee: confirm]",
-      turnaround: "2–3 Working Days",
+      cost: "Confirm delivery cost with the team",
+      turnaround: "Timing confirmed with your request",
       icon: Box,
       highlight: false,
       desc: "Feel real paperboard GSM, inspect PE moisture linings, and test greaseproof fluting.",
@@ -54,8 +54,8 @@ function RequestSample() {
     },
     {
       title: "3. Pre-Production Printed Sample",
-      cost: "[Sample Fee: confirm, credited toward bulk run]",
-      turnaround: "4–6 Working Days",
+      cost: "Ask us for the sample cost",
+      turnaround: "Timing confirmed with your request",
       icon: FileCheck,
       highlight: false,
       desc: "A single custom-printed physical sample bearing your exact branding prior to full run.",
@@ -63,7 +63,7 @@ function RequestSample() {
         "Printed on production-grade press equipment",
         "Verify physical colour accuracy and coating finish",
         "Fit-test your real burgers, pizzas, or coffee lids",
-        "Sample cost adjusted against your final bulk invoice [confirm]",
+        "Sample costs and any order credit are confirmed with your quotation.",
       ],
       actionLabel: "Inquire on WhatsApp",
       actionHref: site.whatsapp,

@@ -110,7 +110,7 @@ function IndustryDetailPage() {
               <div>
                 <h3 className="font-bold text-lg text-foreground">Need Custom {industry.name} Packaging?</h3>
                 <p className="mt-2 text-sm text-muted-foreground">
-                  Get a free 3D digital mockup and itemised price breakdown within 24 hours.
+                  Request a digital mockup and an itemised price breakdown for your requirements.
                 </p>
                 <div className="mt-6 space-y-3 text-xs sm:text-sm text-foreground">
                   <div className="flex items-center gap-2">
@@ -119,7 +119,7 @@ function IndustryDetailPage() {
                   </div>
                   <div className="flex items-center gap-2">
                     <Check className="size-4 text-secondary" />
-                    <span>Low minimum order quantities</span>
+                    <span>Order quantities confirmed by product</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <Check className="size-4 text-secondary" />

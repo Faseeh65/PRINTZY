@@ -3,6 +3,7 @@ import { Mail, Phone, CreditCard, ShieldCheck, FileCheck, ArrowRight, Clock, Map
 import { WhatsAppIcon } from "@/components/icons/WhatsAppIcon";
 import { seo } from "@/lib/seo";
 import { site } from "@/data/site";
+import { businessFacts } from "@/config/business-facts";
 import { Button } from "@/components/ui/button";
 import { PageHero } from "@/components/site/sections";
 
@@ -22,7 +23,7 @@ function Contact() {
     {
       icon: WhatsAppIcon,
       title: "WhatsApp Direct",
-      text: "Fastest response for quotes & file reviews",
+      text: `Usual response target: ${businessFacts.contact.responseTime}`,
       href: site.whatsapp,
       label: site.phoneDisplay,
       ext: true,
@@ -103,9 +104,8 @@ function Contact() {
                 <h3 className="font-bold text-lg text-foreground">Accepted Payment Methods</h3>
               </div>
               <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
-                <li>&bull; Direct Online Bank Transfer (IBFT to company account)</li>
-                <li>&bull; Corporate Cheque / Pay Order (subject to clearance)</li>
-                <li>&bull; Local mobile accounts: Easypaisa & JazzCash</li>
+                <li>&bull; Direct online bank transfer (IBFT)</li>
+                <li>&bull; Easypaisa or JazzCash, subject to confirmation</li>
               </ul>
             </div>
 
@@ -114,14 +114,12 @@ function Contact() {
                 <Clock className="size-6 text-secondary" />
                 <h3 className="font-bold text-lg text-foreground">Payment Milestones</h3>
               </div>
-              <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
-                <li>
-                  &bull; <strong className="text-foreground">[50% advance: confirm]</strong> upon final artwork proof approval to begin production.
-                </li>
-                <li>
-                  &bull; <strong className="text-foreground">[50% balance: confirm]</strong> upon completion prior to nationwide courier dispatch.
-                </li>
-              </ul>
+              <p className="mt-4 text-sm text-muted-foreground">
+                {businessFacts.commercialPolicies.paymentTerms.advancePercent != null
+                  ? `${businessFacts.commercialPolicies.paymentTerms.advancePercent}% advance and ${100 - businessFacts.commercialPolicies.paymentTerms.advancePercent}% balance. The balance is due ${businessFacts.commercialPolicies.paymentTerms.balanceMilestone?.toLowerCase() ?? "as stated in your written quotation"}.`
+                  : "Payment methods and milestones are confirmed in your written quotation."} Review
+                your quotation for the order details.
+              </p>
             </div>
           </div>
 

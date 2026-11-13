@@ -111,7 +111,7 @@ export function Hero() {
               {[
                 "Free mockup before you pay",
                 "Printed proof approval",
-                "Low minimum orders",
+                "Order quantities confirmed by product",
                 "Delivery across Pakistan",
               ].map((t) => (
                 <li
@@ -154,7 +154,7 @@ export function Hero() {
             className="aspect-square w-full rounded-2xl object-cover shadow-soft transition-transform duration-500 hover:scale-[1.03]"
           />
           <div className="animate-float-slow absolute -left-3 top-6 rounded-xl bg-card border border-border/40 px-4 py-3 shadow-soft transition-all duration-300 hover:shadow-lift md:-left-8">
-            <div className="font-display text-sm font-semibold text-foreground">Quote in 24h</div>
+            <div className="font-display text-sm font-semibold text-foreground">Quote tailored to you</div>
             <div className="text-xs text-muted-foreground">Free 3D digital mockup</div>
           </div>
           <div className="animate-float-delayed absolute -right-3 bottom-8 rounded-xl bg-navy border border-white/10 px-4 py-3 text-navy-foreground shadow-soft transition-all duration-300 hover:shadow-lift md:-right-6">
@@ -224,26 +224,25 @@ export function OneSupplierSection() {
         </div>
 
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {journeys.map((j) => {
+          {journeys.map((j, idx) => {
             const Icon = j.icon;
             return (
-              <div
-                key={j.title}
-                className="group rounded-2xl border border-border bg-card p-6 shadow-soft transition-all duration-300 hover:shadow-lift hover:-translate-y-1"
-              >
-                <div className="flex size-12 items-center justify-center rounded-xl bg-peach text-navy transition-transform duration-300 group-hover:scale-110">
-                  <Icon className="size-6" />
+              <Reveal key={j.title} delay={CARD_DELAYS[idx % CARD_DELAYS.length]}>
+                <div className="group h-full rounded-2xl border border-border bg-card p-6 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:shadow-lift">
+                  <div className="journey-icon flex size-12 items-center justify-center rounded-xl bg-peach text-navy transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3">
+                    <Icon className="size-6" />
+                  </div>
+                  <h3 className="mt-4 text-lg font-bold text-foreground">{j.title}</h3>
+                  <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{j.desc}</p>
+                  <Link
+                    to={j.link as any}
+                    className="mt-4 inline-flex min-h-11 items-center gap-1 text-xs font-semibold text-secondary hover:underline"
+                  >
+                    View specifications
+                    <ArrowRight className="size-3 transition-transform duration-200 group-hover:translate-x-1" />
+                  </Link>
                 </div>
-                <h3 className="mt-4 text-lg font-bold text-foreground">{j.title}</h3>
-                <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{j.desc}</p>
-                <Link
-                  to={j.link as any}
-                  className="mt-4 inline-flex items-center gap-1 text-xs font-semibold text-secondary hover:underline"
-                >
-                  View specifications
-                  <ArrowRight className="size-3" />
-                </Link>
-              </div>
+              </Reveal>
             );
           })}
         </div>
@@ -300,8 +299,8 @@ const steps = [
     text: "Share your target product, sizes, estimated quantities, and logo file via WhatsApp or our instant quote form.",
   },
   {
-    title: "2. Free Mockup & Quote in 24h",
-    text: "Receive a photorealistic 3D digital mockup and itemised price breakdown within 24 hours.",
+    title: "2. Mockup & Quote",
+    text: "Review a digital mockup and itemised price breakdown based on your requirements.",
   },
   {
     title: "3. Approve Your Proof",
@@ -309,7 +308,7 @@ const steps = [
   },
   {
     title: "4. Print & Doorstep Delivery",
-    text: "We print, perform quality inspection, and deliver securely across Pakistan, typically in 7–10 working days.",
+    text: "We confirm production and delivery timing with your order details before you proceed.",
   },
 ];
 
@@ -343,7 +342,7 @@ const features = [
   {
     icon: BadgeCheck,
     title: "Honest, upfront pricing",
-    text: "See minimums, volume breakups, and lead times clearly before committing. No hidden setup charges.",
+    text: "Review quantities, pricing, and timing in your quotation before committing.",
   },
   {
     icon: PackageCheck,
@@ -362,8 +361,8 @@ const features = [
   },
   {
     icon: Leaf,
-    title: "Food-safe & eco materials",
-    text: "Certified food-grade boards, greaseproof linings, and biodegradable kraft options with documents on request.",
+    title: "Product material options",
+    text: "Ask us to confirm material specifications and any supporting documents available for your intended use.",
   },
   {
     icon: Truck,
@@ -615,7 +614,7 @@ export function QuoteCTA() {
         <h2 className="text-navy-foreground">Ready to see your logo on your packaging?</h2>
         <p className="mx-auto mt-4 max-w-xl text-lg text-navy-foreground/85">
           Send your required product, size, and estimated quantity. Get a complimentary 3D mockup and
-          itemised quote within 24 hours.
+          itemised quote based on your requirements.
         </p>
         <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
           <Button asChild size="lg" shimmer>

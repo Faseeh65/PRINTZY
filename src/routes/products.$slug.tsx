@@ -29,8 +29,6 @@ export const Route = createFileRoute("/products/$slug")({
   head: ({ loaderData }) => {
     if (!loaderData?.product) return {};
     const p = loaderData.product;
-    const canonicalUrl = `${site.url}/products/${p.slug}`;
-
     return seo({
       title: p.metaTitle,
       description: p.metaDescription,
@@ -44,12 +42,6 @@ export const Route = createFileRoute("/products/$slug")({
         brand: {
           "@type": "Brand",
           name: site.name,
-        },
-        offers: {
-          "@type": "AggregateOffer",
-          priceCurrency: "PKR",
-          availability: "https://schema.org/InStock",
-          url: canonicalUrl,
         },
       },
     });
@@ -123,7 +115,7 @@ function ProductDetailPage() {
               </div>
               <div className="flex items-center gap-2">
                 <Check className="size-4 text-secondary shrink-0" aria-hidden="true" />
-                <span>Low MOQ per design</span>
+                <span>Run size confirmed with your quote</span>
               </div>
               <div className="flex items-center gap-2">
                 <Truck className="size-4 text-secondary shrink-0" aria-hidden="true" />
@@ -180,7 +172,7 @@ function ProductDetailPage() {
               Technical Specifications & Order Details
             </h2>
             <p className="mt-2 text-base text-muted-foreground">
-              Manufactured with certified food-grade substrates and calibrated precision printing.
+              Material and print options vary by product. Ask us to confirm details for your intended use.
             </p>
           </div>
 
@@ -304,7 +296,7 @@ function ProductDetailPage() {
                 ? "Trusted by E-Commerce, Retailers & Growing Brands"
                 : product.slug === "custom-paper-bags"
                   ? "Trusted by Retail Stores, Boutiques & Restaurants"
-                  : "Trusted by Food Brands and Growing Businesses"}
+                : "Packaging Options for Growing Businesses"}
             </h2>
           </div>
 

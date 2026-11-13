@@ -13,13 +13,18 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as ArtworkGuideRouteImport } from './routes/artwork-guide'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as ExportCustomPackagingRouteImport } from './routes/export-custom-packaging'
 import { Route as FaqRouteImport } from './routes/faq'
 import { Route as GalleryRouteImport } from './routes/gallery'
 import { Route as HowItWorksRouteImport } from './routes/how-it-works'
+import { Route as PaymentTermsRouteImport } from './routes/payment-terms'
+import { Route as PricingGuideRouteImport } from './routes/pricing-guide'
 import { Route as PrivacyRouteImport } from './routes/privacy'
+import { Route as QualityAndComplianceRouteImport } from './routes/quality-and-compliance'
 import { Route as QuoteRouteImport } from './routes/quote'
 import { Route as RequestSampleRouteImport } from './routes/request-sample'
 import { Route as ReturnAndReprintPolicyRouteImport } from './routes/return-and-reprint-policy'
+import { Route as ShippingAndDeliveryRouteImport } from './routes/shipping-and-delivery'
 import { Route as TermsRouteImport } from './routes/terms'
 import { Route as BlogIndexRouteImport } from './routes/blog.index'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
@@ -49,6 +54,11 @@ const ContactRoute = ContactRouteImport.update({
   path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ExportCustomPackagingRoute = ExportCustomPackagingRouteImport.update({
+  id: '/export-custom-packaging',
+  path: '/export-custom-packaging',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const FaqRoute = FaqRouteImport.update({
   id: '/faq',
   path: '/faq',
@@ -64,9 +74,24 @@ const HowItWorksRoute = HowItWorksRouteImport.update({
   path: '/how-it-works',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PaymentTermsRoute = PaymentTermsRouteImport.update({
+  id: '/payment-terms',
+  path: '/payment-terms',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PricingGuideRoute = PricingGuideRouteImport.update({
+  id: '/pricing-guide',
+  path: '/pricing-guide',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PrivacyRoute = PrivacyRouteImport.update({
   id: '/privacy',
   path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const QualityAndComplianceRoute = QualityAndComplianceRouteImport.update({
+  id: '/quality-and-compliance',
+  path: '/quality-and-compliance',
   getParentRoute: () => rootRouteImport,
 } as any)
 const QuoteRoute = QuoteRouteImport.update({
@@ -82,6 +107,11 @@ const RequestSampleRoute = RequestSampleRouteImport.update({
 const ReturnAndReprintPolicyRoute = ReturnAndReprintPolicyRouteImport.update({
   id: '/return-and-reprint-policy',
   path: '/return-and-reprint-policy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ShippingAndDeliveryRoute = ShippingAndDeliveryRouteImport.update({
+  id: '/shipping-and-delivery',
+  path: '/shipping-and-delivery',
   getParentRoute: () => rootRouteImport,
 } as any)
 const TermsRoute = TermsRouteImport.update({
@@ -130,13 +160,18 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/artwork-guide': typeof ArtworkGuideRoute
   '/contact': typeof ContactRoute
+  '/export-custom-packaging': typeof ExportCustomPackagingRoute
   '/faq': typeof FaqRoute
   '/gallery': typeof GalleryRoute
   '/how-it-works': typeof HowItWorksRoute
+  '/payment-terms': typeof PaymentTermsRoute
+  '/pricing-guide': typeof PricingGuideRoute
   '/privacy': typeof PrivacyRoute
+  '/quality-and-compliance': typeof QualityAndComplianceRoute
   '/quote': typeof QuoteRoute
   '/request-sample': typeof RequestSampleRoute
   '/return-and-reprint-policy': typeof ReturnAndReprintPolicyRoute
+  '/shipping-and-delivery': typeof ShippingAndDeliveryRoute
   '/terms': typeof TermsRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/cities/$slug': typeof CitiesSlugRoute
@@ -151,13 +186,18 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/artwork-guide': typeof ArtworkGuideRoute
   '/contact': typeof ContactRoute
+  '/export-custom-packaging': typeof ExportCustomPackagingRoute
   '/faq': typeof FaqRoute
   '/gallery': typeof GalleryRoute
   '/how-it-works': typeof HowItWorksRoute
+  '/payment-terms': typeof PaymentTermsRoute
+  '/pricing-guide': typeof PricingGuideRoute
   '/privacy': typeof PrivacyRoute
+  '/quality-and-compliance': typeof QualityAndComplianceRoute
   '/quote': typeof QuoteRoute
   '/request-sample': typeof RequestSampleRoute
   '/return-and-reprint-policy': typeof ReturnAndReprintPolicyRoute
+  '/shipping-and-delivery': typeof ShippingAndDeliveryRoute
   '/terms': typeof TermsRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/cities/$slug': typeof CitiesSlugRoute
@@ -173,13 +213,18 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/artwork-guide': typeof ArtworkGuideRoute
   '/contact': typeof ContactRoute
+  '/export-custom-packaging': typeof ExportCustomPackagingRoute
   '/faq': typeof FaqRoute
   '/gallery': typeof GalleryRoute
   '/how-it-works': typeof HowItWorksRoute
+  '/payment-terms': typeof PaymentTermsRoute
+  '/pricing-guide': typeof PricingGuideRoute
   '/privacy': typeof PrivacyRoute
+  '/quality-and-compliance': typeof QualityAndComplianceRoute
   '/quote': typeof QuoteRoute
   '/request-sample': typeof RequestSampleRoute
   '/return-and-reprint-policy': typeof ReturnAndReprintPolicyRoute
+  '/shipping-and-delivery': typeof ShippingAndDeliveryRoute
   '/terms': typeof TermsRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/cities/$slug': typeof CitiesSlugRoute
@@ -196,13 +241,18 @@ export interface FileRouteTypes {
     | '/about'
     | '/artwork-guide'
     | '/contact'
+    | '/export-custom-packaging'
     | '/faq'
     | '/gallery'
     | '/how-it-works'
+    | '/payment-terms'
+    | '/pricing-guide'
     | '/privacy'
+    | '/quality-and-compliance'
     | '/quote'
     | '/request-sample'
     | '/return-and-reprint-policy'
+    | '/shipping-and-delivery'
     | '/terms'
     | '/blog/$slug'
     | '/cities/$slug'
@@ -217,13 +267,18 @@ export interface FileRouteTypes {
     | '/about'
     | '/artwork-guide'
     | '/contact'
+    | '/export-custom-packaging'
     | '/faq'
     | '/gallery'
     | '/how-it-works'
+    | '/payment-terms'
+    | '/pricing-guide'
     | '/privacy'
+    | '/quality-and-compliance'
     | '/quote'
     | '/request-sample'
     | '/return-and-reprint-policy'
+    | '/shipping-and-delivery'
     | '/terms'
     | '/blog/$slug'
     | '/cities/$slug'
@@ -238,13 +293,18 @@ export interface FileRouteTypes {
     | '/about'
     | '/artwork-guide'
     | '/contact'
+    | '/export-custom-packaging'
     | '/faq'
     | '/gallery'
     | '/how-it-works'
+    | '/payment-terms'
+    | '/pricing-guide'
     | '/privacy'
+    | '/quality-and-compliance'
     | '/quote'
     | '/request-sample'
     | '/return-and-reprint-policy'
+    | '/shipping-and-delivery'
     | '/terms'
     | '/blog/$slug'
     | '/cities/$slug'
@@ -260,13 +320,18 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   ArtworkGuideRoute: typeof ArtworkGuideRoute
   ContactRoute: typeof ContactRoute
+  ExportCustomPackagingRoute: typeof ExportCustomPackagingRoute
   FaqRoute: typeof FaqRoute
   GalleryRoute: typeof GalleryRoute
   HowItWorksRoute: typeof HowItWorksRoute
+  PaymentTermsRoute: typeof PaymentTermsRoute
+  PricingGuideRoute: typeof PricingGuideRoute
   PrivacyRoute: typeof PrivacyRoute
+  QualityAndComplianceRoute: typeof QualityAndComplianceRoute
   QuoteRoute: typeof QuoteRoute
   RequestSampleRoute: typeof RequestSampleRoute
   ReturnAndReprintPolicyRoute: typeof ReturnAndReprintPolicyRoute
+  ShippingAndDeliveryRoute: typeof ShippingAndDeliveryRoute
   TermsRoute: typeof TermsRoute
   BlogSlugRoute: typeof BlogSlugRoute
   CitiesSlugRoute: typeof CitiesSlugRoute
@@ -307,6 +372,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/export-custom-packaging': {
+      id: '/export-custom-packaging'
+      path: '/export-custom-packaging'
+      fullPath: '/export-custom-packaging'
+      preLoaderRoute: typeof ExportCustomPackagingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/faq': {
       id: '/faq'
       path: '/faq'
@@ -328,11 +400,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof HowItWorksRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/payment-terms': {
+      id: '/payment-terms'
+      path: '/payment-terms'
+      fullPath: '/payment-terms'
+      preLoaderRoute: typeof PaymentTermsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pricing-guide': {
+      id: '/pricing-guide'
+      path: '/pricing-guide'
+      fullPath: '/pricing-guide'
+      preLoaderRoute: typeof PricingGuideRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/privacy': {
       id: '/privacy'
       path: '/privacy'
       fullPath: '/privacy'
       preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/quality-and-compliance': {
+      id: '/quality-and-compliance'
+      path: '/quality-and-compliance'
+      fullPath: '/quality-and-compliance'
+      preLoaderRoute: typeof QualityAndComplianceRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/quote': {
@@ -354,6 +447,13 @@ declare module '@tanstack/react-router' {
       path: '/return-and-reprint-policy'
       fullPath: '/return-and-reprint-policy'
       preLoaderRoute: typeof ReturnAndReprintPolicyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/shipping-and-delivery': {
+      id: '/shipping-and-delivery'
+      path: '/shipping-and-delivery'
+      fullPath: '/shipping-and-delivery'
+      preLoaderRoute: typeof ShippingAndDeliveryRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/terms': {
@@ -420,13 +520,18 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   ArtworkGuideRoute: ArtworkGuideRoute,
   ContactRoute: ContactRoute,
+  ExportCustomPackagingRoute: ExportCustomPackagingRoute,
   FaqRoute: FaqRoute,
   GalleryRoute: GalleryRoute,
   HowItWorksRoute: HowItWorksRoute,
+  PaymentTermsRoute: PaymentTermsRoute,
+  PricingGuideRoute: PricingGuideRoute,
   PrivacyRoute: PrivacyRoute,
+  QualityAndComplianceRoute: QualityAndComplianceRoute,
   QuoteRoute: QuoteRoute,
   RequestSampleRoute: RequestSampleRoute,
   ReturnAndReprintPolicyRoute: ReturnAndReprintPolicyRoute,
+  ShippingAndDeliveryRoute: ShippingAndDeliveryRoute,
   TermsRoute: TermsRoute,
   BlogSlugRoute: BlogSlugRoute,
   CitiesSlugRoute: CitiesSlugRoute,

@@ -1,11 +1,11 @@
 export const faqs = [
   {
     q: "What is your minimum order quantity?",
-    a: "Our minimums are low and depend on the product. For example, cups start from 100 pieces and boxes from 50. Share your requirement and we will confirm the exact minimum.",
+    a: "Minimum order quantities depend on the product and specifications. Share your requirement and we will confirm the available run size.",
   },
   {
     q: "How long does production and delivery take?",
-    a: "Most orders are printed in 7–10 working days after sample approval. Delivery time depends on your city, usually 2–3 days within Pakistan.",
+    a: "Production and delivery timing depend on the product, order details, and destination. We will confirm the schedule with your quotation.",
   },
   {
     q: "Do you help with design?",
@@ -25,6 +25,6 @@ export const faqs = [
   },
   {
     q: "How do I get a price?",
-    a: "Message us on WhatsApp or fill in the quote form with product, size and quantity. We usually reply within 24 hours.",
+    a: "Message us on WhatsApp or fill in the quote form with your product, size, and quantity. We will review the details and reply with next steps.",
   },
 ];

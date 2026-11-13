@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { WhatsAppIcon } from "@/components/icons/WhatsAppIcon";
+import { buildWhatsAppUrl } from "@/config/business-facts";
 import { z } from "zod";
 import { seo } from "@/lib/seo";
 import { site } from "@/data/site";
@@ -41,7 +42,7 @@ export const Route = createFileRoute("/quote")({
     seo({
       title: "Get a Free Packaging Quote | Printzy",
       description:
-        "Tell us the product, size and quantity. Printzy sends a design and clear price, usually within 24 hours.",
+        "Tell us the product, size and quantity. Printzy will review your request and confirm pricing and timing.",
       path: "/quote",
     }),
   component: Quote,
@@ -166,7 +167,7 @@ function Quote() {
     try {
       if (typeof window !== "undefined") {
         window.open(
-          `https://wa.me/${site.whatsappNumber}?text=${encodeURIComponent(msg)}`,
+          buildWhatsAppUrl(msg),
           "_blank",
           "noopener,noreferrer",
         );
@@ -181,7 +182,7 @@ function Quote() {
     <>
       <PageHero
         title="Get a Free Quote"
-        text="Share a few details. We reply with a design and price, usually within 24 hours."
+        text="Share a few details so our team can review your requirements and prepare a quotation."
       />
       <section className="section-pad">
         {submitted ? (

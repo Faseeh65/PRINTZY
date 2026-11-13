@@ -12,7 +12,7 @@ export interface ProductFact {
   name: string;
   /** Null if not confirmed by owner. Fallback: contact for run size */
   moq: string | null;
-  /** Null if not confirmed by owner. Fallback: 7–10 working days */
+  /** Null if not confirmed by owner. Fallback: confirm timing with the quote */
   leadTimeDays: string | null;
   /** Standard confirmed dimensions or null */
   sizes: string | null;
@@ -46,6 +46,7 @@ export interface BusinessFacts {
     whatsappNumber: string;
     email: string;
     domainEmail: string | null; // TODO: Setup sales@printzy.pk or sales@printzy.site
+    responseTime: string;
   };
   social: {
     instagram: string | null;
@@ -88,8 +89,8 @@ export const businessFacts: BusinessFacts = {
     brandName: "Printzy",
     ntn: null, // TODO: Add verified NTN registration
     yearEstablished: null, // TODO: Add verified launch year
-    founderName: null, // TODO: Add founder name
-    founderRole: "Operations Lead",
+    founderName: "Faizan Ali",
+    founderRole: "Owner",
   },
   location: {
     city: "Lahore",
@@ -106,6 +107,7 @@ export const businessFacts: BusinessFacts = {
     whatsappNumber: "923219091707",
     email: "sales.printzy@gmail.com",
     domainEmail: null, // TODO: Migrate to sales@printzy.site
+    responseTime: "1–2 hours during business hours",
   },
   social: {
     instagram: null, // TODO: Link verified Instagram handle
@@ -114,7 +116,7 @@ export const businessFacts: BusinessFacts = {
   },
   commercialPolicies: {
     paymentTerms: {
-      advancePercent: null, // TODO: Confirm standard 50% advance
+      advancePercent: 50,
       balanceMilestone: "Prior to shipment dispatch",
       acceptedMethods: ["Direct Online Bank Transfer (IBFT)", "JazzCash / Easypaisa on request"],
     },
@@ -237,7 +239,7 @@ export function getProductMoqDisplay(slug: string): string {
   if (fact?.moq) {
     return fact.moq;
   }
-  return "Flexible runs available. Send your quantity on WhatsApp for the best tier rate.";
+  return "MOQ depends on the product and design. Share your quantity on WhatsApp and we will advise on the available run size.";
 }
 
 /**
@@ -248,7 +250,7 @@ export function getProductLeadTimeDisplay(slug: string): string {
   if (fact?.leadTimeDays) {
     return fact.leadTimeDays;
   }
-  return "7–10 working days after digital proof approval";
+  return "Production timing depends on the product and order details. Contact us to confirm the schedule.";
 }
 
 /**

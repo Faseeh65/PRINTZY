@@ -197,6 +197,46 @@ export function Footer() {
           </li>
           <li>
             <Link
+              to={"/quality-and-compliance" as any}
+              className="hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm"
+            >
+              Materials & Documentation
+            </Link>
+          </li>
+          <li>
+            <Link
+              to={"/export-custom-packaging" as any}
+              className="hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm"
+            >
+              Export Inquiries
+            </Link>
+          </li>
+          <li>
+            <Link
+              to={"/pricing-guide" as any}
+              className="hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm"
+            >
+              Pricing Guide
+            </Link>
+          </li>
+          <li>
+            <Link
+              to={"/shipping-and-delivery" as any}
+              className="hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm"
+            >
+              Shipping & Delivery
+            </Link>
+          </li>
+          <li>
+            <Link
+              to={"/payment-terms" as any}
+              className="hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm"
+            >
+              Payment Terms
+            </Link>
+          </li>
+          <li>
+            <Link
               to={"/return-and-reprint-policy" as any}
               className="hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm"
             >
@@ -317,7 +357,7 @@ export function FloatingActions() {
       >
         <WhatsAppIcon className="size-14" aria-hidden="true" />
       </a>
-      <div className="fixed inset-x-0 bottom-0 z-40 grid grid-cols-2 gap-2 border-t bg-card p-2 md:hidden">
+      <div className="fixed inset-x-0 bottom-0 z-40 grid grid-cols-2 gap-2 border-t bg-card p-2 pb-[calc(0.5rem+env(safe-area-inset-bottom))] md:hidden">
         <Button asChild variant="outline">
           <a href={site.phoneHref} aria-label={`Call Printzy at ${site.phoneDisplay}`}>
             <Phone aria-hidden="true" />

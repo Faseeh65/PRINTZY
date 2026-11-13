@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite dev",
     "build": "vite build",
+    "postbuild": "node scripts/check-rendered-placeholders.mjs",
     "deploy:cloudflare": "npm run build && npx --yes wrangler@^4.36.0 deploy",
     "worker:dev": "wrangler dev --port 8788",
     "analyze": "vite build",

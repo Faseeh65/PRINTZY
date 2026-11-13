@@ -114,7 +114,7 @@ export const products: Product[] = [
       {
         step: 2,
         title: "Free Digital Mockup",
-        description: "Receive a 3D digital mockup and itemized pricing within 24 hours.",
+        description: "Request a digital mockup and itemised pricing based on your specifications.",
       },
       {
         step: 3,
@@ -137,8 +137,8 @@ export const products: Product[] = [
         a: "Yes. We offer both single-colour spot printing (ideal for minimalist logos) and full-colour CMYK wrap-around printing for vibrant, detailed illustrations.",
       },
       {
-        q: "Are the cups certified food-safe and leak-proof?",
-        a: "Yes. All paper cups are manufactured from certified food-grade board with an internal poly coating that prevents leaks, softening, and seam seepage with hot liquids.",
+        q: "What material options are available for paper cups?",
+        a: "Cup construction and material options depend on the size and intended use. Contact us to confirm the specifications and any supporting documents available for your order.",
       },
       {
         q: "Do you supply matching lids?",
@@ -146,7 +146,7 @@ export const products: Product[] = [
       },
       {
         q: "How long does production take?",
-        a: "Production typically takes [7–10 working days] following final digital proof approval, plus 1–3 days courier transit depending on your city.",
+        a: "Production timing depends on the product and order details. We will confirm the schedule with your quote.",
       },
       {
         q: "Cup ki price kya hai?",
@@ -342,7 +342,7 @@ export const products: Product[] = [
     faqs: [
       {
         q: "Are these boxes safe for hot, greasy food?",
-        a: "Yes. All boxes are made with certified food-contact board and internal grease barriers to resist oil bleed and moisture breakdown.",
+        a: "Board and barrier options depend on the box design and intended use. Contact us to confirm specifications and any supporting documents available for your order.",
       },
       {
         q: "Can you create custom die-cut shapes for our unique menu items?",
@@ -350,7 +350,7 @@ export const products: Product[] = [
       },
       {
         q: "What is the turnaround time?",
-        a: "Standard production is [7–10 working days] from approved artwork, with express shipping available to major cities.",
+        a: "Production timing depends on the product and order details. We will confirm the schedule with your quote.",
       },
       {
         q: "Do the boxes require glue to assemble in our kitchen?",
@@ -626,7 +626,7 @@ export const products: Product[] = [
       {
         step: 2,
         title: "Digital Proof",
-        description: "We position your logo in the corner or center of the fold and provide a digital proof within 24 hours.",
+        description: "We can position your logo on the fold and provide a digital proof for review.",
       },
       {
         step: 3,
@@ -646,7 +646,7 @@ export const products: Product[] = [
       },
       {
         q: "What is your minimum order for printed napkins?",
-        a: "Because rotary tissue printing is a continuous high-speed process, minimum orders are structured to provide the lowest cost per napkin. Contact on WhatsApp for current production minimums.",
+        a: "Order quantities depend on the napkin format and print requirements. Contact us to confirm the available run size.",
       },
       {
         q: "Do you offer dispenser-compatible napkins for counter holders?",
@@ -754,7 +754,7 @@ export const products: Product[] = [
       },
       {
         q: "What is the turnaround time for stickers?",
-        a: "Stickers typically dispatch within [5–7 working days] from digital proof approval, making them our fastest branding option.",
+        a: "We will confirm production and delivery timing with your quote.",
       },
     ],
     relatedSlugs: ["custom-paper-cups", "custom-food-boxes", "custom-paper-bags"],
@@ -768,7 +768,7 @@ export const products: Product[] = [
     h1: "Custom Printed Mailer and Gift Boxes in Pakistan",
     benefit: "Premium corrugated mailer boxes engineered for memorable e-commerce unboxing and corporate gifting.",
     intro:
-      "For e-commerce brands, subscription boxes, and corporate gifting, your unboxing experience is your primary physical brand moment. Printzy manufactures rigid E-flute corrugated mailer boxes with front tuck flaps and self-locking wings. Built to withstand courier transit without requiring exterior tape, while showcasing high-resolution interior and exterior brand artwork.",
+      "For e-commerce brands, subscription boxes, and corporate gifting, packaging contributes to the unboxing experience. Printzy makes corrugated mailer boxes with front tuck flaps and self-locking wings. Box construction and print options depend on the product specification.",
     image: images.boxes,
     imageAlt: "Custom printed kraft corrugated mailer boxes with locking tuck flap",
     specs: {

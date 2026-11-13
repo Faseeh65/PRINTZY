@@ -20,9 +20,17 @@ export function Reveal({
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
+  const [armed, setArmed] = useState(false);
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
+    if (
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
+      !("IntersectionObserver" in window)
+    ) {
+      setVisible(true);
+      return;
+    }
     const io = new IntersectionObserver(
       (entries) => {
         if (entries[0]?.isIntersecting) {
@@ -33,13 +41,14 @@ export function Reveal({
       { threshold: 0.12 },
     );
     io.observe(el);
+    setArmed(true);
     return () => io.disconnect();
   }, []);
   const delayClass = delay ? `reveal-delay-${delay}` : "";
   return (
     <Tag
       ref={ref as never}
-      className={cn("reveal", delayClass, visible && "is-visible", className)}
+      className={cn("reveal", armed && "reveal-ready", delayClass, visible && "is-visible", className)}
     >
       {children}
     </Tag>
