@@ -92,7 +92,7 @@
     "@types/react-dom": "^19.2.0",
     "@vitejs/plugin-react": "^5.2.0",
     "axe-core": "^4.14.0",
-    "eslint": "^9.32.0",
+    "eslint": "^9.39.5",
     "eslint-config-prettier": "^10.1.1",
     "eslint-plugin-prettier": "^5.2.6",
     "eslint-plugin-react-hooks": "^5.2.0",
@@ -104,9 +104,9 @@
     "rollup-plugin-visualizer": "^7.1.1",
     "sharp": "^0.35.5",
     "typescript": "^5.8.3",
-    "typescript-eslint": "^8.56.1",
-    "vite": "8.1.5",
-    "vitest": "^4.1.10",
+    "typescript-eslint": "^8.72.2",
+    "vite": "8.3.8",
+    "vitest": "^4.1.12",
     "wrangler": "^4.157.0"
   }
 }
