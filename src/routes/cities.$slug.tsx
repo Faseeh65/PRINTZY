@@ -94,7 +94,9 @@ function CityDetailPage() {
     })),
   };
 
-  const safeJsonLd = JSON.stringify(structuredData).replace(/</g, "\\u003c").replace(/>/g, "\\u003e");
+  const safeJsonLd = JSON.stringify(structuredData)
+    .replace(/</g, "\\u003c")
+    .replace(/>/g, "\\u003e");
   const safeFaqLd = JSON.stringify(faqSchema).replace(/</g, "\\u003c").replace(/>/g, "\\u003e");
 
   return (
@@ -211,7 +213,10 @@ function CityDetailPage() {
             </h2>
             <div className="mt-6 grid gap-3 sm:grid-cols-2">
               {city.localIndustries.map((ind: string, idx: number) => (
-                <div key={idx} className="flex items-start gap-3 rounded-xl border border-border/60 bg-muted/30 p-4">
+                <div
+                  key={idx}
+                  className="flex items-start gap-3 rounded-xl border border-border/60 bg-muted/30 p-4"
+                >
                   <CheckCircle2 className="mt-0.5 size-5 shrink-0 text-secondary" />
                   <span className="text-sm text-foreground font-medium">{ind}</span>
                 </div>
@@ -272,11 +277,16 @@ function CityDetailPage() {
             </h2>
             <div className="mt-6 grid gap-6 md:grid-cols-4">
               {city.orderingSteps.map((step: string, idx: number) => (
-                <div key={idx} className="relative rounded-xl border border-border bg-background p-5">
+                <div
+                  key={idx}
+                  className="relative rounded-xl border border-border bg-background p-5"
+                >
                   <div className="flex size-10 items-center justify-center rounded-xl bg-peach text-navy font-bold text-sm">
                     0{idx + 1}
                   </div>
-                  <p className="mt-3 text-xs sm:text-sm text-muted-foreground leading-relaxed">{step}</p>
+                  <p className="mt-3 text-xs sm:text-sm text-muted-foreground leading-relaxed">
+                    {step}
+                  </p>
                 </div>
               ))}
             </div>
@@ -284,7 +294,9 @@ function CityDetailPage() {
 
           {/* City FAQs */}
           <div className="space-y-6">
-            <h2 className="text-2xl font-bold text-foreground">Frequently Asked Questions — {city.cityName}</h2>
+            <h2 className="text-2xl font-bold text-foreground">
+              Frequently Asked Questions — {city.cityName}
+            </h2>
             <div className="space-y-4">
               {city.faqs.map((f: { q: string; a: string }, idx: number) => (
                 <details

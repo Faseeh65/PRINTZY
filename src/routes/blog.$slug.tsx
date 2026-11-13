@@ -77,11 +77,18 @@ function BlogPostPage() {
     <article className="space-y-12">
       {/* Article Header & Breadcrumbs */}
       <section className="border-b border-border bg-peach/10 py-10">
-        <div className="container max-w-5xl">
-          <nav aria-label="Breadcrumb" className="mb-6 flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
-            <Link to="/" className="transition hover:text-foreground">Home</Link>
+        <div className="container-site max-w-5xl">
+          <nav
+            aria-label="Breadcrumb"
+            className="mb-6 flex flex-wrap items-center gap-2 text-xs text-muted-foreground"
+          >
+            <Link to="/" className="transition hover:text-foreground">
+              Home
+            </Link>
             <ChevronRight className="size-3 text-muted-foreground/60" />
-            <Link to="/blog" className="transition hover:text-foreground">Packaging Guides</Link>
+            <Link to="/blog" className="transition hover:text-foreground">
+              Packaging Guides
+            </Link>
             <ChevronRight className="size-3 text-muted-foreground/60" />
             <span className="font-medium text-foreground truncate max-w-xs">{post.title}</span>
           </nav>
@@ -105,9 +112,7 @@ function BlogPostPage() {
               {post.title}
             </h1>
 
-            <p className="max-w-3xl text-lg text-muted-foreground">
-              {post.summary}
-            </p>
+            <p className="max-w-3xl text-lg text-muted-foreground">{post.summary}</p>
 
             <div className="flex items-center gap-3 pt-2 text-xs text-muted-foreground">
               <div className="flex size-9 items-center justify-center rounded-full bg-primary/10 text-primary font-bold">
@@ -123,7 +128,7 @@ function BlogPostPage() {
       </section>
 
       {/* Main Content Area: 2 Columns */}
-      <section className="container max-w-5xl">
+      <section className="container-site max-w-5xl">
         <div className="grid gap-12 lg:grid-cols-12">
           {/* Main Content Body */}
           <div className="space-y-10 lg:col-span-8">
@@ -191,8 +196,12 @@ function BlogPostPage() {
                   <div className="my-6 flex items-start gap-3.5 rounded-2xl border border-amber-500/20 bg-amber-50/60 dark:bg-amber-950/20 p-5 text-sm">
                     <Lightbulb className="size-5 shrink-0 text-amber-600 mt-0.5" />
                     <div>
-                      <span className="font-bold text-amber-900 dark:text-amber-200">Printzy Pro Tip: </span>
-                      <span className="text-amber-950/90 dark:text-amber-100/90">{section.proTip}</span>
+                      <span className="font-bold text-amber-900 dark:text-amber-200">
+                        Printzy Pro Tip:{" "}
+                      </span>
+                      <span className="text-amber-950/90 dark:text-amber-100/90">
+                        {section.proTip}
+                      </span>
                     </div>
                   </div>
                 )}
@@ -201,13 +210,18 @@ function BlogPostPage() {
 
             {/* In-article CTA box */}
             <div className="rounded-2xl border border-primary/20 bg-gradient-to-r from-peach/30 to-background p-6 md:p-8">
-              <h3 className="text-xl font-bold text-foreground">Need a Digital Mockup with Your Logo?</h3>
+              <h3 className="text-xl font-bold text-foreground">
+                Need a Digital Mockup with Your Logo?
+              </h3>
               <p className="mt-2 text-sm text-muted-foreground">
-                Email or WhatsApp your logo vector file. We will generate a free 3D digital mockup on your requested packaging format and confirm exact quantities and lead times.
+                Email or WhatsApp your logo vector file. We will generate a free 3D digital mockup
+                on your requested packaging format and confirm exact quantities and lead times.
               </p>
               <div className="mt-5 flex flex-wrap gap-3">
                 <Button asChild size="default" shimmer>
-                  <Link to="/quote" search={{ product: undefined }}>Request Free Mockup & Quote</Link>
+                  <Link to="/quote" search={{ product: undefined }}>
+                    Request Free Mockup & Quote
+                  </Link>
                 </Button>
                 <Button
                   asChild
@@ -279,7 +293,8 @@ function BlogPostPage() {
               <div className="rounded-2xl border border-[#25D366]/30 bg-[#25D366]/5 p-5">
                 <h4 className="text-sm font-bold text-foreground">Have Packaging Questions?</h4>
                 <p className="mt-1 text-xs text-muted-foreground">
-                  Our prepress team is ready to answer questions about sizes, file formats, and delivery timelines.
+                  Our prepress team is ready to answer questions about sizes, file formats, and
+                  delivery timelines.
                 </p>
                 <div className="mt-4">
                   <Button
@@ -301,7 +316,7 @@ function BlogPostPage() {
       </section>
 
       {/* Related Packaging Products Hub */}
-      <section className="container max-w-5xl border-t border-border pt-12">
+      <section className="container-site max-w-5xl border-t border-border pt-12">
         <div className="flex items-center justify-between">
           <h2 className="text-2xl font-bold text-foreground">Explore Related Custom Packaging</h2>
           <Link to="/products" className="text-sm font-medium text-primary hover:underline">
@@ -310,7 +325,10 @@ function BlogPostPage() {
         </div>
         <div className="mt-6 grid gap-4 sm:grid-cols-2 md:grid-cols-3">
           {products.slice(0, 3).map((prod) => (
-            <div key={prod.slug} className="rounded-2xl border border-border bg-card p-5 shadow-soft">
+            <div
+              key={prod.slug}
+              className="rounded-2xl border border-border bg-card p-5 shadow-soft"
+            >
               <h3 className="text-base font-bold text-foreground">{prod.title}</h3>
               <p className="mt-2 text-xs text-muted-foreground line-clamp-2">{prod.intro}</p>
               <div className="mt-4">
@@ -329,4 +347,3 @@ function BlogPostPage() {
     </article>
   );
 }
-

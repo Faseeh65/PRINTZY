@@ -96,7 +96,10 @@ function IndustryDetailPage() {
                 <h3 className="font-bold text-lg text-foreground">Key Challenges We Solve</h3>
                 <ul className="space-y-3">
                   {industry.keyChallengesSolved.map((c: string, idx: number) => (
-                    <li key={idx} className="flex items-start gap-3 text-sm sm:text-base text-muted-foreground">
+                    <li
+                      key={idx}
+                      className="flex items-start gap-3 text-sm sm:text-base text-muted-foreground"
+                    >
                       <CheckCircle2 className="mt-1 size-5 shrink-0 text-secondary" />
                       <span>{c}</span>
                     </li>
@@ -108,7 +111,9 @@ function IndustryDetailPage() {
             {/* Quick Action Card */}
             <div className="rounded-2xl border border-border bg-accent p-6 flex flex-col justify-between">
               <div>
-                <h3 className="font-bold text-lg text-foreground">Need Custom {industry.name} Packaging?</h3>
+                <h3 className="font-bold text-lg text-foreground">
+                  Need Custom {industry.name} Packaging?
+                </h3>
                 <p className="mt-2 text-sm text-muted-foreground">
                   Request a digital mockup and an itemised price breakdown for your requirements.
                 </p>
@@ -160,37 +165,41 @@ function IndustryDetailPage() {
             </div>
 
             <div className="grid gap-6 sm:grid-cols-2">
-              {industry.recommendedProducts.map((p: { title: string; slug: string; reason: string }) => (
-                <div
-                  key={p.slug}
-                  className="rounded-2xl border border-border bg-card p-6 shadow-soft flex flex-col justify-between transition-all duration-300 hover:shadow-lift hover:border-secondary/30"
-                >
-                  <div>
-                    <div className="flex items-center justify-between">
-                      <h3 className="text-lg font-bold text-foreground">{p.title}</h3>
-                      <Package className="size-5 text-secondary" />
+              {industry.recommendedProducts.map(
+                (p: { title: string; slug: string; reason: string }) => (
+                  <div
+                    key={p.slug}
+                    className="rounded-2xl border border-border bg-card p-6 shadow-soft flex flex-col justify-between transition-all duration-300 hover:shadow-lift hover:border-secondary/30"
+                  >
+                    <div>
+                      <div className="flex items-center justify-between">
+                        <h3 className="text-lg font-bold text-foreground">{p.title}</h3>
+                        <Package className="size-5 text-secondary" />
+                      </div>
+                      <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
+                        {p.reason}
+                      </p>
                     </div>
-                    <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{p.reason}</p>
+                    <div className="mt-6 pt-4 border-t border-border flex items-center justify-between">
+                      <Link
+                        to="/products/$slug"
+                        params={{ slug: p.slug }}
+                        className="inline-flex items-center gap-1 text-sm font-semibold text-secondary hover:underline"
+                      >
+                        <span>View Specifications</span>
+                        <ChevronRight className="size-4" />
+                      </Link>
+                      <Link
+                        to="/quote"
+                        search={{ product: p.slug }}
+                        className="text-xs font-medium text-muted-foreground hover:text-foreground"
+                      >
+                        Instant Quote &rarr;
+                      </Link>
+                    </div>
                   </div>
-                  <div className="mt-6 pt-4 border-t border-border flex items-center justify-between">
-                    <Link
-                      to="/products/$slug"
-                      params={{ slug: p.slug }}
-                      className="inline-flex items-center gap-1 text-sm font-semibold text-secondary hover:underline"
-                    >
-                      <span>View Specifications</span>
-                      <ChevronRight className="size-4" />
-                    </Link>
-                    <Link
-                      to="/quote"
-                      search={{ product: p.slug }}
-                      className="text-xs font-medium text-muted-foreground hover:text-foreground"
-                    >
-                      Instant Quote &rarr;
-                    </Link>
-                  </div>
-                </div>
-              ))}
+                ),
+              )}
             </div>
           </div>
 
@@ -207,15 +216,22 @@ function IndustryDetailPage() {
             </p>
 
             <div className="mt-6 grid gap-4 sm:grid-cols-2">
-              {industry.packagingChecklist.map((item: { item: string; tip: string }, idx: number) => (
-                <div key={idx} className="flex items-start gap-3 rounded-xl border border-border/60 bg-muted/30 p-4">
-                  <CheckCircle2 className="mt-0.5 size-5 shrink-0 text-secondary" />
-                  <div>
-                    <h3 className="font-semibold text-foreground text-sm">{item.item}</h3>
-                    <p className="mt-1 text-xs text-muted-foreground leading-relaxed">{item.tip}</p>
+              {industry.packagingChecklist.map(
+                (item: { item: string; tip: string }, idx: number) => (
+                  <div
+                    key={idx}
+                    className="flex items-start gap-3 rounded-xl border border-border/60 bg-muted/30 p-4"
+                  >
+                    <CheckCircle2 className="mt-0.5 size-5 shrink-0 text-secondary" />
+                    <div>
+                      <h3 className="font-semibold text-foreground text-sm">{item.item}</h3>
+                      <p className="mt-1 text-xs text-muted-foreground leading-relaxed">
+                        {item.tip}
+                      </p>
+                    </div>
                   </div>
-                </div>
-              ))}
+                ),
+              )}
             </div>
           </div>
 

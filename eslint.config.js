@@ -15,6 +15,12 @@ export default tseslint.config(
       ".tanstack",
       "test-results",
       "playwright-report",
+      ".venv",
+      "graphify-out",
+      "node_modules",
+      "src/routeTree.gen.ts",
+      ".agents",
+      ".kilo",
     ],
   },
   {
@@ -44,6 +50,12 @@ export default tseslint.config(
       ],
       "react-refresh/only-export-components": ["warn", { allowConstantExport: true }],
       "@typescript-eslint/no-unused-vars": "off",
+    },
+  },
+  {
+    files: ["src/routes/**", "src/components/ui/**"],
+    rules: {
+      "react-refresh/only-export-components": "off",
     },
   },
   eslintPluginPrettier,

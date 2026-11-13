@@ -1,5 +1,13 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ShieldCheck, CheckCircle2, AlertTriangle, RefreshCw, Truck, FileCheck, ArrowRight } from "lucide-react";
+import {
+  ShieldCheck,
+  CheckCircle2,
+  AlertTriangle,
+  RefreshCw,
+  Truck,
+  FileCheck,
+  ArrowRight,
+} from "lucide-react";
 import { seo } from "@/lib/seo";
 import { PageHero, QuoteCTA } from "@/components/site/sections";
 import { Button } from "@/components/ui/button";
@@ -47,11 +55,11 @@ function ReturnAndReprintPolicy() {
               <h2 className="text-2xl font-bold text-foreground">Our 100% Quality Commitment</h2>
             </div>
             <p className="mt-4 text-base text-muted-foreground leading-relaxed">
-              Because custom packaging is manufactured specifically with your unique logo, brand colours,
-              and bespoke dimensions, items cannot be restocked or resold once printed. However, we stand
-              firmly behind our craftsmanship. If your order contains manufacturing flaws or departs
-              measurably from your approved proof, Printzy will reprint the affected units or issue a
-              credit.
+              Because custom packaging is manufactured specifically with your unique logo, brand
+              colours, and bespoke dimensions, items cannot be restocked or resold once printed.
+              However, we stand firmly behind our craftsmanship. If your order contains
+              manufacturing flaws or departs measurably from your approved proof, Printzy will
+              reprint the affected units or issue a credit.
             </p>
           </div>
 
@@ -59,11 +67,13 @@ function ReturnAndReprintPolicy() {
           <div className="space-y-4">
             <div className="flex items-center gap-3">
               <FileCheck className="size-6 text-secondary" />
-              <h2 className="text-xl font-bold text-foreground">1. Pre-Production Proof Approval</h2>
+              <h2 className="text-xl font-bold text-foreground">
+                1. Pre-Production Proof Approval
+              </h2>
             </div>
             <p className="text-muted-foreground leading-relaxed">
-              Before full-scale production begins, our team submits a digital proof (and where requested,
-              a physical pre-production sample) detailing:
+              Before full-scale production begins, our team submits a digital proof (and where
+              requested, a physical pre-production sample) detailing:
             </p>
             <ul className="list-inside list-disc space-y-2 text-muted-foreground">
               <li>Exact artwork placement, scale, and orientation on the product die-line.</li>
@@ -72,9 +82,9 @@ function ReturnAndReprintPolicy() {
               <li>Box dimensions, crease lines, and cup rim dimensions.</li>
             </ul>
             <p className="text-sm text-muted-foreground italic">
-              Note: Mass production only commences after your written sign-off via WhatsApp or email.
-              Please inspect spellings, phone numbers, social handles, and QR codes thoroughly prior to
-              approval.
+              Note: Mass production only commences after your written sign-off via WhatsApp or
+              email. Please inspect spellings, phone numbers, social handles, and QR codes
+              thoroughly prior to approval.
             </p>
           </div>
 
@@ -82,11 +92,13 @@ function ReturnAndReprintPolicy() {
           <div className="space-y-4">
             <div className="flex items-center gap-3">
               <RefreshCw className="size-6 text-secondary" />
-              <h2 className="text-xl font-bold text-foreground">2. When You Qualify for a Free Reprint</h2>
+              <h2 className="text-xl font-bold text-foreground">
+                2. When You Qualify for a Free Reprint
+              </h2>
             </div>
             <p className="text-muted-foreground">
-              Printzy will arrange a complimentary reprint or replacement under the following verified
-              conditions:
+              Printzy will arrange a complimentary reprint or replacement under the following
+              verified conditions:
             </p>
             <div className="grid gap-4 sm:grid-cols-2">
               <div className="rounded-xl border border-border bg-card p-5">
@@ -95,8 +107,8 @@ function ReturnAndReprintPolicy() {
                   Significant Colour Deviation
                 </h3>
                 <p className="mt-2 text-sm text-muted-foreground">
-                  The printed colour departs significantly beyond standard commercial printing tolerances
-                  from your approved proof.
+                  The printed colour departs significantly beyond standard commercial printing
+                  tolerances from your approved proof.
                 </p>
               </div>
 
@@ -106,8 +118,8 @@ function ReturnAndReprintPolicy() {
                   Structural & Seam Defects
                 </h3>
                 <p className="mt-2 text-sm text-muted-foreground">
-                  Paper cups exhibit seam leakage, boxes fail along glue joints, or paper bag handles
-                  detach under standard weight loads.
+                  Paper cups exhibit seam leakage, boxes fail along glue joints, or paper bag
+                  handles detach under standard weight loads.
                 </p>
               </div>
 
@@ -117,8 +129,8 @@ function ReturnAndReprintPolicy() {
                   Dimensional Discrepancy
                 </h3>
                 <p className="mt-2 text-sm text-muted-foreground">
-                  The finished boxes or cups do not match the size and capacity specifications confirmed in
-                  your production order.
+                  The finished boxes or cups do not match the size and capacity specifications
+                  confirmed in your production order.
                 </p>
               </div>
 
@@ -128,8 +140,8 @@ function ReturnAndReprintPolicy() {
                   Print Smudging or Misregistration
                 </h3>
                 <p className="mt-2 text-sm text-muted-foreground">
-                  Artwork exhibits severe misalignment, ghosting, streaking, or ink smudging caused by
-                  press errors.
+                  Artwork exhibits severe misalignment, ghosting, streaking, or ink smudging caused
+                  by press errors.
                 </p>
               </div>
             </div>
@@ -139,29 +151,32 @@ function ReturnAndReprintPolicy() {
           <div className="space-y-4">
             <div className="flex items-center gap-3">
               <AlertTriangle className="size-6 text-amber-500" />
-              <h2 className="text-xl font-bold text-foreground">3. What Does Not Qualify for Reprint</h2>
+              <h2 className="text-xl font-bold text-foreground">
+                3. What Does Not Qualify for Reprint
+              </h2>
             </div>
             <p className="text-muted-foreground">
-              Because custom products cannot be reused, the following circumstances are outside our free
-              reprint guarantee:
+              Because custom products cannot be reused, the following circumstances are outside our
+              free reprint guarantee:
             </p>
             <ul className="list-inside list-disc space-y-2 text-muted-foreground">
               <li>
-                <strong>Errors present in approved artwork:</strong> Typographical mistakes, misspelled
-                words, incorrect phone numbers, invalid QR codes, or wrong addresses that were present in
-                the artwork proof approved by the client.
+                <strong>Errors present in approved artwork:</strong> Typographical mistakes,
+                misspelled words, incorrect phone numbers, invalid QR codes, or wrong addresses that
+                were present in the artwork proof approved by the client.
               </li>
               <li>
-                <strong>Screen vs Print Colour Differences:</strong> Slight colour differences between
-                illuminated RGB phone/laptop monitors and physical CMYK ink on porous paperboards.
+                <strong>Screen vs Print Colour Differences:</strong> Slight colour differences
+                between illuminated RGB phone/laptop monitors and physical CMYK ink on porous
+                paperboards.
               </li>
               <li>
-                <strong>Natural Material Variations:</strong> Minor natural tone and texture variations
-                inherent to unbleached recycled kraft paperboards.
+                <strong>Natural Material Variations:</strong> Minor natural tone and texture
+                variations inherent to unbleached recycled kraft paperboards.
               </li>
               <li>
-                <strong>Client Change of Mind:</strong> Alterations to brand colours, logo placement, or
-                quantity after production has commenced.
+                <strong>Client Change of Mind:</strong> Alterations to brand colours, logo
+                placement, or quantity after production has commenced.
               </li>
             </ul>
           </div>
@@ -170,7 +185,9 @@ function ReturnAndReprintPolicy() {
           <div className="space-y-4">
             <div className="flex items-center gap-3">
               <Truck className="size-6 text-secondary" />
-              <h2 className="text-xl font-bold text-foreground">4. Reporting Window & Claims Process</h2>
+              <h2 className="text-xl font-bold text-foreground">
+                4. Reporting Window & Claims Process
+              </h2>
             </div>
             <p className="text-muted-foreground leading-relaxed">
               Upon receiving your shipment, please inspect the cartons. To lodge a quality claim:
@@ -181,16 +198,17 @@ function ReturnAndReprintPolicy() {
                 <strong className="text-foreground">48 hours</strong> of parcel delivery.
               </li>
               <li>
-                <strong>Evidence Submission:</strong> Send clear photos and a brief video clip of the
-                affected pieces, showing the issue and the carton packing label, via WhatsApp to{" "}
+                <strong>Evidence Submission:</strong> Send clear photos and a brief video clip of
+                the affected pieces, showing the issue and the carton packing label, via WhatsApp to{" "}
                 <a href={site.whatsapp} className="text-secondary font-semibold hover:underline">
                   {site.phoneDisplay}
-                </a>.
+                </a>
+                .
               </li>
               <li>
-                <strong>Review & Resolution:</strong> Our production team assesses the batch logs within 24
-                working hours. If verified, we prioritize an expedited reprint run or issue an agreed credit
-                adjustment.
+                <strong>Review & Resolution:</strong> Our production team assesses the batch logs
+                within 24 working hours. If verified, we prioritize an expedited reprint run or
+                issue an agreed credit adjustment.
               </li>
             </ol>
           </div>

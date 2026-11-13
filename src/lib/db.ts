@@ -121,7 +121,7 @@ export const serverQuoteSchema = z.object({
     ),
   product_id: z.string().trim().min(1, "Product selection is required."),
   quantity: z
-    .number({ invalid_type_error: "Quantity must be a valid number." })
+    .number({ error: "Quantity must be a valid number." })
     .int("Quantity must be a whole number.")
     .min(1, "Quantity must be at least 1.")
     .max(10000000, "Quantity cannot exceed 10,000,000."),
@@ -204,7 +204,7 @@ export async function createQuoteRequest(
       "[createQuoteRequest] Validation failure:",
       JSON.stringify(validation.error.flatten()),
     );
-    const firstMsg = validation.error.errors[0]?.message || "Invalid input parameters.";
+    const firstMsg = validation.error.issues[0]?.message || "Invalid input parameters.";
     throw new Error(firstMsg);
   }
 

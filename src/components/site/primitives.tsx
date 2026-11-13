@@ -48,7 +48,13 @@ export function Reveal({
   return (
     <Tag
       ref={ref as never}
-      className={cn("reveal", armed && "reveal-ready", delayClass, visible && "is-visible", className)}
+      className={cn(
+        "reveal",
+        armed && "reveal-ready",
+        delayClass,
+        visible && "is-visible",
+        className,
+      )}
     >
       {children}
     </Tag>

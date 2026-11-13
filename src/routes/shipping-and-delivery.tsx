@@ -37,8 +37,9 @@ function ShippingAndDelivery() {
               <MapPin className="size-7 text-secondary" aria-hidden="true" />
               <h2 className="mt-3 text-lg font-bold">Destination details</h2>
               <p className="mt-2 text-sm text-muted-foreground">
-                Include the city, delivery address type, and any access or receiving-hour requirements.
-                International inquiries should include the destination country and port when known.
+                Include the city, delivery address type, and any access or receiving-hour
+                requirements. International inquiries should include the destination country and
+                port when known.
               </p>
             </article>
             <article className="rounded-2xl border border-border bg-card p-6 shadow-soft">
@@ -51,7 +52,9 @@ function ShippingAndDelivery() {
             </article>
           </div>
           <Button asChild>
-            <Link to="/quote">Include delivery in my quote</Link>
+            <Link to="/quote" search={{ product: undefined }}>
+              Include delivery in my quote
+            </Link>
           </Button>
         </div>
       </section>

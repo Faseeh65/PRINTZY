@@ -80,7 +80,7 @@ describe("Form Validation & Data Integrity", () => {
     const result = quoteSchema.safeParse(invalid);
     expect(result.success).toBe(false);
     if (!result.success) {
-      expect(result.error.errors[0]?.message).toBe("Please enter your name.");
+      expect(result.error.issues[0]?.message).toBe("Please enter your name.");
     }
   });
 
@@ -109,7 +109,7 @@ describe("Form Validation & Data Integrity", () => {
     const result = quoteSchema.safeParse(botSubmission);
     expect(result.success).toBe(false);
     if (!result.success) {
-      expect(result.error.errors[0]?.message).toBe("Bot submission blocked.");
+      expect(result.error.issues[0]?.message).toBe("Bot submission blocked.");
     }
   });
 
@@ -124,7 +124,7 @@ describe("Form Validation & Data Integrity", () => {
     const result = quoteSchema.safeParse(missingProduct);
     expect(result.success).toBe(false);
     if (!result.success) {
-      expect(result.error.errors[0]?.message).toBe("Please select a product.");
+      expect(result.error.issues[0]?.message).toBe("Please select a product.");
     }
   });
 
@@ -140,7 +140,7 @@ describe("Form Validation & Data Integrity", () => {
     const result = quoteSchema.safeParse(tooLong);
     expect(result.success).toBe(false);
     if (!result.success) {
-      expect(result.error.errors[0]?.message).toBe("Details must be under 1000 characters.");
+      expect(result.error.issues[0]?.message).toBe("Details must be under 1000 characters.");
     }
   });
 });

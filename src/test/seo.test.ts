@@ -71,16 +71,12 @@ describe("Canonical redirects", () => {
     );
     expect(redirectApex).toBe("https://printzy.site/quote?product=cups");
 
-    const redirectWww = getCanonicalRedirectUrl(
-      new Request("https://www.printzy.pk/about"),
-    );
+    const redirectWww = getCanonicalRedirectUrl(new Request("https://www.printzy.pk/about"));
     expect(redirectWww).toBe("https://printzy.site/about");
   });
 
   it("redirects http to https on canonical host", () => {
-    const redirect = getCanonicalRedirectUrl(
-      new Request("http://printzy.site/products"),
-    );
+    const redirect = getCanonicalRedirectUrl(new Request("http://printzy.site/products"));
 
     expect(redirect).toBe("https://printzy.site/products");
   });
@@ -89,8 +85,14 @@ describe("Canonical redirects", () => {
     expect(getCanonicalRedirectUrl(new Request("https://printzy.site/products"))).toBeUndefined();
     expect(getCanonicalRedirectUrl(new Request("http://localhost:5173/products"))).toBeUndefined();
     expect(getCanonicalRedirectUrl(new Request("http://127.0.0.1:3000/products"))).toBeUndefined();
-    expect(getCanonicalRedirectUrl(new Request("https://printzy.workers.dev/products"))).toBeUndefined();
-    expect(getCanonicalRedirectUrl(new Request("https://branch.pages.dev/products"))).toBeUndefined();
-    expect(getCanonicalRedirectUrl(new Request("https://deploy-preview-1.netlify.app/products"))).toBeUndefined();
+    expect(
+      getCanonicalRedirectUrl(new Request("https://printzy.workers.dev/products")),
+    ).toBeUndefined();
+    expect(
+      getCanonicalRedirectUrl(new Request("https://branch.pages.dev/products")),
+    ).toBeUndefined();
+    expect(
+      getCanonicalRedirectUrl(new Request("https://deploy-preview-1.netlify.app/products")),
+    ).toBeUndefined();
   });
 });

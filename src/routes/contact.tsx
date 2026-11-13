@@ -1,5 +1,14 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Mail, Phone, CreditCard, ShieldCheck, FileCheck, ArrowRight, Clock, MapPin } from "lucide-react";
+import {
+  Mail,
+  Phone,
+  CreditCard,
+  ShieldCheck,
+  FileCheck,
+  ArrowRight,
+  Clock,
+  MapPin,
+} from "lucide-react";
 import { WhatsAppIcon } from "@/components/icons/WhatsAppIcon";
 import { seo } from "@/lib/seo";
 import { site } from "@/data/site";
@@ -62,12 +71,17 @@ function Contact() {
                 {...(i.ext ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                 className="group rounded-2xl bg-card p-8 border border-border/40 hover:border-secondary/30 card-lift"
               >
-                <i.icon aria-hidden className="mb-4 size-8 text-secondary transition-transform duration-300 group-hover:scale-110" />
+                <i.icon
+                  aria-hidden
+                  className="mb-4 size-8 text-secondary transition-transform duration-300 group-hover:scale-110"
+                />
                 <h2 className="text-xl font-semibold text-foreground transition-colors duration-200 group-hover:text-secondary">
                   {i.title}
                 </h2>
                 <p className="text-sm text-muted-foreground">{i.text}</p>
-                <p className="mt-3 break-all font-display font-semibold text-foreground">{i.label}</p>
+                <p className="mt-3 break-all font-display font-semibold text-foreground">
+                  {i.label}
+                </p>
               </a>
             ))}
           </div>
@@ -117,8 +131,8 @@ function Contact() {
               <p className="mt-4 text-sm text-muted-foreground">
                 {businessFacts.commercialPolicies.paymentTerms.advancePercent != null
                   ? `${businessFacts.commercialPolicies.paymentTerms.advancePercent}% advance and ${100 - businessFacts.commercialPolicies.paymentTerms.advancePercent}% balance. The balance is due ${businessFacts.commercialPolicies.paymentTerms.balanceMilestone?.toLowerCase() ?? "as stated in your written quotation"}.`
-                  : "Payment methods and milestones are confirmed in your written quotation."} Review
-                your quotation for the order details.
+                  : "Payment methods and milestones are confirmed in your written quotation."}{" "}
+                Review your quotation for the order details.
               </p>
             </div>
           </div>

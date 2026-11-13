@@ -37,4 +37,3 @@ export const clientLogos: ClientLogo[] = [
 export const caseStudies: CaseStudy[] = [
   // Verified mini case studies placed here
 ];
-

@@ -20,11 +20,12 @@ describe("Database Quote Operations (Mocked)", () => {
     };
 
     // Default global fetch mock for Turnstile siteverify
-    global.fetch = vi.fn(async () =>
-      new Response(JSON.stringify({ success: true }), {
-        status: 200,
-        headers: { "Content-Type": "application/json" },
-      }),
+    global.fetch = vi.fn(
+      async () =>
+        new Response(JSON.stringify({ success: true }), {
+          status: 200,
+          headers: { "Content-Type": "application/json" },
+        }),
     ) as unknown as typeof fetch;
   });
 
@@ -42,9 +43,7 @@ describe("Database Quote Operations (Mocked)", () => {
       turnstileToken: "valid_token",
     };
 
-    await expect(createQuoteRequest(invalidInput)).rejects.toThrow(
-      "Invalid phone number format.",
-    );
+    await expect(createQuoteRequest(invalidInput)).rejects.toThrow("Invalid phone number format.");
   });
 
   it("fails server-side validation on missing customer name", async () => {
@@ -56,17 +55,19 @@ describe("Database Quote Operations (Mocked)", () => {
       turnstileToken: "valid_token",
     };
 
-    await expect(createQuoteRequest(invalidInput)).rejects.toThrow(
-      "Name is required.",
-    );
+    await expect(createQuoteRequest(invalidInput)).rejects.toThrow("Name is required.");
   });
 
   it("rejects quote submission when Turnstile verification fails", async () => {
-    global.fetch = vi.fn(async () =>
-      new Response(JSON.stringify({ success: false, "error-codes": ["invalid-input-response"] }), {
-        status: 200,
-        headers: { "Content-Type": "application/json" },
-      }),
+    global.fetch = vi.fn(
+      async () =>
+        new Response(
+          JSON.stringify({ success: false, "error-codes": ["invalid-input-response"] }),
+          {
+            status: 200,
+            headers: { "Content-Type": "application/json" },
+          },
+        ),
     ) as unknown as typeof fetch;
 
     const input = {

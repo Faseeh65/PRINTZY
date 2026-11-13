@@ -34,7 +34,8 @@ function NotFoundComponent() {
         </span>
         <h1 className="mt-4 text-6xl font-bold text-foreground">Page Not Found</h1>
         <p className="mt-3 text-base text-muted-foreground">
-          The packaging page or resource you are looking for does not exist or may have been updated.
+          The packaging page or resource you are looking for does not exist or may have been
+          updated.
         </p>
 
         <div className="mt-8 rounded-2xl border border-border bg-card p-6 text-left shadow-soft">
@@ -179,14 +180,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
               openingHoursSpecification: [
                 {
                   "@type": "OpeningHoursSpecification",
-                  dayOfWeek: [
-                    "Monday",
-                    "Tuesday",
-                    "Wednesday",
-                    "Thursday",
-                    "Friday",
-                    "Saturday",
-                  ],
+                  dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
                   opens: "09:00",
                   closes: "18:00",
                 },

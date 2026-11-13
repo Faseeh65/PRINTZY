@@ -154,7 +154,9 @@ export function Hero() {
             className="aspect-square w-full rounded-2xl object-cover shadow-soft transition-transform duration-500 hover:scale-[1.03]"
           />
           <div className="animate-float-slow absolute -left-3 top-6 rounded-xl bg-card border border-border/40 px-4 py-3 shadow-soft transition-all duration-300 hover:shadow-lift md:-left-8">
-            <div className="font-display text-sm font-semibold text-foreground">Quote tailored to you</div>
+            <div className="font-display text-sm font-semibold text-foreground">
+              Quote tailored to you
+            </div>
             <div className="text-xs text-muted-foreground">Free 3D digital mockup</div>
           </div>
           <div className="animate-float-delayed absolute -right-3 bottom-8 rounded-xl bg-navy border border-white/10 px-4 py-3 text-navy-foreground shadow-soft transition-all duration-300 hover:shadow-lift md:-right-6">
@@ -170,7 +172,7 @@ export function Hero() {
 export function TrustBar() {
   return (
     <section aria-label="Printzy at a glance" className="bg-secondary py-10">
-      <div className="container-site grid grid-cols-2 gap-8 md:grid-cols-4">
+      <div className="container-site grid grid-cols-2 gap-4 sm:gap-8 md:grid-cols-4">
         {stats.map((s) => (
           <StatCounter key={s.label} {...s} />
         ))}
@@ -185,25 +187,25 @@ export function OneSupplierSection() {
       icon: Coffee,
       title: "1. Handheld & Counter",
       desc: "Single & double-wall paper cups and heat sleeves that leave a premium impression.",
-      link: "/products/custom-paper-cups",
+      slug: "custom-paper-cups",
     },
     {
       icon: Box,
       title: "2. Kitchen to Table",
       desc: "Sturdy pizza boxes and grease-resistant food cartons that keep meals hot and intact.",
-      link: "/products/custom-pizza-boxes",
+      slug: "custom-pizza-boxes",
     },
     {
       icon: ShoppingBag,
       title: "3. Doorstep & Takeaway",
       desc: "Reinforced kraft paper bags that carry your full menu safely into customer homes.",
-      link: "/products/custom-paper-bags",
+      slug: "custom-paper-bags",
     },
     {
       icon: Sparkles,
       title: "4. The Finishing Touch",
       desc: "Custom printed napkins and packaging seal stickers that complete the dining experience.",
-      link: "/products/custom-napkins-tissues",
+      slug: "custom-napkins-tissues",
     },
   ];
 
@@ -218,8 +220,8 @@ export function OneSupplierSection() {
           <p className="mt-4 text-base text-muted-foreground sm:text-lg">
             Most food brands buy cups from one vendor, boxes from another and bags from a third, and
             the colours never quite match. At Printzy you can order cups, pizza boxes, food boxes,
-            takeaway sets, paper bags, napkins and cup sleeves in one brand-consistent run. One artwork
-            approval, one delivery, one reorder.
+            takeaway sets, paper bags, napkins and cup sleeves in one brand-consistent run. One
+            artwork approval, one delivery, one reorder.
           </p>
         </div>
 
@@ -235,7 +237,8 @@ export function OneSupplierSection() {
                   <h3 className="mt-4 text-lg font-bold text-foreground">{j.title}</h3>
                   <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{j.desc}</p>
                   <Link
-                    to={j.link as any}
+                    to="/products/$slug"
+                    params={{ slug: j.slug }}
                     className="mt-4 inline-flex min-h-11 items-center gap-1 text-xs font-semibold text-secondary hover:underline"
                   >
                     View specifications
@@ -493,7 +496,10 @@ export function ProofSection() {
           >
             <div aria-live="polite" className="overflow-hidden min-h-[220px]">
               {clientReviews[i] && (
-                <div key={i} className="animate-fade-in rounded-2xl border border-border bg-card p-6 shadow-soft">
+                <div
+                  key={i}
+                  className="animate-fade-in rounded-2xl border border-border bg-card p-6 shadow-soft"
+                >
                   <p className="text-base sm:text-lg italic text-foreground">
                     &ldquo;{clientReviews[i].reviewText}&rdquo;
                   </p>
@@ -613,8 +619,8 @@ export function QuoteCTA() {
       <Reveal className="container-site relative z-10 text-center">
         <h2 className="text-navy-foreground">Ready to see your logo on your packaging?</h2>
         <p className="mx-auto mt-4 max-w-xl text-lg text-navy-foreground/85">
-          Send your required product, size, and estimated quantity. Get a complimentary 3D mockup and
-          itemised quote based on your requirements.
+          Send your required product, size, and estimated quantity. Get a complimentary 3D mockup
+          and itemised quote based on your requirements.
         </p>
         <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
           <Button asChild size="lg" shimmer>
@@ -631,10 +637,10 @@ export function QuoteCTA() {
 
 export function PageHero({ title, text }: { title: string; text: string }) {
   return (
-    <section className="bg-hero py-14 md:py-20">
+    <section className="bg-hero py-12 sm:py-14 md:py-16">
       <div className="container-site max-w-3xl text-center">
-        <h1>{title}</h1>
-        <p className="mt-4 text-lg text-muted-foreground">{text}</p>
+        <h1 className="text-balance">{title}</h1>
+        <p className="mx-auto mt-4 max-w-2xl text-base text-muted-foreground sm:text-lg">{text}</p>
       </div>
     </section>
   );

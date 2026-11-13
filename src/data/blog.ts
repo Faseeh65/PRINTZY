@@ -37,7 +37,8 @@ export const blogPosts: BlogPost[] = [
     slug: "how-to-choose-the-right-paper-cup-size",
     title: "How to Choose the Right Paper Cup Size for Your Cafe (8oz vs 12oz vs 16oz)",
     seoTitle: "Cafe Paper Cup Size Guide: 8oz, 12oz, 16oz | Printzy",
-    metaDescription: "Practical guide for Pakistani cafes choosing between 8oz, 12oz, and 16oz paper cups. Understand portion costs, lid compatibility, and menu matching.",
+    metaDescription:
+      "Practical guide for Pakistani cafes choosing between 8oz, 12oz, and 16oz paper cups. Understand portion costs, lid compatibility, and menu matching.",
     summary:
       "Choosing your cup sizes isn't just a design choice—it dictates your recipe portioning, ingredient cost per cup, lid inventory expenses, and customer satisfaction on hot and cold takeaways.",
     category: "Cups & Beverages",
@@ -80,10 +81,30 @@ export const blogPosts: BlogPost[] = [
         table: {
           headers: ["Cup Size", "Capacity (ml)", "Best For Menu Items", "Rim Diameter"],
           rows: [
-            ["4oz / 6oz", "118 - 177 ml", "Espresso, Cortado, Tasting pours, Desi Karak Chai", "62mm / 70mm"],
-            ["8oz", "236 - 240 ml", "Flat White, Small Cappuccino, Regular Karak Chai", "80mm / 90mm"],
-            ["12oz", "350 - 355 ml", "Caffe Latte, Americano, Mocha, Medium Iced Coffee", "90mm (Universal)"],
-            ["16oz", "470 - 475 ml", "Iced Lattes, Frappes, Smoothies, Large Takeaway", "90mm (Universal)"],
+            [
+              "4oz / 6oz",
+              "118 - 177 ml",
+              "Espresso, Cortado, Tasting pours, Desi Karak Chai",
+              "62mm / 70mm",
+            ],
+            [
+              "8oz",
+              "236 - 240 ml",
+              "Flat White, Small Cappuccino, Regular Karak Chai",
+              "80mm / 90mm",
+            ],
+            [
+              "12oz",
+              "350 - 355 ml",
+              "Caffe Latte, Americano, Mocha, Medium Iced Coffee",
+              "90mm (Universal)",
+            ],
+            [
+              "16oz",
+              "470 - 475 ml",
+              "Iced Lattes, Frappes, Smoothies, Large Takeaway",
+              "90mm (Universal)",
+            ],
           ],
         },
       },
@@ -128,7 +149,8 @@ export const blogPosts: BlogPost[] = [
     slug: "single-wall-vs-double-wall-paper-cups",
     title: "Single-Wall vs Double-Wall Paper Cups: Which is Right for Your Menu?",
     seoTitle: "Single-Wall vs Double-Wall Paper Cups Guide | Printzy",
-    metaDescription: "Compare single-wall vs double-wall custom printed cups for cafes and tea bars in Pakistan. Thermal comfort, cost per cup, and sleeve tradeoffs.",
+    metaDescription:
+      "Compare single-wall vs double-wall custom printed cups for cafes and tea bars in Pakistan. Thermal comfort, cost per cup, and sleeve tradeoffs.",
     summary:
       "Single-wall cups save upfront unit cost, but piping-hot tea and coffee require separate sleeves. Double-wall cups cost slightly more per unit but eliminate sleeve labor and deliver a cooler hand feel.",
     category: "Cups & Beverages",
@@ -179,9 +201,21 @@ export const blogPosts: BlogPost[] = [
             ["Unit Price", "Lower base cost", "Moderate base cost"],
             ["Need for External Sleeve", "Yes for tea & black coffee (>70°C)", "Never required"],
             ["Insulating Air Pocket", "None", "Engineered thermal gap"],
-            ["Exterior Hand Feel", "Hot when filled with boiling water", "Comfortably warm, easy to grip"],
-            ["Storage Carton Footprint", "Compact, tightly nested stacks", "Slightly taller stack height"],
-            ["Best Menu Application", "Iced drinks, cold brew, milk coffee", "Boiling tea, karak chai, hot coffee"],
+            [
+              "Exterior Hand Feel",
+              "Hot when filled with boiling water",
+              "Comfortably warm, easy to grip",
+            ],
+            [
+              "Storage Carton Footprint",
+              "Compact, tightly nested stacks",
+              "Slightly taller stack height",
+            ],
+            [
+              "Best Menu Application",
+              "Iced drinks, cold brew, milk coffee",
+              "Boiling tea, karak chai, hot coffee",
+            ],
           ],
         },
       },
@@ -207,7 +241,8 @@ export const blogPosts: BlogPost[] = [
     slug: "custom-packaging-moq-explained-pakistan",
     title: "Custom Packaging MOQ Explained for Small Food Brands in Pakistan",
     seoTitle: "Custom Packaging MOQ Explained for Pakistan Brands | Printzy",
-    metaDescription: "Understand Minimum Order Quantities (MOQ) for custom food boxes, cups, and bags in Pakistan. How fixed plate costs work and bootstrap strategies.",
+    metaDescription:
+      "Understand Minimum Order Quantities (MOQ) for custom food boxes, cups, and bags in Pakistan. How fixed plate costs work and bootstrap strategies.",
     summary:
       "Why do custom packaging suppliers ask for minimum orders of 500, 1,000, or 5,000 pieces? Learn how printing plate and die setup costs work and how small brands can bootstrap custom packaging.",
     category: "Guides & Setup",
@@ -294,7 +329,8 @@ export const blogPosts: BlogPost[] = [
     slug: "how-to-prepare-logo-for-packaging-print",
     title: "How to Prepare Your Logo File for Packaging Print (Vector vs PNG Checklist)",
     seoTitle: "How to Prepare Logo File for Packaging Print | Printzy Guide",
-    metaDescription: "Step-by-step prepress guide for packaging print in Pakistan. Vector vs raster, CMYK vs RGB, bleed, font outlines, and artwork submission checklist.",
+    metaDescription:
+      "Step-by-step prepress guide for packaging print in Pakistan. Vector vs raster, CMYK vs RGB, bleed, font outlines, and artwork submission checklist.",
     summary:
       "Avoid blurry, jagged, or discoloured packaging prints. Learn how to convert your branding into print-ready vector formats with correct CMYK profiles, bleed lines, and outlined fonts.",
     category: "Design & Print",
@@ -386,7 +422,8 @@ export const blogPosts: BlogPost[] = [
     slug: "pizza-box-sizes-board-strength-guide",
     title: "Pizza Box Sizes and Board Strength: What to Ask Your Supplier",
     seoTitle: "Pizza Box Sizes & Board Strength Guide Pakistan | Printzy",
-    metaDescription: "Guide to pizza box sizes in Pakistan (7 to 16 inch), E-flute vs B-flute board strength, steam venting, and avoiding soggy delivery crusts.",
+    metaDescription:
+      "Guide to pizza box sizes in Pakistan (7 to 16 inch), E-flute vs B-flute board strength, steam venting, and avoiding soggy delivery crusts.",
     summary:
       "A weak pizza box collapses under humidity and ruins your crust before delivery. Master Pakistan standard pizza box dimensions, flute types, steam ventilation, and supplier specs.",
     category: "Food Packaging",
@@ -430,10 +467,30 @@ export const blogPosts: BlogPost[] = [
         table: {
           headers: ["Box Size", "Dimensions (L x W x H)", "Ideal Menu Item", "Recommended Flute"],
           rows: [
-            ["7 Inch", "7.25\" x 7.25\" x 1.75\"", "Personal Pan Pizza, Garlic Bread", "E-Flute (Micro-flute)"],
-            ["9 / 10 Inch", "10.25\" x 10.25\" x 1.75\"", "Regular / Medium Pizza", "E-Flute or B-Flute"],
-            ["12 / 13 Inch", "13.25\" x 13.25\" x 1.75\"", "Large / Family Pizza", "E-Flute or B-Flute (Heavy GSM)"],
-            ["14 / 16 Inch", "16.25\" x 16.25\" x 2.0\"", "Jumbo / Party / New York Style", "B-Flute or Reinforced E-Flute"],
+            [
+              "7 Inch",
+              '7.25" x 7.25" x 1.75"',
+              "Personal Pan Pizza, Garlic Bread",
+              "E-Flute (Micro-flute)",
+            ],
+            [
+              "9 / 10 Inch",
+              '10.25" x 10.25" x 1.75"',
+              "Regular / Medium Pizza",
+              "E-Flute or B-Flute",
+            ],
+            [
+              "12 / 13 Inch",
+              '13.25" x 13.25" x 1.75"',
+              "Large / Family Pizza",
+              "E-Flute or B-Flute (Heavy GSM)",
+            ],
+            [
+              "14 / 16 Inch",
+              '16.25" x 16.25" x 2.0"',
+              "Jumbo / Party / New York Style",
+              "B-Flute or Reinforced E-Flute",
+            ],
           ],
         },
       },
@@ -478,4 +535,3 @@ export const blogPosts: BlogPost[] = [
     ],
   },
 ];
-

@@ -80,12 +80,14 @@ function ArtworkGuide() {
           <div className="rounded-2xl border border-border bg-card p-8 shadow-soft">
             <div className="flex items-center gap-3">
               <FileText className="size-8 text-secondary" />
-              <h2 className="text-2xl font-bold text-foreground">Getting the Sharpest Print on Every Run</h2>
+              <h2 className="text-2xl font-bold text-foreground">
+                Getting the Sharpest Print on Every Run
+              </h2>
             </div>
             <p className="mt-4 text-base text-muted-foreground leading-relaxed">
-              When packaging is printed on high-speed industrial presses, small file issues (like low-res
-              logos or RGB colour shifts) become visibly amplified. Follow these guidelines so your cups,
-              boxes, bags, and napkins print crisply with accurate brand colours.
+              When packaging is printed on high-speed industrial presses, small file issues (like
+              low-res logos or RGB colour shifts) become visibly amplified. Follow these guidelines
+              so your cups, boxes, bags, and napkins print crisply with accurate brand colours.
             </p>
           </div>
 
@@ -93,7 +95,9 @@ function ArtworkGuide() {
           <div className="space-y-4">
             <div className="flex items-center gap-3">
               <Layers className="size-6 text-secondary" />
-              <h2 className="text-xl font-bold text-foreground">1. Vector vs Raster: What to Send</h2>
+              <h2 className="text-xl font-bold text-foreground">
+                1. Vector vs Raster: What to Send
+              </h2>
             </div>
             <div className="overflow-x-auto rounded-xl border border-border bg-card">
               <table className="w-full text-left text-sm">
@@ -110,7 +114,9 @@ function ArtworkGuide() {
                     <td className="p-4 font-semibold text-foreground">Vector</td>
                     <td className="p-4">.AI, .EPS, .PDF, .SVG</td>
                     <td className="p-4 text-secondary font-medium">Ideal (100% Crisp)</td>
-                    <td className="p-4">Always send vector source files if your designer created one.</td>
+                    <td className="p-4">
+                      Always send vector source files if your designer created one.
+                    </td>
                   </tr>
                   <tr>
                     <td className="p-4 font-semibold text-foreground">High-Res Raster</td>
@@ -136,23 +142,23 @@ function ArtworkGuide() {
               <h2 className="text-xl font-bold text-foreground">2. Colour Modes: CMYK vs RGB</h2>
             </div>
             <p className="text-muted-foreground leading-relaxed">
-              Computer screens, smartphones, and Instagram display images in <strong>RGB</strong> (Red,
-              Green, Blue light). Commercial printing presses, however, apply physical liquid inks in{" "}
-              <strong>CMYK</strong> (Cyan, Magenta, Yellow, Key Black) or Pantone spot inks.
+              Computer screens, smartphones, and Instagram display images in <strong>RGB</strong>{" "}
+              (Red, Green, Blue light). Commercial printing presses, however, apply physical liquid
+              inks in <strong>CMYK</strong> (Cyan, Magenta, Yellow, Key Black) or Pantone spot inks.
             </p>
             <div className="grid gap-4 sm:grid-cols-2">
               <div className="rounded-xl border border-border bg-card p-5">
                 <h3 className="font-semibold text-foreground">Why Does This Matter?</h3>
                 <p className="mt-2 text-sm text-muted-foreground">
-                  Extremely vibrant electric neon blues or bright greens in RGB cannot be reproduced with
-                  standard 4-colour process ink and will appear slightly darker or muted.
+                  Extremely vibrant electric neon blues or bright greens in RGB cannot be reproduced
+                  with standard 4-colour process ink and will appear slightly darker or muted.
                 </p>
               </div>
               <div className="rounded-xl border border-border bg-card p-5">
                 <h3 className="font-semibold text-foreground">Printzy Prepress Check</h3>
                 <p className="mt-2 text-sm text-muted-foreground">
-                  Our team converts your file into a calibrated CMYK proof so you can review and sign off
-                  on the realistic ink appearance before we start printing.
+                  Our team converts your file into a calibrated CMYK proof so you can review and
+                  sign off on the realistic ink appearance before we start printing.
                 </p>
               </div>
             </div>
@@ -165,17 +171,17 @@ function ArtworkGuide() {
               <h2 className="text-xl font-bold text-foreground">3. Bleed and Safe Margins</h2>
             </div>
             <p className="text-muted-foreground leading-relaxed">
-              When industrial blades die-cut thousands of pizza boxes or paper cup blanks, microscopic
-              paper shifting can occur. To ensure seamless edges:
+              When industrial blades die-cut thousands of pizza boxes or paper cup blanks,
+              microscopic paper shifting can occur. To ensure seamless edges:
             </p>
             <ul className="list-inside list-disc space-y-2 text-muted-foreground">
               <li>
-                <strong>3mm Bleed:</strong> If your cup has a solid background colour, extend the artwork
-                3mm past the die-line.
+                <strong>3mm Bleed:</strong> If your cup has a solid background colour, extend the
+                artwork 3mm past the die-line.
               </li>
               <li>
-                <strong>5mm Safe Zone:</strong> Keep critical text (ingredients, contact details, barcode,
-                and social handles) at least 5mm away from fold lines and cut borders.
+                <strong>5mm Safe Zone:</strong> Keep critical text (ingredients, contact details,
+                barcode, and social handles) at least 5mm away from fold lines and cut borders.
               </li>
             </ul>
           </div>
@@ -187,9 +193,9 @@ function ArtworkGuide() {
               <h2 className="text-xl font-bold text-foreground">4. Converting Fonts to Outlines</h2>
             </div>
             <p className="text-muted-foreground leading-relaxed">
-              If your design uses a custom font that our press computers don't have installed, the system
-              might substitute a generic default font. To prevent this, in Adobe Illustrator, select all text
-              and click:
+              If your design uses a custom font that our press computers don't have installed, the
+              system might substitute a generic default font. To prevent this, in Adobe Illustrator,
+              select all text and click:
             </p>
             <div className="rounded-xl bg-muted/60 p-4 font-mono text-xs sm:text-sm text-foreground">
               Type &gt; Create Outlines (or press Ctrl + Shift + O / Cmd + Shift + O)
@@ -198,14 +204,18 @@ function ArtworkGuide() {
 
           {/* Pre-Flight Checklist */}
           <div className="rounded-2xl border border-border bg-accent p-8">
-            <h2 className="text-xl font-bold text-foreground">6-Point Pre-Flight Artwork Checklist</h2>
+            <h2 className="text-xl font-bold text-foreground">
+              6-Point Pre-Flight Artwork Checklist
+            </h2>
             <div className="mt-6 grid gap-4 sm:grid-cols-2">
               {checklist.map((item) => (
                 <div key={item.title} className="flex items-start gap-3">
                   <CheckCircle2 className="mt-0.5 size-5 shrink-0 text-secondary" />
                   <div>
                     <h3 className="font-semibold text-foreground text-sm">{item.title}</h3>
-                    <p className="mt-1 text-xs text-muted-foreground leading-relaxed">{item.desc}</p>
+                    <p className="mt-1 text-xs text-muted-foreground leading-relaxed">
+                      {item.desc}
+                    </p>
                   </div>
                 </div>
               ))}
@@ -217,8 +227,8 @@ function ArtworkGuide() {
             <div>
               <h3 className="text-xl font-bold text-foreground">Not sure if your file is ready?</h3>
               <p className="mt-1 text-sm text-muted-foreground">
-                Send your current logo or PDF to our design team via WhatsApp. We will inspect resolution,
-                bleed, and colours free of charge.
+                Send your current logo or PDF to our design team via WhatsApp. We will inspect
+                resolution, bleed, and colours free of charge.
               </p>
             </div>
             <Button asChild size="lg" variant="outline">
