@@ -19,6 +19,8 @@ export default tseslint.config(
       "graphify-out",
       "node_modules",
       "src/routeTree.gen.ts",
+      ".agents",
+      ".kilo",
     ],
   },
   {
@@ -48,6 +50,12 @@ export default tseslint.config(
       ],
       "react-refresh/only-export-components": ["warn", { allowConstantExport: true }],
       "@typescript-eslint/no-unused-vars": "off",
+    },
+  },
+  {
+    files: ["src/routes/**", "src/components/ui/**"],
+    rules: {
+      "react-refresh/only-export-components": "off",
     },
   },
   eslintPluginPrettier,
