@@ -172,7 +172,7 @@ export function Hero() {
 export function TrustBar() {
   return (
     <section aria-label="Printzy at a glance" className="bg-secondary py-10">
-      <div className="container-site grid grid-cols-2 gap-4 sm:gap-8 md:grid-cols-4">
+      <div className="container-site grid grid-cols-2 gap-4 sm:gap-8 lg:grid-cols-4">
         {stats.map((s) => (
           <StatCounter key={s.label} {...s} />
         ))}
