@@ -112,13 +112,9 @@ export const serverQuoteSchema = z.object({
   email: z
     .string()
     .trim()
+    .min(1, "Email is required.")
     .max(255, "Email must be under 255 characters.")
-    .nullish()
-    .transform((val) => (val && val.length > 0 ? val : null))
-    .refine(
-      (val) => !val || /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/.test(val),
-      "Invalid email address format.",
-    ),
+    .email("Invalid email address format."),
   product_id: z.string().trim().min(1, "Product selection is required."),
   quantity: z
     .number({ error: "Quantity must be a valid number." })

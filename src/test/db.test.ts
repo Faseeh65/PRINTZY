@@ -38,6 +38,7 @@ describe("Database Quote Operations (Mocked)", () => {
     const invalidInput = {
       customer_name: "John Doe",
       phone: "invalid!phone!1234", // fails regex ^[0-9 +()-]{7,30}$
+      email: "john@example.com",
       product_id: "custom-boxes",
       quantity: 500,
       turnstileToken: "valid_token",
@@ -50,6 +51,7 @@ describe("Database Quote Operations (Mocked)", () => {
     const invalidInput = {
       customer_name: "   ",
       phone: "+92 300 1234567",
+      email: "jane@example.com",
       product_id: "custom-boxes",
       quantity: 500,
       turnstileToken: "valid_token",
@@ -73,6 +75,7 @@ describe("Database Quote Operations (Mocked)", () => {
     const input = {
       customer_name: "John Doe",
       phone: "+92 300 1234567",
+      email: "john@example.com",
       product_id: "custom-boxes",
       quantity: 500,
       turnstileToken: "bad_token",
@@ -90,6 +93,7 @@ describe("Database Quote Operations (Mocked)", () => {
     const input = {
       customer_name: "Jane Smith",
       phone: "+92 321 9876543",
+      email: "jane@example.com",
       product_id: "non-existent-product",
       quantity: 500,
       turnstileToken: "token_abc",
@@ -114,6 +118,7 @@ describe("Database Quote Operations (Mocked)", () => {
     const input = {
       customer_name: "Jane Smith",
       phone: "+92 321 9876543",
+      email: "jane@example.com",
       product_id: "discontinued-cups",
       quantity: 500,
       turnstileToken: "token_abc",
@@ -138,6 +143,7 @@ describe("Database Quote Operations (Mocked)", () => {
     const input = {
       customer_name: "Jane Smith",
       phone: "+92 321 9876543",
+      email: "jane@example.com",
       product_id: "custom-boxes",
       quantity: 100, // below min 500
       turnstileToken: "token_abc",

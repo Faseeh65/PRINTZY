@@ -8,6 +8,7 @@ const quoteSchema = z.object({
     .trim()
     .min(1, "Please enter your name.")
     .max(100, "Name must be under 100 characters."),
+  email: z.email("Please enter a valid email address."),
   business: z
     .string()
     .trim()
@@ -40,6 +41,7 @@ describe("Form Validation & Data Integrity", () => {
   it("accepts valid quote submissions with minimal required fields", () => {
     const valid = {
       name: "Ahmed Khan",
+      email: "ahmed@example.com",
       phone: "03219091707",
       product: "custom-corrugated-boxes",
       hp_website: "",
@@ -57,6 +59,7 @@ describe("Form Validation & Data Integrity", () => {
   it("accepts full quote submissions with international phone formats", () => {
     const valid = {
       name: "Fatima Packaging Ltd",
+      email: "fatima@example.com",
       business: "Organic Eats",
       phone: "+92 (339) 909-1707",
       quantity: "5000 units",
@@ -72,6 +75,7 @@ describe("Form Validation & Data Integrity", () => {
   it("rejects empty name", () => {
     const invalid = {
       name: "   ",
+      email: "invalid@example.com",
       phone: "03219091707",
       product: "mailer-boxes",
       hp_website: "",
@@ -90,6 +94,7 @@ describe("Form Validation & Data Integrity", () => {
     for (const phone of invalidPhones) {
       const result = quoteSchema.safeParse({
         name: "Test User",
+        email: "test@example.com",
         phone,
         product: "custom-corrugated-boxes",
         hp_website: "",
@@ -98,9 +103,21 @@ describe("Form Validation & Data Integrity", () => {
     }
   });
 
+  it("rejects invalid email addresses", () => {
+    const result = quoteSchema.safeParse({
+      name: "Test User",
+      email: "not-an-email",
+      phone: "03219091707",
+      product: "custom-corrugated-boxes",
+      hp_website: "",
+    });
+    expect(result.success).toBe(false);
+  });
+
   it("rejects bot honeypot submissions (hp_website filled)", () => {
     const botSubmission = {
       name: "Spam Bot",
+      email: "spam@example.com",
       phone: "03219091707",
       product: "mailer-boxes",
       hp_website: "https://spam-link.ru",
@@ -116,6 +133,7 @@ describe("Form Validation & Data Integrity", () => {
   it("rejects missing product selection", () => {
     const missingProduct = {
       name: "User Without Product",
+      email: "user@example.com",
       phone: "03219091707",
       product: "",
       hp_website: "",
@@ -131,6 +149,7 @@ describe("Form Validation & Data Integrity", () => {
   it("rejects excessively long details (>1000 characters)", () => {
     const tooLong = {
       name: "User Long Text",
+      email: "user@example.com",
       phone: "03219091707",
       product: "mailer-boxes",
       details: "a".repeat(1001),
