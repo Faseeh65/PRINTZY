@@ -30,7 +30,26 @@ export const submitQuoteServerFn = createServerFn({ method: "POST" })
     } catch {
       // Outside active HTTP request context
     }
-    return await createQuoteRequest(data, clientIp);
+    const savedLead = await createQuoteRequest(data, clientIp);
+    try {
+      const { sendQuoteEmails } = await import("@/lib/email.server");
+      const productTitle =
+        products.find((item) => item.slug === data.product_id)?.title || "custom packaging";
+      await sendQuoteEmails({
+        name: savedLead.customer_name,
+        email: savedLead.email,
+        business: savedLead.business_name,
+        phone: savedLead.phone,
+        product: productTitle,
+        quantity: savedLead.quantity,
+        details: savedLead.details,
+      });
+    } catch (emailError) {
+      console.error("[submitQuoteServerFn] Quote email processing failed.", {
+        errorName: emailError instanceof Error ? emailError.name : "UnknownError",
+      });
+    }
+    return savedLead;
   });
 
 export const Route = createFileRoute("/quote")({
@@ -53,6 +72,7 @@ const quoteSchema = z.object({
     .trim()
     .min(1, "Please enter your name.")
     .max(100, "Name must be under 100 characters."),
+  email: z.email("Please enter a valid email address."),
   business: z
     .string()
     .trim()
@@ -109,6 +129,7 @@ function Quote() {
     const f = new FormData(form);
     const parseResult = quoteSchema.safeParse({
       name: f.get("name"),
+      email: f.get("email"),
       business: f.get("business"),
       phone: f.get("phone"),
       quantity: f.get("quantity"),
@@ -138,9 +159,9 @@ function Quote() {
       await submitQuoteServerFn({
         data: {
           customer_name: data.name,
+          email: data.email,
           business_name: data.business || null,
           phone: data.phone,
-          email: null,
           product_id: data.product,
           quantity: parsedQty,
           details: data.details || null,
@@ -238,6 +259,18 @@ function Quote() {
                   name="business"
                   autoComplete="organization"
                   maxLength={100}
+                  className={field}
+                />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="email">Email *</Label>
+                <Input
+                  id="email"
+                  name="email"
+                  type="email"
+                  autoComplete="email"
+                  required
+                  maxLength={255}
                   className={field}
                 />
               </div>
