@@ -15,6 +15,10 @@ export default tseslint.config(
       ".tanstack",
       "test-results",
       "playwright-report",
+      ".venv",
+      "graphify-out",
+      "node_modules",
+      "src/routeTree.gen.ts",
     ],
   },
   {
