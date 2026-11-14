@@ -18,7 +18,8 @@ for (const name of responsiveImages) {
     throw new Error(`Could not read dimensions for ${source}`);
   }
 
-  for (const width of [480, 800, 1024, 1200]) {
+  const widths = name === "press" ? [480, 800, 1200] : [480, 800, 1024, 1200];
+  for (const width of widths) {
     if (width > metadata.width) continue;
 
     await sharp(source)
