@@ -4,6 +4,8 @@
  */
 import { neon } from "@neondatabase/serverless";
 import { z } from "zod";
+import { getEnvConfig } from "@/lib/env";
+import { QUOTE_EMAIL_RATE_LIMIT, QUOTE_TURNSTILE_ACTION } from "@/config/security";
 
 /** Keep useful server diagnostics while excluding connection strings and personal data. */
 function logServerError(context: string, error: unknown): void {
@@ -164,6 +166,14 @@ export type CreateQuoteInput = z.infer<typeof serverQuoteSchema>;
  */
 export async function verifyTurnstileToken(token: string, remoteIp?: string): Promise<boolean> {
   const secretKey = getServerEnv("TURNSTILE_SECRET_KEY");
+  let expectedHostname: string;
+
+  try {
+    expectedHostname = new URL(getEnvConfig().siteUrl).hostname.toLowerCase();
+  } catch (configError) {
+    logServerError("[verifyTurnstileToken] Invalid canonical site URL:", configError);
+    return false;
+  }
 
   // Fail closed: If secret key is not set, reject immediately
   if (!secretKey || secretKey.trim() === "") {
@@ -198,9 +208,22 @@ export async function verifyTurnstileToken(token: string, remoteIp?: string): Pr
       return false;
     }
 
-    const data = (await res.json()) as { success: boolean; "error-codes"?: string[] };
+    const data = (await res.json()) as {
+      success: boolean;
+      hostname?: string;
+      action?: string;
+      "error-codes"?: string[];
+    };
     if (!data.success) {
       console.warn("[verifyTurnstileToken] Cloudflare rejected verification:", data["error-codes"]);
+      return false;
+    }
+
+    if (
+      data.hostname?.toLowerCase() !== expectedHostname ||
+      data.action !== QUOTE_TURNSTILE_ACTION
+    ) {
+      console.warn("[verifyTurnstileToken] Cloudflare response hostname or action did not match.");
       return false;
     }
 
@@ -304,8 +327,19 @@ export async function createQuoteRequest(
   // 'status' is omitted so DB defaults to 'pending'
   // 'id' is omitted so DB generates gen_random_uuid()
   // 'admin_notes' is omitted
+  let rows: DbQuoteRequest[];
   try {
-    const rows = (await sql`
+    rows = (await sql`
+      WITH email_lock AS MATERIALIZED (
+        SELECT pg_advisory_xact_lock(hashtextextended(lower(${input.email}), 0))
+      ),
+      recent_requests AS MATERIALIZED (
+        SELECT COUNT(*)::int AS request_count
+        FROM quote_requests
+        CROSS JOIN email_lock
+        WHERE lower(email) = lower(${input.email})
+          AND created_at >= NOW() - (${QUOTE_EMAIL_RATE_LIMIT.periodSeconds} * INTERVAL '1 second')
+      )
       INSERT INTO quote_requests (
         customer_name,
         business_name,
@@ -314,7 +348,8 @@ export async function createQuoteRequest(
         product_id,
         quantity,
         details
-      ) VALUES (
+      )
+      SELECT
         ${input.customer_name},
         ${input.business_name},
         ${input.phone},
@@ -322,18 +357,19 @@ export async function createQuoteRequest(
         ${product.id},
         ${input.quantity},
         ${input.details}
-      )
+      FROM recent_requests
+      WHERE request_count < ${QUOTE_EMAIL_RATE_LIMIT.maxRequests}
       RETURNING id, customer_name, business_name, phone, email, product_id, quantity, details, status, created_at, updated_at;
     `) as DbQuoteRequest[];
-
-    const firstRow = rows[0];
-    if (!firstRow) {
-      throw new Error("No record returned after insert.");
-    }
-
-    return firstRow;
   } catch (insertErr) {
     logServerError("[createQuoteRequest] Quote insert failed:", insertErr);
     throw new Error("Unable to save quote request. Please try again later.");
   }
+
+  const firstRow = rows[0];
+  if (!firstRow) {
+    throw new Error("Too many quote requests for this email. Please try again later.");
+  }
+
+  return firstRow;
 }

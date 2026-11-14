@@ -87,7 +87,11 @@ export function getEnvConfig(): EnvConfig {
       ? String(import.meta.env["VITE_SITE_URL"]).trim()
       : undefined;
 
-  const defaultUrl = isStaging ? DEFAULT_STAGING_URL : DEFAULT_PRODUCTION_URL;
+  const defaultUrl = isDevelopment
+    ? DEFAULT_DEVELOPMENT_URL
+    : isStaging
+      ? DEFAULT_STAGING_URL
+      : DEFAULT_PRODUCTION_URL;
 
   const siteUrl = (rawSiteUrl || defaultUrl).replace(/\/$/, "");
 

@@ -126,6 +126,7 @@ function getQuoteSubmissionErrorMessage(error: unknown): string {
     "Details must be under 2000 characters.",
     "Security verification token is required.",
     "Security verification failed. Please complete the CAPTCHA and try again.",
+    "Too many quote requests for this email. Please try again later.",
     "Database service is currently unavailable. Please try again later.",
     "Failed to process product lookup. Please try again later.",
     "The selected product could not be found.",

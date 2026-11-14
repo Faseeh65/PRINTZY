@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import { getEnvConfig } from "@/lib/env";
 import { logger } from "@/lib/logger";
+import { QUOTE_TURNSTILE_ACTION } from "@/config/security";
 
 type TurnstileCaptchaProps = {
   onVerify?: (token: string) => void;
@@ -29,6 +30,7 @@ export function TurnstileCaptcha({ onVerify, siteKey }: TurnstileCaptchaProps) {
       if (window.turnstile) {
         window.turnstile.render(containerRef.current, {
           sitekey: activeSiteKey,
+          action: QUOTE_TURNSTILE_ACTION,
           callback: (token: string) => {
             if (onVerify) {
               try {
@@ -56,6 +58,7 @@ export function TurnstileCaptcha({ onVerify, siteKey }: TurnstileCaptchaProps) {
           if (window.turnstile && containerRef.current) {
             window.turnstile.render(containerRef.current, {
               sitekey: activeSiteKey,
+              action: QUOTE_TURNSTILE_ACTION,
               callback: (token: string) => {
                 if (onVerify) {
                   try {
