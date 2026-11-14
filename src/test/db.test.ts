@@ -7,6 +7,8 @@ vi.mock("@neondatabase/serverless", () => ({
 }));
 
 import { createQuoteRequest, serverQuoteSchema } from "@/lib/db";
+import { getEnvConfig } from "@/lib/env";
+import { QUOTE_TURNSTILE_ACTION } from "@/config/security";
 
 describe("Database Quote Operations (Mocked)", () => {
   const originalEnv = process.env;
@@ -20,12 +22,20 @@ describe("Database Quote Operations (Mocked)", () => {
     };
 
     // Default global fetch mock for Turnstile siteverify
+    const expectedHostname = new URL(getEnvConfig().siteUrl).hostname;
     global.fetch = vi.fn(
       async () =>
-        new Response(JSON.stringify({ success: true }), {
-          status: 200,
-          headers: { "Content-Type": "application/json" },
-        }),
+        new Response(
+          JSON.stringify({
+            success: true,
+            hostname: expectedHostname,
+            action: QUOTE_TURNSTILE_ACTION,
+          }),
+          {
+            status: 200,
+            headers: { "Content-Type": "application/json" },
+          },
+        ),
     ) as unknown as typeof fetch;
   });
 
@@ -84,6 +94,33 @@ describe("Database Quote Operations (Mocked)", () => {
     await expect(createQuoteRequest(input)).rejects.toThrow(
       "Security verification failed. Please complete the CAPTCHA and try again.",
     );
+  });
+
+  it.each([
+    { hostname: "attacker.example", action: QUOTE_TURNSTILE_ACTION },
+    { hostname: new URL(getEnvConfig().siteUrl).hostname, action: "other_action" },
+  ])("rejects Turnstile tokens issued for the wrong host or action", async (responseData) => {
+    global.fetch = vi.fn(
+      async () =>
+        new Response(JSON.stringify({ success: true, ...responseData }), {
+          status: 200,
+          headers: { "Content-Type": "application/json" },
+        }),
+    ) as unknown as typeof fetch;
+
+    const input = {
+      customer_name: "John Doe",
+      phone: "+92 300 1234567",
+      email: "john@example.com",
+      product_id: "custom-boxes",
+      quantity: 500,
+      turnstileToken: "wrong-context-token",
+    };
+
+    await expect(createQuoteRequest(input)).rejects.toThrow(
+      "Security verification failed. Please complete the CAPTCHA and try again.",
+    );
+    expect(mockSql).not.toHaveBeenCalled();
   });
 
   it("rejects quote submission when product is not found in database", async () => {
@@ -197,5 +234,31 @@ describe("Database Quote Operations (Mocked)", () => {
 
     expect(result).toEqual(mockCreatedQuote);
     expect(mockSql).toHaveBeenCalledTimes(2);
+  });
+
+  it("rejects more than the per-email quote request limit", async () => {
+    mockSql.mockResolvedValueOnce([
+      {
+        id: "33333333-3333-3333-3333-333333333333",
+        slug: "printed-cups",
+        title: "Printed Cups",
+        min_quantity: 250,
+        is_active: true,
+      },
+    ]);
+    mockSql.mockResolvedValueOnce([]);
+
+    const input = {
+      customer_name: "Alice Johnson",
+      phone: "+92 300 5556677",
+      email: "alice@example.com",
+      product_id: "printed-cups",
+      quantity: 1000,
+      turnstileToken: "valid_turnstile_token",
+    };
+
+    await expect(createQuoteRequest(input)).rejects.toThrow(
+      "Too many quote requests for this email. Please try again later.",
+    );
   });
 });
