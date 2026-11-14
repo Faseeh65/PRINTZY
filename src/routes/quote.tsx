@@ -102,6 +102,46 @@ const quoteSchema = z.object({
   hp_website: z.string().max(0, "Bot submission blocked."),
 });
 
+function getQuoteSubmissionErrorMessage(error: unknown): string {
+  const fallback =
+    "We couldn't save your quote request just now. Please try again, or contact us on WhatsApp below.";
+  if (!(error instanceof Error)) return fallback;
+
+  const message = error.message.trim();
+  const safeMessages = new Set([
+    "Name is required.",
+    "Name must be under 100 characters.",
+    "Business name must be under 100 characters.",
+    "Phone number must be at least 7 characters.",
+    "Phone number must be under 30 characters.",
+    "Invalid phone number format.",
+    "Email is required.",
+    "Email must be under 255 characters.",
+    "Invalid email address format.",
+    "Product selection is required.",
+    "Quantity must be a valid number.",
+    "Quantity must be a whole number.",
+    "Quantity must be at least 1.",
+    "Quantity cannot exceed 10,000,000.",
+    "Details must be under 2000 characters.",
+    "Security verification token is required.",
+    "Security verification failed. Please complete the CAPTCHA and try again.",
+    "Database service is currently unavailable. Please try again later.",
+    "Failed to process product lookup. Please try again later.",
+    "The selected product could not be found.",
+    "Unable to save quote request. Please try again later.",
+  ]);
+  if (
+    safeMessages.has(message) ||
+    /^Minimum order quantity for .+ is [\d,]+\. You requested [\d,]+\.$/.test(message) ||
+    /^The product ".+" is currently not available\.$/.test(message)
+  ) {
+    return message;
+  }
+
+  return fallback;
+}
+
 function Quote() {
   const { product } = Route.useSearch();
   const [error, setError] = useState("");
@@ -173,12 +213,10 @@ function Quote() {
           turnstileToken,
         },
       });
-    } catch {
+    } catch (submitError) {
       setIsSubmitting(false);
       submittingRef.current = false;
-      setError(
-        "We couldn't save your quote request just now. Please try again, or contact us on WhatsApp below.",
-      );
+      setError(getQuoteSubmissionErrorMessage(submitError));
       return;
     }
 
