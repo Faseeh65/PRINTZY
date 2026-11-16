@@ -191,6 +191,62 @@ describe("Database Quote Operations (Mocked)", () => {
     );
   });
 
+  it("accepts the Cloudflare demo Turnstile secret without enforcing hostname or action checks", async () => {
+    process.env.TURNSTILE_SECRET_KEY = "1x0000000000000000000000000000000AA";
+    global.fetch = vi.fn(
+      async () =>
+        new Response(
+          JSON.stringify({
+            success: true,
+            hostname: "wrong.example",
+            action: "other_action",
+          }),
+          {
+            status: 200,
+            headers: { "Content-Type": "application/json" },
+          },
+        ),
+    ) as unknown as typeof fetch;
+
+    const mockProduct = {
+      id: "55555555-5555-5555-5555-555555555555",
+      slug: "printed-cups",
+      title: "Printed Cups",
+      min_quantity: 250,
+      is_active: true,
+    };
+
+    const mockCreatedQuote = {
+      id: "66666666-6666-6666-6666-666666666666",
+      customer_name: "Demo User",
+      business_name: null,
+      phone: "+92 300 5556677",
+      email: "demo@example.com",
+      product_id: mockProduct.id,
+      quantity: 1000,
+      details: "Demo verification should pass.",
+      status: "pending",
+      created_at: new Date().toISOString(),
+      updated_at: new Date().toISOString(),
+    };
+
+    mockSql.mockResolvedValueOnce([mockProduct]);
+    mockSql.mockResolvedValueOnce([mockCreatedQuote]);
+
+    await expect(
+      createQuoteRequest({
+        customer_name: "Demo User",
+        business_name: null,
+        phone: "+92 300 5556677",
+        email: "demo@example.com",
+        product_id: "printed-cups",
+        quantity: 1000,
+        details: "Demo verification should pass.",
+        turnstileToken: "1x00000000000000000000AA",
+      }),
+    ).resolves.toEqual(mockCreatedQuote);
+  });
+
   it("successfully creates quote request and returns persisted row", async () => {
     const mockProduct = {
       id: "33333333-3333-3333-3333-333333333333",
