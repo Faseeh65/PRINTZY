@@ -341,7 +341,7 @@ export function Footer() {
         className="pointer-events-none select-none overflow-hidden px-4 pt-6 pb-2 text-center"
         aria-hidden="true"
       >
-        <span className="block font-display text-[15vw] font-black leading-none tracking-widest text-white/[0.07] uppercase">
+        <span className="block font-display text-[15vw] font-black leading-none tracking-widest text-white/45 uppercase">
           PRINTZY
         </span>
       </div>

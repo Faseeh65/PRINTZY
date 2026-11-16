@@ -44,11 +44,10 @@ test.describe("Site Navigation & Critical Page Rendering", () => {
 test.describe("Error Handling & Recovery Flow", () => {
   test("shows custom 404 page for non-existent route and provides home link", async ({ page }) => {
     await page.goto("/non-existent-sample-page-xyz");
-    await expect(page.locator("h1")).toContainText("404");
-    await expect(page.getByText(/Page not found/i)).toBeVisible();
+    await expect(page.locator("h1")).toHaveText("Page Not Found");
+    await expect(page.getByText(/does not exist or may have been updated/i)).toBeVisible();
 
-    // Click Go home link
-    const goHomeLink = page.getByRole("link", { name: /Go home/i });
+    const goHomeLink = page.getByRole("link", { name: /Return to Homepage/i });
     await expect(goHomeLink).toBeVisible();
     await goHomeLink.click();
 

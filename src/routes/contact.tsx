@@ -145,7 +145,7 @@ function Contact() {
                 Understand our defect reporting window, sample policy, and file requirements.
               </div>
             </div>
-            <div className="flex flex-wrap gap-4 text-sm font-semibold text-secondary">
+            <div className="flex flex-wrap gap-4 text-sm font-semibold text-[#286f7f]">
               <Link to="/return-and-reprint-policy" className="hover:underline">
                 Return & Reprint Policy &rarr;
               </Link>
