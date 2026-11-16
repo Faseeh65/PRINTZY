@@ -1,0 +1,20 @@
+services:
+  printzy:
+    build:
+      context: .
+      args:
+        VITE_APP_ENV: ${VITE_APP_ENV:-production}
+        VITE_SITE_URL: ${VITE_SITE_URL:-https://printzy.site}
+        VITE_TURNSTILE_SITE_KEY: ${VITE_TURNSTILE_SITE_KEY:?Set VITE_TURNSTILE_SITE_KEY before building}
+        VITE_ANALYTICS_ENABLED: ${VITE_ANALYTICS_ENABLED:-true}
+        VITE_GTM_ID: ${VITE_GTM_ID:-GTM-W8JX29CJ}
+    env_file:
+      - .env.local
+    environment:
+      NODE_ENV: production
+      NITRO_HOST: 0.0.0.0
+      NITRO_PORT: "3000"
+    ports:
+      - "3000:3000"
+    init: true
+    restart: unless-stopped
