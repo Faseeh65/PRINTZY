@@ -7,20 +7,6 @@ import { z } from "zod";
 import { getEnvConfig } from "@/lib/env";
 import { QUOTE_EMAIL_RATE_LIMIT, QUOTE_TURNSTILE_ACTION } from "@/config/security";
 
-const DEMO_TURNSTILE_SITE_KEY = "1x00000000000000000000AA";
-const DEMO_TURNSTILE_SECRET_KEY = "1x0000000000000000000000000000000AA";
-
-function isDemoTurnstileRequest(token: string, secretKey: string): boolean {
-  const normalizedToken = token.trim();
-  const normalizedSecret = secretKey.trim();
-
-  return (
-    normalizedToken === DEMO_TURNSTILE_SITE_KEY ||
-    normalizedToken === DEMO_TURNSTILE_SECRET_KEY ||
-    normalizedSecret === DEMO_TURNSTILE_SECRET_KEY
-  );
-}
-
 /** Keep useful server diagnostics while excluding connection strings and personal data. */
 function logServerError(context: string, error: unknown): void {
   const errorRecord =
@@ -231,10 +217,6 @@ export async function verifyTurnstileToken(token: string, remoteIp?: string): Pr
     if (!data.success) {
       console.warn("[verifyTurnstileToken] Cloudflare rejected verification:", data["error-codes"]);
       return false;
-    }
-
-    if (isDemoTurnstileRequest(token, secretKey)) {
-      return true;
     }
 
     if (
