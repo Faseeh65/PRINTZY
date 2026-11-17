@@ -163,7 +163,7 @@ try {
         'ZZ-TEST Neon Integration Guard',
         'Printzy Dev QA',
         '+92 300 1234567',
-        'qa-dev@printzy.pk',
+        'qa-dev@printzy.site',
         ${product[0].id},
         500,
         'Automated verification of Neon dev branch integration.'

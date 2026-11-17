@@ -1,14 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import {
-  FileText,
-  CheckCircle2,
-  AlertCircle,
-  Layers,
-  Palette,
-  Maximize2,
-  Type,
-  ArrowRight,
-} from "lucide-react";
+import { FileText, CheckCircle2, Layers, Palette, Maximize2, Type } from "lucide-react";
 import { seo } from "@/lib/seo";
 import { PageHero, QuoteCTA } from "@/components/site/sections";
 import { Button } from "@/components/ui/button";

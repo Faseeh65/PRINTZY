@@ -1,14 +1,5 @@
 import { createFileRoute, notFound, Link } from "@tanstack/react-router";
-import {
-  Check,
-  ChevronRight,
-  ArrowRight,
-  ShieldCheck,
-  Truck,
-  Sparkles,
-  HelpCircle,
-  FileCheck,
-} from "lucide-react";
+import { Check, ChevronRight, ArrowRight, ShieldCheck, Truck, Sparkles } from "lucide-react";
 import { seo } from "@/lib/seo";
 import { site } from "@/data/site";
 import { getProductBySlug, products, type Product, type ProductFaq } from "@/data/products";

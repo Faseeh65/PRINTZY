@@ -6,7 +6,6 @@ import {
   RefreshCw,
   Truck,
   FileCheck,
-  ArrowRight,
 } from "lucide-react";
 import { seo } from "@/lib/seo";
 import { PageHero, QuoteCTA } from "@/components/site/sections";

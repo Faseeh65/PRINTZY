@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ChevronDown, MessageCircle, HelpCircle, ArrowRight } from "lucide-react";
+import { ChevronDown, HelpCircle } from "lucide-react";
 import { seo } from "@/lib/seo";
 import { PageHero, QuoteCTA } from "@/components/site/sections";
 import { Button } from "@/components/ui/button";

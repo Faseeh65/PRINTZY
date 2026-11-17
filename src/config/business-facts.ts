@@ -45,7 +45,7 @@ export interface BusinessFacts {
     phoneIntl: string;
     whatsappNumber: string;
     email: string;
-    domainEmail: string | null; // TODO: Setup sales@printzy.pk or sales@printzy.site
+    domainEmail: string | null; // TODO: Setup sales@printzy.site
     responseTime: string;
   };
   social: {

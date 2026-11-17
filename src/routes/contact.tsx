@@ -1,14 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import {
-  Mail,
-  Phone,
-  CreditCard,
-  ShieldCheck,
-  FileCheck,
-  ArrowRight,
-  Clock,
-  MapPin,
-} from "lucide-react";
+import { Mail, Phone, CreditCard, Clock } from "lucide-react";
 import { WhatsAppIcon } from "@/components/icons/WhatsAppIcon";
 import { seo } from "@/lib/seo";
 import { site } from "@/data/site";

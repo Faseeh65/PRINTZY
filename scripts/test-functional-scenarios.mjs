@@ -80,7 +80,7 @@ async function run() {
     customer_name: s1Name,
     business_name: "Printzy Dev QA",
     phone: "+92 300 1234567",
-    email: "qa@printzy.pk",
+    email: "qa@printzy.site",
     product_id: testProduct.slug,
     quantity: testProduct.min_quantity + 50,
     details: "Standard test order details for Printzy dev.",

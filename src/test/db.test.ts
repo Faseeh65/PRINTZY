@@ -6,7 +6,7 @@ vi.mock("@neondatabase/serverless", () => ({
   neon: vi.fn(() => mockSql),
 }));
 
-import { createQuoteRequest, serverQuoteSchema } from "@/lib/db";
+import { createQuoteRequest } from "@/lib/db";
 import { getEnvConfig } from "@/lib/env";
 import { QUOTE_TURNSTILE_ACTION } from "@/config/security";
 

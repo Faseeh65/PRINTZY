@@ -65,14 +65,11 @@ describe("Canonical redirects", () => {
     expect(redirect).toBe("https://printzy.site/quote?product=cups&qty=500");
   });
 
-  it("redirects legacy printzy.pk domains to printzy.site and preserves path and query", () => {
-    const redirectApex = getCanonicalRedirectUrl(
-      new Request("https://printzy.pk/quote?product=cups"),
+  it("redirects HTTP www to HTTPS apex and preserves path and query", () => {
+    const redirect = getCanonicalRedirectUrl(
+      new Request("http://www.printzy.site/about?section=contact"),
     );
-    expect(redirectApex).toBe("https://printzy.site/quote?product=cups");
-
-    const redirectWww = getCanonicalRedirectUrl(new Request("https://www.printzy.pk/about"));
-    expect(redirectWww).toBe("https://printzy.site/about");
+    expect(redirect).toBe("https://printzy.site/about?section=contact");
   });
 
   it("redirects http to https on canonical host", () => {

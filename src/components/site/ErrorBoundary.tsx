@@ -3,7 +3,7 @@
  * Catches unhandled runtime render crashes, logs to Sentry & telemetry, and provides recovery actions.
  */
 
-import React, { Component, type ErrorInfo, type ReactNode } from "react";
+import { Component, type ErrorInfo, type ReactNode } from "react";
 import { RefreshCw, Home, AlertCircle } from "lucide-react";
 import { WhatsAppIcon } from "@/components/icons/WhatsAppIcon";
 import { site } from "@/data/site";

@@ -46,8 +46,8 @@ TanStack Start server-renders each public route, including its route-specific ti
 description, canonical URL, Open Graph/Twitter tags, and structured data. Keep
 `VITE_SITE_URL` set to the preferred HTTPS origin (currently
 `https://printzy.site`) in each deployment environment, and set `VITE_APP_ENV=production`
-for production builds. The Worker permanently redirects the legacy `printzy.pk` host,
-`www` aliases, and HTTP requests on known Printzy domains to that canonical origin. Update
+for production builds. The Worker redirects `www.printzy.site` and HTTP requests for the
+canonical host to the HTTPS apex origin. Update
 [`public/sitemap.xml`](../public/sitemap.xml) and
 [`public/robots.txt`](../public/robots.txt) whenever public routes change; keep
 administrative and private paths disallowed in robots.

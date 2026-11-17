@@ -187,12 +187,7 @@ export function seo({
   };
 }
 
-const canonicalDomainAliases = new Set([
-  "printzy.site",
-  "www.printzy.site",
-  "printzy.pk",
-  "www.printzy.pk",
-]);
+const canonicalDomainAliases = new Set(["www.printzy.site"]);
 
 export function getCanonicalRedirectUrl(request: Request): string | undefined {
   const requestUrl = new URL(request.url);

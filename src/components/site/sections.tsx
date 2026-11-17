@@ -3,7 +3,6 @@ import { Link } from "@tanstack/react-router";
 import {
   Check,
   Palette,
-  Layers,
   Truck,
   BadgeCheck,
   Clock,
@@ -32,12 +31,11 @@ import {
   StepCard,
   StatCounter,
 } from "./primitives";
-import { site } from "@/data/site";
 import { products } from "@/data/products";
 import { industries } from "@/data/industries";
 import { stats } from "@/data/stats";
 import { faqs } from "@/data/faqs";
-import { clientReviews, clientLogos, caseStudies, ClientReview } from "@/data/proof";
+import { clientReviews, clientLogos, caseStudies } from "@/data/proof";
 import { images, gallery, responsiveImageProps } from "@/data/images";
 import { trackGtmWhatsAppClick } from "@/lib/gtm";
 import { buildWhatsAppUrl } from "@/config/business-facts";

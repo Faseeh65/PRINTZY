@@ -1,5 +1,4 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
-import React, { useState } from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
 import { ErrorBoundary } from "@/components/site/ErrorBoundary";
 import { safeFetch, safeAsync, mapStatusToErrorCode, getSafeErrorMessage } from "@/lib/api-client";
@@ -140,16 +139,6 @@ describe("Production Reliability: Global React Error Boundary", () => {
       throw new Error("Simulated component render explosion");
     }
     return <div>Normal Content</div>;
-  }
-
-  function StateBomb() {
-    const [explode, setExplode] = useState(false);
-    return (
-      <div>
-        <button onClick={() => setExplode(true)}>Trigger Error</button>
-        <Bomb shouldExplode={explode} />
-      </div>
-    );
   }
 
   it("renders children when no error occurs", () => {

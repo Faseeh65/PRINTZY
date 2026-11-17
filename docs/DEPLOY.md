@@ -69,8 +69,8 @@ Local secrets live exclusively in `.env.local` (which is in `.gitignore` and nev
 1. In Cloudflare Dashboard, navigate to **Workers & Pages** > **printzy**.
 2. Go to **Settings** > **Domains & Routes** > **Custom Domains**.
 3. Click **Add Custom Domain** and enter:
-   - `printzy.pk`
-   - `www.printzy.pk` (redirects canonically to apex domain via server handler)
+   - `printzy.site`
+   - `www.printzy.site` (redirects canonically to apex domain via server handler)
 4. Confirm DNS records are automatically managed by Cloudflare.
 5. In **SSL/TLS Settings**, ensure encryption mode is set to **Full (strict)**.
 6. Under **Security > WAF**, verify that standard DDoS and Bot Fight modes do not block Turnstile or assets.

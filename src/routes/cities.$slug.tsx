@@ -8,7 +8,6 @@ import {
   ArrowRight,
   HelpCircle,
   ChevronRight,
-  ShieldCheck,
 } from "lucide-react";
 import { seo } from "@/lib/seo";
 import { cityDetails, CityDetail } from "@/data/city-details";
