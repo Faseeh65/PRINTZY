@@ -25,6 +25,7 @@ function describeError(error: unknown): { name: string; message: string } {
 
 export async function sendQuoteEmails(lead: QuoteEmailDetails): Promise<void> {
   const apiKey = getServerEnv("RESEND_API_KEY");
+  console.log("[quote-email] start", { hasKey: Boolean(apiKey?.trim()), hasTemplate: Boolean(getServerEnv("RESEND_TEMPLATE_ID")) });
   if (!apiKey?.trim()) {
     console.error("[quote-email] RESEND_API_KEY is not configured; skipping email notifications.");
     return;

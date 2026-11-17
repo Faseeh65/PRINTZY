@@ -47,9 +47,7 @@ export const submitQuoteServerFn = createServerFn({ method: "POST" })
         details: savedLead.details,
       });
     } catch (emailError) {
-      console.error("[submitQuoteServerFn] Quote email processing failed.", {
-        errorName: emailError instanceof Error ? emailError.name : "UnknownError",
-      });
+      console.error("[submitQuoteServerFn] Quote email processing failed.", emailError);
     }
     return savedLead;
   });
