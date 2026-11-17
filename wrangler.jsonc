@@ -32,4 +32,27 @@
       },
     },
   ],
+  "previews": {
+    "placement": {
+      "mode": "smart",
+    },
+    "ratelimits": [
+      {
+        "name": "RATE_LIMIT_GENERAL",
+        "namespace_id": "76349281003",
+        "simple": {
+          "limit": 60,
+          "period": 60,
+        },
+      },
+      {
+        "name": "RATE_LIMIT_SENSITIVE",
+        "namespace_id": "76349281004",
+        "simple": {
+          "limit": 5,
+          "period": 60,
+        },
+      },
+    ],
+  },
 }

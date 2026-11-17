@@ -147,7 +147,7 @@ export function ProductCard({
           <Link
             to="/quote"
             search={{ product: slug }}
-            className="inline-flex min-h-10 items-center rounded-lg bg-secondary/10 px-3 py-1.5 font-display text-sm font-semibold text-secondary hover:bg-secondary hover:text-secondary-foreground transition-colors"
+            className="inline-flex min-h-10 items-center rounded-lg bg-secondary/10 px-3 py-1.5 font-display text-sm font-semibold text-[#286f7f] hover:bg-secondary hover:text-secondary-foreground transition-colors"
           >
             Get Quote
           </Link>
