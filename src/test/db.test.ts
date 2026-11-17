@@ -141,6 +141,45 @@ describe("Database Quote Operations (Mocked)", () => {
     );
   });
 
+  it("resolves the Custom Paper Cups frontend slug before querying the database", async () => {
+    mockSql.mockResolvedValueOnce([
+      {
+        id: "77777777-7777-7777-7777-777777777777",
+        slug: "cups",
+        title: "Cups & Glasses",
+        min_quantity: 100,
+        is_active: true,
+      },
+    ]);
+    mockSql.mockResolvedValueOnce([
+      {
+        id: "88888888-8888-8888-8888-888888888888",
+        customer_name: "Jane Smith",
+        business_name: null,
+        phone: "+92 321 9876543",
+        email: "jane@example.com",
+        product_id: "77777777-7777-7777-7777-777777777777",
+        quantity: 500,
+        details: null,
+        status: "pending",
+        created_at: new Date().toISOString(),
+        updated_at: new Date().toISOString(),
+      },
+    ]);
+
+    await createQuoteRequest({
+      customer_name: "Jane Smith",
+      phone: "+92 321 9876543",
+      email: "jane@example.com",
+      product_id: "custom-paper-cups",
+      quantity: 500,
+      turnstileToken: "valid_token",
+    });
+
+    expect(mockSql.mock.calls[0]?.[1]).toBe("cups");
+    expect(mockSql).toHaveBeenCalledTimes(2);
+  });
+
   it("rejects quote submission when product is marked inactive", async () => {
     mockSql.mockResolvedValueOnce([
       {
