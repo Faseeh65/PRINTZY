@@ -912,9 +912,27 @@ const legacySlugAliases: Record<string, string> = {
   other: "custom-mailer-gift-boxes",
 };
 
+const quoteDatabaseProductSlugs = new Set([
+  "cups",
+  "pizza-food-boxes",
+  "takeaway",
+  "paper-bags",
+  "tissues",
+  "sleeves-stickers",
+]);
+
 export function resolveProductSlug(slug: string): string {
   const normalized = slug.trim().toLowerCase();
   return legacySlugAliases[normalized] ?? normalized;
+}
+
+export function resolveDatabaseProductSlug(slug: string): string {
+  const normalized = slug.trim().toLowerCase();
+  const legacyAlias = Object.entries(legacySlugAliases).find(
+    ([databaseSlug, frontendSlug]) =>
+      quoteDatabaseProductSlugs.has(databaseSlug) && frontendSlug === normalized,
+  );
+  return legacyAlias?.[0] ?? normalized;
 }
 
 export function getProductBySlug(slug: string): Product | undefined {

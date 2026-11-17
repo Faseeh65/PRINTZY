@@ -4,6 +4,7 @@
  */
 import { neon } from "@neondatabase/serverless";
 import { z } from "zod";
+import { resolveDatabaseProductSlug } from "@/data/products";
 import { getEnvConfig } from "@/lib/env";
 import { QUOTE_EMAIL_RATE_LIMIT, QUOTE_TURNSTILE_ACTION } from "@/config/security";
 
@@ -280,6 +281,7 @@ export async function createQuoteRequest(
   const isUuid = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(
     input.product_id,
   );
+  const productSlug = isUuid ? input.product_id : resolveDatabaseProductSlug(input.product_id);
 
   let products: DbProduct[];
   try {
@@ -292,7 +294,7 @@ export async function createQuoteRequest(
     } else {
       products = (await sql`
         SELECT id, slug, title, min_quantity, is_active FROM products 
-        WHERE slug = ${input.product_id}
+        WHERE slug = ${productSlug}
         LIMIT 1;
       `) as DbProduct[];
     }
