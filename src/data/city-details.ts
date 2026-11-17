@@ -172,7 +172,7 @@ export const cityDetails: Record<string, CityDetail> = {
     intro:
       "From diplomatic enclaves and trendy F-6, F-7, and F-10 cafe strips to commercial hubs in Bahria Town and Saddar Rawalpindi, Islamabad demands refined, eco-conscious, and polished brand presentation. Printzy supplies custom packaging that reflects your brand's prestige.",
     cityContext:
-      "Consumers in Islamabad and Rawalpindi have high aesthetic expectations. Specialty coffee bars, health-food kitchens, artisanal dessert studios, and corporate institutions in the twin cities prioritize clean minimalist typography, eco-friendly kraft paper substrates, and flawless print registration. Printzy delivers sophisticated packaging solutions—including biodegradable food boards and crisp foil-accented finishes—that fit Islamabad's modern cafe culture and corporate community.",
+      "Businesses in Islamabad and Rawalpindi can share their packaging format, artwork, quantity and destination details for review. Material, print and finishing specifications depend on the requested product and are discussed per inquiry.",
     deliveryTime: "Delivery timing confirmed with your quote",
     logisticsDetails:
       "Direct transit from our central facility via motorway logistics, arriving at twin-city commercial hubs (Blue Area, I-8, F-sectors, Saddar, Bahria Town, DHA Islamabad) in 48 to 72 hours.",
@@ -204,7 +204,7 @@ export const cityDetails: Record<string, CityDetail> = {
       {
         title: "Kraft Paper Bags",
         slug: "custom-paper-bags",
-        reason: "Eco-friendly recyclable kraft shopping bags favoured by green-conscious shoppers.",
+        reason: "Kraft or white paper bags for retail and takeaway packaging inquiries.",
       },
     ],
     orderingSteps: [
@@ -219,8 +219,8 @@ export const cityDetails: Record<string, CityDetail> = {
         a: "Delivery timing to Islamabad and Rawalpindi depends on the destination and available courier service. Contact us to confirm timing for your order.",
       },
       {
-        q: "Do you offer eco-friendly and recyclable packaging for Islamabad brands?",
-        a: "Yes. We offer biodegradable unbleached kraft paperboards, compostable linings, and recyclable materials aligned with Islamabad's environmental standards.",
+        q: "Can you provide environmental information for packaging?",
+        a: "Share the exact environmental attribute or document you need. Availability of supporting material information is confirmed per inquiry.",
       },
       {
         q: "Can you provide official tax invoices for corporate and NGO orders in Islamabad?",
@@ -243,7 +243,7 @@ export const cityDetails: Record<string, CityDetail> = {
       "Faisalabad's entrepreneurial market appreciates manufacturing value: robust paper stocks, clear cost structures, and dependable timelines. As modern dining hubs in Kohinoor City, D-Ground, and Peoples Colony continue to flourish, local eateries are moving rapidly away from generic packaging to branded, Instagrammable containers that retain brand loyalty. Printzy bridges industrial quality with approachable minimum order sizes so Faisalabad businesses can scale without waste.",
     deliveryTime: "Delivery timing confirmed with your quote",
     logisticsDetails:
-      "Close regional proximity ensures rapid 24-to-48-hour delivery from our production press to all commercial districts of Faisalabad via standard and express cargo networks.",
+      "Delivery options and timing for Faisalabad are discussed for the destination and order details.",
     localIndustries: [
       "Fast-food franchises & dynamic burger joints in D-Ground & Kohinoor",
       "Traditional sweets & festive confectionery makers across Faisalabad",

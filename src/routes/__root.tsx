@@ -149,9 +149,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
               logo: `${siteUrl}/images/logo.jpeg`,
               email: site.email,
               telephone: site.phoneIntl,
-              areaServed: {
-                "@type": "Country",
-                name: "Pakistan",
+              contactPoint: {
+                "@type": "ContactPoint",
+                contactType: "sales",
+                telephone: site.phoneIntl,
+                email: site.email,
               },
               sameAs: [site.social.instagram, site.social.facebook].filter(Boolean),
             },

@@ -1,8 +1,22 @@
 import { createFileRoute, notFound, Link } from "@tanstack/react-router";
-import { Check, ChevronRight, ArrowRight, ShieldCheck, Truck, Sparkles } from "lucide-react";
+import {
+  Check,
+  ChevronRight,
+  ArrowRight,
+  ShieldCheck,
+  Truck,
+  Sparkles,
+  Globe2,
+} from "lucide-react";
 import { seo } from "@/lib/seo";
 import { site } from "@/data/site";
-import { getProductBySlug, products, type Product, type ProductFaq } from "@/data/products";
+import {
+  getProductBySlug,
+  getProductExportBrief,
+  products,
+  type Product,
+  type ProductFaq,
+} from "@/data/products";
 import { responsiveImageProps } from "@/data/images";
 import { Button } from "@/components/ui/button";
 import { WhatsAppIcon } from "@/components/icons/WhatsAppIcon";
@@ -43,22 +57,7 @@ export const Route = createFileRoute("/products/$slug")({
 
 function ProductDetailPage() {
   const { product } = Route.useLoaderData() as { product: Product };
-
-  // Structured FAQ JSON-LD for rich snippets
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: product.faqs.map((f: ProductFaq) => ({
-      "@type": "Question",
-      name: f.q,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: f.a,
-      },
-    })),
-  };
-
-  const safeFaqJson = JSON.stringify(faqSchema).replace(/</g, "\\u003c").replace(/>/g, "\\u003e");
+  const exportBrief = getProductExportBrief(product.slug);
 
   // Lookup related products
   const relatedProducts = product.relatedSlugs
@@ -67,8 +66,6 @@ function ProductDetailPage() {
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeFaqJson }} />
-
       {/* Breadcrumb Navigation */}
       <nav aria-label="Breadcrumb" className="bg-muted/40 border-b border-border/40 py-3">
         <div className="container-site flex items-center gap-2 text-sm text-muted-foreground flex-wrap">
@@ -242,6 +239,42 @@ function ProductDetailPage() {
           </div>
         </div>
       </section>
+
+      {exportBrief && (
+        <section className="section-pad bg-accent/40">
+          <div className="container-site max-w-4xl">
+            <div className="rounded-2xl border border-border bg-card p-6 shadow-soft sm:p-8">
+              <Globe2 className="size-8 text-secondary" aria-hidden="true" />
+              <h2 className="mt-4 text-2xl font-bold text-foreground">{exportBrief.heading}</h2>
+              <p className="mt-3 leading-relaxed text-muted-foreground">
+                {exportBrief.introduction}
+              </p>
+              <h3 className="mt-5 font-semibold text-foreground">Include these product details</h3>
+              <ul className="mt-2 list-inside list-disc space-y-2 text-sm text-muted-foreground">
+                {exportBrief.checklist.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+              <div className="mt-6 flex flex-wrap gap-3">
+                <Button asChild>
+                  <Link
+                    to="/quote"
+                    search={{
+                      product: product.slug,
+                      details: `Export inquiry for ${product.title}. Please add the destination country or port and target delivery window.`,
+                    }}
+                  >
+                    Request an export quote
+                  </Link>
+                </Button>
+                <Button asChild variant="outline">
+                  <Link to="/export-custom-packaging">Export inquiry checklist</Link>
+                </Button>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Print Options & Technical Guide */}
       <section className="section-pad bg-muted/30">
@@ -423,7 +456,7 @@ function ProductDetailPage() {
                 Complementary Packaging Solutions
               </h2>
               <p className="mt-2 text-sm text-muted-foreground">
-                Bundle your order with matching packaging runs to reduce total cost.
+                Use the related product pages to compare formats you may want to include in a quote.
               </p>
             </div>
 

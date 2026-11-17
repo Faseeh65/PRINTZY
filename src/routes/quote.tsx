@@ -55,6 +55,7 @@ export const submitQuoteServerFn = createServerFn({ method: "POST" })
 export const Route = createFileRoute("/quote")({
   validateSearch: (s: Record<string, unknown>) => ({
     product: typeof s["product"] === "string" ? resolveProductSlug(s["product"]) : undefined,
+    ...(typeof s["details"] === "string" ? { details: s["details"].slice(0, 1000) } : {}),
   }),
   head: () =>
     seo({
@@ -142,7 +143,7 @@ function getQuoteSubmissionErrorMessage(error: unknown): string {
 }
 
 function Quote() {
-  const { product } = Route.useSearch();
+  const { product, details } = Route.useSearch();
   const [error, setError] = useState("");
   const [submitted, setSubmitted] = useState(false);
 
@@ -353,7 +354,14 @@ function Quote() {
             </div>
             <div className="space-y-2">
               <Label htmlFor="details">Size, material or other details</Label>
-              <Textarea id="details" name="details" rows={4} maxLength={1000} className="bg-card" />
+              <Textarea
+                id="details"
+                name="details"
+                rows={4}
+                maxLength={1000}
+                defaultValue={details}
+                className="bg-card"
+              />
             </div>
             {error && (
               <p role="alert" className="text-sm font-medium text-destructive">

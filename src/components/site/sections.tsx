@@ -89,9 +89,8 @@ export function Hero() {
           </Reveal>
           <Reveal delay={200}>
             <p className="mt-5 max-w-xl text-lg text-muted-foreground leading-relaxed">
-              From your first cup to your hundredth branch, Printzy prints packaging that looks the
-              same everywhere your customer meets your brand. Share your logo, get a free mockup,
-              approve a proof, and we print and deliver.
+              Printzy offers custom printed packaging for businesses in Pakistan. Share your logo
+              and product details, review a free mockup, and approve a proof before production.
             </p>
           </Reveal>
           <Reveal delay={250}>
@@ -184,19 +183,19 @@ export function OneSupplierSection() {
     {
       icon: Coffee,
       title: "1. Handheld & Counter",
-      desc: "Single & double-wall paper cups and heat sleeves that leave a premium impression.",
+      desc: "Single-wall and double-wall paper cups for your requested packaging format.",
       slug: "custom-paper-cups",
     },
     {
       icon: Box,
       title: "2. Kitchen to Table",
-      desc: "Sturdy pizza boxes and grease-resistant food cartons that keep meals hot and intact.",
+      desc: "Custom pizza boxes and food cartons discussed against your product dimensions and use.",
       slug: "custom-pizza-boxes",
     },
     {
       icon: ShoppingBag,
       title: "3. Doorstep & Takeaway",
-      desc: "Reinforced kraft paper bags that carry your full menu safely into customer homes.",
+      desc: "Kraft or white paper bags specified for your dimensions, artwork and intended use.",
       slug: "custom-paper-bags",
     },
     {
@@ -216,10 +215,9 @@ export function OneSupplierSection() {
           </span>
           <h2 className="mt-3 text-3xl font-bold">One supplier for the whole customer journey</h2>
           <p className="mt-4 text-base text-muted-foreground sm:text-lg">
-            Most food brands buy cups from one vendor, boxes from another and bags from a third, and
-            the colours never quite match. At Printzy you can order cups, pizza boxes, food boxes,
-            takeaway sets, paper bags, napkins and cup sleeves in one brand-consistent run. One
-            artwork approval, one delivery, one reorder.
+            Share a list of the formats you need, such as cups, pizza boxes, food boxes, takeaway
+            sets, paper bags, napkins or cup sleeves. Printzy can review the products and artwork
+            together and provide a free 3D mockup and itemised quote for the request.
           </p>
         </div>
 
@@ -282,7 +280,7 @@ export function IndustriesSection({ heading = "h2" as "h1" | "h2" }) {
           as={heading}
           eyebrow="Industries"
           title="Who We Print For"
-          text="We understand the operational demands of each trade, from fast-paced cafe counters to grease-proof delivery fleets."
+          text="We understand the operational demands of each trade, from fast-paced cafe counters to food delivery operations."
         />
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {industries.map((i, idx) => (
@@ -305,7 +303,7 @@ const steps = [
   },
   {
     title: "3. Approve Your Proof",
-    text: "Review your high-resolution digital proof or printed sample. We adjust until your team is 100% satisfied.",
+    text: "Review the digital proof or available printed sample and share any changes needed before approval.",
   },
   {
     title: "4. Print & Doorstep Delivery",
@@ -353,12 +351,12 @@ const features = [
   {
     icon: Palette,
     title: "Brand colour consistency",
-    text: "Precise ink matching ensures your cups, boxes, bags, and napkins match perfectly.",
+    text: "Review printed colour against the approved proof; appearance can vary by material and print process.",
   },
   {
     icon: Clock,
-    title: "Frictionless reorders",
-    text: "We keep your approved production artwork on file. Reorders take just a quick WhatsApp confirmation.",
+    title: "Artwork for reorders",
+    text: "Approved artwork is archived to support future reorder inquiries.",
   },
   {
     icon: Leaf,
@@ -564,24 +562,8 @@ export function ProofSection() {
 export const Testimonials = ProofSection;
 
 export function FAQ() {
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: faqs.map((f) => ({
-      "@type": "Question",
-      name: f.q,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: f.a,
-      },
-    })),
-  };
-
-  const safeJsonLd = JSON.stringify(faqSchema).replace(/</g, "\\u003c").replace(/>/g, "\\u003e");
-
   return (
     <section className="section-pad">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd }} />
       <div className="container-site">
         <SectionHeader eyebrow="FAQ" title="Frequently asked questions" />
         <Accordion

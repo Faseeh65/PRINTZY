@@ -54,7 +54,7 @@ export const industryDetails: Record<string, IndustryDetail> = {
       {
         title: "Custom Printed Napkins",
         slug: "custom-napkins-tissues",
-        reason: "Absorbent 2-ply napkins with food-safe ink that polish the counter experience.",
+        reason: "Custom printed napkins with artwork prepared for review before production.",
       },
       {
         title: "Takeaway Paper Bags",
@@ -143,7 +143,7 @@ export const industryDetails: Record<string, IndustryDetail> = {
       },
       {
         item: "Grease-Resistant Linings",
-        tip: "Confirm internal PE or greaseproof coating so oils and sauces never seep onto outer brand artwork.",
+        tip: "Describe the contents and intended use; material and barrier specifications are confirmed per inquiry.",
       },
       {
         item: "Stack Strength Test",
@@ -180,7 +180,7 @@ export const industryDetails: Record<string, IndustryDetail> = {
     heroText:
       "A delicate cake or artisanal pastry deserves packaging that reflects the craftsmanship inside. Printzy designs and prints sturdy cake boxes, pastry cartons, cookie bags, and festive sweet boxes for Pakistani bakeries.",
     overview:
-      "Bakery packaging requires an exacting balance between structural strength and visual luxury. A collapsing cake box or frosted dessert touching the lid can ruin a customer's celebration. Printzy crafts precision-engineered bakery boxes with easy-load side tabs, crystal-clear display windows, and food-safe grease-resistant liners.",
+      "Bakery packaging requirements depend on the product dimensions, presentation and intended use. Share those details and any material or documentation requirements so the available box specifications can be reviewed.",
     keyChallengesSolved: [
       "Rigid heavy-weight virgin board preventing cake tier shifting and box collapse.",
       "Clear PET display windows so signature decorations are visible on celebration days.",
@@ -256,7 +256,7 @@ export const industryDetails: Record<string, IndustryDetail> = {
     overview:
       "For cloud kitchens and virtual restaurant concepts operating on Foodpanda or independent delivery apps, customer retention is won or lost at the front door. If the food arrives lukewarm, soggy, or unbranded in generic brown paper, brand recall drops to zero. Printzy equips ghost kitchens with high-impact branded packaging engineered specifically for the rough realities of two-wheeler bike transport in Pakistani traffic.",
     keyChallengesSolved: [
-      "Tamper-evident adhesive strip stickers guaranteeing food safety between chef and customer.",
+      "Ask whether a tamper-evident sticker format is available for the package and use case.",
       "Optimised carton dimensions that stack compactly into delivery bags without squashing.",
       "Affordable multi-brand ordering so one kitchen operating 3 concepts can order all packaging under one roof.",
     ],
@@ -311,7 +311,7 @@ export const industryDetails: Record<string, IndustryDetail> = {
       },
       {
         q: "How do your boxes perform during long motorcycle delivery rides?",
-        a: "Our food cartons feature reinforced structural corners and greaseproof barrier coatings specifically tested for two-wheeler transport.",
+        a: "Share the food format and delivery conditions so the relevant packaging construction and material requirements can be reviewed. Specifications are confirmed per inquiry.",
       },
       {
         q: "What is the typical production timeline for cloud kitchen reorders?",
@@ -377,7 +377,7 @@ export const industryDetails: Record<string, IndustryDetail> = {
       },
       {
         item: "Eco Messaging",
-        tip: "Include a 100% recyclable paper logo on the bottom flap to resonate with eco-conscious online buyers.",
+        tip: "Use environmental labels only when the relevant product information and supporting documentation are available.",
       },
     ],
     faqs: [
@@ -519,7 +519,7 @@ export const industryDetails: Record<string, IndustryDetail> = {
       },
       {
         item: "Confectionery Barrier",
-        tip: "If packing oily traditional sweets (mithai/baklava), verify greaseproof inner liners to prevent staining exterior cards.",
+        tip: "Describe oily or moist contents in your brief and request material suitability information for the intended use.",
       },
       {
         item: "Order Buffer",

@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { CreditCard, FileText } from "lucide-react";
+import { CreditCard, FileText, Globe2 } from "lucide-react";
 import { PageHero, QuoteCTA } from "@/components/site/sections";
 import { Button } from "@/components/ui/button";
 import { seo } from "@/lib/seo";
@@ -51,6 +51,20 @@ function PaymentTerms() {
               </div>
             </div>
           </div>
+          <article className="rounded-2xl border border-border bg-card p-6 shadow-soft">
+            <Globe2 className="size-7 text-secondary" aria-hidden="true" />
+            <h2 className="mt-3 text-lg font-bold">Export payment terms</h2>
+            <p className="mt-2 text-sm text-muted-foreground">
+              Payment methods and quote currency for export orders are confirmed per inquiry. Review
+              the payment schedule and currency in the written quotation before approving.
+            </p>
+            <Link
+              to="/export-custom-packaging"
+              className="mt-4 inline-flex min-h-11 items-center font-semibold text-secondary hover:underline"
+            >
+              Explore international order details
+            </Link>
+          </article>
           <Button asChild>
             <Link to="/contact">Ask about payment terms</Link>
           </Button>

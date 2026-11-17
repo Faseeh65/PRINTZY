@@ -37,25 +37,8 @@ export const Route = createFileRoute("/industries/$slug")({
 function IndustryDetailPage() {
   const { industry } = Route.useLoaderData() as { industry: IndustryDetail };
 
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: industry.faqs.map((f: { q: string; a: string }) => ({
-      "@type": "Question",
-      name: f.q,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: f.a,
-      },
-    })),
-  };
-
-  const safeJsonLd = JSON.stringify(faqSchema).replace(/</g, "\\u003c").replace(/>/g, "\\u003e");
-
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd }} />
-
       <PageHero title={industry.h1} text={industry.heroText} />
 
       <section className="section-pad">

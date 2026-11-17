@@ -12,10 +12,10 @@ export const Route = createFileRoute("/faq")({
     seo({
       title: "Frequently Asked Questions | Printzy Custom Packaging",
       description:
-        "Answers about custom packaging in Pakistan, including order quantities, pricing, production timing, samples, and material options.",
+        "Answers about custom packaging, order quantities, samples, delivery and international inquiries to Printzy in Pakistan.",
       path: "/faq",
     }),
-  component: FAQPage,
+  component: FaqPage,
 });
 
 const faqItems = [
@@ -68,30 +68,37 @@ const faqItems = [
   },
   {
     q: "Do you print custom packaging for export orders?",
-    a: "Contact us with your product, quantity, and destination country to discuss whether we can support your export requirements and confirm applicable shipping terms.",
+    a: "Send your product, quantity, destination country or port, and target delivery window. Export availability and applicable terms are confirmed per inquiry.",
+  },
+  {
+    q: "What is the minimum order quantity for an export order?",
+    a: "Export MOQ depends on the product and specification and is confirmed per inquiry. Include the quantity you are considering so it can be reviewed for your requested format.",
+  },
+  {
+    q: "Which shipping modes and Incoterms can you offer?",
+    a: "Shipping modes and Incoterms are confirmed per inquiry. Include your preferred mode and trade term, if any, in the request.",
+  },
+  {
+    q: "Can overseas buyers receive physical samples?",
+    a: "A free 3D mockup is available. Physical sample availability, fee and overseas courier cost are confirmed per inquiry.",
+  },
+  {
+    q: "Which payment methods and currencies are available for export?",
+    a: "Export payment methods and quote currency are confirmed per inquiry. Ask for the details to be included in the written quotation.",
+  },
+  {
+    q: "Can you provide documents or certificates for an import order?",
+    a: "List the exact documents your process requires. Document availability is confirmed per inquiry; no export certificate or test report is stated as a standing offer.",
+  },
+  {
+    q: "Can I submit my own dieline or request private-label packaging?",
+    a: "You can share your artwork or dieline for file checking and proof preparation. Private-label availability is confirmed per inquiry.",
   },
 ];
 
-function FAQPage() {
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: faqItems.map((f) => ({
-      "@type": "Question",
-      name: f.q,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: f.a,
-      },
-    })),
-  };
-
-  const safeJsonLd = JSON.stringify(faqSchema).replace(/</g, "\\u003c").replace(/>/g, "\\u003e");
-
+function FaqPage() {
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd }} />
-
       <PageHero
         title="Frequently Asked Questions"
         text="Everything you need to know about minimum orders, artwork preparation, pricing, food safety, and delivery across Pakistan."
@@ -144,6 +151,12 @@ function FAQPage() {
                 Our packaging specialists are active on WhatsApp to answer your custom sizing,
                 material, or quote queries.
               </p>
+              <Link
+                to="/export-custom-packaging"
+                className="mt-2 inline-flex min-h-11 items-center font-semibold text-secondary hover:underline"
+              >
+                Review international order details
+              </Link>
             </div>
             <div className="mt-4 sm:mt-0 shrink-0 flex flex-col sm:flex-row gap-3">
               <Button asChild size="lg" variant="outline">

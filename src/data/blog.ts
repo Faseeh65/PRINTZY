@@ -2,6 +2,7 @@ export interface BlogSection {
   id: string;
   title: string;
   paragraphs: string[];
+  exportHubLink?: boolean;
   checklist?: {
     title?: string;
     items: string[];
@@ -21,6 +22,10 @@ export interface BlogPost {
   summary: string;
   category: "Cups & Beverages" | "Food Packaging" | "Guides & Setup" | "Design & Print";
   author: {
+    name: string;
+    role: string;
+  };
+  reviewer?: {
     name: string;
     role: string;
   };
@@ -516,7 +521,7 @@ export const blogPosts: BlogPost[] = [
         id: "kraft-vs-white",
         title: "Kraft Liner vs Bleached White Top Liner",
         paragraphs: [
-          "Natural Brown Kraft: Gives an organic, rustic, eco-friendly feel that appeals to modern sourdough, wood-fired, and gourmet pizza brands. Strong tear resistance and naturally conceals minor oil scuffs.",
+          "Natural Brown Kraft: Provides a brown-paper appearance that some brands may prefer for their packaging. Ask the supplier to confirm the material specification for the intended use.",
           "Bleached White Top Liner: Provides maximum contrast for colourful logos, detailed artwork, and clean corporate branding. Red, green, and black brand colours pop with higher saturation on white board.",
         ],
       },
@@ -531,6 +536,304 @@ export const blogPosts: BlogPost[] = [
           "4. Does the box feature easy-open front thumb tabs and perforated steam vents?",
           "5. How are boxes packaged—bundled in plastic wrap or packed into heavy master shipping cartons for transit?",
         ],
+      },
+    ],
+  },
+  {
+    slug: "import-custom-printed-packaging-from-pakistan",
+    title: "How to Import Custom Printed Packaging from Pakistan: Step-by-Step Buyer Checklist",
+    seoTitle: "Import Custom Printed Packaging from Pakistan | Printzy",
+    metaDescription:
+      "A practical checklist for overseas buyers planning custom printed packaging from Pakistan, from product specifications and artwork to shipment terms.",
+    summary:
+      "Prepare a clear product brief, compare written specifications and settle shipment details before approving a custom packaging order from Pakistan.",
+    category: "Guides & Setup",
+    author: { name: "Faizan Ali", role: "Owner" },
+    reviewer: { name: "Faizan Ali", role: "Owner" },
+    publishedDate: "2026-11-17",
+    updatedDate: "2026-11-17",
+    readingTime: "8 min read",
+    relatedProductSlugs: [
+      "custom-paper-cups",
+      "custom-pizza-boxes",
+      "custom-paper-bags",
+      "custom-mailer-gift-boxes",
+    ],
+    tableOfContents: [
+      { id: "define-order", title: "Define the order before requesting quotes" },
+      { id: "prepare-spec", title: "Prepare a product specification" },
+      { id: "quantity", title: "Separate quantities by design" },
+      { id: "artwork", title: "Prepare artwork and proof review" },
+      { id: "compare", title: "Compare quotations on matching terms" },
+      { id: "shipment", title: "Agree documents and shipment details" },
+      { id: "reorder", title: "Keep an approval record for reorders" },
+    ],
+    sections: [
+      {
+        id: "define-order",
+        title: "1. Define the order before requesting quotes",
+        paragraphs: [
+          "An overseas packaging inquiry is easier to assess when the product and purpose are clear. Start with the packaging format, what it will hold, and how it will be used. A paper cup, a food box, a bag and a mailer box each need a different description, so avoid sending one generic phrase such as “custom packaging” without a product list.",
+          "If you are buying for a distribution business, a chain or an e-commerce brand, state who will receive the shipment and whether several designs or product formats are involved. Private-label or OEM requirements are reviewed per inquiry; describe the brand ownership, packaging presentation and any specific procurement requirements rather than assuming a service is available.",
+        ],
+        exportHubLink: true,
+      },
+      {
+        id: "prepare-spec",
+        title: "2. Prepare a product specification",
+        paragraphs: [
+          "Give the supplier measurable dimensions, not only a product name. For a box, share the required internal dimensions and the item that needs to fit. For a cup, describe the requested capacity or dimensions and whether you need single-wall or double-wall construction. For a bag, state kraft or white preference and the dimensions. If the format is not yet fixed, send a sample reference and identify what should match it.",
+          "Also state the intended use and any material requirements that affect your decision. If your procurement team needs a certificate, test report or other document, name it precisely. Material specifications and document availability are confirmed per inquiry, so a clear request lets the supplier respond to the actual need instead of an assumed standard.",
+        ],
+        checklist: {
+          title: "Product brief checklist",
+          items: [
+            "Product format and intended use",
+            "Internal or external dimensions and a reference sample, if available",
+            "Material preference and any requested supporting document",
+            "Artwork, quantity by design and destination country or port",
+          ],
+        },
+      },
+      {
+        id: "quantity",
+        title: "3. Separate quantities by product and design",
+        paragraphs: [
+          "State the target quantity for every product format and every artwork version. A single total across cups, boxes and bags is not enough to understand a multi-item order. If you are considering alternative quantities, list them separately so the quote can show what changes when the order mix changes.",
+          "Export MOQ is not published as a universal number. It depends on the product and specification and is confirmed per inquiry. If you are searching for low MOQ custom packaging, describe your preferred run size and ask which product configurations can be considered; do not treat a general MOQ statement as a commitment for every format.",
+        ],
+      },
+      {
+        id: "artwork",
+        title: "4. Prepare artwork and review the proof",
+        paragraphs: [
+          "Send the current logo and artwork files, plus any existing dieline. Tell the supplier which file is the approved source and which parts may be changed. If you do not have a dieline, state that in the brief and ask what file or dimensions are needed to prepare the next review step. Artwork file checking is part of Printzy’s stated service.",
+          "A digital mockup helps you review the proposed placement and appearance. Check spelling, addresses, barcodes, ingredient copy and other variable details before signing off. Printzy shares a proof for approval before production. Record the approved version and any written specification alongside your purchase documentation so everyone is working from the same revision.",
+        ],
+      },
+      {
+        id: "compare",
+        title: "5. Compare quotations on matching terms",
+        paragraphs: [
+          "A useful comparison is not just a total. Check that each quote describes the same product dimensions, material requirements, print artwork, quantity split and packaging scope. Ask whether any requested finishing, sample or documentation is included, excluded or still being assessed. If two offers describe different specifications, their totals are not directly comparable.",
+          "Request an itemised quotation and read the currency, payment schedule and quote validity written on it. Export payment methods and quote currency are confirmed per inquiry. Avoid making a decision from a verbal estimate when the final scope, destination or terms are still missing.",
+        ],
+      },
+      {
+        id: "shipment",
+        title: "6. Agree documents and shipment details",
+        paragraphs: [
+          "Provide the destination country and port, the target delivery window, and any receiving constraints. Ask the supplier to state the proposed shipping mode, applicable Incoterm, packing details and delivery responsibilities in writing. Shipping options, Incoterms, export documents and delivery arrangements are confirmed per inquiry; do not infer them from an earlier order or another product.",
+          "List every document your buyer, broker or internal receiving process requires. Document availability is confirmed per inquiry. Before approving production, make sure the product specification, quantity, payment terms, shipping responsibilities and requested documents are recorded in the same written order record.",
+        ],
+        checklist: {
+          title: "Before approving an export order",
+          items: [
+            "Destination country and port, plus target delivery window",
+            "Written product specification, quantity and approved proof",
+            "Currency, payment schedule, shipping mode and Incoterm",
+            "Document list and responsibility for each shipment step",
+          ],
+        },
+      },
+      {
+        id: "reorder",
+        title: "7. Keep an approval record for future reorders",
+        paragraphs: [
+          "After approval, retain the final artwork, proof, dimensions, material specification, quantity by design and shipment documents. Printzy states that approved artwork is archived for reorders. Keeping your own copy means the next inquiry can identify the exact revision and make it easier to request the same design or explain what has changed.",
+          "For your first request, begin with a specific product page, then use the export inquiry checklist to send the destination and shipment requirements with your quote request. The final written quotation—not a general website statement—should define the terms for that order.",
+          "For a repeat shipment, call out any change to dimensions, quantity, artwork, destination or requested documentation before asking for a new quotation. A reorder should refer to the approved version, but the new written scope still needs to state what is being requested for that shipment.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "private-label-paper-cups-food-boxes-artwork-proofing",
+    title:
+      "Private Label Paper Cups and Food Boxes: Dielines, Artwork and Proofing for Overseas Brands",
+    seoTitle: "Private Label Paper Cups and Food Boxes | Printzy",
+    metaDescription:
+      "Learn how overseas brands can prepare artwork, dielines and review steps for paper cups and food boxes before requesting a packaging quote.",
+    summary:
+      "A practical artwork and proof checklist for brands discussing private-label paper cups or food boxes, with availability and specifications confirmed per inquiry.",
+    category: "Design & Print",
+    author: { name: "Faizan Ali", role: "Owner" },
+    reviewer: { name: "Faizan Ali", role: "Owner" },
+    publishedDate: "2026-11-17",
+    updatedDate: "2026-11-17",
+    readingTime: "8 min read",
+    relatedProductSlugs: ["custom-paper-cups", "custom-food-boxes"],
+    tableOfContents: [
+      { id: "private-label-scope", title: "Define what private label means for your order" },
+      { id: "cup-brief", title: "Build a paper cup product brief" },
+      { id: "box-brief", title: "Describe the food box and its use" },
+      { id: "dieline", title: "Prepare a dieline and artwork handoff" },
+      { id: "proof", title: "Review the proof with a checklist" },
+      { id: "approval", title: "Document approval and open questions" },
+    ],
+    sections: [
+      {
+        id: "private-label-scope",
+        title: "Define what private label means for your order",
+        paragraphs: [
+          "Private label can mean different things to different buyers: a brand logo on an existing format, a custom presentation, or a full product and packaging specification. Describe the scope you mean before discussing production. Private-label and OEM availability are confirmed per inquiry, so this guide is a preparation checklist rather than a statement that every request can be fulfilled.",
+          "For a first inquiry, identify the brand owner, intended sales channel, target market and product format. Tell the supplier whether artwork is final, whether you already have a dieline, and which details are mandatory for the packaging. That context helps distinguish a straightforward logo placement from a request that needs more design or technical review.",
+        ],
+        exportHubLink: true,
+      },
+      {
+        id: "cup-brief",
+        title: "Build a paper cup product brief",
+        paragraphs: [
+          "For paper cups, state the intended beverage and whether you are requesting single-wall or double-wall construction. Include the dimensions or capacity you require, the quantity for each size, and whether each size has separate artwork. If you have a reference sample, provide its measurements and explain which features are important to your use.",
+          "Do not infer a material, coating, food-contact approval or certificate from the product name. State any application requirement and document your procurement team needs. The specific material and supporting documentation are confirmed per inquiry. The paper cup product page can be used to frame the request, then the detail can be included in the quote.",
+        ],
+      },
+      {
+        id: "box-brief",
+        title: "Describe the food box and how it will be used",
+        paragraphs: [
+          "For a food box, identify the item it will contain and provide the internal dimensions needed. Explain whether it will be used for one item or a meal combination, and describe the closure or assembly requirements that matter to your team. Add the quantity for each size or artwork rather than combining different designs into one number.",
+          "If the box will contact food or needs to meet a buyer specification, write that requirement explicitly and ask for the relevant material information or documents. Product suitability and supporting documents are confirmed per inquiry. Do not approve a substitute specification until your team has reviewed it against the intended use.",
+        ],
+      },
+      {
+        id: "dieline",
+        title: "Prepare a dieline and artwork handoff",
+        paragraphs: [
+          "Send the editable artwork source and the dieline version you intend to use. Include linked images or fonts where applicable, mark the finished size, and label panels that contain variable text or legal copy. If your designer is waiting for a dieline, state what format you need and ask the team to explain what can be supplied for that product.",
+          "Keep a clean file naming convention: product, size, design version and date are more useful than labels such as “final-final”. Provide reference colours or visual examples if they help explain the intended appearance, but distinguish a reference from a production instruction. Artwork file checking is available, and questions can be resolved before a proof is approved.",
+          "Before sending files, remove outdated versions from the handoff or label them clearly as references. If the logo, text or dimensions differ between files, identify which version takes precedence. For translated or variable content, provide the final approved wording in a separate note and mark where it belongs on the packaging.",
+        ],
+        checklist: {
+          title: "Artwork handoff checklist",
+          items: [
+            "Current logo and editable artwork source",
+            "Dieline file or a note that one is needed",
+            "Finished dimensions and labels for each panel",
+            "Final copy, variable text and reference colours",
+          ],
+        },
+      },
+      {
+        id: "proof",
+        title: "Review the mockup and proof with a checklist",
+        paragraphs: [
+          "Use the free 3D mockup to review the design in context, then check the production proof carefully. Confirm the product name, dimensions, panel orientation, logo placement, spelling, contact information and every variable field. A mockup is a visual review aid; it should not replace a written product specification or a check of the actual artwork file.",
+          "If a detail is wrong or unclear, annotate the proof and send one consolidated revision list. Ask for the corrected version and compare it with your notes before approval. Printzy’s stated workflow includes proof approval before production, so keep the approved proof and version identifier in your order record.",
+          "Assign one person on your team to collect comments from marketing, procurement and compliance before sending the approval. This reduces conflicting instructions and creates one record of who approved the final artwork. Keep a copy that clearly identifies the design version and the product dimensions it represents.",
+        ],
+      },
+      {
+        id: "approval",
+        title: "Document approval and open questions",
+        paragraphs: [
+          "Before approval, collect open questions about material, print specification, MOQ, lead time, sample availability, payment, quote currency, documents and shipping. These details are not universal export terms and are confirmed per inquiry. Ask for the resolved specification and commercial terms to appear in the written quotation rather than relying on an informal assumption.",
+          "A clear record is useful to both the brand and supplier: final artwork, signed-off proof, exact quantities, delivery destination and any listed documents should refer to the same order. Begin with the paper cup or food box product page and use the quote form to send the brief. If your request also includes other formats, list each separately.",
+          "If your brand has a review or regulatory checklist, send it early rather than after the artwork is approved. That gives the supplier a chance to identify which items require product or document review before the final scope is written.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "custom-packaging-moq-quotes-overseas-buyers",
+    title: "Custom Packaging MOQ and Quotes for Overseas Buyers: What Affects Price and Lead Time",
+    seoTitle: "Custom Packaging MOQ and Quotes for Overseas Buyers | Printzy",
+    metaDescription:
+      "Understand how product format, dimensions, artwork, quantity mix and destination shape an export packaging quote, without assuming a fixed MOQ or lead time.",
+    summary:
+      "Learn what to send when requesting custom packaging MOQ and quote details for an overseas order, and which terms must be stated in writing.",
+    category: "Guides & Setup",
+    author: { name: "Faizan Ali", role: "Owner" },
+    reviewer: { name: "Faizan Ali", role: "Owner" },
+    publishedDate: "2026-11-17",
+    updatedDate: "2026-11-17",
+    readingTime: "8 min read",
+    relatedProductSlugs: [
+      "custom-paper-cups",
+      "custom-pizza-boxes",
+      "custom-food-boxes",
+      "custom-paper-bags",
+    ],
+    tableOfContents: [
+      { id: "moq-meaning", title: "What MOQ means for a custom order" },
+      { id: "format-spec", title: "Product format and dimensions" },
+      { id: "quantity-mix", title: "Quantity by size and artwork" },
+      { id: "artwork-cost", title: "Artwork and proof requirements" },
+      { id: "lead-time", title: "How to discuss lead time" },
+      { id: "destination", title: "Destination, shipping and quote terms" },
+      { id: "compare-quotes", title: "Compare quotations fairly" },
+    ],
+    sections: [
+      {
+        id: "moq-meaning",
+        title: "What MOQ means for a custom packaging order",
+        paragraphs: [
+          "Minimum order quantity is not a single rule that can be applied to every packaging product. A custom cup, food box, paper bag or mixed takeaway set has different specifications and may involve different artwork or production requirements. For export requests, the MOQ for the selected product and specification is confirmed per inquiry.",
+          "If you are searching for low MOQ custom packaging, state the quantity you want to test and explain whether it is one design or several. Ask which format and quantity split can be considered. That is more useful than assuming a published number applies to your product, artwork and destination.",
+        ],
+        exportHubLink: true,
+      },
+      {
+        id: "format-spec",
+        title: "Product format and dimensions shape the request",
+        paragraphs: [
+          "A quote can only be compared accurately when the product is described consistently. Provide dimensions and what the package needs to hold. For cups, specify single-wall or double-wall construction and the requested size. For boxes, share the internal dimensions and the product they contain. For bags, choose kraft or white and provide the dimensions you need.",
+          "For a multi-item range, list each product on its own line. Include the material preference and intended use, but do not assume that a requested material, barrier or document is available. The relevant specification is confirmed per inquiry and should appear in the final written quotation.",
+        ],
+      },
+      {
+        id: "quantity-mix",
+        title: "Separate quantity by product, size and design",
+        paragraphs: [
+          "Write down the target quantity for each format, size and artwork. A total quantity across several designs does not show how the order is divided. If you want to compare two possible runs, ask for both quantity scenarios to be evaluated against the same product specification.",
+          "Explain whether a shared brand identity will appear across a set or whether each product has its own artwork. The free 3D mockup and itemised quotation help you review the proposed design and scope. Any available combined quantity or production arrangement is confirmed per inquiry rather than guaranteed by a general statement.",
+        ],
+      },
+      {
+        id: "artwork-cost",
+        title: "Artwork, dielines and proofing",
+        paragraphs: [
+          "Send the logo, artwork source, existing dieline and any reference material with your request. Identify which files are final and which are only examples. Artwork file checking is available, and Printzy provides a 3D mockup and itemised quote. If you need a dieline, write that in the brief and ask what can be provided for the product under discussion.",
+          "Review the proof for dimensions, panel order, logo placement, spelling and variable text. Send revisions in one marked-up list and retain the approved version. The approved proof is part of the production scope; a written record helps prevent later confusion about what was agreed.",
+        ],
+      },
+      {
+        id: "lead-time",
+        title: "How to discuss production lead time",
+        paragraphs: [
+          "Export production lead time is not stated as a fixed promise. It depends on the product and order specification and is confirmed per inquiry. Include your target delivery window, artwork status and any review steps still outstanding so the team can respond to the schedule you actually need.",
+          "Ask for the expected production schedule and shipment timing as separate items in the written quote. The target delivery window is a request, not a confirmed delivery date. Before making a launch or inventory plan, make sure the relevant schedule is stated in writing for the approved product and destination.",
+        ],
+      },
+      {
+        id: "destination",
+        title: "Destination and shipment terms affect the quote scope",
+        paragraphs: [
+          "State the destination country and port, plus any receiving constraints. Ask which shipping mode, Incoterm, packing details, documents and delivery responsibilities apply. Those export arrangements are confirmed per inquiry; do not assume a term based on the supplier’s location or a different shipment.",
+          "List required documents by name, and ask which are available for the specific product and order. The quote currency and payment method are also confirmed per inquiry. Keep these questions in the same written conversation as the product dimensions and quantity so the quotation covers the complete request.",
+        ],
+      },
+      {
+        id: "compare-quotes",
+        title: "Compare quotations fairly",
+        paragraphs: [
+          "Compare quotes only after aligning product format, dimensions, material requirements, artwork, quantity split and destination. Check which requested items are included, which are excluded, and which are still awaiting review. Compare the written currency and payment schedule as well as shipping terms; a total alone does not explain the scope.",
+          "Use a short checklist to request missing information before selecting an offer. Then review the final itemised quotation, approve the proof and keep both with the order files. Start with the export inquiry checklist, then send the product and quantity details through the quote form for a request-specific response.",
+          "If something is described as pending or outside the quote, ask who will provide it and when it must be resolved. This is especially important when the order depends on a sample, a required document, or a delivery window tied to a launch or planned inventory date.",
+          "For a final side-by-side review, create one row per product and one column for each supplier’s written response. Mark items as included, excluded or still being assessed, then resolve the open points before comparing totals. This keeps unlike specifications from being treated as equivalent.",
+          "Save the comparison with the final quotation and approved proof. If you request a revision, update the record so the accepted scope is easy to identify later.",
+        ],
+        checklist: {
+          title: "Quote comparison checklist",
+          items: [
+            "Same dimensions, materials requested and intended use",
+            "Quantity by format, size and design",
+            "Artwork and proof scope",
+            "Currency, payment terms, shipping mode and Incoterm",
+            "Document list and target delivery window",
+          ],
+        },
       },
     ],
   },

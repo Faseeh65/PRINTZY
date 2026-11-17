@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { FileCheck2, PackageCheck } from "lucide-react";
+import { FileCheck2, Globe2, PackageCheck } from "lucide-react";
 import { PageHero, QuoteCTA } from "@/components/site/sections";
 import { Button } from "@/components/ui/button";
 import { WhatsAppIcon } from "@/components/icons/WhatsAppIcon";
@@ -60,6 +60,21 @@ function QualityAndCompliance() {
               </Button>
             </div>
           </div>
+          <article className="rounded-2xl border border-border bg-card p-6 shadow-soft">
+            <Globe2 className="size-7 text-secondary" aria-hidden="true" />
+            <h2 className="mt-3 text-lg font-bold">Documents for export inquiries</h2>
+            <p className="mt-2 text-sm text-muted-foreground">
+              Share the exact document or material specification required by your procurement
+              process. Export document availability is confirmed per inquiry; no certification or
+              test report is stated as a standing offer.
+            </p>
+            <Link
+              to="/export-custom-packaging"
+              className="mt-4 inline-flex min-h-11 items-center font-semibold text-secondary hover:underline"
+            >
+              See export documentation guidance
+            </Link>
+          </article>
           <p className="text-sm text-muted-foreground">
             Do not assume a certification or food-contact approval based on a general product
             description. Confirm the specific material and documentation for your application.

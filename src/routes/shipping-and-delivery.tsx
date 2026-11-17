@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { MapPin, PackageCheck, Truck } from "lucide-react";
+import { Globe2, MapPin, PackageCheck, Truck } from "lucide-react";
 import { PageHero, QuoteCTA } from "@/components/site/sections";
 import { Button } from "@/components/ui/button";
 import { seo } from "@/lib/seo";
@@ -51,6 +51,21 @@ function ShippingAndDelivery() {
               </p>
             </article>
           </div>
+          <article className="rounded-2xl border border-border bg-muted/40 p-6">
+            <Globe2 className="size-7 text-secondary" aria-hidden="true" />
+            <h2 className="mt-3 text-lg font-bold">International orders</h2>
+            <p className="mt-2 text-sm text-muted-foreground">
+              Shipping mode, Incoterms, packing, documents, destination coverage and delivery
+              arrangements for export orders are confirmed per inquiry. Include the destination
+              country or port and target delivery window in your request.
+            </p>
+            <Link
+              to="/export-custom-packaging"
+              className="mt-4 inline-flex min-h-11 items-center font-semibold text-secondary hover:underline"
+            >
+              Read the export packaging guide
+            </Link>
+          </article>
           <Button asChild>
             <Link to="/quote" search={{ product: undefined }}>
               Include delivery in my quote

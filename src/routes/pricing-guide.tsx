@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Calculator, Ruler, Shapes } from "lucide-react";
+import { Calculator, Globe2, Ruler, Shapes } from "lucide-react";
 import { PageHero, QuoteCTA } from "@/components/site/sections";
 import { Button } from "@/components/ui/button";
 import { seo } from "@/lib/seo";
@@ -68,6 +68,21 @@ function PricingGuide() {
               </Link>
             </Button>
           </div>
+          <article className="mt-8 rounded-2xl border border-border bg-card p-6 shadow-soft">
+            <Globe2 className="size-7 text-secondary" aria-hidden="true" />
+            <h2 className="mt-3 text-lg font-bold">Export quote details</h2>
+            <p className="mt-2 text-sm text-muted-foreground">
+              Export MOQ, lead time, quote currency, shipping mode and payment terms are confirmed
+              per inquiry. Include the destination, quantity, product dimensions and artwork
+              requirements so the quote can address your specification.
+            </p>
+            <Link
+              to="/export-custom-packaging"
+              className="mt-4 inline-flex min-h-11 items-center font-semibold text-secondary hover:underline"
+            >
+              Review the export inquiry checklist
+            </Link>
+          </article>
         </div>
       </section>
       <QuoteCTA />

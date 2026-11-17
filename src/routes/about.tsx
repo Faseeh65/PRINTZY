@@ -25,7 +25,7 @@ export const Route = createFileRoute("/about")({
     seo({
       title: "About Printzy | Custom Packaging Printing in Pakistan",
       description:
-        "Printzy works with businesses in Pakistan on custom printed boxes, cups, bags, and napkins. Contact the team to discuss your requirements.",
+        "Learn how Lahore-based Printzy reviews custom packaging requirements for businesses in Pakistan and overseas buyers.",
       path: "/about",
     }),
   component: About,
@@ -75,6 +75,17 @@ function About() {
               Our process starts with your product, size, quantity, and artwork. We review the
               requirements, prepare a proposal, and share a proof for approval before production.
             </p>
+            <p className="text-muted-foreground">
+              Overseas buyers can send the same product and artwork brief with a destination country
+              or port and target delivery window. Export quantities, shipping, documents and
+              commercial terms are confirmed per inquiry.
+            </p>
+            <Link
+              to="/export-custom-packaging"
+              className="inline-flex min-h-11 items-center font-semibold text-secondary hover:underline"
+            >
+              Read the export packaging inquiry guide
+            </Link>
             <div className="pt-2">
               <Button asChild size="lg" shimmer>
                 <Link to="/quote" search={{ product: undefined }}>
@@ -149,8 +160,8 @@ function About() {
             </span>
             <h2 className="text-3xl font-bold">Product Materials & Proof Review</h2>
             <p className="text-muted-foreground">
-              Food packaging directly touches what your customers consume. We take hygiene, board
-              strength, and ink safety seriously.
+              Material suitability depends on the product and intended use. Share the application
+              and any required documentation so the relevant specifications can be reviewed.
             </p>
 
             <ul className="space-y-4 text-sm sm:text-base">

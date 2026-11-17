@@ -9,9 +9,9 @@ import { Button } from "@/components/ui/button";
 export const Route = createFileRoute("/blog/")({
   head: () =>
     seo({
-      title: "Packaging Guides & Advice for Pakistani Food Brands | Printzy",
+      title: "Packaging Guides for Local and Export Buyers | Printzy",
       description:
-        "Practical guides on paper cups, pizza box board strength, packaging MOQs, and print artwork preparation for cafes and restaurants in Pakistan.",
+        "Practical guides for packaging specifications, artwork, quote preparation and export inquiries from Pakistan.",
       path: "/blog",
     }),
   component: BlogIndexPage,
@@ -29,7 +29,7 @@ function BlogIndexPage() {
     <>
       <PageHero
         title="Packaging Guides & Practical Printing Advice"
-        text="No industry jargon or generic filler. Practical guides written specifically for Pakistani cafe owners, restaurant managers, and retail startups navigating packaging decisions."
+        text="Practical guidance for Pakistani businesses and overseas buyers preparing packaging specifications, artwork and quote requests."
       />
 
       <section className="container-site max-w-6xl pb-16 pt-8 sm:pt-10 md:pb-20 md:pt-12">
@@ -133,9 +133,8 @@ function BlogIndexPage() {
               Have Questions About Your Packaging Specs?
             </h2>
             <p className="text-sm text-muted-foreground">
-              Don't guess on cup sizes or board thickness. Send us your logo or beverage menu, and
-              our packaging team will prepare a free 3D digital mockup and recommend the most
-              economical production spec for your launch.
+              Share your product details and artwork. Printzy can provide a free 3D digital mockup
+              and itemised quote; product specifications are reviewed for each request.
             </p>
             <div className="flex flex-col gap-3 pt-2 sm:flex-row sm:flex-wrap">
               <Button asChild size="default" shimmer>

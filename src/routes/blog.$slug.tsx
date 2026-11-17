@@ -51,9 +51,19 @@ export const Route = createFileRoute("/blog/$slug")({
         "@id": `${siteUrl}/blog/${post.slug}`,
       },
       author: {
-        "@type": "Organization",
+        "@type": post.author.name === "Faizan Ali" ? "Person" : "Organization",
         name: post.author.name,
+        ...(post.author.name === "Faizan Ali" ? { jobTitle: post.author.role } : {}),
       },
+      ...(post.reviewer
+        ? {
+            reviewedBy: {
+              "@type": "Person",
+              name: post.reviewer.name,
+              jobTitle: post.reviewer.role,
+            },
+          }
+        : {}),
       publisher: {
         "@id": `${siteUrl}/#organization`,
       },
@@ -104,7 +114,7 @@ function BlogPostPage() {
               </span>
               <span className="flex items-center gap-1 text-muted-foreground">
                 <Calendar className="size-3.5" />
-                Updated: {post.updatedDate}
+                Published: {post.publishedDate} · Updated: {post.updatedDate}
               </span>
             </div>
 
@@ -121,6 +131,11 @@ function BlogPostPage() {
               <div>
                 <p className="font-semibold text-foreground">{post.author.name}</p>
                 <p className="text-muted-foreground">{post.author.role}</p>
+                {post.reviewer && (
+                  <p className="text-muted-foreground">
+                    Reviewed by {post.reviewer.name}, {post.reviewer.role}
+                  </p>
+                )}
               </div>
             </div>
           </div>
@@ -143,6 +158,17 @@ function BlogPostPage() {
                     <p key={i}>{para}</p>
                   ))}
                 </div>
+
+                {section.exportHubLink && (
+                  <p className="mt-4 text-sm">
+                    <Link
+                      to="/export-custom-packaging"
+                      className="font-semibold text-secondary hover:underline"
+                    >
+                      Use the export packaging inquiry checklist
+                    </Link>
+                  </p>
+                )}
 
                 {/* Table if present */}
                 {section.table && (
@@ -214,8 +240,8 @@ function BlogPostPage() {
                 Need a Digital Mockup with Your Logo?
               </h3>
               <p className="mt-2 text-sm text-muted-foreground">
-                Email or WhatsApp your logo vector file. We will generate a free 3D digital mockup
-                on your requested packaging format and confirm exact quantities and lead times.
+                Share your product details and artwork. Printzy provides a free 3D mockup and
+                itemised quote; export quantities and schedules are confirmed per inquiry.
               </p>
               <div className="mt-5 flex flex-wrap gap-3">
                 <Button asChild size="default" shimmer>

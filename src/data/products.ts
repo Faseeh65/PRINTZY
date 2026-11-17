@@ -46,13 +46,19 @@ export interface Product {
   relatedSlugs: string[];
 }
 
+export interface ProductExportBrief {
+  heading: string;
+  introduction: string;
+  checklist: string[];
+}
+
 export const products: Product[] = [
   {
     slug: "custom-paper-cups",
     title: "Custom Paper Cups",
-    metaTitle: "Custom Printed Paper Cups with Logo Pakistan | Printzy",
+    metaTitle: "Custom Printed Paper Cups Wholesale | Printzy",
     metaDescription:
-      "Branded single and double wall paper cups for cafes, tea shops and restaurants. Sizes 4oz–16oz. Free mockup, delivery across Pakistan.",
+      "Discuss wholesale custom paper cups for your brand. Share cup construction, dimensions, artwork, quantity and export destination for an itemised quote.",
     h1: "Custom Printed Paper Cups in Pakistan",
     benefit:
       "Single and double-wall cups that carry your logo to every customer table and office desk.",
@@ -63,7 +69,7 @@ export const products: Product[] = [
     specs: {
       sizes: "4oz, 6oz, 8oz, 12oz, 16oz (Standard 80mm & 90mm rim diameters)",
       material: "Food-grade virgin paperboard with PE moisture barrier lining",
-      printMethod: "High-definition flexographic & food-safe offset printing",
+      printMethod: "Printing method and ink specification confirmed per inquiry",
       colours: "Single colour spot printing to full colour CMYK",
       finish: "Matte smooth or semi-gloss finish",
       moq: "Flexible run sizes available. Contact on WhatsApp for optimal tier volume.",
@@ -82,9 +88,9 @@ export const products: Product[] = [
           "4oz for espresso and samplers; 6oz/8oz for traditional tea and flat whites; 12oz for standard lattes and cappuccinos; 16oz for large iced beverages, shakes, and smoothies.",
       },
       {
-        title: "Food-Grade Inks & Odour-Free Printing",
+        title: "Printing and ink specification",
         description:
-          "We use low-odour, food-safe inks designed specifically for hot beverage packaging so the taste of your coffee or tea remains 100% unaffected.",
+          "Share the intended use and any required supporting documents so the relevant printing and ink specifications can be reviewed.",
       },
     ],
     industries: [
@@ -162,14 +168,14 @@ export const products: Product[] = [
   {
     slug: "custom-pizza-boxes",
     title: "Custom Pizza Boxes",
-    metaTitle: "Custom Pizza Boxes with Logo Pakistan | Printzy",
+    metaTitle: "Custom Pizza Boxes Wholesale | Printzy",
     metaDescription:
-      "Strong, printed corrugated pizza boxes in 7 to 16 inch sizes. Grease-resistant, rigid fluting. Free mockup, delivery across Pakistan.",
+      "Request a wholesale quote for custom pizza boxes. Share dimensions, quantity, artwork, intended use and destination for a product-specific review.",
     h1: "Custom Printed Pizza Boxes in Pakistan",
     benefit:
-      "Sturdy, grease-resistant corrugated boxes that keep pizza hot, crust crisp, and branding intact.",
+      "Custom printed pizza boxes specified around your requested dimensions, artwork, quantity, and intended use.",
     intro:
-      "A pizza box is your brand's billboard on every delivery bike and every customer dining table. Printzy manufactures rigid, food-grade corrugated pizza boxes tailored to maintain structural strength under hot, steamy food. Available in kraft or white outer boards with crisp custom logo printing across sizes from 7-inch personal pans to 16-inch family pies.",
+      "Printzy reviews custom pizza box requests based on the dimensions, artwork, quantity, and intended use you provide. Share the product details to request a free digital mockup and an itemised quotation.",
     image: images.food,
     imageAlt: "Custom printed corrugated kraft pizza boxes with restaurant branding",
     specs: {
@@ -177,7 +183,7 @@ export const products: Product[] = [
       material: "High-burst corrugated board (E-flute / B-flute micro-fluting)",
       printMethod: "Direct flexographic printing or high-resolution litho-laminated offset",
       colours: "1 to 4 spot colours or full-colour process",
-      finish: "Natural matte kraft, bleached white, or water-based food-safe varnish",
+      finish: "Finish specification confirmed per inquiry",
       moq: "Flexible run sizes available. Contact on WhatsApp for optimal tier volume.",
       leadTime: "7–10 working days after artwork approval",
       packing: "Flat-packed in 50 or 100 piece shrink-wrapped bundles for easy storage",
@@ -189,9 +195,9 @@ export const products: Product[] = [
           "Natural brown kraft gives an artisan, rustic feel and resists surface scuffs during rider delivery. Bleached white exterior board provides maximum contrast and brightness for multi-colour logos and detailed promotional graphics.",
       },
       {
-        title: "Rigid Fluting for Hot Delivery",
+        title: "Box construction",
         description:
-          "We engineer our boxes with calculated ventilation tabs and high-burst fluting so steam escapes without compromising lid rigidity or causing soggy crusts.",
+          "Share the required box dimensions and use case. Construction and ventilation details are reviewed for the requested specification.",
       },
       {
         title: "Internal Printing Options",
@@ -254,15 +260,15 @@ export const products: Product[] = [
       },
       {
         q: "Can I print on the inside of the pizza box lid?",
-        a: "Yes. We offer interior lid printing using non-toxic food-safe inks, perfect for discount codes, review links, and brand stories.",
+        a: "Interior printing availability and applicable ink specifications are confirmed per inquiry. Share your artwork and intended use for review.",
       },
       {
         q: "Are the boxes delivered pre-folded or flat?",
         a: "All pizza boxes are shipped flat-packed in tight bundles. This minimizes shipping freight and saves valuable storage space in your kitchen.",
       },
       {
-        q: "Do you supply greaseproof butter paper liners as well?",
-        a: "Yes. We provide custom printed or plain food-grade greaseproof liners cut precisely to your box dimensions.",
+        q: "Do you supply butter paper liners?",
+        a: "Liner availability and suitability are confirmed per inquiry. Include the liner dimensions and intended use in your request.",
       },
     ],
     relatedSlugs: ["custom-food-boxes", "custom-takeaway-packaging", "custom-paper-bags"],
@@ -270,23 +276,23 @@ export const products: Product[] = [
   {
     slug: "custom-food-boxes",
     title: "Custom Food Boxes",
-    metaTitle: "Custom Food Boxes with Logo Pakistan | Printzy",
+    metaTitle: "Custom Food Packaging Supplier | Printzy",
     metaDescription:
-      "Custom burger boxes, fries scoops, bakery and cake packaging. Grease-resistant food-grade board. Free design proof, fast delivery across Pakistan.",
+      "Discuss custom food packaging for your brand. Share the item, dimensions, quantity, artwork and destination to receive an itemised quotation.",
     h1: "Custom Printed Food Boxes in Pakistan",
     benefit:
-      "Greaseproof burger clamshells, fries scoops, and pastry boxes engineered for fresh food presentation.",
+      "Custom food boxes discussed around your requested format, dimensions, artwork and intended use.",
     intro:
-      "From gourmet burgers and loaded fries to delicate pastries and cakes, your packaging preserves presentation, temperature, and taste. Printzy manufactures precision die-cut food boxes crafted from food-grade paperboard with greaseproof internal barriers. Designed for fast kitchen assembly and eye-catching unboxing on delivery.",
+      "Share the food format, dimensions, artwork and intended use for a custom food box request. Material specifications and any supporting documents are confirmed per inquiry.",
     image: images.food,
     imageAlt: "Custom printed burger clamshells, fries boxes, and pastry packaging",
     specs: {
       sizes:
         "Burger clamshells, fries scoops, roll boxes, pastry & cake boxes (standard & custom sizes)",
-      material: "Food-grade SBS board, kraft virgin paperboard, or grease-resistant barrier board",
-      printMethod: "Offset litho printing with food-safe inks",
+      material: "Material specification confirmed per inquiry",
+      printMethod: "Print and ink specification confirmed per inquiry",
       colours: "Single colour to 6-colour full process",
-      finish: "Water-based matte coating, oil-resistant varnish, or clear window patching",
+      finish: "Finishing options confirmed per inquiry",
       moq: "Flexible run sizes available. Contact on WhatsApp for optimal tier volume.",
       leadTime: "7–10 working days after artwork approval",
       packing: "Packed nested or flat in heavy protective shipping cartons",
@@ -300,12 +306,12 @@ export const products: Product[] = [
       {
         title: "Clear Window Inserts",
         description:
-          "Available for bakery and sandwich boxes using food-safe transparent film to showcase product freshness while keeping contents hygienic.",
+          "Window options and materials are confirmed per inquiry. Share the item dimensions and intended use for review.",
       },
       {
-        title: "Greaseproof Barrier",
+        title: "Material suitability",
         description:
-          "Integrated grease barrier coatings prevent butter, oil, and sauce stains from seeping through to the outer printed surface.",
+          "Share the contents and intended use so material suitability and any requested documentation can be reviewed.",
       },
     ],
     industries: [
@@ -375,22 +381,22 @@ export const products: Product[] = [
   {
     slug: "custom-takeaway-packaging",
     title: "Takeaway Packaging Sets",
-    metaTitle: "Custom Takeaway Packaging Sets Pakistan | Printzy",
+    metaTitle: "Custom Takeaway Packaging Sets | Printzy",
     metaDescription:
-      "Matching branded packaging sets: boxes, cups, bags, and napkins. Consistent brand colours from kitchen to doorstep. Free mockup, fast quote.",
+      "Plan a custom takeaway packaging set with item-by-item quantities. Share product formats, artwork, destination and requirements for a tailored quote.",
     h1: "Custom Takeaway Packaging Sets in Pakistan",
     benefit:
-      "Coordinated packaging runs that guarantee matching colours and consistent quality across all customer touchpoints.",
+      "A set request can bring several packaging formats and their quantities into one quote for review.",
     intro:
-      "Most food businesses buy cups from one vendor, boxes from another, and bags from a third — resulting in mismatched shades and inconsistent branding. Printzy provides complete branded takeaway packaging suites: cups, food boxes, paper bags, napkins, and sleeves produced in coordinated production runs. One order, one brand approval, one unified customer experience.",
+      "Printzy reviews takeaway packaging set inquiries that may include cups, food boxes, paper bags, napkins, and sleeves. List each format and quantity so the proposed scope and artwork can be reviewed together.",
     image: images.food,
     imageAlt:
       "Complete branded food takeaway packaging set with matching box, cup, bag, and napkin",
     specs: {
       sizes: "Custom curated suites tailored to your complete restaurant or cafe menu",
-      material: "Coordinated virgin kraft, bleached paperboard, and greaseproof liners",
-      printMethod: "Matched flexo and offset color calibrations",
-      colours: "Brand-standardized Pantone and CMYK palette matching",
+      material: "Material specification confirmed per inquiry for each component",
+      printMethod: "Print method confirmed per inquiry for each component",
+      colours: "Colour references reviewed against the approved proof",
       finish: "Unified matte or satin brand finish across all components",
       moq: "Flexible run sizes available. Contact on WhatsApp for optimal tier volume.",
       leadTime: "8–12 working days after artwork approval",
@@ -400,7 +406,7 @@ export const products: Product[] = [
       {
         title: "Pantone Brand Consistency",
         description:
-          "We calibrate color profiles across different paper substrates (kraft bag vs poly cup vs corrugated box) to ensure your brand hue looks identical on every piece.",
+          "Share your colour references for review in the artwork proof. Printed appearance can vary by material and print process.",
       },
       {
         title: "Turnkey Bundle Savings",
@@ -480,14 +486,14 @@ export const products: Product[] = [
   {
     slug: "custom-paper-bags",
     title: "Custom Paper Bags",
-    metaTitle: "Custom Printed Paper Bags with Logo Pakistan | Printzy",
+    metaTitle: "Custom Printed Paper Bags with Logo | Printzy",
     metaDescription:
-      "Custom kraft and white paper bags with handles for retail, restaurants and cafes. High strength. Free design proof, nationwide delivery.",
+      "Request custom printed paper bags with your logo. Share bag dimensions, kraft or white preference, quantity, artwork and destination for review.",
     h1: "Custom Printed Paper Bags in Pakistan",
     benefit:
       "High-strength kraft and white paper carrier bags with sturdy handles that elevate your customer takeaway experience.",
     intro:
-      "When a customer leaves your store or receives a food delivery, your paper bag is their first physical interaction with your brand. Printzy prints eco-friendly brown kraft and bleached white paper carrier bags built with reinforced handles and durable gusseted bases. Perfect for boutique retail, coffee shops, bakeries, and takeaway food delivery.",
+      "Printzy offers custom printed paper bags in kraft or white. Share the dimensions, artwork, quantity and intended use so the requirements can be reviewed.",
     image: images.bags,
     imageAlt: "Custom printed kraft paper carrier bags with handles and company logo",
     specs: {
@@ -572,8 +578,8 @@ export const products: Product[] = [
         a: "Yes. We offer full wrap-around printing including front, back, side gussets, and bottom exterior panel.",
       },
       {
-        q: "Are the paper bags eco-friendly and biodegradable?",
-        a: "Yes. All our kraft paper bags are 100% recyclable, biodegradable, and made from responsibly managed pulp sources.",
+        q: "Can you provide information about environmental attributes for paper bags?",
+        a: "End-of-life and material attributes depend on the exact specification. Ask for the relevant information or supporting documentation for the bag in your quote.",
       },
       {
         q: "What is your minimum order quantity for custom printed bags?",
@@ -585,20 +591,20 @@ export const products: Product[] = [
   {
     slug: "custom-napkins-tissues",
     title: "Custom Napkins & Tissues",
-    metaTitle: "Custom Printed Napkins & Tissues Pakistan | Printzy",
+    metaTitle: "Custom Printed Napkins | Printzy",
     metaDescription:
-      "Custom printed restaurant napkins, cocktail napkins and dispenser tissues with your logo. Soft, absorbent. Free mockup, fast quote.",
+      "Discuss custom printed napkins and tissues for your brand. Share format, dimensions, artwork, quantity and destination for an itemised quote.",
     h1: "Custom Printed Napkins and Tissues in Pakistan",
     benefit:
       "Soft, highly absorbent printed napkins that complete your customer's in-store and takeaway dining experience.",
     intro:
-      "Every meal ends with a napkin: placing your logo into your customer's hands at the exact moment of meal satisfaction. Printzy manufactures ultra-soft, absorbent 1-ply, 2-ply, and 3-ply printed napkins for restaurants, cafes, caterers, and corporate dining. Featuring crisp, food-safe spot logo printing that never smudges or bleeds upon contact with moisture.",
+      "Printzy offers custom printed napkins and tissues for business packaging needs. Share the format, dimensions, artwork, quantity and intended use for a product-specific review.",
     image: images.napkins,
     imageAlt: "Custom printed restaurant paper napkins and cocktail tissues with company logo",
     specs: {
       sizes: "Cocktail/Beverage (25x25cm), Lunch (30x30cm), Dinner/L-Fold (33x33cm or 40x40cm)",
       material: "100% virgin wood pulp, available in 1-ply, 2-ply, and 3-ply embossed tissue",
-      printMethod: "High-speed flexographic rotary printing with water-based non-toxic inks",
+      printMethod: "Print and ink specification confirmed per inquiry",
       colours: "1 to 2 crisp spot colours (Pantone matched)",
       finish: "Full edge embossing or coin edge embossing for maximum absorbency and softness",
       moq: "Rotary volume runs available. Contact on WhatsApp for tier options.",
@@ -613,9 +619,9 @@ export const products: Product[] = [
           "2-ply napkins balance cost and absorbency for fast casual dining and coffee counters. 3-ply napkins provide luxurious softness and heavy absorbency for fine dining, weddings, and formal banquets.",
       },
       {
-        title: "Water-Fast Inks",
+        title: "Print and ink specification",
         description:
-          "We use food-safe, non-toxic inks that lock permanently into tissue fibers, ensuring no ink transfers onto customer hands, lips, or table linens.",
+          "Share the intended use and any ink or documentation requirements. The relevant specifications and available documents are confirmed per inquiry.",
       },
       {
         title: "Fold Styles",
@@ -669,8 +675,8 @@ export const products: Product[] = [
     ],
     faqs: [
       {
-        q: "Will the printed ink bleed onto customer hands or face?",
-        a: "Never. We use specialized water-fast, food-grade flexo inks that are permanently cured into the paper fibers and will not run or transfer when wet.",
+        q: "What ink specification is used for napkins?",
+        a: "Share the intended use and any ink or documentation requirements. Applicable specifications are confirmed per inquiry.",
       },
       {
         q: "What is your minimum order for printed napkins?",
@@ -690,21 +696,20 @@ export const products: Product[] = [
   {
     slug: "cup-sleeves-stickers",
     title: "Cup Sleeves & Stickers",
-    metaTitle: "Custom Cup Sleeves & Packaging Stickers Pakistan | Printzy",
+    metaTitle: "Custom Cup Sleeves & Packaging Stickers | Printzy",
     metaDescription:
-      "Branded corrugated cup sleeves and die-cut packaging stickers. Low-cost custom packaging for cafes and food delivery. Free proof, fast quote.",
+      "Discuss custom cup sleeves and packaging stickers. Share dimensions, intended application, artwork, quantity and destination for a tailored quote.",
     h1: "Custom Cup Sleeves and Packaging Stickers in Pakistan",
     benefit:
       "Cost-effective, versatile branding accessories that transform plain cups and food boxes into branded packaging.",
     intro:
-      "Looking for a low-cost, flexible way to brand your cups, bakery boxes, and delivery bags? Printzy prints custom corrugated coffee cup sleeves and waterproof die-cut packaging stickers. Sleeves provide heat protection and brand visibility on standard cups, while adhesive stickers securely seal delivery containers and elevate plain kraft bags with professional polish.",
+      "Discuss custom cup sleeves and packaging stickers for your products. Share dimensions, intended application, artwork and quantity; material and performance specifications are confirmed per inquiry.",
     image: images.napkins,
     imageAlt: "Custom printed coffee cup sleeves and die-cut packaging stickers with brand artwork",
     specs: {
       sizes:
         "Universal sleeves (fits 8oz–16oz cups); Stickers in custom round, square, or die-cut shapes (3cm–10cm)",
-      material:
-        "Sleeves: Embossed corrugated kraft paperboard. Stickers: Gloss paper, matte vinyl, or waterproof BOPP",
+      material: "Sleeve and sticker material specifications confirmed per inquiry",
       printMethod: "High-resolution offset and digital UV label printing",
       colours: "1-colour spot print to full-colour photo CMYK with protective varnish",
       finish: "Matte laminate, gloss UV coat, or natural kraft texture",
@@ -714,9 +719,9 @@ export const products: Product[] = [
     },
     printOptions: [
       {
-        title: "Embossed Heat-Barrier Sleeves",
+        title: "Sleeve specification",
         description:
-          "Our corrugated fluting creates an insulating air pocket that protects customer hands from scalding hot coffee while providing a textured grip.",
+          "Share the cup dimensions and how the sleeve will be used so the construction and fit requirements can be reviewed.",
       },
       {
         title: "Tamper-Evident Delivery Seals",
@@ -724,9 +729,9 @@ export const products: Product[] = [
           "Adhesive stickers with security cut lines provide visual proof that food packaging was not opened during courier transit.",
       },
       {
-        title: "Waterproof Label Substrates",
+        title: "Sticker material specification",
         description:
-          "Waterproof vinyl stickers resist condensation on cold iced drink cups and refrigerated dessert containers without curling or peeling.",
+          "Describe the surface and exposure conditions. Adhesive and moisture-resistance specifications are confirmed per inquiry.",
       },
     ],
     industries: [
@@ -747,7 +752,7 @@ export const products: Product[] = [
       },
     ],
     pricingGuidance:
-      "Sleeves and stickers offer our lowest price point per unit for custom branding. Share your desired sticker size or sleeve quantity on WhatsApp for instant quote tiers.",
+      "Quote details depend on the sleeve or sticker format, dimensions, artwork, quantity and destination. Share those requirements for an itemised quotation.",
     orderingSteps: [
       {
         step: 1,
@@ -778,8 +783,8 @@ export const products: Product[] = [
         a: "Yes. Our universal tapered sleeves fit standard 8oz, 10oz, 12oz, and 16oz paper hot cups with a secure friction grip.",
       },
       {
-        q: "Are the stickers waterproof for cold drink condensation?",
-        a: "Yes. When you choose our vinyl or BOPP sticker option, the adhesive and ink are 100% waterproof and condensation-resistant.",
+        q: "Are the stickers suitable for cold drink condensation?",
+        a: "Adhesive and moisture-resistance specifications are confirmed per inquiry. Share the surface and intended conditions so the requirements can be reviewed.",
       },
       {
         q: "Can stickers be printed in custom die-cut shapes following our logo contour?",
@@ -795,9 +800,9 @@ export const products: Product[] = [
   {
     slug: "custom-mailer-gift-boxes",
     title: "Custom Mailer & Gift Boxes",
-    metaTitle: "Custom Mailer & Gift Boxes with Logo Pakistan | Printzy",
+    metaTitle: "Custom Mailer Boxes and Gift Packaging | Printzy",
     metaDescription:
-      "Corrugated mailer boxes and gift packaging for e-commerce, corporate gifting and events. Free 3D proof, delivery across Pakistan.",
+      "Request custom mailer boxes or gift packaging. Share item dimensions, quantity, artwork, destination and presentation requirements for review.",
     h1: "Custom Printed Mailer and Gift Boxes in Pakistan",
     benefit:
       "Premium corrugated mailer boxes engineered for memorable e-commerce unboxing and corporate gifting.",
@@ -898,6 +903,93 @@ export const products: Product[] = [
     relatedSlugs: ["custom-paper-bags", "cup-sleeves-stickers", "custom-food-boxes"],
   },
 ];
+
+export const productExportBriefs: Partial<Record<string, ProductExportBrief>> = {
+  "custom-paper-cups": {
+    heading: "Custom paper cups for export orders",
+    introduction:
+      "For wholesale paper cup inquiries, describe how the cup will be used and which construction you need. Single-wall and double-wall formats are in the product range; other material details are confirmed per inquiry.",
+    checklist: [
+      "Single-wall or double-wall construction",
+      "Cup dimensions and intended beverage",
+      "Quantity by size and artwork for each design",
+    ],
+  },
+  "custom-pizza-boxes": {
+    heading: "Custom pizza boxes for export orders",
+    introduction:
+      "A useful pizza-box brief starts with the packed product and the space it needs. Board and material specifications are confirmed per inquiry.",
+    checklist: [
+      "Internal dimensions and the pizza or food format",
+      "Quantity by size or design",
+      "Artwork, folding requirements and destination",
+    ],
+  },
+  "custom-food-boxes": {
+    heading: "Custom food boxes for export orders",
+    introduction:
+      "Describe the food item and how it will be packed so the box format can be reviewed. Material suitability and any supporting documents are confirmed per inquiry.",
+    checklist: [
+      "Food item and internal dimensions",
+      "Closure or assembly requirements",
+      "Quantity, artwork and any material documentation required",
+    ],
+  },
+  "custom-takeaway-packaging": {
+    heading: "Takeaway packaging sets for export orders",
+    introduction:
+      "For a set inquiry, list each packaging component separately. The available mix and specification are reviewed against your destination and requirements.",
+    checklist: [
+      "Components required in the set",
+      "Target quantity for each component",
+      "Artwork files, dimensions and any shared design references",
+    ],
+  },
+  "custom-paper-bags": {
+    heading: "Custom printed paper bags for export orders",
+    introduction:
+      "Paper bags are available in kraft or white. Share the intended use and dimensions; the material specification and remaining details are confirmed per inquiry.",
+    checklist: [
+      "Kraft or white preference",
+      "Bag dimensions and intended contents",
+      "Quantity, artwork and destination",
+    ],
+  },
+  "custom-napkins-tissues": {
+    heading: "Custom printed napkins and tissues for export orders",
+    introduction:
+      "Describe the napkin or tissue format and how it will be presented. Material details, print specification and order requirements are confirmed per inquiry.",
+    checklist: [
+      "Napkin or tissue format and dimensions",
+      "Quantity by format or artwork",
+      "Logo file and any print or documentation requirements",
+    ],
+  },
+  "cup-sleeves-stickers": {
+    heading: "Cup sleeves and stickers for export orders",
+    introduction:
+      "Sleeves and stickers have different dimensions and applications, so identify each item in your brief. Material and print options are confirmed per inquiry.",
+    checklist: [
+      "Sleeve or sticker format and dimensions",
+      "The cup or package the item will be used with",
+      "Quantity, artwork and destination",
+    ],
+  },
+  "custom-mailer-gift-boxes": {
+    heading: "Custom mailer and gift boxes for export orders",
+    introduction:
+      "Describe the item being packed and whether the inquiry is for a mailer or gift box. Construction, materials and finishing are confirmed per inquiry.",
+    checklist: [
+      "Item dimensions and requested internal box dimensions",
+      "Mailer or gift presentation requirements",
+      "Quantity, artwork and destination",
+    ],
+  },
+};
+
+export function getProductExportBrief(slug: string): ProductExportBrief | undefined {
+  return productExportBriefs[slug];
+}
 
 // Helper to look up products by canonical slug or legacy alias
 const legacySlugAliases: Record<string, string> = {

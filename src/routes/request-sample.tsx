@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Check, Sparkles, Box, FileCheck, ArrowRight, ShieldCheck } from "lucide-react";
+import { Check, Sparkles, Box, FileCheck, ArrowRight, ShieldCheck, Globe2 } from "lucide-react";
 import { seo } from "@/lib/seo";
 import { PageHero, QuoteCTA } from "@/components/site/sections";
 import { Button } from "@/components/ui/button";
@@ -9,9 +9,9 @@ import { WhatsAppIcon } from "@/components/icons/WhatsAppIcon";
 export const Route = createFileRoute("/request-sample")({
   head: () =>
     seo({
-      title: "Request a Sample | Printzy Custom Packaging Pakistan",
+      title: "Packaging Samples for Overseas Buyers | Printzy",
       description:
-        "Inspect packaging quality before placing a bulk order. Free 3D digital mockups, material swatch packs, and pre-production printed samples.",
+        "Learn about free digital mockups and ask about material swatches or printed samples for your packaging inquiry.",
       path: "/request-sample",
     }),
   component: RequestSample,
@@ -22,31 +22,30 @@ function RequestSample() {
     {
       title: "1. Free 3D Digital Mockup",
       cost: "No charge",
-      turnaround: "Timing confirmed with your request",
+      turnaround: "Timing confirmed per inquiry",
       icon: Sparkles,
       highlight: true,
-      desc: "Perfect for visualizing your logo and colours in photorealistic 3D before committing.",
+      desc: "Review your logo on the requested packaging format before approving a production proof.",
       features: [
-        "Photorealistic 3D render of cups, boxes, or bags",
-        "Exact proportions and die-line placement check",
-        "Multiple colourway adjustments free of charge",
-        "Includes itemised price breakdown and production timeline",
+        "Free 3D digital mockup",
+        "Artwork file checking",
+        "Itemised quotation for the request",
+        "Proof approval before production",
       ],
       actionLabel: "Get Free Mockup",
       actionHref: "/quote",
     },
     {
       title: "2. Material Stock Swatch Pack",
-      cost: "Confirm delivery cost with the team",
-      turnaround: "Timing confirmed with your request",
+      cost: "Availability and fee confirmed per inquiry",
+      turnaround: "Timing confirmed per inquiry",
       icon: Box,
       highlight: false,
-      desc: "Feel real paperboard GSM, inspect PE moisture linings, and test greaseproof fluting.",
+      desc: "Ask whether a material swatch is available for the product and specification you are considering.",
       features: [
-        "Sample pieces from past client production runs",
-        "Single-wall vs double-wall cup paperboards",
-        "Kraft vs bleached white paper bag handles",
-        "Corrugated E-flute pizza and burger board samples",
+        "Share the product and material information you need to review",
+        "Availability and sample fee confirmed per inquiry",
+        "Delivery method and cost confirmed per inquiry",
       ],
       actionLabel: "Order Swatch Pack",
       actionHref: site.whatsapp,
@@ -54,16 +53,15 @@ function RequestSample() {
     },
     {
       title: "3. Pre-Production Printed Sample",
-      cost: "Ask us for the sample cost",
-      turnaround: "Timing confirmed with your request",
+      cost: "Availability and fee confirmed per inquiry",
+      turnaround: "Timing confirmed per inquiry",
       icon: FileCheck,
       highlight: false,
-      desc: "A single custom-printed physical sample bearing your exact branding prior to full run.",
+      desc: "Ask whether a physical printed sample is available for the product and artwork in your request.",
       features: [
-        "Printed on production-grade press equipment",
-        "Verify physical colour accuracy and coating finish",
-        "Fit-test your real burgers, pizzas, or coffee lids",
-        "Sample costs and any order credit are confirmed with your quotation.",
+        "Share the approved artwork and product specification",
+        "Sample availability and fee confirmed per inquiry",
+        "Any courier or delivery cost confirmed per inquiry",
       ],
       actionLabel: "Inquire on WhatsApp",
       actionHref: site.whatsapp,
@@ -75,7 +73,7 @@ function RequestSample() {
     <>
       <PageHero
         title="Request a Sample Before You Order"
-        text="Never guess print quality or board strength. Choose the sample option that suits your timeline and order size."
+        text="Explore the review options and ask which sample approach is available for your product and order."
       />
 
       <section className="section-pad">
@@ -109,7 +107,7 @@ function RequestSample() {
                   <div>
                     {tier.highlight && (
                       <span className="mb-4 inline-block rounded-full bg-peach px-3 py-1 text-xs font-semibold text-navy">
-                        Most Popular for New Brands
+                        Digital mockup
                       </span>
                     )}
                     <div className="flex size-12 items-center justify-center rounded-xl bg-peach text-navy font-bold">
@@ -160,6 +158,22 @@ function RequestSample() {
             })}
           </div>
 
+          <article className="rounded-2xl border border-border bg-muted/40 p-6">
+            <Globe2 className="size-7 text-secondary" aria-hidden="true" />
+            <h2 className="mt-3 text-xl font-bold">Packaging samples for overseas buyers</h2>
+            <p className="mt-2 text-sm text-muted-foreground">
+              A free 3D mockup is available for review. Physical sample availability, fees and
+              overseas courier costs are confirmed per inquiry. Include your destination country and
+              the product you want to evaluate.
+            </p>
+            <Link
+              to="/export-custom-packaging"
+              className="mt-4 inline-flex min-h-11 items-center font-semibold text-secondary hover:underline"
+            >
+              Read about export packaging samples
+            </Link>
+          </article>
+
           {/* Workflow & Transparency Guarantee */}
           <div className="rounded-2xl border border-border bg-accent p-8 text-foreground">
             <div className="flex items-center gap-3">
@@ -167,9 +181,8 @@ function RequestSample() {
               <h3 className="text-xl font-bold">Why We Offer Samples</h3>
             </div>
             <p className="mt-3 text-sm sm:text-base text-muted-foreground leading-relaxed">
-              When ordering thousands of custom boxes or cups, physical confidence is essential. We
-              provide samples so you can test paper strength in your kitchen, ensure paper cup lids
-              fit snugly, and confirm that your brand colours reflect your exact visual identity.
+              A free digital mockup and proof support the artwork review. Physical sample
+              availability, fees and delivery arrangements are confirmed per inquiry.
             </p>
           </div>
         </div>
