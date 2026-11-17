@@ -22,6 +22,11 @@ globally exact counter. Replace the sample positive-integer `namespace_id` value
 with IDs unique in your Cloudflare account before deployment. The health endpoint
 is exempt from limiting.
 
+Worker Previews use separate rate-limit namespace IDs in the `previews` block, so
+Preview traffic does not share counters with production. Preview branches share
+those Preview counters with one another. Keep the Preview IDs distinct from every
+other rate-limit namespace ID in the account.
+
 Hashed Vite files under `/assets/` receive one-year immutable caching. The static
 asset `_headers` file applies that policy when Cloudflare serves files without
 running the Worker. SSR HTML is returned with `max-age=0`, a 60-second shared-cache
