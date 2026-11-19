@@ -38,6 +38,10 @@
   --color-input: var(--input);
   --color-ring: var(--ring);
   --color-ring-offset-background: var(--background);
+  --color-cream: var(--cream);
+  --color-ink: var(--ink);
+  --color-saffron: var(--saffron);
+  --color-teal-light: var(--teal-light);
 }
 
 :root {
@@ -49,36 +53,45 @@
   --orange: #ff8c42;
   --peach: #ffd1aa;
 
-  --background: #f7f7f7;
-  --foreground: #1f4e5f;
+  /* Extended palette — warm neutrals + saffron accent */
+  --cream: #fbf7f0;
+  --ink: #1a1a1a;
+  --saffron: #e8913a;
+  --teal-light: color-mix(in oklab, var(--teal) 15%, white);
+  --navy-light: color-mix(in oklab, var(--navy) 8%, white);
+
+  --background: var(--cream);
+  --foreground: var(--ink);
   --card: #ffffff;
-  --card-foreground: #1f4e5f;
+  --card-foreground: var(--ink);
   --popover: #ffffff;
-  --popover-foreground: #1f4e5f;
-  --primary: var(--orange);
-  --primary-hover: color-mix(in oklab, var(--orange) 92%, black);
-  --primary-foreground: #091a24;
+  --popover-foreground: var(--ink);
+  --primary: var(--saffron);
+  --primary-hover: color-mix(in oklab, var(--saffron) 88%, black);
+  --primary-foreground: #ffffff;
   --secondary: var(--teal);
-  --secondary-hover: color-mix(in oklab, var(--teal) 92%, black);
+  --secondary-hover: color-mix(in oklab, var(--teal) 88%, black);
   --secondary-foreground: #ffffff;
-  --muted: #f7f7f7;
-  --muted-foreground: #334155;
-  --accent: color-mix(in oklab, var(--peach) 45%, white);
+  --muted: #f3f0eb;
+  --muted-foreground: #475569;
+  --accent: color-mix(in oklab, var(--peach) 35%, white);
   --accent-foreground: var(--navy);
   --destructive: #b91c1c;
   --destructive-foreground: #ffffff;
-  --border: #cbd5e1;
-  --input: #cbd5e1;
+  --border: #e2ddd5;
+  --input: #e2ddd5;
   --ring: var(--teal);
 
   --gradient-hero: linear-gradient(
     160deg,
-    color-mix(in oklab, var(--peach) 35%, white) 0%,
-    #f7f7f7 55%,
+    color-mix(in oklab, var(--peach) 25%, var(--cream)) 0%,
+    var(--cream) 50%,
     #ffffff 100%
   );
-  --shadow-soft: 0 10px 30px -12px color-mix(in oklab, var(--navy) 25%, transparent);
-  --shadow-lift: 0 20px 40px -16px color-mix(in oklab, var(--navy) 35%, transparent);
+  --shadow-soft: 0 4px 24px -6px color-mix(in oklab, var(--navy) 18%, transparent);
+  --shadow-lift: 0 16px 40px -12px color-mix(in oklab, var(--navy) 28%, transparent);
+  --shadow-card: 0 1px 3px 0 color-mix(in oklab, var(--navy) 8%, transparent),
+    0 1px 2px -1px color-mix(in oklab, var(--navy) 8%, transparent);
 }
 
 @layer base {
@@ -151,15 +164,29 @@
   box-shadow: var(--shadow-soft);
 }
 @utility card-lift {
-  box-shadow: var(--shadow-soft);
+  box-shadow: var(--shadow-card);
   transition:
     transform 350ms cubic-bezier(0.16, 1, 0.3, 1),
     box-shadow 350ms cubic-bezier(0.16, 1, 0.3, 1),
     border-color 250ms ease;
   will-change: transform, box-shadow;
   &:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 20px 35px -12px color-mix(in oklab, var(--teal) 22%, transparent);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lift);
+  }
+}
+
+/* Subtle paper grain overlay for premium feel */
+@utility bg-grain {
+  position: relative;
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+    background-size: 256px 256px;
+    pointer-events: none;
+    z-index: 0;
   }
 }
 
@@ -289,6 +316,28 @@
   }
   100% {
     background-position: 200% 0;
+  }
+}
+
+@keyframes marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee-scroll 25s linear infinite;
+}
+
+@keyframes progress-draw {
+  from {
+    stroke-dashoffset: var(--path-length, 1000);
+  }
+  to {
+    stroke-dashoffset: 0;
   }
 }
 
