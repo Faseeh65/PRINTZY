@@ -1,21 +1,24 @@
-import { useState } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import { Link } from "@tanstack/react-router";
 import {
   Check,
   Palette,
-  Layers,
   Truck,
   BadgeCheck,
   Clock,
-  Leaf,
   ChevronLeft,
   ChevronRight,
   ArrowRight,
-  PackageCheck,
   Coffee,
   Box,
   ShoppingBag,
   Sparkles,
+  UtensilsCrossed,
+  Cake,
+  CloudCog,
+  Store,
+  Gift,
+  PartyPopper,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -35,15 +38,15 @@ import {
 import { site } from "@/data/site";
 import { products } from "@/data/products";
 import { industries } from "@/data/industries";
-import { stats } from "@/data/stats";
 import { faqs } from "@/data/faqs";
-import { clientReviews, clientLogos, caseStudies, ClientReview } from "@/data/proof";
+import { clientReviews, clientLogos, caseStudies } from "@/data/proof";
 import { images, gallery, responsiveImageProps } from "@/data/images";
 import { trackGtmWhatsAppClick } from "@/lib/gtm";
 import { buildWhatsAppUrl } from "@/config/business-facts";
 
 import { WhatsAppIcon } from "@/components/icons/WhatsAppIcon";
 
+/* ───────── Shared helpers ───────── */
 export function WhatsAppButton({
   variant = "outline" as const,
   label = "Chat on WhatsApp",
@@ -66,34 +69,40 @@ export function WhatsAppButton({
   );
 }
 
+/* ───────── 1. HERO — layered product composition ───────── */
 export function Hero() {
   return (
-    <section className="relative bg-hero section-pad overflow-hidden">
-      {/* Decorative ambient glowing blurred blobs */}
+    <section className="relative bg-hero section-pad overflow-hidden bg-grain">
+      {/* Decorative ambient blobs */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -left-20 -top-24 size-80 rounded-full bg-peach/35 blur-3xl animate-blob"
+        className="pointer-events-none absolute -left-24 -top-24 size-96 rounded-full bg-peach/30 blur-3xl animate-blob"
       />
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -right-20 -bottom-24 size-96 rounded-full bg-secondary/15 blur-3xl animate-blob-delayed"
+        className="pointer-events-none absolute -right-24 bottom-0 size-80 rounded-full bg-secondary/12 blur-3xl animate-blob-delayed"
       />
 
-      <div className="container-site relative z-10 grid items-center gap-12 lg:grid-cols-2">
+      <div className="container-site relative z-10 grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
+        {/* Copy */}
         <div>
           <Reveal delay={100}>
-            <span className="mb-4 inline-block rounded-full bg-peach px-3 py-1 text-sm font-semibold text-navy transition-transform duration-200 hover:scale-105">
+            <span className="mb-4 inline-block rounded-full border border-saffron/30 bg-peach/60 px-4 py-1.5 text-sm font-semibold text-navy tracking-wide">
               Custom packaging for growing brands
             </span>
           </Reveal>
           <Reveal delay={150}>
-            <h1>Custom Printed Packaging for Food Brands and Growing Businesses in Pakistan</h1>
+            <h1 className="tracking-tight">
+              Custom Printed Packaging for Food Brands and Growing Businesses in
+              Pakistan
+            </h1>
           </Reveal>
           <Reveal delay={200}>
             <p className="mt-5 max-w-xl text-lg text-muted-foreground leading-relaxed">
-              From your first cup to your hundredth branch, Printzy prints packaging that looks the
-              same everywhere your customer meets your brand. Share your logo, get a free mockup,
-              approve a proof, and we print and deliver.
+              From your first cup to your hundredth branch, Printzy prints
+              packaging that looks the same everywhere your customer meets your
+              brand. Share your logo, get a free mockup, approve a proof, and we
+              print and deliver.
             </p>
           </Reveal>
           <Reveal delay={250}>
@@ -125,43 +134,52 @@ export function Hero() {
             </ul>
           </Reveal>
         </div>
-        <Reveal delay={200} className="relative mx-auto grid w-full max-w-lg grid-cols-2 gap-4">
-          <img
-            src={images.food}
-            {...responsiveImageProps(images.food, "(min-width: 1024px) 50vw, 100vw")}
-            alt="Branded pizza box, takeaway food packaging and paper cup with custom logo"
-            width={1024}
-            height={1024}
-            fetchPriority="high"
-            className="col-span-2 aspect-[16/10] w-full rounded-2xl object-cover shadow-soft transition-transform duration-500 hover:scale-[1.02]"
-          />
-          <img
-            src={images.cups}
-            {...responsiveImageProps(images.cups, "(min-width: 1024px) 25vw, 50vw")}
-            alt="Custom printed coffee and tea cups for Pakistani cafes"
-            width={1024}
-            height={1024}
-            loading="lazy"
-            className="aspect-square w-full rounded-2xl object-cover shadow-soft transition-transform duration-500 hover:scale-[1.03]"
-          />
-          <img
-            src={images.boxes}
-            {...responsiveImageProps(images.boxes, "(min-width: 1024px) 25vw, 50vw")}
-            alt="Printed kraft pizza and shipping boxes with brand artwork"
-            width={1024}
-            height={1024}
-            loading="lazy"
-            className="aspect-square w-full rounded-2xl object-cover shadow-soft transition-transform duration-500 hover:scale-[1.03]"
-          />
-          <div className="animate-float-slow absolute -left-3 top-6 rounded-xl bg-card border border-border/40 px-4 py-3 shadow-soft transition-all duration-300 hover:shadow-lift md:-left-8">
-            <div className="font-display text-sm font-semibold text-foreground">
-              Quote tailored to you
-            </div>
-            <div className="text-xs text-muted-foreground">Free 3D digital mockup</div>
-          </div>
-          <div className="animate-float-delayed absolute -right-3 bottom-8 rounded-xl bg-navy border border-white/10 px-4 py-3 text-navy-foreground shadow-soft transition-all duration-300 hover:shadow-lift md:-right-6">
-            <div className="font-display text-sm font-semibold">Brand Consistency</div>
-            <div className="text-xs text-navy-foreground/85">Boxes, cups, bags & tissues</div>
+
+        {/* Layered product composition — cup + box + bag */}
+        <Reveal
+          delay={200}
+          className="relative mx-auto w-full max-w-lg"
+        >
+          <div className="relative aspect-[4/3]">
+            {/* Main hero image — largest, background */}
+            <img
+              src={images.food}
+              {...responsiveImageProps(
+                images.food,
+                "(min-width: 1024px) 50vw, 100vw",
+              )}
+              alt="Branded pizza box, takeaway food packaging and paper cup with custom logo"
+              width={1024}
+              height={768}
+              fetchPriority="high"
+              className="absolute inset-0 h-full w-full rounded-2xl object-cover shadow-soft"
+            />
+            {/* Overlapping cup image — floats top-left */}
+            <img
+              src={images.cups}
+              {...responsiveImageProps(
+                images.cups,
+                "(min-width: 1024px) 20vw, 35vw",
+              )}
+              alt="Custom printed coffee and tea cups for Pakistani cafes"
+              width={400}
+              height={400}
+              loading="lazy"
+              className="animate-float-slow absolute -left-4 -top-4 w-[38%] rounded-xl border-4 border-card object-cover shadow-lift md:-left-8 md:-top-6"
+            />
+            {/* Overlapping bag image — floats bottom-right */}
+            <img
+              src={images.bags}
+              {...responsiveImageProps(
+                images.bags,
+                "(min-width: 1024px) 20vw, 35vw",
+              )}
+              alt="Kraft and white paper bags with printed logo"
+              width={400}
+              height={400}
+              loading="lazy"
+              className="animate-float-delayed absolute -bottom-4 -right-4 w-[35%] rounded-xl border-4 border-card object-cover shadow-lift md:-bottom-6 md:-right-8"
+            />
           </div>
         </Reveal>
       </div>
@@ -169,18 +187,54 @@ export function Hero() {
   );
 }
 
+/* ───────── 2. TRUST STRIP — infinite industry marquee ───────── */
+const marqueeItems = [
+  { icon: Coffee, label: "Cafes" },
+  { icon: UtensilsCrossed, label: "Restaurants" },
+  { icon: Cake, label: "Bakeries" },
+  { icon: CloudCog, label: "Cloud Kitchens" },
+  { icon: Store, label: "Retail & E-commerce" },
+  { icon: Gift, label: "Corporate Gifting" },
+  { icon: PartyPopper, label: "Events & Weddings" },
+];
+
 export function TrustBar() {
   return (
-    <section aria-label="Printzy at a glance" className="bg-secondary py-10">
-      <div className="container-site grid grid-cols-2 gap-4 sm:gap-8 lg:grid-cols-4">
-        {stats.map((s) => (
-          <StatCounter key={s.label} {...s} />
-        ))}
+    <section
+      aria-label="Industries we print for"
+      className="border-y border-border bg-card py-5 overflow-hidden"
+    >
+      <div className="relative">
+        {/* Fade edges */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-card to-transparent"
+        />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-card to-transparent"
+        />
+        {/* Marquee track — duplicated content for seamless loop */}
+        <div className="animate-marquee flex w-max items-center gap-10">
+          {[...marqueeItems, ...marqueeItems].map((item, idx) => {
+            const Icon = item.icon;
+            return (
+              <span
+                key={`${item.label}-${idx}`}
+                className="inline-flex shrink-0 items-center gap-2.5 text-sm font-semibold text-muted-foreground"
+              >
+                <Icon className="size-5 text-secondary" aria-hidden />
+                {item.label}
+              </span>
+            );
+          })}
+        </div>
       </div>
     </section>
   );
 }
 
+/* ───────── 3. ONE SUPPLIER — scroll storytelling ───────── */
 export function OneSupplierSection() {
   const journeys = [
     {
@@ -188,62 +242,95 @@ export function OneSupplierSection() {
       title: "1. Handheld & Counter",
       desc: "Single & double-wall paper cups and heat sleeves that leave a premium impression.",
       slug: "custom-paper-cups",
+      img: images.cups,
     },
     {
       icon: Box,
       title: "2. Kitchen to Table",
       desc: "Sturdy pizza boxes and grease-resistant food cartons that keep meals hot and intact.",
       slug: "custom-pizza-boxes",
+      img: images.boxes,
     },
     {
       icon: ShoppingBag,
       title: "3. Doorstep & Takeaway",
       desc: "Reinforced kraft paper bags that carry your full menu safely into customer homes.",
       slug: "custom-paper-bags",
+      img: images.bags,
     },
     {
       icon: Sparkles,
       title: "4. The Finishing Touch",
       desc: "Custom printed napkins and packaging seal stickers that complete the dining experience.",
       slug: "custom-napkins-tissues",
+      img: images.napkins,
     },
   ];
 
   return (
-    <section className="section-pad bg-accent">
+    <section className="section-pad bg-muted/50 bg-grain">
       <div className="container-site">
         <div className="mx-auto max-w-3xl text-center">
-          <span className="rounded-full bg-peach px-3 py-1 text-xs font-semibold uppercase tracking-wider text-navy">
-            Unified Brand Identity
-          </span>
-          <h2 className="mt-3 text-3xl font-bold">One supplier for the whole customer journey</h2>
-          <p className="mt-4 text-base text-muted-foreground sm:text-lg">
-            Most food brands buy cups from one vendor, boxes from another and bags from a third, and
-            the colours never quite match. At Printzy you can order cups, pizza boxes, food boxes,
-            takeaway sets, paper bags, napkins and cup sleeves in one brand-consistent run. One
-            artwork approval, one delivery, one reorder.
-          </p>
+          <Reveal>
+            <span className="rounded-full border border-saffron/30 bg-peach/60 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-navy">
+              Unified Brand Identity
+            </span>
+            <h2 className="mt-3">
+              One supplier for the whole customer journey
+            </h2>
+            <p className="mt-4 text-base text-muted-foreground sm:text-lg">
+              Most food brands buy cups from one vendor, boxes from another and
+              bags from a third, and the colours never quite match. At Printzy
+              you can order cups, pizza boxes, food boxes, takeaway sets, paper
+              bags, napkins and cup sleeves in one brand-consistent run. One
+              artwork approval, one delivery, one reorder.
+            </p>
+          </Reveal>
         </div>
 
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {journeys.map((j, idx) => {
             const Icon = j.icon;
             return (
-              <Reveal key={j.title} delay={CARD_DELAYS[idx % CARD_DELAYS.length]}>
-                <div className="group h-full rounded-2xl border border-border bg-card p-6 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:shadow-lift">
-                  <div className="journey-icon flex size-12 items-center justify-center rounded-xl bg-peach text-navy transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3">
-                    <Icon className="size-6" />
+              <Reveal
+                key={j.title}
+                delay={CARD_DELAYS[idx % CARD_DELAYS.length]}
+              >
+                <div className="group flex h-full flex-col overflow-hidden rounded-2xl border border-border/60 bg-card shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-soft">
+                  {/* Product image for visual rhythm */}
+                  <div className="aspect-[16/10] overflow-hidden bg-muted/30">
+                    <img
+                      src={j.img}
+                      {...responsiveImageProps(
+                        j.img,
+                        "(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw",
+                      )}
+                      alt={`${j.title} — Printzy custom packaging`}
+                      width={800}
+                      height={500}
+                      loading="lazy"
+                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
                   </div>
-                  <h3 className="mt-4 text-lg font-bold text-foreground">{j.title}</h3>
-                  <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{j.desc}</p>
-                  <Link
-                    to="/products/$slug"
-                    params={{ slug: j.slug }}
-                    className="mt-4 inline-flex min-h-11 items-center gap-1 text-xs font-semibold text-secondary hover:underline"
-                  >
-                    View specifications
-                    <ArrowRight className="size-3 transition-transform duration-200 group-hover:translate-x-1" />
-                  </Link>
+                  <div className="flex flex-1 flex-col p-5">
+                    <div className="journey-icon mb-3 flex size-10 items-center justify-center rounded-lg bg-peach/80 text-navy transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3">
+                      <Icon className="size-5" />
+                    </div>
+                    <h3 className="text-base font-bold text-foreground">
+                      {j.title}
+                    </h3>
+                    <p className="mt-1.5 flex-1 text-sm text-muted-foreground leading-relaxed">
+                      {j.desc}
+                    </p>
+                    <Link
+                      to="/products/$slug"
+                      params={{ slug: j.slug }}
+                      className="mt-3 inline-flex min-h-11 items-center gap-1 text-xs font-semibold text-secondary hover:underline"
+                    >
+                      View specifications
+                      <ArrowRight className="size-3 transition-transform duration-200 group-hover:translate-x-1" />
+                    </Link>
+                  </div>
                 </div>
               </Reveal>
             );
@@ -256,6 +343,7 @@ export function OneSupplierSection() {
 
 const CARD_DELAYS = [100, 150, 200, 250] as const;
 
+/* ───────── 4. PRODUCTS — bento grid with varied sizes ───────── */
 export function ProductsSection({ heading = "h2" as "h1" | "h2" }) {
   return (
     <section id="products" className="section-pad">
@@ -266,9 +354,20 @@ export function ProductsSection({ heading = "h2" as "h1" | "h2" }) {
           title="Engineered for Food Brands & Growing Retailers"
           text="Select a category to view full material specifications, print options, and request a tailored quote."
         />
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        {/* Bento grid: first 2 large, rest normal */}
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {products.map((p, idx) => (
-            <ProductCard key={p.slug} {...p} delay={CARD_DELAYS[idx % CARD_DELAYS.length]} />
+            <div
+              key={p.slug}
+              className={
+                idx < 2 ? "sm:col-span-1 lg:col-span-2" : "sm:col-span-1"
+              }
+            >
+              <ProductCard
+                {...p}
+                delay={CARD_DELAYS[idx % CARD_DELAYS.length]}
+              />
+            </div>
           ))}
         </div>
       </div>
@@ -288,105 +387,10 @@ export function IndustriesSection({ heading = "h2" as "h1" | "h2" }) {
         />
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {industries.map((i, idx) => (
-            <IndustryCard key={i.title} {...i} delay={CARD_DELAYS[idx % CARD_DELAYS.length]} />
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-const steps = [
-  {
-    title: "1. Send Your Requirement",
-    text: "Share your target product, sizes, estimated quantities, and logo file via WhatsApp or our instant quote form.",
-  },
-  {
-    title: "2. Mockup & Quote",
-    text: "Review a digital mockup and itemised price breakdown based on your requirements.",
-  },
-  {
-    title: "3. Approve Your Proof",
-    text: "Review your high-resolution digital proof or printed sample. We adjust until your team is 100% satisfied.",
-  },
-  {
-    title: "4. Print & Doorstep Delivery",
-    text: "We confirm production and delivery timing with your order details before you proceed.",
-  },
-];
-
-const STEP_DELAYS = [100, 200, 300, 400] as const;
-
-export function HowItWorksSection({ heading = "h2" as "h1" | "h2" }) {
-  return (
-    <section className="section-pad">
-      <div className="container-site">
-        <SectionHeader
-          as={heading}
-          eyebrow="Process"
-          title="How Ordering Works"
-          text="Four clear steps from initial artwork check to delivered packaging."
-        />
-        <ol className="relative grid gap-8 md:grid-cols-4">
-          <span
-            aria-hidden
-            className="absolute left-6 top-0 h-full w-0.5 bg-border md:left-0 md:top-6 md:h-0.5 md:w-full"
-          />
-          {steps.map((s, i) => (
-            <StepCard key={s.title} n={i + 1} {...s} delay={STEP_DELAYS[i % STEP_DELAYS.length]} />
-          ))}
-        </ol>
-      </div>
-    </section>
-  );
-}
-
-const features = [
-  {
-    icon: BadgeCheck,
-    title: "Honest, upfront pricing",
-    text: "Review quantities, pricing, and timing in your quotation before committing.",
-  },
-  {
-    icon: PackageCheck,
-    title: "Approve before production",
-    text: "Free 3D digital mockup and proof verification before mass production begins.",
-  },
-  {
-    icon: Palette,
-    title: "Brand colour consistency",
-    text: "Precise ink matching ensures your cups, boxes, bags, and napkins match perfectly.",
-  },
-  {
-    icon: Clock,
-    title: "Frictionless reorders",
-    text: "We keep your approved production artwork on file. Reorders take just a quick WhatsApp confirmation.",
-  },
-  {
-    icon: Leaf,
-    title: "Product material options",
-    text: "Ask us to confirm material specifications and any supporting documents available for your intended use.",
-  },
-  {
-    icon: Truck,
-    title: "Nationwide delivery",
-    text: "Reliable shipping to Lahore, Karachi, Islamabad, Faisalabad, and all commercial centers across Pakistan.",
-  },
-];
-
-const FEATURE_DELAYS = [100, 200, 300] as const;
-
-export function WhySection() {
-  return (
-    <section className="section-pad">
-      <div className="container-site">
-        <SectionHeader eyebrow="Why Printzy" title="Why Brands Choose Printzy" />
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {features.map((f, idx) => (
             <IndustryCard
-              key={f.title}
-              {...f}
-              delay={FEATURE_DELAYS[idx % FEATURE_DELAYS.length]}
+              key={i.title}
+              {...i}
+              delay={CARD_DELAYS[idx % CARD_DELAYS.length]}
             />
           ))}
         </div>
@@ -395,37 +399,266 @@ export function WhySection() {
   );
 }
 
-export function GalleryGrid({ items = gallery }: { items?: typeof gallery }) {
-  const GALLERY_DELAYS = [100, 200, 300] as const;
+/* ───────── 5. HOW IT WORKS — 4 steps with animated progress line ───────── */
+const steps = [
+  {
+    title: "Send Your Requirement",
+    text: "Share your target product, sizes, estimated quantities, and logo file via WhatsApp or our instant quote form.",
+  },
+  {
+    title: "Mockup & Quote",
+    text: "Review a digital mockup and itemised price breakdown based on your requirements.",
+  },
+  {
+    title: "Approve Your Proof",
+    text: "Review your high-resolution digital proof or printed sample. We adjust until your team is 100% satisfied.",
+  },
+  {
+    title: "Print & Doorstep Delivery",
+    text: "We confirm production and delivery timing with your order details before you proceed.",
+  },
+];
+
+const STEP_DELAYS = [100, 200, 300, 400] as const;
+
+export function HowItWorksSection({ heading = "h2" as "h1" | "h2" }) {
+  const lineRef = useRef<SVGPathElement>(null);
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const path = lineRef.current;
+    const section = sectionRef.current;
+    if (
+      !path ||
+      !section ||
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    )
+      return;
+
+    const totalLength = path.getTotalLength();
+    path.style.strokeDasharray = `${totalLength}`;
+    path.style.strokeDashoffset = `${totalLength}`;
+
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (entries[0]?.isIntersecting) {
+          path.style.transition = "stroke-dashoffset 1.5s ease-out";
+          path.style.strokeDashoffset = "0";
+          io.disconnect();
+        }
+      },
+      { threshold: 0.3 },
+    );
+    io.observe(section);
+    return () => io.disconnect();
+  }, []);
+
   return (
-    <div className="columns-1 gap-4 sm:columns-2 lg:columns-3">
-      {items.map((g, idx) => (
-        <Reveal
-          key={g.alt}
-          delay={GALLERY_DELAYS[idx % GALLERY_DELAYS.length]}
-          className="group mb-4 break-inside-avoid overflow-hidden rounded-2xl shadow-soft"
+    <section className="section-pad bg-grain">
+      <div className="container-site" ref={sectionRef}>
+        <SectionHeader
+          as={heading}
+          eyebrow="Process"
+          title="How Ordering Works"
+          text="Four clear steps from initial artwork check to delivered packaging."
+        />
+        <div className="relative">
+          {/* Animated progress line — desktop only */}
+          <svg
+            aria-hidden="true"
+            className="absolute left-0 top-6 hidden h-1 w-full md:block"
+            viewBox="0 0 1000 4"
+            preserveAspectRatio="none"
+            fill="none"
+          >
+            <path
+              ref={lineRef}
+              d="M0,2 L1000,2"
+              stroke="var(--teal)"
+              strokeWidth="3"
+              strokeLinecap="round"
+            />
+          </svg>
+          <ol className="relative grid gap-8 md:grid-cols-4">
+            {/* Mobile vertical line */}
+            <span
+              aria-hidden
+              className="absolute left-6 top-0 h-full w-0.5 bg-border md:hidden"
+            />
+            {steps.map((s, i) => (
+              <StepCard
+                key={s.title}
+                n={i + 1}
+                {...s}
+                delay={STEP_DELAYS[i % STEP_DELAYS.length]}
+              />
+            ))}
+          </ol>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ───────── 6. WHY PRINTZY — consolidated to 4 points ───────── */
+const features = [
+  {
+    icon: BadgeCheck,
+    title: "Transparent pricing",
+    text: "Review quantities, pricing, and timing in your quotation before committing — no hidden costs.",
+  },
+  {
+    icon: Palette,
+    title: "Brand colour consistency",
+    text: "Precise ink matching ensures your cups, boxes, bags, and napkins match perfectly across every product.",
+  },
+  {
+    icon: Clock,
+    title: "Frictionless reorders",
+    text: "We keep your approved production artwork on file. Reorders take just a quick WhatsApp confirmation.",
+  },
+  {
+    icon: Truck,
+    title: "Nationwide delivery",
+    text: "Reliable shipping to Lahore, Karachi, Islamabad, Faisalabad, and all commercial centres across Pakistan.",
+  },
+];
+
+export function WhySection() {
+  return (
+    <section className="section-pad bg-card">
+      <div className="container-site">
+        <SectionHeader eyebrow="Why Printzy" title="Why Brands Choose Printzy" />
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {features.map((f, idx) => (
+            <IndustryCard
+              key={f.title}
+              {...f}
+              delay={CARD_DELAYS[idx % CARD_DELAYS.length]}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ───────── 7. GALLERY — masonry with lightbox ───────── */
+export function GalleryGrid({ items = gallery }: { items?: typeof gallery }) {
+  const [lightbox, setLightbox] = useState<number | null>(null);
+  const GALLERY_DELAYS = [100, 200, 300] as const;
+
+  const closeLightbox = useCallback(() => setLightbox(null), []);
+
+  useEffect(() => {
+    if (lightbox === null) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") closeLightbox();
+      if (e.key === "ArrowRight")
+        setLightbox((prev) =>
+          prev !== null ? (prev + 1) % items.length : null,
+        );
+      if (e.key === "ArrowLeft")
+        setLightbox((prev) =>
+          prev !== null ? (prev - 1 + items.length) % items.length : null,
+        );
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [lightbox, items.length, closeLightbox]);
+
+  return (
+    <>
+      <div className="columns-1 gap-4 sm:columns-2 lg:columns-3">
+        {items.map((g, idx) => (
+          <Reveal
+            key={g.alt}
+            delay={GALLERY_DELAYS[idx % GALLERY_DELAYS.length]}
+            className="group mb-4 break-inside-avoid overflow-hidden rounded-2xl shadow-sm cursor-pointer"
+          >
+            <button
+              type="button"
+              onClick={() => setLightbox(idx)}
+              className="block w-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-2xl"
+              aria-label={`View ${g.alt} fullscreen`}
+            >
+              <img
+                src={g.src}
+                {...responsiveImageProps(
+                  g.src,
+                  "(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw",
+                )}
+                alt={g.alt}
+                width={g.w}
+                height={g.h}
+                loading="lazy"
+                className="w-full transition-transform duration-500 ease-out group-hover:scale-105"
+              />
+            </button>
+          </Reveal>
+        ))}
+      </div>
+
+      {/* Lightbox overlay */}
+      {lightbox !== null && items[lightbox] != null && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-ink/85 p-4 backdrop-blur-sm"
+          onClick={closeLightbox}
+          role="dialog"
+          aria-label="Image lightbox"
+          aria-modal="true"
         >
+          <button
+            type="button"
+            className="absolute right-4 top-4 rounded-full bg-card/90 p-2 text-foreground shadow-soft hover:bg-card focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            onClick={closeLightbox}
+            aria-label="Close lightbox"
+          >
+            ✕
+          </button>
+          {items.length > 1 && (
+            <>
+              <button
+                type="button"
+                className="absolute left-4 top-1/2 -translate-y-1/2 rounded-full bg-card/90 p-2 text-foreground shadow-soft hover:bg-card focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setLightbox(
+                    (lightbox - 1 + items.length) % items.length,
+                  );
+                }}
+                aria-label="Previous image"
+              >
+                <ChevronLeft className="size-5" />
+              </button>
+              <button
+                type="button"
+                className="absolute right-4 top-1/2 -translate-y-1/2 rounded-full bg-card/90 p-2 text-foreground shadow-soft hover:bg-card focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setLightbox((lightbox + 1) % items.length);
+                }}
+                aria-label="Next image"
+              >
+                <ChevronRight className="size-5" />
+              </button>
+            </>
+          )}
           <img
-            src={g.src}
-            {...responsiveImageProps(
-              g.src,
-              "(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw",
-            )}
-            alt={g.alt}
-            width={g.w}
-            height={g.h}
-            loading="lazy"
-            className="w-full transition-transform duration-500 ease-out group-hover:scale-105"
+            src={items[lightbox]!.src}
+            alt={items[lightbox]!.alt}
+            className="max-h-[85vh] max-w-[90vw] rounded-xl object-contain shadow-lift animate-fade-in"
+            onClick={(e) => e.stopPropagation()}
           />
-        </Reveal>
-      ))}
-    </div>
+        </div>
+      )}
+    </>
   );
 }
 
 export function FeaturedWork() {
   return (
-    <section className="section-pad bg-card">
+    <section className="section-pad bg-muted/30">
       <div className="container-site">
         <SectionHeader eyebrow="Our work" title="Featured Work" />
         <GalleryGrid />
@@ -446,32 +679,27 @@ export function FeaturedWork() {
   );
 }
 
-/**
- * ProofSection - Authentic Social Proof
- * Strictly respects Rule 1 of SEO guidelines: Never publish fabricated claims, ratings, or fake client reviews.
- * If clientReviews and clientLogos are empty, renders NOTHING (returns null).
- */
+/* ───────── Proof / Testimonials (unchanged — strict authenticity guard) ───────── */
 export function ProofSection() {
   const [i, setI] = useState(0);
   const n = clientReviews.length;
 
-  // Strict authenticity guard: if no verified reviews exist, render nothing
   if (n === 0 && clientLogos.length === 0 && caseStudies.length === 0) {
     return null;
   }
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
-    if (e.key === "ArrowLeft") {
-      setI((i - 1 + n) % n);
-    } else if (e.key === "ArrowRight") {
-      setI((i + 1) % n);
-    }
+    if (e.key === "ArrowLeft") setI((i - 1 + n) % n);
+    else if (e.key === "ArrowRight") setI((i + 1) % n);
   };
 
   return (
     <section className="section-pad bg-accent">
       <div className="container-site">
-        <SectionHeader eyebrow="Verified Proof" title="Trusted by Food Brands in Pakistan" />
+        <SectionHeader
+          eyebrow="Verified Proof"
+          title="Trusted by Food Brands in Pakistan"
+        />
 
         {clientLogos.length > 0 && (
           <div className="mb-12 flex flex-wrap items-center justify-center gap-8 opacity-80">
@@ -505,9 +733,12 @@ export function ProofSection() {
                   </p>
                   <div className="mt-4 flex items-center justify-between border-t border-border pt-4">
                     <div>
-                      <div className="font-bold text-foreground">{clientReviews[i].clientName}</div>
+                      <div className="font-bold text-foreground">
+                        {clientReviews[i].clientName}
+                      </div>
                       <div className="text-sm text-muted-foreground">
-                        {clientReviews[i].businessName} &bull; {clientReviews[i].city}
+                        {clientReviews[i].businessName} &bull;{" "}
+                        {clientReviews[i].city}
                       </div>
                     </div>
                     {clientReviews[i].verifiedOrder && (
@@ -562,9 +793,9 @@ export function ProofSection() {
   );
 }
 
-// Backward compatibility alias for any older component references
 export const Testimonials = ProofSection;
 
+/* ───────── 8. FAQ — smooth accordion ───────── */
 export function FAQ() {
   const faqSchema = {
     "@context": "https://schema.org",
@@ -579,24 +810,31 @@ export function FAQ() {
     })),
   };
 
-  const safeJsonLd = JSON.stringify(faqSchema).replace(/</g, "\\u003c").replace(/>/g, "\\u003e");
+  const safeJsonLd = JSON.stringify(faqSchema)
+    .replace(/</g, "\\u003c")
+    .replace(/>/g, "\\u003e");
 
   return (
     <section className="section-pad">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd }} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: safeJsonLd }}
+      />
       <div className="container-site">
         <SectionHeader eyebrow="FAQ" title="Frequently asked questions" />
         <Accordion
           type="single"
           collapsible
-          className="mx-auto max-w-3xl rounded-2xl bg-card px-6 shadow-soft"
+          className="mx-auto max-w-3xl divide-y divide-border rounded-2xl border border-border bg-card px-6 shadow-sm"
         >
           {faqs.map((f, k) => (
-            <AccordionItem key={f.q} value={`f${k}`}>
+            <AccordionItem key={f.q} value={`f${k}`} className="border-0">
               <AccordionTrigger className="min-h-14 text-left font-display text-base font-semibold text-foreground">
                 {f.q}
               </AccordionTrigger>
-              <AccordionContent className="text-base text-muted-foreground">{f.a}</AccordionContent>
+              <AccordionContent className="text-base text-muted-foreground leading-relaxed">
+                {f.a}
+              </AccordionContent>
             </AccordionItem>
           ))}
         </Accordion>
@@ -605,6 +843,7 @@ export function FAQ() {
   );
 }
 
+/* ───────── 9. FINAL CTA BAND ───────── */
 export function QuoteCTA() {
   return (
     <section className="relative bg-navy section-pad text-navy-foreground overflow-hidden">
@@ -617,10 +856,12 @@ export function QuoteCTA() {
         className="pointer-events-none absolute -right-16 -bottom-16 size-72 rounded-full bg-primary/20 blur-3xl animate-blob-delayed"
       />
       <Reveal className="container-site relative z-10 text-center">
-        <h2 className="text-navy-foreground">Ready to see your logo on your packaging?</h2>
+        <h2 className="text-navy-foreground">
+          Ready to see your logo on your packaging?
+        </h2>
         <p className="mx-auto mt-4 max-w-xl text-lg text-navy-foreground/85">
-          Send your required product, size, and estimated quantity. Get a complimentary 3D mockup
-          and itemised quote based on your requirements.
+          Send your required product, size, and estimated quantity. Get a
+          complimentary 3D mockup and itemised quote based on your requirements.
         </p>
         <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
           <Button asChild size="lg" shimmer>
@@ -635,12 +876,15 @@ export function QuoteCTA() {
   );
 }
 
+/* ───────── PageHero (shared) ───────── */
 export function PageHero({ title, text }: { title: string; text: string }) {
   return (
-    <section className="bg-hero py-12 sm:py-14 md:py-16">
-      <div className="container-site max-w-3xl text-center">
+    <section className="bg-hero py-12 sm:py-14 md:py-16 bg-grain">
+      <div className="container-site max-w-3xl text-center relative z-10">
         <h1 className="text-balance">{title}</h1>
-        <p className="mx-auto mt-4 max-w-2xl text-base text-muted-foreground sm:text-lg">{text}</p>
+        <p className="mx-auto mt-4 max-w-2xl text-base text-muted-foreground sm:text-lg">
+          {text}
+        </p>
       </div>
     </section>
   );
