@@ -422,7 +422,8 @@
   .animate-float-delayed,
   .animate-blob,
   .animate-blob-delayed,
-  .animate-fade-in {
+  .animate-fade-in,
+  .animate-marquee {
     animation: none !important;
   }
   .cta-shimmer::after {
