@@ -13,6 +13,7 @@ import {
   FAQ,
   QuoteCTA,
 } from "@/components/site/sections";
+import { InternationalGlobeShowcase } from "@/components/site/international-globe";
 
 export const Route = createFileRoute("/")({
   head: () =>
@@ -35,6 +36,11 @@ function Index() {
       <IndustriesSection />
       <HowItWorksSection />
       <WhySection />
+      <section className="section-pad bg-muted/40">
+        <div className="container-site max-w-7xl">
+          <InternationalGlobeShowcase />
+        </div>
+      </section>
       <FeaturedWork />
       <Testimonials />
       <FAQ />
