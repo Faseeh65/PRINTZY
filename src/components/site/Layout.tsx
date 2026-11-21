@@ -73,12 +73,12 @@ export function Navbar() {
           />
         </Link>
         <nav aria-label="Main navigation" className="hidden lg:block">
-          <ul className="flex items-center gap-1">
+          <ul className="flex items-center gap-0.5 xl:gap-1">
             {navLinks.map((l) => (
               <li key={l.to}>
                 <Link
                   to={l.to}
-                  className="rounded-lg px-3 py-2 font-medium text-foreground transition-all duration-200 hover:text-secondary hover:bg-accent/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                  className="whitespace-nowrap rounded-lg px-2.5 py-1.5 text-sm font-medium text-foreground transition-all duration-200 hover:text-secondary hover:bg-accent/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                   activeProps={{ className: "text-secondary font-semibold bg-accent/30" }}
                   activeOptions={{ exact: true }}
                 >
