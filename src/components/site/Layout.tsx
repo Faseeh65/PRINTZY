@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { Mail, Phone, Truck, Menu } from "lucide-react";
+import { Mail, Phone, Truck, Menu, Globe } from "lucide-react";
 import { WhatsAppIcon } from "@/components/icons/WhatsAppIcon";
 import {
   Sheet,
@@ -18,6 +18,14 @@ export function TopBar() {
   return (
     <div className="hidden bg-navy text-sm text-navy-foreground md:block">
       <div className="container-site flex h-10 items-center justify-end gap-6">
+        <Link
+          to="/export-custom-packaging"
+          className="inline-flex items-center gap-1.5 transition-colors duration-200 text-peach hover:underline font-medium"
+        >
+          <Globe className="size-4" aria-hidden="true" />
+          Worldwide Export Inquiries
+        </Link>
+        <span className="h-3 w-px bg-white/20" aria-hidden="true" />
         <a
           href={`mailto:${site.email}`}
           className="inline-flex items-center gap-2 transition-colors duration-200 hover:text-peach"
@@ -147,7 +155,7 @@ export function Footer() {
       aria-label="Site footer"
     >
       <h2 className="sr-only">Footer navigation and company information</h2>
-      <div className="container-site grid grid-cols-1 gap-x-8 gap-y-10 py-12 sm:grid-cols-2 sm:py-14 lg:grid-cols-4 lg:py-16">
+      <div className="container-site grid grid-cols-1 gap-x-8 gap-y-10 py-12 sm:grid-cols-2 sm:py-14 lg:grid-cols-5 lg:py-16">
         <div className="sm:col-span-2 lg:col-span-1">
           <Link
             to="/"
@@ -165,6 +173,14 @@ export function Footer() {
             </p>
           </Link>
           <p className="mt-4 text-sm text-navy-foreground/85 leading-relaxed">{site.about}</p>
+          <div className="mt-4">
+            <Link
+              to="/export-custom-packaging"
+              className="inline-flex items-center gap-1.5 rounded-full border border-saffron/40 bg-saffron/15 px-3 py-1 text-xs font-semibold text-saffron hover:bg-saffron/25 transition-colors"
+            >
+              <Globe className="size-3.5" /> Worldwide Export Available
+            </Link>
+          </div>
         </div>
         <FooterCol title="Quick links">
           {navLinks.map((l) => (
@@ -193,6 +209,8 @@ export function Footer() {
               Request a Sample
             </Link>
           </li>
+        </FooterCol>
+        <FooterCol title="Resources">
           <li>
             <Link
               to="/artwork-guide"
@@ -207,14 +225,6 @@ export function Footer() {
               className="hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm"
             >
               Materials & Documentation
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/export-custom-packaging"
-              className="hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm"
-            >
-              Export Inquiries
             </Link>
           </li>
           <li>
@@ -249,22 +259,6 @@ export function Footer() {
               Return & Reprint Policy
             </Link>
           </li>
-          <li>
-            <Link
-              to="/privacy"
-              className="hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm"
-            >
-              Privacy Policy
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/terms"
-              className="hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm"
-            >
-              Terms of Service
-            </Link>
-          </li>
         </FooterCol>
         <FooterCol title="Products">
           {products.map((p) => (
@@ -292,7 +286,7 @@ export function Footer() {
           <li>
             <a
               href={`mailto:${site.email}`}
-              className="inline-flex items-center gap-2 break-all hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm"
+              className="inline-flex items-center gap-2 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm"
             >
               <Mail className="size-4" aria-hidden="true" />
               {site.email}
@@ -303,11 +297,23 @@ export function Footer() {
               href={site.whatsapp}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackGtmWhatsAppClick("footer_link")}
               className="inline-flex items-center gap-2 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm"
             >
               <WhatsAppIcon className="size-4" aria-hidden="true" />
               WhatsApp us
             </a>
+          </li>
+          <li className="mt-4 pt-2">
+            <Link
+              to="/export-custom-packaging"
+              className="inline-flex items-center gap-1.5 text-sm font-semibold text-peach hover:underline"
+            >
+              <Globe className="size-4" /> Export Inquiries
+            </Link>
+            <span className="block mt-1 text-xs text-navy-foreground/70">
+              International sea & air freight shipping for global brands.
+            </span>
           </li>
         </FooterCol>
       </div>
