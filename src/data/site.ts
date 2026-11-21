@@ -26,8 +26,7 @@ export const navLinks = [
   { to: "/industries", label: "Industries" },
   { to: "/blog", label: "Guides" },
   { to: "/how-it-works", label: "How It Works" },
-  { to: "/gallery", label: "Gallery" },
-  { to: "/export-custom-packaging", label: "Worldwide Export" },
+  { to: "/export-custom-packaging", label: "Exports" },
   { to: "/about", label: "About" },
   { to: "/contact", label: "Contact" },
 ] as const;

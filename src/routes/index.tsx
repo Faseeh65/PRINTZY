@@ -8,7 +8,6 @@ import {
   IndustriesSection,
   HowItWorksSection,
   WhySection,
-  FeaturedWork,
   Testimonials,
   FAQ,
   QuoteCTA,
@@ -41,7 +40,6 @@ function Index() {
           <InternationalGlobeShowcase />
         </div>
       </section>
-      <FeaturedWork />
       <Testimonials />
       <FAQ />
       <QuoteCTA />
