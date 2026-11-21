@@ -81,8 +81,7 @@ interface Globe3DProps {
 
 const DEFAULT_EARTH_TEXTURE =
   "https://unpkg.com/three-globe@2.31.0/example/img/earth-blue-marble.jpg";
-const DEFAULT_BUMP_TEXTURE =
-  "https://unpkg.com/three-globe@2.31.0/example/img/earth-topology.png";
+const DEFAULT_BUMP_TEXTURE = "https://unpkg.com/three-globe@2.31.0/example/img/earth-topology.png";
 
 // ============================================================================
 // Utility Functions
@@ -91,11 +90,7 @@ const DEFAULT_BUMP_TEXTURE =
 /**
  * Convert latitude/longitude to 3D cartesian coordinates
  */
-function latLngToVector3(
-  lat: number,
-  lng: number,
-  radius: number,
-): THREE.Vector3 {
+function latLngToVector3(lat: number, lng: number, radius: number): THREE.Vector3 {
   const phi = (90 - lat) * (Math.PI / 180);
   const theta = (lng + 180) * (Math.PI / 180);
 
@@ -118,13 +113,7 @@ interface MarkerProps {
   onHover?: ((marker: GlobeMarker | null) => void) | undefined;
 }
 
-function Marker({
-  marker,
-  radius,
-  defaultSize,
-  onClick,
-  onHover,
-}: MarkerProps) {
+function Marker({ marker, radius, defaultSize, onClick, onHover }: MarkerProps) {
   const [hovered, setHovered] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const groupRef = useRef<THREE.Group>(null);
@@ -258,19 +247,11 @@ interface RotatingGlobeProps {
   onMarkerHover?: ((marker: GlobeMarker | null) => void) | undefined;
 }
 
-function RotatingGlobe({
-  config,
-  markers,
-  onMarkerClick,
-  onMarkerHover,
-}: RotatingGlobeProps) {
+function RotatingGlobe({ config, markers, onMarkerClick, onMarkerHover }: RotatingGlobeProps) {
   const groupRef = useRef<THREE.Group>(null);
 
   // Load Earth textures
-  const [earthTexture, bumpTexture] = useTexture([
-    config.textureUrl,
-    config.bumpMapUrl,
-  ]);
+  const [earthTexture, bumpTexture] = useTexture([config.textureUrl, config.bumpMapUrl]);
 
   // Configure textures
   useMemo(() => {
@@ -308,12 +289,7 @@ function RotatingGlobe({
       {/* Wireframe overlay */}
       {config.showWireframe && (
         <mesh geometry={wireframeGeometry}>
-          <meshBasicMaterial
-            color={config.wireframeColor}
-            wireframe
-            transparent
-            opacity={0.08}
-          />
+          <meshBasicMaterial color={config.wireframeColor} wireframe transparent opacity={0.08} />
         </mesh>
       )}
 
@@ -467,9 +443,7 @@ function LoadingFallback() {
   return (
     <Html center>
       <div className="flex shrink-0 flex-col items-center gap-3">
-        <span className="inline-block shrink-0 text-sm text-neutral-400">
-          Loading globe...
-        </span>
+        <span className="inline-block shrink-0 text-sm text-neutral-400">Loading globe...</span>
       </div>
     </Html>
   );
@@ -515,10 +489,7 @@ export function Globe3D({
     setMounted(true);
   }, []);
 
-  const mergedConfig = useMemo(
-    () => ({ ...defaultConfig, ...config }),
-    [config],
-  );
+  const mergedConfig = useMemo(() => ({ ...defaultConfig, ...config }), [config]);
 
   if (!mounted) {
     return (

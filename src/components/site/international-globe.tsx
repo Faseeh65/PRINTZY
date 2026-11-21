@@ -115,9 +115,9 @@ export function InternationalGlobeShowcase() {
           </h2>
 
           <p className="mt-4 text-base text-navy-foreground/85 leading-relaxed sm:text-lg">
-            From cafe chains in Dubai and London to cloud kitchens and retail brands
-            worldwide, Printzy manufactures and exports brand-consistent cups, food boxes,
-            bags, and custom cartons with end-to-end freight coordination.
+            From cafe chains in Dubai and London to cloud kitchens and retail brands worldwide,
+            Printzy manufactures and exports brand-consistent cups, food boxes, bags, and custom
+            cartons with end-to-end freight coordination.
           </p>
 
           {/* Interactive marker indicator */}
@@ -125,7 +125,9 @@ export function InternationalGlobeShowcase() {
             {activeMarker ? (
               <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-medium text-white backdrop-blur animate-fade-in">
                 <MapPin className="size-3.5 text-saffron" />
-                <span>Destination: <strong>{activeMarker.label}</strong></span>
+                <span>
+                  Destination: <strong>{activeMarker.label}</strong>
+                </span>
               </span>
             ) : (
               <span className="inline-flex items-center gap-2 text-xs text-navy-foreground/60">
@@ -143,10 +145,7 @@ export function InternationalGlobeShowcase() {
               Request Export Quote
             </Link>
           </Button>
-          <WhatsAppButton
-            variant="outlineLight"
-            label="WhatsApp Export Desk"
-          />
+          <WhatsAppButton variant="outlineLight" label="WhatsApp Export Desk" />
         </div>
       </div>
 
