@@ -13,12 +13,6 @@ import {
   Box,
   ShoppingBag,
   Sparkles,
-  UtensilsCrossed,
-  Cake,
-  CloudCog,
-  Store,
-  Gift,
-  PartyPopper,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -189,20 +183,20 @@ export function Hero() {
 
 /* ───────── 2. TRUST STRIP — infinite industry marquee ───────── */
 const marqueeItems = [
-  { icon: Coffee, label: "Cafes" },
-  { icon: UtensilsCrossed, label: "Restaurants" },
-  { icon: Cake, label: "Bakeries" },
-  { icon: CloudCog, label: "Cloud Kitchens" },
-  { icon: Store, label: "Retail & E-commerce" },
-  { icon: Gift, label: "Corporate Gifting" },
-  { icon: PartyPopper, label: "Events & Weddings" },
+  "Cafes",
+  "Restaurants",
+  "Bakeries",
+  "Cloud Kitchens",
+  "Retail & E-commerce",
+  "Corporate Gifting",
+  "Events & Weddings",
 ];
 
 export function TrustBar() {
   return (
     <section
       aria-label="Industries we print for"
-      className="border-y border-border bg-card py-5 overflow-hidden"
+      className="border-y border-border bg-card py-4 overflow-hidden"
     >
       <div className="relative">
         {/* Fade edges */}
@@ -215,19 +209,15 @@ export function TrustBar() {
           className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-card to-transparent"
         />
         {/* Marquee track — duplicated content for seamless loop */}
-        <div className="animate-marquee flex w-max items-center gap-10">
-          {[...marqueeItems, ...marqueeItems].map((item, idx) => {
-            const Icon = item.icon;
-            return (
-              <span
-                key={`${item.label}-${idx}`}
-                className="inline-flex shrink-0 items-center gap-2.5 text-sm font-semibold text-muted-foreground"
-              >
-                <Icon className="size-5 text-secondary" aria-hidden />
-                {item.label}
-              </span>
-            );
-          })}
+        <div className="animate-marquee flex w-max items-center gap-12">
+          {[...marqueeItems, ...marqueeItems].map((label, idx) => (
+            <span
+              key={`${label}-${idx}`}
+              className="inline-flex shrink-0 items-center text-sm font-semibold tracking-wide text-muted-foreground transition-colors hover:text-foreground"
+            >
+              {label}
+            </span>
+          ))}
         </div>
       </div>
     </section>
