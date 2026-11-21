@@ -336,7 +336,9 @@ export function ProductsSection({ heading = "h2" as "h1" | "h2" }) {
             <div
               key={p.slug}
               className={
-                idx < 2 ? "sm:col-span-1 lg:col-span-2" : "sm:col-span-1"
+                idx < 2
+                  ? "h-full flex flex-col sm:col-span-1 lg:col-span-2"
+                  : "h-full flex flex-col sm:col-span-1"
               }
             >
               <ProductCard
