@@ -83,16 +83,14 @@ export function Hero() {
           </Reveal>
           <Reveal delay={150}>
             <h1 className="tracking-tight">
-              Custom Printed Packaging for Food Brands and Growing Businesses in
-              Pakistan
+              Custom Printed Packaging for Food Brands and Growing Businesses in Pakistan
             </h1>
           </Reveal>
           <Reveal delay={200}>
             <p className="mt-5 max-w-xl text-lg text-muted-foreground leading-relaxed">
-              From your first cup to your hundredth branch, Printzy prints
-              packaging that looks the same everywhere your customer meets your
-              brand. Share your logo, get a free mockup, approve a proof, and we
-              print and deliver.
+              From your first cup to your hundredth branch, Printzy prints packaging that looks the
+              same everywhere your customer meets your brand. Share your logo, get a free mockup,
+              approve a proof, and we print and deliver.
             </p>
           </Reveal>
           <Reveal delay={250}>
@@ -126,18 +124,12 @@ export function Hero() {
         </div>
 
         {/* Layered product composition — cup + box + bag */}
-        <Reveal
-          delay={200}
-          className="relative mx-auto w-full max-w-lg"
-        >
+        <Reveal delay={200} className="relative mx-auto w-full max-w-lg">
           <div className="relative aspect-[4/3]">
             {/* Main hero image — largest, background */}
             <img
               src={images.food}
-              {...responsiveImageProps(
-                images.food,
-                "(min-width: 1024px) 50vw, 100vw",
-              )}
+              {...responsiveImageProps(images.food, "(min-width: 1024px) 50vw, 100vw")}
               alt="Branded pizza box, takeaway food packaging and paper cup with custom logo"
               width={1024}
               height={768}
@@ -147,10 +139,7 @@ export function Hero() {
             {/* Overlapping cup image — floats top-left */}
             <img
               src={images.cups}
-              {...responsiveImageProps(
-                images.cups,
-                "(min-width: 1024px) 20vw, 35vw",
-              )}
+              {...responsiveImageProps(images.cups, "(min-width: 1024px) 20vw, 35vw")}
               alt="Custom printed coffee and tea cups for Pakistani cafes"
               width={400}
               height={400}
@@ -160,10 +149,7 @@ export function Hero() {
             {/* Overlapping bag image — floats bottom-right */}
             <img
               src={images.bags}
-              {...responsiveImageProps(
-                images.bags,
-                "(min-width: 1024px) 20vw, 35vw",
-              )}
+              {...responsiveImageProps(images.bags, "(min-width: 1024px) 20vw, 35vw")}
               alt="Kraft and white paper bags with printed logo"
               width={400}
               height={400}
@@ -257,25 +243,19 @@ export function OneSupplierSection() {
             <span className="rounded-full border border-saffron/30 bg-peach/60 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-navy">
               Unified Brand Identity
             </span>
-            <h2 className="mt-3">
-              One supplier for the whole customer journey
-            </h2>
+            <h2 className="mt-3">One supplier for the whole customer journey</h2>
             <p className="mt-4 text-base text-muted-foreground sm:text-lg">
-              Most food brands buy cups from one vendor, boxes from another and
-              bags from a third, and the colours never quite match. At Printzy
-              you can order cups, pizza boxes, food boxes, takeaway sets, paper
-              bags, napkins and cup sleeves in one brand-consistent run. One
-              artwork approval, one delivery, one reorder.
+              Most food brands buy cups from one vendor, boxes from another and bags from a third,
+              and the colours never quite match. At Printzy you can order cups, pizza boxes, food
+              boxes, takeaway sets, paper bags, napkins and cup sleeves in one brand-consistent run.
+              One artwork approval, one delivery, one reorder.
             </p>
           </Reveal>
         </div>
 
         <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {journeys.map((j, idx) => (
-            <Reveal
-              key={j.title}
-              delay={CARD_DELAYS[idx % CARD_DELAYS.length]}
-            >
+            <Reveal key={j.title} delay={CARD_DELAYS[idx % CARD_DELAYS.length]}>
               <div className="group flex h-full flex-col overflow-hidden rounded-2xl border border-border/60 bg-card shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-soft">
                 {/* Product image for visual rhythm */}
                 <div className="aspect-[16/10] overflow-hidden bg-muted/30">
@@ -293,9 +273,7 @@ export function OneSupplierSection() {
                   />
                 </div>
                 <div className="flex flex-1 flex-col p-5">
-                  <h3 className="text-base font-bold text-foreground">
-                    {j.title}
-                  </h3>
+                  <h3 className="text-base font-bold text-foreground">{j.title}</h3>
                   <p className="mt-2 flex-1 text-sm text-muted-foreground leading-relaxed">
                     {j.desc}
                   </p>
@@ -341,10 +319,7 @@ export function ProductsSection({ heading = "h2" as "h1" | "h2" }) {
                   : "h-full flex flex-col sm:col-span-1"
               }
             >
-              <ProductCard
-                {...p}
-                delay={CARD_DELAYS[idx % CARD_DELAYS.length]}
-              />
+              <ProductCard {...p} delay={CARD_DELAYS[idx % CARD_DELAYS.length]} />
             </div>
           ))}
         </div>
@@ -365,11 +340,7 @@ export function IndustriesSection({ heading = "h2" as "h1" | "h2" }) {
         />
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {industries.map((i, idx) => (
-            <IndustryCard
-              key={i.title}
-              {...i}
-              delay={CARD_DELAYS[idx % CARD_DELAYS.length]}
-            />
+            <IndustryCard key={i.title} {...i} delay={CARD_DELAYS[idx % CARD_DELAYS.length]} />
           ))}
         </div>
       </div>
@@ -406,12 +377,7 @@ export function HowItWorksSection({ heading = "h2" as "h1" | "h2" }) {
   useEffect(() => {
     const path = lineRef.current;
     const section = sectionRef.current;
-    if (
-      !path ||
-      !section ||
-      window.matchMedia("(prefers-reduced-motion: reduce)").matches
-    )
-      return;
+    if (!path || !section || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
     const totalLength = path.getTotalLength();
     path.style.strokeDasharray = `${totalLength}`;
@@ -459,10 +425,7 @@ export function HowItWorksSection({ heading = "h2" as "h1" | "h2" }) {
           </svg>
           <ol className="relative grid gap-8 md:grid-cols-4">
             {/* Mobile vertical line */}
-            <span
-              aria-hidden
-              className="absolute left-6 top-0 h-full w-0.5 bg-border md:hidden"
-            />
+            <span aria-hidden className="absolute left-6 top-0 h-full w-0.5 bg-border md:hidden" />
             {steps.map((s, i) => (
               <StepCard
                 key={s.title}
@@ -509,11 +472,7 @@ export function WhySection() {
         <SectionHeader eyebrow="Why Printzy" title="Why Brands Choose Printzy" />
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {features.map((f, idx) => (
-            <IndustryCard
-              key={f.title}
-              {...f}
-              delay={CARD_DELAYS[idx % CARD_DELAYS.length]}
-            />
+            <IndustryCard key={f.title} {...f} delay={CARD_DELAYS[idx % CARD_DELAYS.length]} />
           ))}
         </div>
       </div>
@@ -533,13 +492,9 @@ export function GalleryGrid({ items = gallery }: { items?: typeof gallery }) {
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") closeLightbox();
       if (e.key === "ArrowRight")
-        setLightbox((prev) =>
-          prev !== null ? (prev + 1) % items.length : null,
-        );
+        setLightbox((prev) => (prev !== null ? (prev + 1) % items.length : null));
       if (e.key === "ArrowLeft")
-        setLightbox((prev) =>
-          prev !== null ? (prev - 1 + items.length) % items.length : null,
-        );
+        setLightbox((prev) => (prev !== null ? (prev - 1 + items.length) % items.length : null));
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
@@ -601,9 +556,7 @@ export function GalleryGrid({ items = gallery }: { items?: typeof gallery }) {
                 className="absolute left-4 top-1/2 -translate-y-1/2 rounded-full bg-card/90 p-2 text-foreground shadow-soft hover:bg-card focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                 onClick={(e) => {
                   e.stopPropagation();
-                  setLightbox(
-                    (lightbox - 1 + items.length) % items.length,
-                  );
+                  setLightbox((lightbox - 1 + items.length) % items.length);
                 }}
                 aria-label="Previous image"
               >
@@ -674,10 +627,7 @@ export function ProofSection() {
   return (
     <section className="section-pad bg-accent">
       <div className="container-site">
-        <SectionHeader
-          eyebrow="Verified Proof"
-          title="Trusted by Food Brands in Pakistan"
-        />
+        <SectionHeader eyebrow="Verified Proof" title="Trusted by Food Brands in Pakistan" />
 
         {clientLogos.length > 0 && (
           <div className="mb-12 flex flex-wrap items-center justify-center gap-8 opacity-80">
@@ -711,12 +661,9 @@ export function ProofSection() {
                   </p>
                   <div className="mt-4 flex items-center justify-between border-t border-border pt-4">
                     <div>
-                      <div className="font-bold text-foreground">
-                        {clientReviews[i].clientName}
-                      </div>
+                      <div className="font-bold text-foreground">{clientReviews[i].clientName}</div>
                       <div className="text-sm text-muted-foreground">
-                        {clientReviews[i].businessName} &bull;{" "}
-                        {clientReviews[i].city}
+                        {clientReviews[i].businessName} &bull; {clientReviews[i].city}
                       </div>
                     </div>
                     {clientReviews[i].verifiedOrder && (
@@ -788,16 +735,11 @@ export function FAQ() {
     })),
   };
 
-  const safeJsonLd = JSON.stringify(faqSchema)
-    .replace(/</g, "\\u003c")
-    .replace(/>/g, "\\u003e");
+  const safeJsonLd = JSON.stringify(faqSchema).replace(/</g, "\\u003c").replace(/>/g, "\\u003e");
 
   return (
     <section className="section-pad">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: safeJsonLd }}
-      />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd }} />
       <div className="container-site">
         <SectionHeader eyebrow="FAQ" title="Frequently asked questions" />
         <Accordion
@@ -834,12 +776,10 @@ export function QuoteCTA() {
         className="pointer-events-none absolute -right-16 -bottom-16 size-72 rounded-full bg-primary/20 blur-3xl animate-blob-delayed"
       />
       <Reveal className="container-site relative z-10 text-center">
-        <h2 className="text-navy-foreground">
-          Ready to see your logo on your packaging?
-        </h2>
+        <h2 className="text-navy-foreground">Ready to see your logo on your packaging?</h2>
         <p className="mx-auto mt-4 max-w-xl text-lg text-navy-foreground/85">
-          Send your required product, size, and estimated quantity. Get a
-          complimentary 3D mockup and itemised quote based on your requirements.
+          Send your required product, size, and estimated quantity. Get a complimentary 3D mockup
+          and itemised quote based on your requirements.
         </p>
         <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
           <Button asChild size="lg" shimmer>
@@ -860,9 +800,7 @@ export function PageHero({ title, text }: { title: string; text: string }) {
     <section className="bg-hero py-12 sm:py-14 md:py-16 bg-grain">
       <div className="container-site max-w-3xl text-center relative z-10">
         <h1 className="text-balance">{title}</h1>
-        <p className="mx-auto mt-4 max-w-2xl text-base text-muted-foreground sm:text-lg">
-          {text}
-        </p>
+        <p className="mx-auto mt-4 max-w-2xl text-base text-muted-foreground sm:text-lg">{text}</p>
       </div>
     </section>
   );

@@ -60,9 +60,9 @@ function ExportCustomPackaging() {
             <div className="mt-8 rounded-2xl border border-border bg-muted/40 p-6">
               <h2 className="text-xl font-bold">Request an export review</h2>
               <p className="mt-2 text-sm text-muted-foreground">
-                Export MOQ, production timing, transport options, documents, and payment terms are not
-                published as fixed offers. Include your requirements so the team can respond with the
-                details that apply to your shipment.
+                Export MOQ, production timing, transport options, documents, and payment terms are
+                not published as fixed offers. Include your requirements so the team can respond
+                with the details that apply to your shipment.
               </p>
               <div className="mt-5 flex flex-wrap gap-3">
                 <Button asChild>
