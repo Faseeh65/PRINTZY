@@ -249,22 +249,6 @@ export function Footer() {
               Return & Reprint Policy
             </Link>
           </li>
-          <li>
-            <Link
-              to="/privacy"
-              className="hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm"
-            >
-              Privacy Policy
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/terms"
-              className="hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm"
-            >
-              Terms of Service
-            </Link>
-          </li>
         </FooterCol>
         <FooterCol title="Products">
           {products.map((p) => (
