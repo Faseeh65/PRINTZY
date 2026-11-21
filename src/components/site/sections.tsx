@@ -9,16 +9,6 @@ import {
   ChevronLeft,
   ChevronRight,
   ArrowRight,
-  Coffee,
-  Box,
-  ShoppingBag,
-  Sparkles,
-  UtensilsCrossed,
-  Cake,
-  CloudCog,
-  Store,
-  Gift,
-  PartyPopper,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -189,20 +179,20 @@ export function Hero() {
 
 /* ───────── 2. TRUST STRIP — infinite industry marquee ───────── */
 const marqueeItems = [
-  { icon: Coffee, label: "Cafes" },
-  { icon: UtensilsCrossed, label: "Restaurants" },
-  { icon: Cake, label: "Bakeries" },
-  { icon: CloudCog, label: "Cloud Kitchens" },
-  { icon: Store, label: "Retail & E-commerce" },
-  { icon: Gift, label: "Corporate Gifting" },
-  { icon: PartyPopper, label: "Events & Weddings" },
+  "Cafes",
+  "Restaurants",
+  "Bakeries",
+  "Cloud Kitchens",
+  "Retail & E-commerce",
+  "Corporate Gifting",
+  "Events & Weddings",
 ];
 
 export function TrustBar() {
   return (
     <section
       aria-label="Industries we print for"
-      className="border-y border-border bg-card py-5 overflow-hidden"
+      className="border-y border-border bg-card py-4 overflow-hidden"
     >
       <div className="relative">
         {/* Fade edges */}
@@ -215,19 +205,15 @@ export function TrustBar() {
           className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-card to-transparent"
         />
         {/* Marquee track — duplicated content for seamless loop */}
-        <div className="animate-marquee flex w-max items-center gap-10">
-          {[...marqueeItems, ...marqueeItems].map((item, idx) => {
-            const Icon = item.icon;
-            return (
-              <span
-                key={`${item.label}-${idx}`}
-                className="inline-flex shrink-0 items-center gap-2.5 text-sm font-semibold text-muted-foreground"
-              >
-                <Icon className="size-5 text-secondary" aria-hidden />
-                {item.label}
-              </span>
-            );
-          })}
+        <div className="animate-marquee flex w-max items-center gap-12">
+          {[...marqueeItems, ...marqueeItems].map((label, idx) => (
+            <span
+              key={`${label}-${idx}`}
+              className="inline-flex shrink-0 items-center text-sm font-semibold tracking-wide text-muted-foreground transition-colors hover:text-foreground"
+            >
+              {label}
+            </span>
+          ))}
         </div>
       </div>
     </section>
@@ -238,28 +224,24 @@ export function TrustBar() {
 export function OneSupplierSection() {
   const journeys = [
     {
-      icon: Coffee,
       title: "1. Handheld & Counter",
       desc: "Single & double-wall paper cups and heat sleeves that leave a premium impression.",
       slug: "custom-paper-cups",
       img: images.cups,
     },
     {
-      icon: Box,
       title: "2. Kitchen to Table",
       desc: "Sturdy pizza boxes and grease-resistant food cartons that keep meals hot and intact.",
       slug: "custom-pizza-boxes",
       img: images.boxes,
     },
     {
-      icon: ShoppingBag,
       title: "3. Doorstep & Takeaway",
       desc: "Reinforced kraft paper bags that carry your full menu safely into customer homes.",
       slug: "custom-paper-bags",
       img: images.bags,
     },
     {
-      icon: Sparkles,
       title: "4. The Finishing Touch",
       desc: "Custom printed napkins and packaging seal stickers that complete the dining experience.",
       slug: "custom-napkins-tissues",
@@ -289,52 +271,46 @@ export function OneSupplierSection() {
         </div>
 
         <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {journeys.map((j, idx) => {
-            const Icon = j.icon;
-            return (
-              <Reveal
-                key={j.title}
-                delay={CARD_DELAYS[idx % CARD_DELAYS.length]}
-              >
-                <div className="group flex h-full flex-col overflow-hidden rounded-2xl border border-border/60 bg-card shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-soft">
-                  {/* Product image for visual rhythm */}
-                  <div className="aspect-[16/10] overflow-hidden bg-muted/30">
-                    <img
-                      src={j.img}
-                      {...responsiveImageProps(
-                        j.img,
-                        "(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw",
-                      )}
-                      alt={`${j.title} — Printzy custom packaging`}
-                      width={800}
-                      height={500}
-                      loading="lazy"
-                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                  </div>
-                  <div className="flex flex-1 flex-col p-5">
-                    <div className="journey-icon mb-3 flex size-10 items-center justify-center rounded-lg bg-peach/80 text-navy transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3">
-                      <Icon className="size-5" />
-                    </div>
-                    <h3 className="text-base font-bold text-foreground">
-                      {j.title}
-                    </h3>
-                    <p className="mt-1.5 flex-1 text-sm text-muted-foreground leading-relaxed">
-                      {j.desc}
-                    </p>
-                    <Link
-                      to="/products/$slug"
-                      params={{ slug: j.slug }}
-                      className="mt-3 inline-flex min-h-11 items-center gap-1 text-xs font-semibold text-secondary hover:underline"
-                    >
-                      View specifications
-                      <ArrowRight className="size-3 transition-transform duration-200 group-hover:translate-x-1" />
-                    </Link>
-                  </div>
+          {journeys.map((j, idx) => (
+            <Reveal
+              key={j.title}
+              delay={CARD_DELAYS[idx % CARD_DELAYS.length]}
+            >
+              <div className="group flex h-full flex-col overflow-hidden rounded-2xl border border-border/60 bg-card shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-soft">
+                {/* Product image for visual rhythm */}
+                <div className="aspect-[16/10] overflow-hidden bg-muted/30">
+                  <img
+                    src={j.img}
+                    {...responsiveImageProps(
+                      j.img,
+                      "(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw",
+                    )}
+                    alt={`${j.title} — Printzy custom packaging`}
+                    width={800}
+                    height={500}
+                    loading="lazy"
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
                 </div>
-              </Reveal>
-            );
-          })}
+                <div className="flex flex-1 flex-col p-5">
+                  <h3 className="text-base font-bold text-foreground">
+                    {j.title}
+                  </h3>
+                  <p className="mt-2 flex-1 text-sm text-muted-foreground leading-relaxed">
+                    {j.desc}
+                  </p>
+                  <Link
+                    to="/products/$slug"
+                    params={{ slug: j.slug }}
+                    className="mt-4 inline-flex min-h-11 items-center gap-1 text-xs font-semibold text-secondary hover:underline"
+                  >
+                    View specifications
+                    <ArrowRight className="size-3 transition-transform duration-200 group-hover:translate-x-1" />
+                  </Link>
+                </div>
+              </div>
+            </Reveal>
+          ))}
         </div>
       </div>
     </section>
@@ -360,7 +336,9 @@ export function ProductsSection({ heading = "h2" as "h1" | "h2" }) {
             <div
               key={p.slug}
               className={
-                idx < 2 ? "sm:col-span-1 lg:col-span-2" : "sm:col-span-1"
+                idx < 2
+                  ? "h-full flex flex-col sm:col-span-1 lg:col-span-2"
+                  : "h-full flex flex-col sm:col-span-1"
               }
             >
               <ProductCard

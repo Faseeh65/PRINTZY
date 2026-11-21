@@ -104,12 +104,12 @@ export function ProductCard({
   return (
     <Reveal
       delay={delay}
-      className="group flex flex-col overflow-hidden rounded-2xl bg-card border border-border/40 hover:border-secondary/40 card-lift"
+      className="group flex h-full flex-col overflow-hidden rounded-2xl bg-card border border-border/40 hover:border-secondary/40 card-lift"
     >
       <Link
         to="/products/$slug"
         params={{ slug }}
-        className="aspect-[4/3] overflow-hidden bg-muted/30 block"
+        className="aspect-[4/3] overflow-hidden bg-muted/30 block shrink-0"
         aria-label={`View ${title} custom packaging`}
       >
         <img
@@ -127,12 +127,14 @@ export function ProductCard({
       </Link>
       <div className="flex flex-1 flex-col p-5">
         <Link to="/products/$slug" params={{ slug }} className="block">
-          <h3 className="text-lg transition-colors duration-200 group-hover:text-secondary">
+          <h3 className="text-base sm:text-lg font-bold transition-colors duration-200 group-hover:text-secondary line-clamp-2 min-h-[3rem] sm:min-h-[3.5rem] flex items-start">
             {title}
           </h3>
         </Link>
-        <p className="mt-2 flex-1 text-base text-muted-foreground">{benefit}</p>
-        <div className="mt-4 flex items-center justify-between gap-2 pt-2 border-t border-border/40">
+        <p className="mt-2 flex-1 text-sm text-muted-foreground leading-relaxed line-clamp-3">
+          {benefit}
+        </p>
+        <div className="mt-4 flex items-center justify-between gap-2 pt-3 border-t border-border/40">
           <Link
             to="/products/$slug"
             params={{ slug }}
