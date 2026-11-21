@@ -252,7 +252,7 @@ function About() {
             </p>
           </div>
 
-          <div className="mt-10 grid gap-8 lg:grid-cols-2">
+          <div className="mx-auto mt-10 max-w-2xl">
             <div className="space-y-6 rounded-2xl border border-border bg-background p-8 shadow-soft">
               <h3 className="text-xl font-bold">Operations Location</h3>
 
@@ -319,18 +319,6 @@ function About() {
                     Ask for location details
                   </a>
                 </Button>
-              </div>
-            </div>
-
-            {/* Google Maps Embed / Visual Placeholder */}
-            <div className="flex flex-col items-center justify-center rounded-2xl border border-dashed border-border bg-muted/40 p-8 text-center">
-              <MapPin className="size-12 text-muted-foreground" />
-              <h4 className="mt-4 font-display text-lg font-bold">Lahore, Pakistan</h4>
-              <p className="mt-2 max-w-sm text-sm text-muted-foreground">
-                Contact us for location details before arranging a visit.
-              </p>
-              <div className="mt-6 rounded-lg bg-card px-4 py-2 text-xs font-mono text-muted-foreground border border-border">
-                Location details available on request
               </div>
             </div>
           </div>
