@@ -100,9 +100,6 @@ function Contact() {
       <section className="section-pad bg-card">
         <div className="container-site max-w-4xl space-y-10">
           <div>
-            <span className="rounded-full bg-peach px-3 py-1 text-xs font-semibold uppercase tracking-wider text-navy">
-              Commercial Terms
-            </span>
             <h2 className="mt-3 text-3xl font-bold text-foreground">
               Payment Terms & Commercial Guidelines
             </h2>

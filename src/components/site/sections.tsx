@@ -235,9 +235,6 @@ export function OneSupplierSection() {
       <div className="container-site">
         <div className="mx-auto max-w-3xl text-center">
           <Reveal>
-            <span className="rounded-full border border-saffron/30 bg-peach/60 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-navy">
-              Unified Brand Identity
-            </span>
             <h2 className="mt-3">One supplier for the whole customer journey</h2>
             <p className="mt-4 text-base text-muted-foreground sm:text-lg">
               Most food brands buy cups from one vendor, boxes from another and bags from a third,

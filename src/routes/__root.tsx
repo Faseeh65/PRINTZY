@@ -29,9 +29,6 @@ function NotFoundComponent() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4 py-16">
       <div className="max-w-lg text-center">
-        <span className="rounded-full bg-peach px-3 py-1 text-xs font-semibold uppercase tracking-wider text-navy">
-          Error 404
-        </span>
         <h1 className="mt-4 text-6xl font-bold text-foreground">Page Not Found</h1>
         <p className="mt-3 text-base text-muted-foreground">
           The packaging page or resource you are looking for does not exist or may have been

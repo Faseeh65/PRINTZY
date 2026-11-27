@@ -107,11 +107,6 @@ function RequestSample() {
                   }`}
                 >
                   <div>
-                    {tier.highlight && (
-                      <span className="mb-4 inline-block rounded-full bg-peach px-3 py-1 text-xs font-semibold text-navy">
-                        Most Popular for New Brands
-                      </span>
-                    )}
                     <div className="flex size-12 items-center justify-center rounded-xl bg-peach text-navy font-bold">
                       <Icon className="size-6" />
                     </div>

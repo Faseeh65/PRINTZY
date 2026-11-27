@@ -126,9 +126,6 @@ function CityDetailPage() {
           {/* Context & Local Dynamics */}
           <div className="grid gap-8 lg:grid-cols-3">
             <div className="lg:col-span-2 space-y-6">
-              <span className="rounded-full bg-peach px-3 py-1 text-xs font-semibold uppercase tracking-wider text-navy">
-                Regional Logistics & Market
-              </span>
               <h2 className="text-2xl sm:text-3xl font-bold text-foreground">
                 Tailored packaging solutions for {city.cityName}
               </h2>
@@ -205,9 +202,6 @@ function CityDetailPage() {
 
           {/* Local Industries Served */}
           <div className="rounded-2xl border border-border bg-card p-8 shadow-soft">
-            <span className="rounded-full bg-peach px-3 py-1 text-xs font-semibold uppercase tracking-wider text-navy">
-              Local Segments
-            </span>
             <h2 className="mt-2 text-2xl font-bold text-foreground">
               Industries We Serve in {city.cityName}
             </h2>
@@ -227,9 +221,6 @@ function CityDetailPage() {
           {/* Popular Products in this City */}
           <div className="space-y-6">
             <div>
-              <span className="rounded-full bg-peach px-3 py-1 text-xs font-semibold uppercase tracking-wider text-navy">
-                Demand Trends
-              </span>
               <h2 className="mt-2 text-2xl sm:text-3xl font-bold text-foreground">
                 Popular Packaging Products in {city.cityName}
               </h2>

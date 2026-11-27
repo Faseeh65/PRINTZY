@@ -61,9 +61,6 @@ function About() {
           </div>
 
           <div className="space-y-5 text-base sm:text-lg">
-            <span className="inline-block rounded-full bg-peach px-3 py-1 text-xs font-semibold uppercase tracking-wider text-navy">
-              Our Story & Mission
-            </span>
             <h2 className="text-2xl font-bold text-foreground sm:text-3xl">
               Eliminating the barriers to professional custom packaging
             </h2>
@@ -91,9 +88,6 @@ function About() {
       <section className="section-pad bg-card">
         <div className="container-site space-y-12">
           <div className="mx-auto max-w-3xl text-center">
-            <span className="rounded-full bg-peach px-3 py-1 text-xs font-semibold uppercase tracking-wider text-navy">
-              Complete Capabilities
-            </span>
             <h2 className="mt-3 text-3xl font-bold">What We Do & How We Work</h2>
             <p className="mt-4 text-muted-foreground">
               We design, print, and deliver complete branded packaging suites across Pakistan:
@@ -144,9 +138,6 @@ function About() {
       <section className="section-pad">
         <div className="container-site grid items-center gap-10 lg:grid-cols-2">
           <div className="space-y-6">
-            <span className="rounded-full bg-peach px-3 py-1 text-xs font-semibold uppercase tracking-wider text-navy">
-              Quality Commitment
-            </span>
             <h2 className="text-3xl font-bold">Product Materials & Proof Review</h2>
             <p className="text-muted-foreground">
               Food packaging directly touches what your customers consume. We take hygiene, board
@@ -242,9 +233,6 @@ function About() {
       <section className="section-pad bg-card">
         <div className="container-site">
           <div className="mx-auto max-w-3xl text-center">
-            <span className="rounded-full bg-peach px-3 py-1 text-xs font-semibold uppercase tracking-wider text-navy">
-              Physical Presence & Transparency
-            </span>
             <h2 className="mt-3 text-3xl font-bold">Where to Find Us</h2>
             <p className="mt-3 text-muted-foreground">
               We welcome prospective clients for physical sample reviews and paper stock

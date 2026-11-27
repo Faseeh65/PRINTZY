@@ -82,9 +82,6 @@ function IndustryDetailPage() {
           {/* Overview & Market Reality */}
           <div className="grid gap-8 lg:grid-cols-3">
             <div className="lg:col-span-2 space-y-6">
-              <span className="rounded-full bg-peach px-3 py-1 text-xs font-semibold uppercase tracking-wider text-navy">
-                Sector Insights
-              </span>
               <h2 className="text-2xl sm:text-3xl font-bold text-foreground">
                 Packaging that wins customer recall in {industry.name}
               </h2>
@@ -153,9 +150,6 @@ function IndustryDetailPage() {
           {/* Recommended Products */}
           <div className="space-y-6">
             <div>
-              <span className="rounded-full bg-peach px-3 py-1 text-xs font-semibold uppercase tracking-wider text-navy">
-                Curated Lineup
-              </span>
               <h2 className="mt-2 text-2xl sm:text-3xl font-bold text-foreground">
                 Recommended Packaging Suite for {industry.name}
               </h2>
@@ -205,9 +199,6 @@ function IndustryDetailPage() {
 
           {/* Mini Checklist */}
           <div className="rounded-2xl border border-border bg-card p-8 shadow-soft">
-            <span className="rounded-full bg-peach px-3 py-1 text-xs font-semibold uppercase tracking-wider text-navy">
-              Buyer Checklist
-            </span>
             <h2 className="mt-2 text-2xl font-bold text-foreground">
               Packaging Checklist for {industry.name}
             </h2>

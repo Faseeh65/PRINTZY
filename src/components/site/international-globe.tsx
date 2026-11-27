@@ -102,11 +102,6 @@ export function InternationalGlobeShowcase() {
 
       <div className="relative z-10 flex flex-col justify-between p-6 sm:p-10 md:p-14 lg:max-w-2xl">
         <div>
-          <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-saffron/40 bg-saffron/15 px-3.5 py-1 text-xs font-semibold uppercase tracking-wider text-saffron">
-            <Globe className="size-3.5 text-saffron" aria-hidden="true" />
-            Global Packaging & Exports
-          </span>
-
           <h2 className="text-2xl font-extrabold tracking-tight text-navy-foreground sm:text-4xl lg:text-5xl">
             Custom Packaging Delivered Across the Globe
           </h2>

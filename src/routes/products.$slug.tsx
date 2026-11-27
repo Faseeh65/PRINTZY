@@ -99,9 +99,6 @@ function ProductDetailPage() {
       <section className="bg-hero section-pad pb-12 overflow-hidden">
         <div className="container-site grid items-center gap-10 lg:grid-cols-2">
           <div>
-            <span className="mb-4 inline-block rounded-full bg-peach px-3.5 py-1 text-sm font-semibold text-navy">
-              Custom Packaging Pakistan
-            </span>
             <h1 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl md:text-5xl">
               {product.h1}
             </h1>
@@ -256,9 +253,6 @@ function ProductDetailPage() {
       <section className="section-pad bg-muted/30">
         <div className="container-site">
           <div className="text-center max-w-2xl mx-auto mb-12">
-            <span className="mb-3 inline-block rounded-full bg-peach px-3 py-1 text-sm font-semibold text-navy">
-              Printing & Materials Guide
-            </span>
             <h2 className="text-2xl font-bold text-foreground sm:text-3xl">
               {product.slug === "custom-mailer-gift-boxes"
                 ? "Options Tailored to Your Products & Unboxing Experience"
@@ -293,9 +287,6 @@ function ProductDetailPage() {
       <section className="section-pad bg-background">
         <div className="container-site">
           <div className="text-center max-w-2xl mx-auto mb-12">
-            <span className="mb-3 inline-block rounded-full bg-peach px-3 py-1 text-sm font-semibold text-navy">
-              Who We Print For
-            </span>
             <h2 className="text-2xl font-bold text-foreground sm:text-3xl">
               {product.slug === "custom-mailer-gift-boxes"
                 ? "Trusted by E-Commerce, Retailers & Growing Brands"
@@ -357,9 +348,6 @@ function ProductDetailPage() {
       <section className="section-pad bg-background">
         <div className="container-site">
           <div className="text-center max-w-2xl mx-auto mb-12">
-            <span className="mb-3 inline-block rounded-full bg-peach px-3 py-1 text-sm font-semibold text-navy">
-              Simple 4-Step Process
-            </span>
             <h2 className="text-2xl font-bold text-foreground sm:text-3xl">
               How Ordering Works with Printzy
             </h2>
@@ -390,9 +378,6 @@ function ProductDetailPage() {
       <section className="section-pad bg-muted/30">
         <div className="container-site max-w-3xl">
           <div className="text-center mb-10">
-            <span className="mb-3 inline-block rounded-full bg-peach px-3 py-1 text-sm font-semibold text-navy">
-              Questions & Answers
-            </span>
             <h2 className="text-2xl font-bold text-foreground sm:text-3xl">
               Frequently Asked Questions
             </h2>

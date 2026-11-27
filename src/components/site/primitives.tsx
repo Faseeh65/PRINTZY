@@ -77,11 +77,6 @@ export function SectionHeader({
   const H = as;
   return (
     <Reveal className={cn("mb-10 max-w-2xl md:mb-14", center && "mx-auto text-center")}>
-      {eyebrow && (
-        <span className="mb-3 inline-block rounded-full bg-peach px-3 py-1 text-sm font-semibold text-navy transition-transform duration-200 hover:scale-105">
-          {eyebrow}
-        </span>
-      )}
       <H>{title}</H>
       {text && <p className="mt-4 text-lg">{text}</p>}
     </Reveal>
