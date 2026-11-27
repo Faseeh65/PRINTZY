@@ -173,14 +173,6 @@ export function Footer() {
             </p>
           </Link>
           <p className="mt-4 text-sm text-navy-foreground/85 leading-relaxed">{site.about}</p>
-          <div className="mt-4">
-            <Link
-              to="/export-custom-packaging"
-              className="inline-flex items-center gap-1.5 rounded-full border border-saffron/40 bg-saffron/15 px-3 py-1 text-xs font-semibold text-saffron hover:bg-saffron/25 transition-colors"
-            >
-              <Globe className="size-3.5" /> Worldwide Export Available
-            </Link>
-          </div>
         </div>
         <FooterCol title="Quick links">
           {navLinks.map((l) => (
