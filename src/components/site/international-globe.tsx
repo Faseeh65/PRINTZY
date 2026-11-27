@@ -1,8 +1,7 @@
 "use client";
 
-import { useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { Globe, Plane, MapPin } from "lucide-react";
+import { Globe } from "lucide-react";
 import { Globe3D, type GlobeMarker } from "@/components/ui/3d-globe";
 import { Button } from "@/components/ui/button";
 import { WhatsAppButton } from "@/components/site/sections";
@@ -89,8 +88,6 @@ export const internationalMarkers: GlobeMarker[] = [
 ];
 
 export function InternationalGlobeShowcase() {
-  const [activeMarker, setActiveMarker] = useState<GlobeMarker | null>(null);
-
   return (
     <div className="relative mx-auto min-h-[460px] w-full max-w-7xl overflow-hidden rounded-3xl border border-border/60 bg-navy text-navy-foreground shadow-lift bg-grain">
       {/* Decorative ambient gradients */}
@@ -119,23 +116,6 @@ export function InternationalGlobeShowcase() {
             Printzy manufactures and exports brand-consistent cups, food boxes, bags, and custom
             cartons with end-to-end freight coordination.
           </p>
-
-          {/* Interactive marker indicator */}
-          <div className="mt-5 min-h-[2.25rem]">
-            {activeMarker ? (
-              <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-medium text-white backdrop-blur animate-fade-in">
-                <MapPin className="size-3.5 text-saffron" />
-                <span>
-                  Destination: <strong>{activeMarker.label}</strong>
-                </span>
-              </span>
-            ) : (
-              <span className="inline-flex items-center gap-2 text-xs text-navy-foreground/60">
-                <Plane className="size-3.5" />
-                <span>Hover or drag the interactive 3D globe to explore global destinations</span>
-              </span>
-            )}
-          </div>
         </div>
 
         {/* Action buttons */}
@@ -159,14 +139,6 @@ export function InternationalGlobeShowcase() {
             atmosphereIntensity: 20,
             bumpScale: 5,
             autoRotateSpeed: 0.3,
-          }}
-          onMarkerClick={(marker) => {
-            setActiveMarker(marker);
-          }}
-          onMarkerHover={(marker) => {
-            if (marker) {
-              setActiveMarker(marker);
-            }
           }}
         />
       </div>
