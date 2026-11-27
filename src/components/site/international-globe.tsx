@@ -149,8 +149,8 @@ export function InternationalGlobeShowcase() {
         </div>
       </div>
 
-      {/* 3D Globe Container — precisely positioned & responsive */}
-      <div className="relative -mt-10 h-[360px] w-full sm:h-[420px] md:absolute md:-right-24 md:-bottom-48 md:h-[580px] md:w-[580px] lg:-right-20 lg:-bottom-40 lg:h-[680px] lg:w-[680px]">
+      {/* 3D Globe Container — vertically centered and elevated */}
+      <div className="relative -mt-6 h-[400px] w-full sm:h-[460px] md:absolute md:-right-12 md:top-1/2 md:-translate-y-1/2 md:h-[560px] md:w-[560px] lg:right-0 lg:h-[640px] lg:w-[640px]">
         <Globe3D
           className="h-full w-full"
           markers={internationalMarkers}
