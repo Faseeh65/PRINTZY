@@ -119,7 +119,7 @@ function About() {
               <div className="flex size-12 items-center justify-center rounded-xl bg-peach text-navy font-bold text-lg">
                 02
               </div>
-              <h3 className="mt-4 text-xl font-semibold">2. 3D Mockup & Quote</h3>
+              <h3 className="mt-4 text-xl font-semibold">2. Mockup & Quote</h3>
               <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
                 Receive an itemised price breakdown and a digital mockup for review. We confirm
                 timing and any revisions with your request.

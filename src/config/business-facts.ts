@@ -90,7 +90,7 @@ export const businessFacts: BusinessFacts = {
     ntn: null, // TODO: Add verified NTN registration
     yearEstablished: null, // TODO: Add verified launch year
     founderName: "Faizan Ali",
-    founderRole: "Owner",
+    founderRole: "Co-Founder",
   },
   location: {
     city: "Lahore",
