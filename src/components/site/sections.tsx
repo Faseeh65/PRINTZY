@@ -76,11 +76,6 @@ export function Hero() {
       <div className="container-site relative z-10 grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
         {/* Copy */}
         <div>
-          <Reveal delay={100}>
-            <span className="mb-4 inline-block rounded-full border border-saffron/30 bg-peach/60 px-4 py-1.5 text-sm font-semibold text-navy tracking-wide">
-              Custom packaging for growing brands
-            </span>
-          </Reveal>
           <Reveal delay={150}>
             <h1 className="tracking-tight">
               Custom Printed Packaging for Food Brands and Growing Businesses in Pakistan
