@@ -741,7 +741,7 @@ export function FAQ() {
     <section className="section-pad">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd }} />
       <div className="container-site">
-        <SectionHeader eyebrow="FAQ" title="Frequently asked questions" />
+        <SectionHeader title="Frequently asked questions" />
         <Accordion
           type="single"
           collapsible
