@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, BookOpen, Clock, Calendar, User, Sparkles } from "lucide-react";
+import { ArrowRight, BookOpen, Clock, Calendar, User } from "lucide-react";
 import { seo } from "@/lib/seo";
 import { blogPosts, BlogPost } from "@/data/blog";
 import { PageHero, QuoteCTA } from "@/components/site/sections";
@@ -125,10 +125,6 @@ function BlogIndexPage() {
       <section className="container-site max-w-6xl pb-16 md:pb-20">
         <div className="rounded-3xl border border-border/80 bg-gradient-to-br from-accent via-card to-background p-6 shadow-soft sm:p-8 md:p-10">
           <div className="max-w-2xl space-y-3">
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
-              <Sparkles className="size-3.5" />
-              Free Artwork Pre-Flight
-            </span>
             <h2 className="text-2xl font-bold text-foreground">
               Have Questions About Your Packaging Specs?
             </h2>
