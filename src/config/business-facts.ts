@@ -55,7 +55,7 @@ export interface BusinessFacts {
   };
   commercialPolicies: {
     paymentTerms: {
-      advancePercent: number | null; // TODO: Owner to confirm standard advance % (e.g. 50%)
+      advancePercent: number | null; // Confirmed: 70% advance, 30% balance
       balanceMilestone: string | null; // TODO: e.g. "Upon dispatch"
       acceptedMethods: string[];
     };
@@ -116,7 +116,7 @@ export const businessFacts: BusinessFacts = {
   },
   commercialPolicies: {
     paymentTerms: {
-      advancePercent: 50,
+      advancePercent: 70,
       balanceMilestone: "Prior to shipment dispatch",
       acceptedMethods: ["Direct Online Bank Transfer (IBFT)", "JazzCash / Easypaisa on request"],
     },
